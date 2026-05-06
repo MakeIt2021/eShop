@@ -4,17 +4,17 @@ public class Artikel {
     private int artikelID;
     private String bezeichnung;
     private int bestand;
-    private int price;
+    private int preis;
 
-    public Artikel(int artikelNummer, String bezeichnung, int bestand, int price) {
+    public Artikel(int artikelNummer, String bezeichnung, int bestand, int preis) {
         this.artikelID = artikelNummer;
         this.bezeichnung = bezeichnung;
         this.bestand = bestand;
-        this.price = price;
+        this.preis = preis;
     }
 
     public String toString() {
-        return ("Artikel Nr: " + artikelID + " / Bezeichnung: " + bezeichnung + " / " + "Bestand: " + bestand + " / " + price + " /");
+        return ("Artikel ID: " + artikelID + " / Bezeichnung: " + bezeichnung + " / " + "Bestand: " + bestand + " / Preis: " + preis + " /");
     }
 
     public int getArtikelID() {
@@ -29,8 +29,8 @@ public class Artikel {
         return bestand;
     }
 
-    public int getPrice() {
-        return price;
+    public int getpreis() {
+        return preis;
     }
 
     public void bestandErhoehen() {

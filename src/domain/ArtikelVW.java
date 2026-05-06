@@ -3,6 +3,7 @@ package domain;
 import entities.Artikel;
 
 import java.io.IOException;
+import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -22,23 +23,24 @@ import java.util.List;
  * @version 1 (Verwaltung in verketteter Liste)
  */
 public class ArtikelVW {
-    private HashMap<Integer, Artikel> artikelBestand = new HashMap<>();
+    private HashMap<Integer, Artikel> artikelListe = new HashMap<>();
 
 
     public void einfuegen(Artikel einArtikel) {
-        if (artikelBestand.containsKey(einArtikel.getArtikelID())) {
+        if (artikelListe.containsKey(einArtikel.getArtikelID())) {
             einArtikel.bestandErhoehen();
         } else {
-            artikelBestand.add(einArtikel);
-            artikelBestand.get(artikelBestand.indexOf(einArtikel)).bestandErhoehen();
+            artikelListe.put(einArtikel.getArtikelID(), einArtikel);
+            int bestand = artikelListe.get(einArtikel.getArtikelID()).getBestand();
+            System.out.println(bestand);
         }
     }
 
-    public void loeschen(Artikel einArtikel) {
-        artikelBestand.get(artikelBestand.indexOf(einArtikel)).bestandVerringern();
+    public void loeschen(int artikelID) {
+        artikelListe.get(artikelID).bestandVerringern();
     }
 
-    public List getArtikelBestand() {
-        return new ArrayList(artikelBestand);
+    public HashMap<Integer, Artikel> getArtikelBestand() {
+        return new HashMap<>(artikelListe);
     }
 }

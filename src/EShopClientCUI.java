@@ -1,10 +1,11 @@
 
 import domain.EShop;
+import entities.Artikel;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
+import java.util.HashMap;
 
 public class EShopClientCUI {
 
@@ -35,11 +36,14 @@ public class EShopClientCUI {
 
     private void verarbeiteEingabe(String line) throws IOException {
         String nummer;
-        int nr;
+        int artikelID;
         String bezeichnung;
-        List artikelListe;
+        int preis;
+        int bestand;
 
-        // Eingabe bearbeiten:
+        HashMap artikelListe;
+
+        // For tests only!
         switch (line) {
             case "a" -> {
                 artikelListe = eShop.gibAlleArtikel();
@@ -48,35 +52,37 @@ public class EShopClientCUI {
 
             case "ae" -> {
                 // lies die notwendigen Parameter, einzeln pro Zeile
-                System.out.print("Artikel > ");
-                nummer = liesEingabe();
-                nr = Integer.parseInt(nummer);
+                System.out.print("ArtikelID > ");
+                artikelID = Integer.parseInt(liesEingabe());
                 System.out.print("Bezeichnung  > ");
                 bezeichnung = liesEingabe();
+                System.out.print("Preis  > ");
+                preis = Integer.parseInt(liesEingabe());
+                System.out.print("Bestand  > ");
+                bestand = Integer.parseInt(liesEingabe());
 
-                eShop.fuegeArtikelEin(nr, bezeichnung);
+
+                eShop.fuegeArtikelEin(artikelID, bezeichnung, bestand, preis);
                 System.out.println("Einfügen ok");
 
             }
 
             case "al" -> {
-                System.out.println("Artikel Nr > ");
+                System.out.println("Artikel ID > ");
                 nummer = liesEingabe();
-                nr = Integer.parseInt(nummer);
-                System.out.println("Bezeichnung > ");
-                bezeichnung = liesEingabe();
+                artikelID = Integer.parseInt(nummer);
 
-                eShop.loescheArtikel(nr, bezeichnung);
+                eShop.loescheArtikel(artikelID);
             }
         }
     }
 
-    private void gibArtikellisteAus(List liste) {
+    private void gibArtikellisteAus(HashMap<Integer, Artikel> liste) {
         if (liste.isEmpty()) {
             System.out.println("Liste ist leer.");
         } else {
-            for (Object artikel: liste) {
-                System.out.println(artikel.toString());
+            for (Artikel artikel : liste.values()) {
+                System.out.println(artikel);
             }
         }
     }

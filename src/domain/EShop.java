@@ -3,6 +3,7 @@ package domain;
 import entities.Artikel;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -18,30 +19,22 @@ public class EShop {
 
     public EShop() throws IOException {
         this.datei = datei;
-
-        // Buchbestand aus Datei einlesen
         artikelVW = new ArtikelVW();
-//        artikelVW.ladeDaten(datei+"_B.txt");
 
-//		// Kundenkartei aus Datei einlesen
-//		meineKunden = new KundenVerwaltung();
-//		meineKunden.liesDaten(datei+"_K.txt");
-//		meineKunden.schreibeDaten(datei+"_K.txt");
     }
 
-    public List gibAlleArtikel() {
+    public HashMap<Integer, Artikel> gibAlleArtikel() {
         return artikelVW.getArtikelBestand();
     }
 
 
-    public Artikel fuegeArtikelEin(int nummer, String bezeichnung) {
-        Artikel art = new Artikel(nummer, bezeichnung, 0);
+    public void fuegeArtikelEin(int artikelID, String bezeichnung, int bestand, int preis) {
+        Artikel art = new Artikel(artikelID, bezeichnung, bestand, preis);
         artikelVW.einfuegen(art);
-        return art;
     }
 
-    public void loescheArtikel(int nummer, String bezeichnung) {
-        Artikel art = new Artikel(nummer, bezeichnung, 0);
-        artikelVW.loeschen(art);
+    public void loescheArtikel(int artikelID) {
+//        Artikel art = new Artikel(nummer, bezeichnung, bestand, preis);
+        artikelVW.loeschen(artikelID);
     }
 }
