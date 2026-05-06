@@ -12,12 +12,11 @@ public class EShopClientCUI {
 
     private EShop eShop;
     private BufferedReader in;
-    private ArtikelVW artikelVW = new ArtikelVW();
 
     public EShopClientCUI() throws IOException {
 
         eShop = new EShop();
-
+        eShop.seedTestData(); // test articles
         in = new BufferedReader(new InputStreamReader(System.in));
     }
 
@@ -43,18 +42,21 @@ public class EShopClientCUI {
     private void verarbeiteEingabe(String line) throws IOException {
         String nummer;
         int artikelID;
+        int menge;
         String bezeichnung;
         int preis;
         int bestand;
 
         HashMap<Integer, Artikel> artikelListe;
-        HashMap<Integer, Artikel> warenkorbListe;
+        HashMap<Integer, Integer> warenkorbListe;
 
 
         switch (line) {
+            // TODO: Change name, price and other parameters
+
             case "a" -> {
-                artikelListe = eShop.gibAlleArtikel();
-                gibArtikellisteAus(artikelListe);
+                artikelListe = eShop.gibArtikelListe();
+                gibArtikellisteAus(artikelListe, eShop.gibArtikelMengeListe());
             }
 
             case "ae" -> {
@@ -77,39 +79,55 @@ public class EShopClientCUI {
             case "al" -> {
                 System.out.println("Artikel ID > ");
                 artikelID = Integer.parseInt(liesEingabe());
+                System.out.println("Menge: ");
+                menge = Integer.parseInt(liesEingabe());
 
-                eShop.loescheArtikel(artikelID);
+                eShop.loescheArtikel(artikelID, menge);
             }
 
             case "we" -> {
                 System.out.println("Artikel ID > ");
                 artikelID = Integer.parseInt(liesEingabe());
+                System.out.println("Menge der Artikel: ");
+                menge = Integer.parseInt(liesEingabe());
 
-                eShop.fuegeInWarenkorb(artikelID);
+                eShop.fuegeInWarenkorb(artikelID, menge);
             }
 
             case "wl" -> {
                 System.out.println("Artikel ID > ");
                 artikelID = Integer.parseInt(liesEingabe());
+                System.out.println("Menge der Artikel: ");
+                menge = Integer.parseInt(liesEingabe());
 
-                eShop.loescheAusWarenkorb(artikelID);
+                eShop.loescheAusWarenkorb(artikelID, menge);
             }
 
             case "w" -> {
                 System.out.println("Warenkorb: ");
 
                 warenkorbListe = eShop.gibWarenkorb();
-                gibArtikellisteAus(warenkorbListe);
+                gibWarenkorbAus(warenkorbListe, eShop.gibArtikelListe());
             }
         }
     }
 
-    private void gibArtikellisteAus(HashMap<Integer, Artikel> liste) {
-        if (liste.isEmpty()) {
+    private void gibArtikellisteAus(HashMap<Integer, Artikel> artikelListe, HashMap<Integer, Integer> artikelMenge) {
+        if (artikelListe.isEmpty()) {
             System.out.println("Liste ist leer.");
         } else {
-            for (Artikel artikel : liste.values()) {
-                System.out.println(artikel);
+            for (int i : artikelListe.keySet()) {
+                System.out.println(artikelListe.get(i) + " Menge: " + artikelMenge.get(i));
+            }
+        }
+    }
+
+    private void gibWarenkorbAus(HashMap<Integer, Integer> warenkorbListe, HashMap<Integer, Artikel> artikelListe) {
+        if (warenkorbListe.isEmpty()) {
+            System.out.println("Warenkorb ist leer.");
+        } else {
+            for (int i : warenkorbListe.keySet()) {
+                System.out.println(artikelListe.get(i) + " Menge: " + warenkorbListe.get(i));
             }
         }
     }
