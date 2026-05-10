@@ -3,9 +3,9 @@ package entities;
 public class Artikel {
     private int artikelID;
     private String bezeichnung;
-    private int preis;
+    private float preis;
 
-    public Artikel(int artikelNummer, String bezeichnung, int preis) {
+    public Artikel(int artikelNummer, String bezeichnung, float preis) {
         this.artikelID = artikelNummer;
         this.bezeichnung = bezeichnung;
         this.preis = preis;
@@ -23,7 +23,7 @@ public class Artikel {
         return bezeichnung;
     }
 
-    public int getPreis() {
+    public float getPreis() {
         return preis;
     }
 }

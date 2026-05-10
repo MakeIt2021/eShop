@@ -1,5 +1,3 @@
-
-import domain.ArtikelVW;
 import domain.EShop;
 import entities.Artikel;
 
@@ -7,6 +5,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.time.LocalDate;
+import java.util.Map;
 
 public class EShopClientCUI {
 
@@ -28,6 +28,7 @@ public class EShopClientCUI {
         System.out.print("\n  Artikel loeschen:  'al'");
         System.out.print("\n  Artikel in Warenkorb einzufügen:  'we'");
         System.out.print("\n  Artikel aus der Warenkorb löschen:  'wl'");
+        System.out.print("\n  Artikel kaufen:  'ak'");
         System.out.print("         \n  ---------------------");
         System.out.println("         \n  Beenden:        'q'");
         System.out.print("> "); // Prompt
@@ -109,6 +110,11 @@ public class EShopClientCUI {
                 warenkorbListe = eShop.gibWarenkorb();
                 gibWarenkorbAus(warenkorbListe, eShop.gibArtikelListe());
             }
+
+            case "ak" -> {
+                warenkorbListe = eShop.gibWarenkorb();
+                gibGekaufteAus(warenkorbListe, eShop.gibArtikelListe());
+            }
         }
     }
 
@@ -132,11 +138,43 @@ public class EShopClientCUI {
         }
     }
 
+    public void gibGekaufteAus(HashMap<Integer, Integer> warenkorbListe, HashMap<Integer, Artikel> artikelListe) {
+        if (warenkorbListe.isEmpty()) {
+            System.out.println("Warenkorb ist leer.");
+        } else {
+            int rechnung_width = 40;
+            float gesamtpreis = 0;
+
+            LocalDate today = LocalDate.now();
+            String kundeName = "Johann Sebastian Bach";
+
+            System.out.println();
+            System.out.println(" ".repeat((rechnung_width - 8) / 2) + "Rechnung");
+            System.out.printf("%-10s %29s\n", today, kundeName);
+            System.out.println("-".repeat(rechnung_width));
+
+            for (Map.Entry<Integer, Integer> entry : warenkorbListe.entrySet()) {
+                Artikel curArt = artikelListe.get(entry.getKey());
+                System.out.printf(
+                        "%-11s %12s€ %13.2f€\n",
+                        curArt.getBezeichnung(),
+                        entry.getValue() + " × " + String.format("%.2f", curArt.getPreis()),
+                        curArt.getPreis() * entry.getValue()
+                );
+
+                gesamtpreis += entry.getValue() * curArt.getPreis();
+            }
+
+            System.out.println("-".repeat(rechnung_width));
+            System.out.printf("%-11s %27.2f€", "Gesamtpreis", gesamtpreis);
+
+            System.out.println();
+        }
+    }
+
     public void run() {
-        // Variable für Eingaben von der Konsole
         String input = "";
 
-        // Hauptschleife der Benutzungsschnittstelle
         do {
             gibMenueAus();
             try {

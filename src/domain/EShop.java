@@ -1,22 +1,16 @@
 package domain;
 
 import entities.Artikel;
-
 import java.io.IOException;
 import java.util.HashMap;
 
 
 public class EShop {
-    // Präfix für Namen der Dateien, in der die Bibliotheksdaten gespeichert sind
     private String datei = "";
 
     private ArtikelVW artikelVW;
 
     private WarenkorbVW warenkorbVW;
-
-    // private KundenVerwaltung kundenVW;
-    // hier weitere Verwaltungsklassen, z.B. für Autoren oder Angestellte
-
 
     public EShop() throws IOException {
         this.datei = datei;
@@ -58,7 +52,6 @@ public class EShop {
         warenkorbVW.loeschen(artikelID, menge);
         artikelVW.einfuegen(einArtikel, menge);
     }
-
 
 
     public void seedTestData() {
