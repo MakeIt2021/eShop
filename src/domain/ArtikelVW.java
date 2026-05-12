@@ -1,46 +1,53 @@
 package domain;
 
 import entities.Artikel;
-
-import java.io.IOException;
-import java.net.Inet4Address;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-
-//import bib.local.domain.exceptions.BuchExistiertBereitsException;
-//import bib.local.persistence.FilePersistenceManager;
-//import bib.local.persistence.PersistenceManager;
-//import bib.local.entities.Buch;
-//import bib.local.entities.BuchListe;
 
 
-/**
- * Klasse zur Verwaltung von Büchern.
- *
- * @author teschke
- * @version 1 (Verwaltung in verketteter Liste)
- */
 public class ArtikelVW {
-    private HashMap<Integer, Artikel> artikelListe = new HashMap<>();
+    private final HashMap<Integer, Artikel> artikelListe = new HashMap<>();
+    private final HashMap<Integer, Integer> artikelMengeListe = new HashMap<>();
 
+    public void bestandErhoehen(int artikelID, int menge) {
+        artikelMengeListe.put(artikelID, artikelMengeListe.get(artikelID) + menge);
+    }
 
-    public void einfuegen(Artikel einArtikel) {
-        if (artikelListe.containsKey(einArtikel.getArtikelID())) {
-            einArtikel.bestandErhoehen();
-        } else {
+    public void bestandVerringern(int artikelID, int menge) {
+        if (artikelMengeListe.get(artikelID) > 0)
+            artikelMengeListe.put(artikelID, artikelMengeListe.get(artikelID) - menge);
+    }
+
+    public void einfuegen(Artikel einArtikel, int menge) {
+        if (gibArtikelListe().containsKey(einArtikel.getArtikelID()))
+            bestandErhoehen(einArtikel.getArtikelID(), menge);
+        else {
             artikelListe.put(einArtikel.getArtikelID(), einArtikel);
-            int bestand = artikelListe.get(einArtikel.getArtikelID()).getBestand();
-            System.out.println(bestand);
+            artikelMengeListe.put(einArtikel.getArtikelID(), menge);
         }
     }
 
-    public void loeschen(int artikelID) {
-        artikelListe.get(artikelID).bestandVerringern();
+    public void loeschen(int artikelID, int menge) {
+        bestandVerringern(artikelID, menge);
     }
 
-    public HashMap<Integer, Artikel> getArtikelBestand() {
-        return new HashMap<>(artikelListe);
+    public void bezeichnungVeraendern(int artikelID, String bezeichnung) {
+        artikelListe.get(artikelID).setBezeichnung(bezeichnung);
+    }
+
+    public void preisVeraendern(int artikelID, float preis) {
+        artikelListe.get(artikelID).setPreis(preis);
+    }
+
+    public void artikelVernichten(int artikelID) {
+        artikelListe.remove(artikelID);
+        artikelMengeListe.remove(artikelID);
+    }
+
+    public HashMap<Integer, Artikel> gibArtikelListe() {
+        return artikelListe;
+    }
+    
+    public HashMap<Integer, Integer> gibArtikelMengeListe() {
+        return artikelMengeListe;
     }
 }

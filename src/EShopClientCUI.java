@@ -1,4 +1,3 @@
-
 import domain.EShop;
 import entities.Artikel;
 import entities.Kunde;
@@ -8,6 +7,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.Objects;
 
 public class EShopClientCUI {
 
@@ -17,14 +19,23 @@ public class EShopClientCUI {
     public EShopClientCUI() throws IOException {
 
         eShop = new EShop();
-
+        eShop.seedTestData(); // test articles
         in = new BufferedReader(new InputStreamReader(System.in));
     }
 
+
+    // For tests only!
     private void gibMenueAus() {
         System.out.print("Befehle: \n  Artikel liste:  'a'");
         System.out.print("\n  Artikel einzufuegen:  'ae'");
         System.out.print("\n  Artikel loeschen:  'al'");
+        System.out.print("\n  Artikel Bezeichnung verändern: 'bv'");
+        System.out.print("\n  Artikel Preis verändern: 'pv'");
+        System.out.print("\n  Artikel vernichten: 'vn'");
+        System.out.print("\n  Artikel in Warenkorb einzufügen:  'we'");
+        System.out.print("\n  Warenkorb ansehen:  'w'");
+        System.out.print("\n  Artikel aus der Warenkorb löschen:  'wl'");
+        System.out.print("\n  Artikel kaufen:  'ak'");
         System.out.print("         \n  ---------------------");
         System.out.println("         \n  Beenden:        'q'");
         System.out.print("> "); // Prompt
@@ -33,25 +44,25 @@ public class EShopClientCUI {
     }
 
     private String liesEingabe() throws IOException {
-        // einlesen von Konsole
         return in.readLine();
     }
 
     private void verarbeiteEingabe(String line) throws IOException {
-        String nummer;
         int artikelID;
+        int menge;
         String bezeichnung;
-        int preis;
+        float preis;
         int bestand;
         HashMap<Integer, Artikel> artikelListe;
 
 
+        HashMap<Integer, Artikel> artikelListe;
+        HashMap<Integer, Integer> warenkorbListe;
 
-        // For tests only!
         switch (line) {
             case "a" -> {
-                artikelListe = eShop.gibAlleArtikel();
-                gibArtikellisteAus(artikelListe);
+                artikelListe = eShop.gibArtikelListe();
+                gibArtikellisteAus(artikelListe, eShop.gibArtikelMengeListe());
             }
 
             case "ae" -> {
@@ -61,7 +72,7 @@ public class EShopClientCUI {
                 System.out.print("Bezeichnung  > ");
                 bezeichnung = liesEingabe();
                 System.out.print("Preis  > ");
-                preis = Integer.parseInt(liesEingabe());
+                preis = Float.parseFloat(liesEingabe());
                 System.out.print("Bestand  > ");
                 bestand = Integer.parseInt(liesEingabe());
 
@@ -73,10 +84,82 @@ public class EShopClientCUI {
 
             case "al" -> {
                 System.out.println("Artikel ID > ");
-                nummer = liesEingabe();
-                artikelID = Integer.parseInt(nummer);
+                artikelID = Integer.parseInt(liesEingabe());
+                System.out.println("Menge: ");
+                menge = Integer.parseInt(liesEingabe());
 
-                eShop.loescheArtikel(artikelID);
+                eShop.loescheArtikel(artikelID, menge);
+            }
+
+            case "we" -> {
+                System.out.println("Artikel ID > ");
+                artikelID = Integer.parseInt(liesEingabe());
+                System.out.println("Menge der Artikel: ");
+                menge = Integer.parseInt(liesEingabe());
+
+                eShop.fuegeInWarenkorb(artikelID, menge);
+            }
+
+            case "wl" -> {
+                System.out.println("Artikel ID > ");
+                artikelID = Integer.parseInt(liesEingabe());
+                System.out.println("Menge der Artikel: ");
+                menge = Integer.parseInt(liesEingabe());
+
+                eShop.loescheAusWarenkorb(artikelID, menge);
+            }
+
+            case "w" -> {
+                System.out.println("Warenkorb: ");
+
+                warenkorbListe = eShop.gibWarenkorb();
+                gibWarenkorbAus(warenkorbListe, eShop.gibArtikelListe());
+            }
+
+            case "ak" -> {
+                warenkorbListe = eShop.gibWarenkorb();
+                gibGekaufteAus(warenkorbListe, eShop.gibArtikelListe());
+                eShop.zuruecksetzeWarenkorb();
+            }
+
+            case "bv" -> {
+                System.out.println("Artikel ID > ");
+                artikelID = Integer.parseInt(liesEingabe());
+                System.out.print("Neue Bezeichnung  > ");
+                bezeichnung = liesEingabe();
+
+                eShop.bezeichnungVeraendern(artikelID, bezeichnung);
+            }
+
+            case "pv" -> {
+                System.out.println("Artikel ID > ");
+                artikelID = Integer.parseInt(liesEingabe());
+                System.out.print("Neuer Preis  > ");
+                preis = Float.parseFloat(liesEingabe());
+
+                eShop.preisVeraendern(artikelID, preis);
+            }
+
+            case "vn" -> {
+                String yellow = "\u001B[33m";
+                String reset = "\u001B[0m";
+
+                System.out.println(yellow + "Sie sind im Begriff, einen Artikel komplett zu löschen!" + reset);
+
+                System.out.println("Artikel ID > ");
+                artikelID = Integer.parseInt(liesEingabe());
+
+                System.out.println(yellow + "Sind Sie sicher, dass Sie diesen Artikel vollständig aus dem Katalog löschen möchten? [y / n]" + reset);
+                System.out.println(eShop.gibArtikelListe().get(artikelID));
+
+                String eingabe = liesEingabe();
+                if (Objects.equals(eingabe, "y")) {
+                    eShop.artikelVernichten(artikelID);
+                    System.out.println("Artikel wurde gelöscht.");
+                } else {
+                    System.out.println("Artikel wurde nicht agelöscht.");
+                }
+
             }
             case "r" -> {
                 System.out.print("benutzerId>");
@@ -117,19 +200,61 @@ public class EShopClientCUI {
 
     private void gibArtikellisteAus(HashMap<Integer, Artikel> liste) {
         if (liste.isEmpty()) {
+    private void gibArtikellisteAus(HashMap<Integer, Artikel> artikelListe, HashMap<Integer, Integer> artikelMenge) {
+        if (artikelListe.isEmpty()) {
             System.out.println("Liste ist leer.");
         } else {
-            for (Artikel artikel : liste.values()) {
-                System.out.println(artikel);
+            for (int i : artikelListe.keySet()) {
+                System.out.println(artikelListe.get(i) + " Menge: " + artikelMenge.get(i));
             }
         }
     }
 
+    private void gibWarenkorbAus(HashMap<Integer, Integer> warenkorbListe, HashMap<Integer, Artikel> artikelListe) {
+        if (warenkorbListe.isEmpty()) {
+            System.out.println("Warenkorb ist leer.");
+        } else {
+            for (int i : warenkorbListe.keySet()) {
+                System.out.println(artikelListe.get(i) + " Menge: " + warenkorbListe.get(i));
+            }
+        }
+    }
+
+    public void gibGekaufteAus(HashMap<Integer, Integer> warenkorbListe, HashMap<Integer, Artikel> artikelListe) {
+        if (warenkorbListe.isEmpty()) {
+            System.out.println("Warenkorb ist leer.");
+        } else {
+            int rechnung_width = 40;
+            float gesamtpreis = 0;
+
+            LocalDate today = LocalDate.now();
+            String kundeName = "Johann Sebastian Bach";
+
+            System.out.println();
+            System.out.println(" ".repeat((rechnung_width - 8) / 2) + "Rechnung");
+            System.out.printf("%-10s %29s\n", today, kundeName);
+            System.out.println("-".repeat(rechnung_width));
+
+            for (Map.Entry<Integer, Integer> entry : warenkorbListe.entrySet()) {
+                Artikel curArt = artikelListe.get(entry.getKey());
+                System.out.printf(
+                        "%-11s %12s€ %13.2f€\n",
+                        curArt.getBezeichnung(),
+                        entry.getValue() + " × " + String.format("%.2f", curArt.getPreis()),
+                        curArt.getPreis() * entry.getValue()
+                );
+
+                gesamtpreis += entry.getValue() * curArt.getPreis();
+            }
+
+            System.out.println("-".repeat(rechnung_width));
+            System.out.printf("%-11s %27.2f€\n", "Gesamtpreis", gesamtpreis);
+        }
+    }
+
     public void run() {
-        // Variable für Eingaben von der Konsole
         String input = "";
 
-        // Hauptschleife der Benutzungsschnittstelle
         do {
             gibMenueAus();
             try {

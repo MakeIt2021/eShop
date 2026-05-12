@@ -3,18 +3,16 @@ package entities;
 public class Artikel {
     private int artikelID;
     private String bezeichnung;
-    private int bestand;
-    private int preis;
+    private float preis;
 
-    public Artikel(int artikelNummer, String bezeichnung, int bestand, int preis) {
+    public Artikel(int artikelNummer, String bezeichnung, float preis) {
         this.artikelID = artikelNummer;
         this.bezeichnung = bezeichnung;
-        this.bestand = bestand;
         this.preis = preis;
     }
 
     public String toString() {
-        return ("Artikel ID: " + artikelID + " / Bezeichnung: " + bezeichnung + " / " + "Bestand: " + bestand + " / Preis: " + preis + " /");
+        return ("Artikel ID: " + artikelID + " / Bezeichnung: " + bezeichnung + " / Preis: " + preis + " /");
     }
 
     public int getArtikelID() {
@@ -25,20 +23,15 @@ public class Artikel {
         return bezeichnung;
     }
 
-    public int getBestand() {
-        return bestand;
-    }
-
-    public int getpreis() {
+    public float getPreis() {
         return preis;
     }
 
-    public void bestandErhoehen() {
-        this.bestand += 1;
+    public void setBezeichnung(String newBezeichnung) {
+        this.bezeichnung = newBezeichnung;
     }
 
-    public void bestandVerringern() {
-        if (bestand > 0)
-            this.bestand -= 1;
+    public void setPreis(float newPreis) {
+        this.preis = newPreis;
     }
 }
