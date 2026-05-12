@@ -1,3 +1,5 @@
+package ui.cui;
+
 import domain.EShop;
 import entities.Artikel;
 import entities.Benutzer;
@@ -37,6 +39,7 @@ public class EShopClientCUI {
         System.out.print("\n  Warenkorb ansehen:  'w'");
         System.out.print("\n  Artikel aus der Warenkorb löschen:  'wl'");
         System.out.print("\n  Artikel kaufen:  'ak'");
+        System.out.print("\n  Ereignisse anzeigen:  'e'");
         System.out.print("\n  Registrieren: 'r' ");//benutzer registrierung
         System.out.print("         \n  ---------------------");
         System.out.println("         \n  Beenden:        'q'");
@@ -198,10 +201,16 @@ public class EShopClientCUI {
                 String benutzerPassword = liesEingabe();
 
                 Benutzer curBenutzer = eShop.getBenutzerVW().login(benutzerErkennung, benutzerPassword);
-
-                System.out.println("Login erfolgreich: " + curBenutzer.getBenutzerVorNachname() + " " + curBenutzer.getRole());
+                if (curBenutzer != null) {
+                    System.out.println("Login erfolgreich: " + curBenutzer.getBenutzerVorNachname() + " " + curBenutzer.getRole());
+                }
             }
 
+            case "e" -> {
+                System.out.println("Ereignisliste:");
+
+                eShop.gibEreignisseAus();
+            }
         }
     }
 

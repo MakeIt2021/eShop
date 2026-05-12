@@ -1,19 +1,21 @@
 package domain;
 
 import entities.Artikel;
+import entities.Ereignis;
+
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
 public class EShop {
     private String datei = "";
 
+    // TODO: Sollen sie alle final sein?
     private ArtikelVW artikelVW;
-
-    // private KundenVerwaltung kundenVW;
-    // hier weitere Verwaltungsklassen, z.B. für Autoren oder Angestellte
     private BenutzerVW benutzerVW = new BenutzerVW();
-    // constructor
+    private ArrayList<Ereignis> ereignisse; // Liste aller ereignisse
     public BenutzerVW getBenutzerVW() {
         return benutzerVW;
     }
@@ -21,33 +23,48 @@ public class EShop {
     public ArtikelVW getArtikelVW() {
         return artikelVW;
     }
+
     private WarenkorbVW warenkorbVW;
 
     public EShop() throws IOException {
         this.datei = datei;
         artikelVW = new ArtikelVW();
         warenkorbVW = new WarenkorbVW();
+        ereignisse = new ArrayList<>();
     }
 
     public HashMap<Integer, Artikel> gibArtikelListe() {
         return artikelVW.gibArtikelListe();
     }
-
     public HashMap<Integer, Integer> gibArtikelMengeListe() {
         return artikelVW.gibArtikelMengeListe();
     }
-
     public HashMap<Integer, Integer> gibWarenkorb() {
         return warenkorbVW.gibWarenkorb();
     }
+    // Gibt die Ereignisse zurück
+    public ArrayList<Ereignis> gibEreignissen(){
+        return ereignisse;
+    }
 
-    public void fuegeArtikelEin(int artikelID, String bezeichnung, int bestand, float preis) {
+
+    public void fuegeArtikelEin(int artikelID, String bezeichnung, int menge, float preis) {
         Artikel art = new Artikel(artikelID, bezeichnung, preis);
-        artikelVW.einfuegen(art, bestand);
+        artikelVW.einfuegen(art, menge);
+
+        /*
+         * Ereignis erzeugen:
+         * Einlagerung durch Mitarbeiter
+         */
+        Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), art, menge, "Einlagerung", "Placeholder");
+        ereignisse.add(ereignis);
     }
 
     public void loescheArtikel(int artikelID, int menge) {
         artikelVW.loeschen(artikelID, menge);
+
+        Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), artikelVW.findeArtikel(artikelID), menge, "Auslagerung", "Placeholder");
+        ereignisse.add(ereignis);
     }
 
     public void artikelVernichten(int artikelID) {
@@ -63,19 +80,40 @@ public class EShop {
     }
 
     public void fuegeInWarenkorb(int artikelID, int menge) {
-        Artikel einArtikel = artikelVW.gibArtikelListe().get(artikelID);
         warenkorbVW.einfuegen(artikelID, menge);
         artikelVW.loeschen(artikelID, menge);
+
+        Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), artikelVW.findeArtikel(artikelID), menge, "Auslagerung", "Placeholder");
+        ereignisse.add(ereignis);
     }
 
     public void loescheAusWarenkorb(int artikelID, int menge) {
         Artikel einArtikel = artikelVW.gibArtikelListe().get(artikelID);
         warenkorbVW.loeschen(artikelID, menge);
         artikelVW.einfuegen(einArtikel, menge);
+
+        Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), artikelVW.findeArtikel(artikelID), menge, "Einlagerung", "Placeholder");
+        ereignisse.add(ereignis);
     }
 
     public void zuruecksetzeWarenkorb() {
         warenkorbVW.zuruecksetzen();
+    }
+
+    /*
+     * Gibt alle Ereignisse aus
+     */
+    public void gibEreignisseAus() {
+
+        // Prüfen ob Liste leer ist
+        if (ereignisse.isEmpty()) {
+            System.out.println("Keine Ereignisse vorhanden.");
+        } else {
+            // Alle Ereignisse ausgeben
+            for (Ereignis e : ereignisse) {
+                System.out.println(e);
+            }
+        }
     }
 
     public void seedTestData() {

@@ -43,6 +43,10 @@ public class ArtikelVW {
         artikelMengeListe.remove(artikelID);
     }
 
+    public Artikel findeArtikel(int artikelID) {
+        return artikelListe.get(artikelID);
+    }
+
     public HashMap<Integer, Artikel> gibArtikelListe() {
         return artikelListe;
     }
