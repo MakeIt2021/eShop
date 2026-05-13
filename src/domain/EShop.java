@@ -3,7 +3,9 @@ package domain;
 import entities.Artikel;
 import entities.Ereignis;
 
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -114,6 +116,35 @@ public class EShop {
             for (Ereignis e : ereignisse) {
                 System.out.println(e);
             }
+        }
+    }
+
+    /*
+     * Speichert alle Ereignisse in einer TXT-Datei
+     */
+    public void speichereEreignisseTXT() {
+
+        try {
+
+            // Datei erstellen
+            PrintWriter writer = new PrintWriter(
+                    new FileWriter("ereignisse.txt")
+            );
+
+            // Alle Ereignisse in Datei schreiben
+            for (Ereignis e : ereignisse) {
+
+                writer.println(e);
+            }
+
+            // Datei schließen
+            writer.close();
+
+            System.out.println("Ereignisse wurden gespeichert.");
+
+        } catch (IOException e) {
+
+            System.out.println("Fehler beim Speichern.");
         }
     }
 

@@ -38,6 +38,7 @@ public class EShopClientCUI {
         System.out.print("\n  Artikel aus der Warenkorb löschen:  'wl'");
         System.out.print("\n  Artikel kaufen:  'ak'");
         System.out.print("\n  Ereignisse anzeigen:  'e'");
+        System.out.print("\n  Ereignisse speichern:  'es'");
         System.out.print("\n  Registrieren: 'r' "); //benutzer registrierung
         System.out.print("\n  Speichern: 's' "); //benutzer registrierung
         System.out.print("         \n  ---------------------");
@@ -209,6 +210,10 @@ public class EShopClientCUI {
                 System.out.println("Ereignisliste:");
 
                 eShop.gibEreignisseAus();
+            }
+
+            case "es" -> {
+                eShop.speichereEreignisseTXT();
             }
 
             case "s" ->
