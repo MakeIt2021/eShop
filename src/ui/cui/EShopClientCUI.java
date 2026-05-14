@@ -40,6 +40,7 @@ public class EShopClientCUI {
         System.out.print("\n  Ereignisse anzeigen:  'e'");
         System.out.print("\n  Ereignisse speichern:  'es'");
         System.out.print("\n  Registrieren: 'r' "); //benutzer registrierung
+        System.out.print("\n  Einloggen: 'l' "); //benutzer registrierung
         System.out.print("\n  Speichern: 's' "); //benutzer registrierung
         System.out.print("         \n  ---------------------");
         System.out.println("         \n  Beenden:        'q'");
@@ -165,44 +166,50 @@ public class EShopClientCUI {
 
             }
             case "r" -> {
-                System.out.print("BenutzerErkennung > ");
-                String benutzerErkennung = liesEingabe();
+                System.out.print("benutzerId > ");
+                int benutzerId = Integer.parseInt(this.liesEingabe());
 
-                System.out.print("Vor- und Nachname > ");
-                String benutzerVorNachname = liesEingabe();
+                System.out.print("BenutzerErkennung > ");
+                String benutzerErkennung = this.liesEingabe();
+
+                System.out.print("benutzerVorNachname > ");
+                String benutzerVorNachname = this.liesEingabe();
 
                 System.out.print("Benutzerpassword > ");
-                String benutzerPassword = liesEingabe();
+                String benutzerPassword = this.liesEingabe();
 
                 System.out.print("Typ (k = Kunde, m = Mitarbeiter) > ");
-                String typ = liesEingabe();
-
+                String typ = this.liesEingabe();
                 if (typ.equals("k")) {
-                    eShop.getBenutzerVW().registrieren(
-                            new Kunde(benutzerErkennung,
-                                    benutzerVorNachname, benutzerPassword)
-                    );
-
+                    this.eShop.getBenutzerVW().registrieren(new Kunde(benutzerId, benutzerErkennung, benutzerVorNachname, benutzerPassword));
                 } else {
-                    eShop.getBenutzerVW().registrieren(
-                            new Mitarbeiter(benutzerErkennung,
-                                    benutzerVorNachname, benutzerPassword)
-                    );
+                    this.eShop.getBenutzerVW().registrieren(new Mitarbeiter(benutzerId, benutzerErkennung, benutzerVorNachname, benutzerPassword));
                 }
-
-                System.out.println("✔ Registrierung erfolgreich!");
             }
 
             case "l" -> {
-                System.out.print("BenutzerErkennung > ");
-                String benutzerErkennung = liesEingabe();
+                System.out.print("benutzerErkennung > ");
+                String benutzerErkennung = liesEingabe().trim();
 
-                System.out.print("Benutzerpassword > ");
-                String benutzerPassword = liesEingabe();
+                System.out.print("password > ");
+                String benutzerPassword = liesEingabe().trim();
 
-                Benutzer curBenutzer = eShop.getBenutzerVW().login(benutzerErkennung, benutzerPassword);
-                if (curBenutzer != null) {
-                    System.out.println("Login erfolgreich: " + curBenutzer.getBenutzerVorNachname() + " " + curBenutzer.getRole());
+                boolean erfolg = eShop.getBenutzerVW().login(benutzerErkennung, benutzerPassword);
+                if (erfolg) {
+                    System.out.println("✔ login erfogreich, Herzlich wellkommen " + benutzerErkennung);
+                } else {
+                    System.out.println("x login fehlgeschlagen");
+                }
+            }
+
+            case "o" -> {
+                System.out.print("möchten Sie sich wirklich Ausloggen? (ja/nein) > ");
+                String antwort = this.liesEingabe().trim().toLowerCase();
+                if (antwort.equals("ja")) {
+                    this.eShop.getBenutzerVW().logout();
+                    System.out.print("✔ logout erfogreich!");
+                } else if (antwort.equals("nein")) {
+                    System.out.print("logout abgebrochen");
                 }
             }
 

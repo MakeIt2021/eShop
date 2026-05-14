@@ -1,11 +1,15 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package entities;
 
 public class Kunde extends Benutzer {
-    public Kunde(String benutzerErkennung, String benutzerVorNachname, String benutzerPassword){
-        super(benutzerErkennung, benutzerVorNachname, benutzerPassword);
+    public Kunde(int benutzerId, String benutzerErkennung, String benutzerVorNachname, String benutzerPassword) {
+        super(benutzerId, benutzerErkennung, benutzerVorNachname, benutzerPassword);
     }
 
-    @Override
     public String getRole() {
         return "Kunde";
     }
