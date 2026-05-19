@@ -51,7 +51,7 @@ public class EShop {
     }
 
 
-    public void fuegeArtikelEin(int artikelID, String bezeichnung, int menge, float preis) {
+    public void fuegeArtikelEin(int artikelID, String bezeichnung, int menge, float preis, String mitarbeiter) {
         Artikel art = new Artikel(artikelID, bezeichnung, preis);
         artikelVW.einfuegen(art, menge);
 
@@ -59,14 +59,14 @@ public class EShop {
          * Ereignis erzeugen:
          * Einlagerung durch Mitarbeiter
          */
-        Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), art, menge, "Einlagerung", "Placeholder");
+        Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), art, menge, "Einlagerung", mitarbeiter);
         ereignisse.add(ereignis);
     }
 
-    public void loescheArtikel(int artikelID, int menge) {
+    public void loescheArtikel(int artikelID, int menge, String mitarbeiter) {
         artikelVW.loeschen(artikelID, menge);
 
-        Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), artikelVW.findeArtikel(artikelID), menge, "Auslagerung", "Placeholder");
+        Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), artikelVW.findeArtikel(artikelID), menge, "Auslagerung", mitarbeiter);
         ereignisse.add(ereignis);
     }
 
@@ -82,20 +82,20 @@ public class EShop {
         artikelVW.preisVeraendern(artikelID, preis);
     }
 
-    public void fuegeInWarenkorb(int artikelID, int menge) {
+    public void fuegeInWarenkorb(int artikelID, int menge, String kunde) {
         warenkorbVW.einfuegen(artikelID, menge);
         artikelVW.loeschen(artikelID, menge);
 
-        Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), artikelVW.findeArtikel(artikelID), menge, "Auslagerung", "Placeholder");
+        Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), artikelVW.findeArtikel(artikelID), menge, "Auslagerung", kunde);
         ereignisse.add(ereignis);
     }
 
-    public void loescheAusWarenkorb(int artikelID, int menge) {
+    public void loescheAusWarenkorb(int artikelID, int menge, String kunde) {
         Artikel einArtikel = artikelVW.gibArtikelListe().get(artikelID);
         warenkorbVW.loeschen(artikelID, menge);
         artikelVW.einfuegen(einArtikel, menge);
 
-        Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), artikelVW.findeArtikel(artikelID), menge, "Einlagerung", "Placeholder");
+        Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), artikelVW.findeArtikel(artikelID), menge, "Einlagerung", kunde);
         ereignisse.add(ereignis);
     }
 

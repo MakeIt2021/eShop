@@ -27,25 +27,48 @@ public class EShopClientCUI {
 
     // For tests only!
     private void gibMenueAus() {
-        System.out.print("Befehle: \n  Artikel liste:  'a'");
-        System.out.print("\n  Artikel einzufuegen:  'ae'");
-        System.out.print("\n  Artikel loeschen:  'al'");
-        System.out.print("\n  Artikel Bezeichnung verändern: 'bv'");
-        System.out.print("\n  Artikel Preis verändern: 'pv'");
-        System.out.print("\n  Artikel vernichten: 'vn'");
-        System.out.print("\n  Artikel in Warenkorb einzufügen:  'we'");
-        System.out.print("\n  Warenkorb ansehen:  'w'");
-        System.out.print("\n  Artikel aus der Warenkorb löschen:  'wl'");
-        System.out.print("\n  Artikel kaufen:  'ak'");
-        System.out.print("\n  Ereignisse anzeigen:  'e'");
-        System.out.print("\n  Ereignisse speichern:  'es'");
-        System.out.print("\n  Registrieren: 'r' "); //benutzer registrierung
-        System.out.print("\n  Einloggen: 'l' "); //benutzer registrierung
-        System.out.print("\n  Speichern: 's' "); //benutzer registrierung
-        System.out.print("         \n  ---------------------");
-        System.out.println("         \n  Beenden:        'q'");
-        System.out.print("> "); // Prompt
-        System.out.flush();// ohne NL ausgeben
+
+        // fuer Kunde
+        if (eShop.getBenutzerVW().istKunde()) {
+
+            System.out.println("\n===== KUNDENMENÜ =====");
+
+            System.out.println("a  → Artikel ansehen");
+            System.out.println("we → Artikel in Warenkorb");
+            System.out.println("wl → Artikel aus Warenkorb löschen");
+            System.out.println("w  → Warenkorb ansehen");
+            System.out.println("ak → Kaufen");
+            System.out.println("o  → Logout");
+        }
+
+        // fuer Mitarbeiter
+        else if (eShop.getBenutzerVW().istMitarbeiter()) {
+
+            System.out.println("\n===== MITARBEITERMENÜ =====");
+
+            System.out.println("a  → Artikel ansehen");
+            System.out.println("ae → Artikel hinzufügen");
+            System.out.println("al → Artikel löschen");
+            System.out.println("bv → Bezeichnung ändern");
+            System.out.println("pv → Preis ändern");
+            System.out.println("vn → Artikel vernichten");
+            System.out.println("e  → Ereignisse anzeigen");
+            System.out.println("es → Ereignisse speichern");
+            System.out.println("s  → Daten speichern");
+            System.out.println("o  → Logout");
+        }
+
+        // Person nicht eingeloggt
+        else {
+
+            System.out.println("\n===== HAUPTMENUE =====");
+
+            System.out.println("r → Registrieren");
+            System.out.println("l → Login");
+            System.out.println("q → Beenden");
+        }
+
+        System.out.print("> ");
     }
 
     private String liesEingabe() throws IOException {
@@ -58,6 +81,7 @@ public class EShopClientCUI {
         String bezeichnung;
         float preis;
         int bestand;
+        String user;
 
 
         HashMap<Integer, Artikel> artikelListe;
@@ -65,166 +89,441 @@ public class EShopClientCUI {
 
         switch (line) {
             case "a" -> {
+
+                // Prüfen ob Benutzer eingeloggt ist
+                if (!eShop.getBenutzerVW().istEingeloggt()) {
+
+                    System.out.println("Bitte zuerst einloggen.");
+                    break;
+                }
+                // Artikelliste anzeigen
                 artikelListe = eShop.gibArtikelListe();
-                gibArtikellisteAus(artikelListe, eShop.gibArtikelMengeListe());
+                gibArtikellisteAus(
+                        artikelListe,
+                        eShop.gibArtikelMengeListe()
+                );
             }
 
             case "ae" -> {
-                // lies die notwendigen Parameter, einzeln pro Zeile
+
+                // Prüfen ob Benutzer eingeloggt ist
+                if (!eShop.getBenutzerVW().istEingeloggt()) {
+                    System.out.println("Bitte zuerst einloggen.");
+                    break;
+                }
+                // Prüfen ob Mitarbeiter eingeloggt ist
+                if (!eShop.getBenutzerVW().istMitarbeiter()) {
+                    System.out.println("Nur Mitarbeiter duerfen Artikel hinzufügen.");
+                    break;
+                }
+                // Artikelinformationen eingeben
                 System.out.print("ArtikelID > ");
                 artikelID = Integer.parseInt(liesEingabe());
-                System.out.print("Bezeichnung  > ");
+                System.out.print("Bezeichnung > ");
                 bezeichnung = liesEingabe();
-                System.out.print("Preis  > ");
+                System.out.print("Preis > ");
                 preis = Float.parseFloat(liesEingabe());
-                System.out.print("Bestand  > ");
+                System.out.print("Bestand > ");
                 bestand = Integer.parseInt(liesEingabe());
 
-
-                eShop.fuegeArtikelEin(artikelID, bezeichnung, bestand, preis);
-                System.out.println("Einfügen ok");
-
+                user = eShop.getBenutzerVW().getAktuellerBenutzer().getBenutzerVorNachname();
+                // Artikel hinzufügen
+                eShop.fuegeArtikelEin(
+                        artikelID,
+                        bezeichnung,
+                        bestand,
+                        preis,
+                        user
+                );
+                System.out.println("✔ Artikel erfolgreich hinzugefügt.");
             }
 
             case "al" -> {
-                System.out.println("Artikel ID > ");
+                //Prüfen ob Benutzer eingeloggt ist
+                if (!eShop.getBenutzerVW().istEingeloggt()) {
+
+                    System.out.println("Bitte zuerst einloggen.");
+                    break;
+                }
+                // Prüfen ob Mitarbeiter eingeloggt ist
+                if (!eShop.getBenutzerVW().istMitarbeiter()) {
+                    System.out.println("Nur Mitarbeiter dürfen Artikel löschen.");
+                    break;
+                }
+                // Artikelinformationen eingeben
+                System.out.print("Artikel ID > ");
                 artikelID = Integer.parseInt(liesEingabe());
-                System.out.println("Menge: ");
+                System.out.print("Menge > ");
                 menge = Integer.parseInt(liesEingabe());
 
-                eShop.loescheArtikel(artikelID, menge);
+                user = eShop.getBenutzerVW().getAktuellerBenutzer().getBenutzerVorNachname();
+
+                // Artikelbestand reduzieren
+                eShop.loescheArtikel(
+                        artikelID,
+                        menge,
+                        user
+                );
+                System.out.println("✔ Artikelbestand erfolgreich reduziert.");
             }
 
             case "we" -> {
-                System.out.println("Artikel ID > ");
+                if (!eShop.getBenutzerVW().istEingeloggt()) {
+                    System.out.println("Bitte zuerst einloggen.");
+                    break;
+                }
+                if (!eShop.getBenutzerVW().istKunde()) {
+                    System.out.println("Nur Kunden dürfen Artikel kaufen.");
+                    break;
+                }
+                System.out.print("Artikel ID > ");
                 artikelID = Integer.parseInt(liesEingabe());
-                System.out.println("Menge der Artikel: ");
+
+                System.out.print("Menge der Artikel > ");
                 menge = Integer.parseInt(liesEingabe());
 
-                eShop.fuegeInWarenkorb(artikelID, menge);
+                user = eShop.getBenutzerVW().getAktuellerBenutzer().getBenutzerVorNachname();
+
+                eShop.fuegeInWarenkorb(artikelID, menge, user);
+
+                System.out.println("✔ Artikel wurde zum Warenkorb hinzugefügt.");
             }
 
             case "wl" -> {
-                System.out.println("Artikel ID > ");
+                if (!eShop.getBenutzerVW().istEingeloggt()) {
+                    System.out.println("Bitte zuerst einloggen.");
+                    break;
+                }
+                if (!eShop.getBenutzerVW().istKunde()) {
+                    System.out.println("Nur Kunden dürfen den Warenkorb ändern.");
+                    break;
+                }
+                System.out.print("Artikel ID > ");
                 artikelID = Integer.parseInt(liesEingabe());
-                System.out.println("Menge der Artikel: ");
+
+                System.out.print("Menge der Artikel > ");
                 menge = Integer.parseInt(liesEingabe());
 
-                eShop.loescheAusWarenkorb(artikelID, menge);
+                user = eShop.getBenutzerVW().getAktuellerBenutzer().getBenutzerVorNachname();
+
+                eShop.loescheAusWarenkorb(artikelID, menge, user);
+
+                System.out.println("✔ Artikel wurde aus dem Warenkorb entfernt.");
             }
 
             case "w" -> {
-                System.out.println("Warenkorb: ");
-
+                if (!eShop.getBenutzerVW().istEingeloggt()) {
+                    System.out.println("Bitte zuerst einloggen.");
+                    break;
+                }
+                if (!eShop.getBenutzerVW().istKunde()) {
+                    System.out.println("Nur Kunden haben einen Warenkorb.");
+                    break;
+                }
+                System.out.println("Warenkorb:");
                 warenkorbListe = eShop.gibWarenkorb();
-                gibWarenkorbAus(warenkorbListe, eShop.gibArtikelListe());
+                gibWarenkorbAus(
+                        warenkorbListe,
+                        eShop.gibArtikelListe()
+                );
             }
 
             case "ak" -> {
+                if (!eShop.getBenutzerVW().istEingeloggt()) {
+                    System.out.println("Bitte zuerst einloggen.");
+                    break;
+                }
+                if (!eShop.getBenutzerVW().istKunde()) {
+                    System.out.println("Nur Kunden dürfen Artikel kaufen.");
+                    break;
+                }
                 warenkorbListe = eShop.gibWarenkorb();
-                gibGekaufteAus(warenkorbListe, eShop.gibArtikelListe());
+                gibGekaufteAus(
+                        warenkorbListe,
+                        eShop.gibArtikelListe()
+                );
                 eShop.zuruecksetzeWarenkorb();
+                System.out.println("✔ Einkauf erfolgreich abgeschlossen.");
             }
 
             case "bv" -> {
-                System.out.println("Artikel ID > ");
+                if (!eShop.getBenutzerVW().istEingeloggt()) {
+                    System.out.println("Bitte zuerst einloggen.");
+                    break;
+                }
+                if (!eShop.getBenutzerVW().istMitarbeiter()) {
+                    System.out.println("Nur Mitarbeiter dürfen Artikel bearbeiten.");
+                    break;
+                }
+                System.out.print("Artikel ID > ");
                 artikelID = Integer.parseInt(liesEingabe());
-                System.out.print("Neue Bezeichnung  > ");
-                bezeichnung = liesEingabe();
 
+                System.out.print("Neue Bezeichnung > ");
+                bezeichnung = liesEingabe();
                 eShop.bezeichnungVeraendern(artikelID, bezeichnung);
+                System.out.println("✔ Bezeichnung erfolgreich geändert.");
             }
 
             case "pv" -> {
-                System.out.println("Artikel ID > ");
+
+                if (!eShop.getBenutzerVW().istEingeloggt()) {
+                    System.out.println("Bitte zuerst einloggen.");
+                    break;
+                }
+
+                if (!eShop.getBenutzerVW().istMitarbeiter()) {
+                    System.out.println("Nur Mitarbeiter dürfen Preise ändern.");
+                    break;
+                }
+
+                System.out.print("Artikel ID > ");
                 artikelID = Integer.parseInt(liesEingabe());
-                System.out.print("Neuer Preis  > ");
+
+                System.out.print("Neuer Preis > ");
                 preis = Float.parseFloat(liesEingabe());
 
                 eShop.preisVeraendern(artikelID, preis);
+
+                System.out.println("✔ Preis erfolgreich geändert.");
             }
 
             case "vn" -> {
+
+                if (!eShop.getBenutzerVW().istEingeloggt()) {
+                    System.out.println("Bitte zuerst einloggen.");
+                    break;
+                }
+
+                if (!eShop.getBenutzerVW().istMitarbeiter()) {
+                    System.out.println("Nur Mitarbeiter dürfen Artikel vernichten.");
+                    break;
+                }
+
                 String yellow = "\u001B[33m";
                 String reset = "\u001B[0m";
 
-                System.out.println(yellow + "Sie sind im Begriff, einen Artikel komplett zu löschen!" + reset);
+                System.out.println(
+                        yellow +
+                                "Sie sind im Begriff, einen Artikel komplett zu löschen!"
+                                + reset
+                );
 
-                System.out.println("Artikel ID > ");
+                System.out.print("Artikel ID > ");
                 artikelID = Integer.parseInt(liesEingabe());
 
-                System.out.println(yellow + "Sind Sie sicher, dass Sie diesen Artikel vollständig aus dem Katalog löschen möchten? [y / n]" + reset);
-                System.out.println(eShop.gibArtikelListe().get(artikelID));
+                System.out.println(
+                        yellow +
+                                "Sind Sie sicher? [y / n]"
+                                + reset
+                );
+
+                System.out.println(
+                        eShop.gibArtikelListe().get(artikelID)
+                );
 
                 String eingabe = liesEingabe();
-                if (Objects.equals(eingabe, "y")) {
-                    eShop.artikelVernichten(artikelID);
-                    System.out.println("Artikel wurde gelöscht.");
-                } else {
-                    System.out.println("Artikel wurde nicht agelöscht.");
-                }
 
+                if (Objects.equals(eingabe, "y")) {
+
+                    eShop.artikelVernichten(artikelID);
+
+                    System.out.println(
+                            "✔ Artikel wurde vollständig gelöscht."
+                    );
+
+                } else {
+
+                    System.out.println(
+                            "Löschvorgang abgebrochen."
+                    );
+                }
             }
             case "r" -> {
-                System.out.print("benutzerId > ");
-                int benutzerId = Integer.parseInt(this.liesEingabe());
+                // TODO: Nur Mitarbeiter kann andere Mitarbeiter registrieren
+                System.out.println("Rolle wählen:");
+                System.out.println("1 → Kunde");
+                System.out.println("2 → Mitarbeiter");
 
-                System.out.print("BenutzerErkennung > ");
-                String benutzerErkennung = this.liesEingabe();
+                System.out.print("> ");
+                String rolle = liesEingabe();
 
-                System.out.print("benutzerVorNachname > ");
-                String benutzerVorNachname = this.liesEingabe();
+                System.out.print("Benutzer ID > ");
+                int benutzerId = Integer.parseInt(liesEingabe());
 
-                System.out.print("Benutzerpassword > ");
-                String benutzerPassword = this.liesEingabe();
+                System.out.print("Benutzername > ");
+                String benutzerErkennung = liesEingabe();
 
-                System.out.print("Typ (k = Kunde, m = Mitarbeiter) > ");
-                String typ = this.liesEingabe();
-                if (typ.equals("k")) {
-                    this.eShop.getBenutzerVW().registrieren(new Kunde(benutzerId, benutzerErkennung, benutzerVorNachname, benutzerPassword));
+                System.out.print("Vor- und Nachname > ");
+                String benutzerVorNachname = liesEingabe();
+
+                System.out.print("Passwort > ");
+                String benutzerPassword = liesEingabe();
+
+                if (rolle.equals("1")) {
+
+                    eShop.getBenutzerVW().registrieren(
+                            new Kunde(
+                                    benutzerId,
+                                    benutzerErkennung,
+                                    benutzerVorNachname,
+                                    benutzerPassword
+                            )
+                    );
+
+                    System.out.println("✔ Kunde erfolgreich registriert.");
+
+                } else if (rolle.equals("2")) {
+
+                    eShop.getBenutzerVW().registrieren(
+                            new Mitarbeiter(
+                                    benutzerId,
+                                    benutzerErkennung,
+                                    benutzerVorNachname,
+                                    benutzerPassword
+                            )
+                    );
+
+                    System.out.println("✔ Mitarbeiter erfolgreich registriert.");
+
                 } else {
-                    this.eShop.getBenutzerVW().registrieren(new Mitarbeiter(benutzerId, benutzerErkennung, benutzerVorNachname, benutzerPassword));
+
+                    System.out.println("Ungültige Rollenauswahl.");
                 }
             }
 
             case "l" -> {
-                System.out.print("benutzerErkennung > ");
+
+                if (eShop.getBenutzerVW().istEingeloggt()) {
+
+                    System.out.println(
+                            "Ein Benutzer ist bereits eingeloggt."
+                    );
+
+                    break;
+                }
+
+                System.out.print("Benutzername > ");
                 String benutzerErkennung = liesEingabe().trim();
 
-                System.out.print("password > ");
+                System.out.print("Passwort > ");
                 String benutzerPassword = liesEingabe().trim();
 
-                boolean erfolg = eShop.getBenutzerVW().login(benutzerErkennung, benutzerPassword);
+                boolean erfolg = eShop.getBenutzerVW().login(
+                        benutzerErkennung,
+                        benutzerPassword
+                );
+
                 if (erfolg) {
-                    System.out.println("✔ login erfogreich, Herzlich wellkommen " + benutzerErkennung);
+
+                    Benutzer aktuellerBenutzer =
+                            eShop.getBenutzerVW().getAktuellerBenutzer();
+
+                    System.out.println(
+                            "✔ Login erfolgreich. Willkommen "
+                                    + aktuellerBenutzer.getBenutzerVorNachname()
+                                    + " (" + aktuellerBenutzer.getRole() + ")"
+                    );
+
                 } else {
-                    System.out.println("x login fehlgeschlagen");
+
+                    System.out.println(
+                            "✘ Login fehlgeschlagen."
+                    );
                 }
             }
 
             case "o" -> {
-                System.out.print("möchten Sie sich wirklich Ausloggen? (ja/nein) > ");
-                String antwort = this.liesEingabe().trim().toLowerCase();
+
+                if (!eShop.getBenutzerVW().istEingeloggt()) {
+
+                    System.out.println(
+                            "Kein Benutzer ist eingeloggt."
+                    );
+
+                    break;
+                }
+
+                System.out.print(
+                        "Möchten Sie sich wirklich ausloggen? (ja/nein) > "
+                );
+
+                String antwort =
+                        liesEingabe().trim().toLowerCase();
+
                 if (antwort.equals("ja")) {
-                    this.eShop.getBenutzerVW().logout();
-                    System.out.print("✔ logout erfogreich!");
+
+                    eShop.getBenutzerVW().logout();
+
+                    System.out.println(
+                            "✔ Logout erfolgreich."
+                    );
+
                 } else if (antwort.equals("nein")) {
-                    System.out.print("logout abgebrochen");
+
+                    System.out.println(
+                            "Logout abgebrochen."
+                    );
+
+                } else {
+
+                    System.out.println(
+                            "Ungültige Eingabe."
+                    );
                 }
             }
 
             case "e" -> {
+
+                if (!eShop.getBenutzerVW().istEingeloggt()) {
+                    System.out.println("Bitte zuerst einloggen.");
+                    break;
+                }
+
+                if (!eShop.getBenutzerVW().istMitarbeiter()) {
+                    System.out.println("Nur Mitarbeiter dürfen Ereignisse ansehen.");
+                    break;
+                }
+
                 System.out.println("Ereignisliste:");
 
                 eShop.gibEreignisseAus();
             }
 
+
             case "es" -> {
+
+                if (!eShop.getBenutzerVW().istEingeloggt()) {
+                    System.out.println("Bitte zuerst einloggen.");
+                    break;
+                }
+
+                if (!eShop.getBenutzerVW().istMitarbeiter()) {
+                    System.out.println("Nur Mitarbeiter dürfen Ereignisse speichern.");
+                    break;
+                }
+
                 eShop.speichereEreignisseTXT();
+
+                System.out.println("✔ Ereignisse erfolgreich gespeichert.");
             }
 
-            case "s" ->
+
+            case "s" -> {
+
+                if (!eShop.getBenutzerVW().istEingeloggt()) {
+                    System.out.println("Bitte zuerst einloggen.");
+                    break;
+                }
+
+                if (!eShop.getBenutzerVW().istMitarbeiter()) {
+                    System.out.println("Nur Mitarbeiter dürfen Daten speichern.");
+                    break;
+                }
+
                 eShop.speichereArtikel();
+
+                System.out.println("✔ Artikeldaten erfolgreich gespeichert.");
+            }
         }
     }
 
@@ -256,7 +555,7 @@ public class EShopClientCUI {
             float gesamtpreis = 0;
 
             LocalDate today = LocalDate.now();
-            String kundeName = "Johann Sebastian Bach";
+            String kundeName = eShop.getBenutzerVW().getAktuellerBenutzer().getBenutzerVorNachname();
 
             System.out.println();
             System.out.println(" ".repeat((rechnung_width - 8) / 2) + "Rechnung");

@@ -22,7 +22,7 @@ public class Ereignis {
     private Artikel artikel;
     private int menge;
     private String typ; //EINLAGERUNG oder AUSLAGERUNG
-    private String person; // TODO: eigentlich sollte hier Benutzer sein (nicht verändern ohne zu besprechen, bitte)
+    private String person;
 
     public Ereignis(int tag, Artikel artikel, int menge, String typ, String person) {
         this.tag = tag;

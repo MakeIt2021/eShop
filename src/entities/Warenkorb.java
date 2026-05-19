@@ -10,7 +10,9 @@ public class Warenkorb {
     private Date erzeugt; // fuer Erweiterung
     private HashMap<Integer, Integer> warenkorbMenge = new HashMap<>();
 
-    public Warenkorb() {}
+    public Warenkorb() {
+//        this.benutzer = benutzer;
+    }
 
     public void hinzufuegen(int artikelID, int menge) {
         if (warenkorbMenge.containsKey(artikelID)) {
