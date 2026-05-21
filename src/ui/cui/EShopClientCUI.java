@@ -28,8 +28,6 @@ public class EShopClientCUI {
         in = new BufferedReader(new InputStreamReader(System.in));
     }
 
-
-    // For tests only!
     private void gibMenueAus() {
 
         // fuer Kunde
@@ -130,7 +128,7 @@ public class EShopClientCUI {
                 System.out.print("Bestand > ");
                 bestand = Integer.parseInt(liesEingabe());
 
-                aktuelleBenutzer = eShop.getBenutzerVW().getAktuellerBenutzer();
+                aktuelleBenutzer = eShop.aktuellerBenutzer();
                 // Artikel hinzufügen
                 eShop.fuegeArtikelEin(
                         artikelID,
@@ -160,7 +158,7 @@ public class EShopClientCUI {
                 System.out.print("Menge > ");
                 menge = Integer.parseInt(liesEingabe());
 
-                aktuelleBenutzer = eShop.getBenutzerVW().getAktuellerBenutzer();
+                aktuelleBenutzer = eShop.aktuellerBenutzer();
 
                 // Artikelbestand reduzieren
                 eShop.loescheArtikel(
@@ -186,7 +184,7 @@ public class EShopClientCUI {
                 System.out.print("Menge der Artikel > ");
                 menge = Integer.parseInt(liesEingabe());
 
-                aktuelleBenutzer = eShop.getBenutzerVW().getAktuellerBenutzer();
+                aktuelleBenutzer = eShop.aktuellerBenutzer();
 
                 eShop.fuegeInWarenkorb(artikelID, menge, aktuelleBenutzer.getBenutzerVorNachname());
 
@@ -208,7 +206,7 @@ public class EShopClientCUI {
                 System.out.print("Menge der Artikel > ");
                 menge = Integer.parseInt(liesEingabe());
 
-                aktuelleBenutzer = eShop.getBenutzerVW().getAktuellerBenutzer();
+                aktuelleBenutzer = eShop.aktuellerBenutzer();
 
                 eShop.loescheAusWarenkorb(artikelID, menge, aktuelleBenutzer.getBenutzerVorNachname());
 
@@ -400,9 +398,7 @@ public class EShopClientCUI {
             }
 
             case "l" -> {
-
                 if (eShop.getBenutzerVW().istEingeloggt()) {
-
                     System.out.println(
                             "Ein Benutzer ist bereits eingeloggt."
                     );
@@ -424,7 +420,7 @@ public class EShopClientCUI {
                 if (erfolg) {
 
                     Benutzer aktuellerBenutzer =
-                            eShop.getBenutzerVW().getAktuellerBenutzer();
+                            eShop.aktuellerBenutzer();
 
                     System.out.println(
                             GREEN + "✔ Login erfolgreich. Willkommen "
@@ -560,10 +556,13 @@ public class EShopClientCUI {
             System.out.println("Warenkorb ist leer.");
         } else {
             int rechnung_width = 40;
-            float gesamtpreis = 0;
+            float summe = 0;
+            double mwstSumme;
+            double gesamtpreis;
+            final double MWST = 0.19;
 
             LocalDate today = LocalDate.now();
-            String kundeName = eShop.getBenutzerVW().getAktuellerBenutzer().getBenutzerVorNachname();
+            String kundeName = eShop.aktuellerBenutzer().getBenutzerVorNachname();// mussen wir alle logic im eshop machen
 
             System.out.println();
             System.out.println(" ".repeat((rechnung_width - 8) / 2) + "Rechnung");
@@ -579,11 +578,17 @@ public class EShopClientCUI {
                         curArt.getPreis() * entry.getValue()
                 );
 
-                gesamtpreis += entry.getValue() * curArt.getPreis();
+                summe += entry.getValue() * curArt.getPreis();
             }
 
+            mwstSumme = MWST * summe;
+            gesamtpreis = mwstSumme + summe;
+
             System.out.println("-".repeat(rechnung_width));
+            System.out.printf("%-11s %27.2f€\n", "Summe", summe);
+            System.out.printf("%-11s %27.2f€\n", "MWSt", mwstSumme);
             System.out.printf("%-11s %27.2f€\n", "Gesamtpreis", gesamtpreis);
+
         }
     }
 

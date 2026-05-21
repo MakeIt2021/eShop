@@ -1,6 +1,7 @@
 package domain;
 
 import entities.Artikel;
+import entities.Benutzer;
 import entities.Ereignis;
 
 import java.io.FileWriter;
@@ -152,4 +153,10 @@ public class EShop {
         artikelVW.speichereArtikelMengeDaten(datei+"_AM.txt");
         artikelVW.speichereArtikelDaten(datei+"_A.txt");
     }
+
+    public Benutzer aktuellerBenutzer ( ) {
+
+        return benutzerVW.getAktuellerBenutzer();
+    }
+
 }

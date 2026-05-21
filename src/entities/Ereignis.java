@@ -54,9 +54,11 @@ public class Ereignis {
     }
 
     public String toString() {
-        return "Tag:" + typ + " | Typ: " + typ
+        return "Tag:" + tag + " | Typ: " + typ
                 + " | Artikel: " + artikel.getBezeichnung()
                 + " | Menge: " + menge
                 + " | Person: " + person;
     }
+
+
 }

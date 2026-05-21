@@ -60,7 +60,7 @@ public class BenutzerVW {
 
     }
 
-    public Benutzer getAktuellerBenutzer() {
+    protected Benutzer getAktuellerBenutzer() {
         return this.aktuellerBenutzer;
     }
 
@@ -77,15 +77,15 @@ public class BenutzerVW {
     }
 
     public void speicherBenutzer(Benutzer benutzer) {
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("benutzer.txt", true));
-            int var10001 = benutzer.getBenutzerId();
-            writer.write(var10001 + ";" + benutzer.getBenutzerErkennung() + ";" + benutzer.getBenutzerVorNachname() + ";" + benutzer.getBenutzerPassword() + ";" + benutzer.getRole());
-            writer.newLine();
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            try {
+                BufferedWriter writer = new BufferedWriter(new FileWriter("benutzer.txt", true));
+                int var10001 = benutzer.getBenutzerId();
+                writer.write(var10001 + ";" + benutzer.getBenutzerErkennung() + ";" + benutzer.getBenutzerVorNachname() + ";" + benutzer.getBenutzerPassword() + ";" + benutzer.getRole());
+                writer.newLine();
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
     }
 
