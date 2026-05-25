@@ -340,8 +340,8 @@ public class EShopClientCUI {
             case "r" -> {
                 System.out.println("Registration als Kunde:");
 
-                System.out.print("Benutzer ID > ");
-                int benutzerId = Integer.parseInt(liesEingabe());
+                //System.out.print("Benutzer ID > ");
+                int benutzerId = eShop.getBenutzerVW().generiereId();
 
                 System.out.print("Benutzername > ");
                 String benutzerErkennung = liesEingabe();

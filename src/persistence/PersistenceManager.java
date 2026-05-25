@@ -3,14 +3,24 @@ package persistence;
 import domain.WarenkorbVW;
 import entities.Artikel;
 import entities.Warenkorb;
+import entities.Benutzer;
+import entities.Mitarbeiter;
+import entities.Kunde;
+import java.io.*;
+import java.util.*;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 public interface PersistenceManager {
     public void openForReading(String datenquelle) throws IOException;
     public void openForWriting(String datenquelle) throws IOException;
     public boolean close();
+
+//speichern den benutzer
+    void speicherBenutzer(Benutzer benutzer) throws IOException;
+    Map<String, Benutzer> ladeBenutzer() throws IOException;
 
     /**
      * Methode zum Einlesen der Artikeldaten aus einer externen Datenquelle.
