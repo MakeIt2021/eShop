@@ -163,10 +163,6 @@ public class EShop {
         artikelVW.speichereArtikelDaten(datei+"_A.txt");
     }
 
-    public Benutzer aktuellerBenutzer () {
-        return benutzerVW.getAktuellerBenutzer();
-    }
-
     public int sucheNachID(String bezeichnung) {
         return artikelVW.sucheNachIDMitBezeichnung(bezeichnung);
     }
@@ -218,7 +214,7 @@ public class EShop {
         return benutzerVW.registrieren(benutzer);
     }
 
-    public  Benutzer getaktuellerBenutzer(){
+    public Benutzer aktuellerBenutzer () {
         return benutzerVW.getAktuellerBenutzer();
     }
 }
