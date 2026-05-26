@@ -46,6 +46,7 @@ public abstract class Benutzer {
     }
 
     public void setBenutzerId(int benutzerId) {
+        this.benutzerId = benutzerId;
     }
 
     public abstract String getRole();

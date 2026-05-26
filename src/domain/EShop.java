@@ -3,6 +3,8 @@ package domain;
 import entities.Artikel;
 import entities.Benutzer;
 import entities.Ereignis;
+import persistence.PersistenceManager;
+import persistence.FilePersistenceManager;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,7 +20,8 @@ public class EShop {
     // TODO: Sollen sie alle final sein?
     private ArtikelVW artikelVW;
     private BenutzerVW benutzerVW = new BenutzerVW();
-    private ArrayList<Ereignis> ereignisse; // Liste aller ereignisse
+    private ArrayList<Ereignis> ereignisse;// Liste aller ereignisse
+    private PersistenceManager pm;
     public BenutzerVW getBenutzerVW() {
         return benutzerVW;
     }
@@ -35,6 +38,8 @@ public class EShop {
         artikelVW.ladeArtikelMengeDaten(datei);
         warenkorbVW = new WarenkorbVW();
         ereignisse = new ArrayList<>();
+        pm = new FilePersistenceManager();
+        pm.speichereEreignisArtikel(ereignisse);
     }
 
     public HashMap<Integer, Artikel> gibArtikelListe() {
@@ -64,6 +69,15 @@ public class EShop {
         ereignisse.add(ereignis);
 
         speichereArtikel();
+// Exception für preis und mengefuegeInWarenkorb
+        if (preis < 0) {
+            throw new IllegalArgumentException(
+                    "Preis darf nicht negativ sein."
+            );
+        }
+        if (menge <= 0) {
+            throw new IllegalArgumentException("Bestand muss positiv sein.");
+        }
     }
 
     public void artikelVernichten(int artikelID) throws IOException {
@@ -79,6 +93,11 @@ public class EShop {
     public void preisVeraendern(int artikelID, float preis) throws IOException {
         artikelVW.preisVeraendern(artikelID, preis);
         speichereArtikel();
+
+        //Exception
+        if (preis < 0) {
+            throw new IllegalArgumentException("Preis darf nicht negativ sein.");
+        }
     }
 
     public void fuegeInWarenkorb(int artikelID, int menge, String kunde) throws IOException {
@@ -89,6 +108,14 @@ public class EShop {
         ereignisse.add(ereignis);
 
         speichereArtikel();
+
+//Exception
+        if (menge <= 0) {
+            throw new IllegalArgumentException("Menge muss positiv sein.");
+        }
+        if (artikelVW.gibBestand(artikelID) < menge) {
+            throw new IllegalStateException("Nicht genug Bestand.");
+        }
     }
 
     public void loescheAusWarenkorb(int artikelID, int menge, String kunde) throws IOException {
@@ -125,39 +152,15 @@ public class EShop {
     /*
      * Speichert alle Ereignisse in einer TXT-Datei
      */
-    public void speichereEreignisseTXT() {
-
-        try {
-
-            // Datei erstellen
-            PrintWriter writer = new PrintWriter(
-                    new FileWriter("ereignisse.txt")
-            );
-
-            // Alle Ereignisse in Datei schreiben
-            for (Ereignis e : ereignisse) {
-
-                writer.println(e);
-            }
-
-            // Datei schließen
-            writer.close();
-
-            System.out.println("Ereignisse wurden gespeichert.");
-
-        } catch (IOException e) {
-
-            System.out.println("Fehler beim Speichern.");
-        }
+    public void speichereEreignisse()
+            throws IOException {
+        pm.speichereEreignisArtikel(ereignisse);
+        speichereArtikel();
     }
 
     public void speichereArtikel() throws IOException {
         artikelVW.speichereArtikelMengeDaten(datei+"_AM.txt");
         artikelVW.speichereArtikelDaten(datei+"_A.txt");
-    }
-
-    public Benutzer aktuellerBenutzer () {
-        return benutzerVW.getAktuellerBenutzer();
     }
 
     public int sucheNachID(String bezeichnung) {
@@ -179,5 +182,39 @@ public class EShop {
         }
 
         speichereArtikel();
+
+        // Exception
+        if (neuerBestand < 0) {
+            throw new IllegalArgumentException("Ungültiger Bestand.");
+        }
+    }
+
+    public boolean login (String benutzerErkennung, String benutzerPasswort) {
+        return benutzerVW.login(benutzerErkennung, benutzerPasswort);
+
+    }
+
+    public void logout () {
+        benutzerVW.logout();
+    }
+
+    public boolean istEingeloggt(){
+        return benutzerVW.istEingeloggt();
+    }
+
+    public boolean istMitarbeiter(){
+        return benutzerVW.istMitarbeiter();
+    }
+
+    public boolean istKunde(){
+        return benutzerVW.istKunde();
+    }
+
+    public boolean registrieren (Benutzer benutzer){
+        return benutzerVW.registrieren(benutzer);
+    }
+
+    public Benutzer aktuellerBenutzer () {
+        return benutzerVW.getAktuellerBenutzer();
     }
 }

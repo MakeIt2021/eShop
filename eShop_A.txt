@@ -28,3 +28,6 @@ Desk
 10
 SSD 1TB
 110.0
+11
+Tisch
+19.0

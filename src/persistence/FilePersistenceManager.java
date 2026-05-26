@@ -1,14 +1,51 @@
 package persistence;
 
 import entities.Artikel;
+<<<<<<< HEAD
+import entities.Benutzer;
+import entities.Kunde;
+import entities.Mitarbeiter;
+=======
+import entities.Ereignis;
+>>>>>>> 489e443a049c97b618138f57bf952a00b1d3f23e
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class FilePersistenceManager implements PersistenceManager {
     private BufferedReader reader = null;
     private PrintWriter writer = null;
+
+    @Override
+    public Map<String, Benutzer> ladeBenutzer() throws IOException{
+        Map<String, Benutzer> map = new HashMap<>();
+        File file = new File("benutzer.txt");
+        if (!file.exists()) {
+            return map;
+        }try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String zeile;
+            while ((zeile = reader.readLine()) != null) {
+                String[] d = zeile.split(";");
+                int id = Integer.parseInt(d[0]);
+                String erkennung = d[1];
+                String name = d[2];
+                String password = d[3];
+                String rolle = d[4];
+
+                Benutzer b;
+                if (rolle.equalsIgnoreCase("kunde")) {
+                    b = new Kunde(id, name, password, erkennung);
+                }else {
+                    b = new Mitarbeiter(id,erkennung, name, password);
+                }
+                map.put(erkennung, b);
+            }
+        }
+        return map;
+    }
+
 
     public void openForReading(String datei) throws FileNotFoundException {
         reader = new BufferedReader(new FileReader(datei));
@@ -104,5 +141,34 @@ public class FilePersistenceManager implements PersistenceManager {
     private void schreibeZeile(String daten) {
         if (writer != null)
             writer.println(daten);
+    }
+<<<<<<< HEAD
+    //benutzer speicherung
+    @Override
+    public void speicherBenutzer(Benutzer benutzer) throws IOException {
+        try (BufferedWriter writer =
+                     new BufferedWriter(new FileWriter("benutzer.txt",true))){
+            writer.write(
+                    benutzer.getBenutzerId() + ";" +
+                            benutzer.getBenutzerErkennung() + ";" +
+                            benutzer.getBenutzerVorNachname() + ";" +
+                            benutzer.getBenutzerPassword() + ";" +
+                            benutzer.getRole()
+            );
+            writer.newLine();
+        }
+=======
+
+    @Override
+    public void speichereEreignisArtikel(ArrayList<Ereignis> ereignisse) throws IOException {
+
+        FileWriter fw = new FileWriter("Ereignisse.txt");
+        PrintWriter pw = new PrintWriter(fw);
+
+        for (Ereignis ereignis : ereignisse) {
+            pw.println(ereignis);
+        }
+        pw.close();
+>>>>>>> 489e443a049c97b618138f57bf952a00b1d3f23e
     }
 }
