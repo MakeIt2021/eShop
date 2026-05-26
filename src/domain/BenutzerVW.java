@@ -8,21 +8,33 @@ package domain;
 import entities.Benutzer;
 import entities.Kunde;
 import entities.Mitarbeiter;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import persistence.FilePersistenceManager;
+import persistence.PersistenceManager;
+
+import javax.management.relation.Role;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class BenutzerVW {
     private final String datei = "benutzer.txt";
-    private Map<String, Benutzer> benutzerMap = new HashMap();
     private Benutzer aktuellerBenutzer;
+    private int nextId = 1;
 
-    public BenutzerVW() {
-        this.ladeBenutzer();
+    //benuzer speicherung im PM
+    private PersistenceManager pm = new FilePersistenceManager();
+    private Map<String, Benutzer> benutzerMap = new HashMap<>();
+
+    public BenutzerVW(){
+        try {
+            this.benutzerMap = this.pm.ladeBenutzer();
+
+            for (Benutzer benutzer : benutzerMap.values()) {
+                nextId = Math.max(nextId, benutzer.getBenutzerId() + 1);
+            }
+        }catch (Exception e){
+            benutzerMap = new HashMap<>();
+        }
     }
 
     public boolean registrieren(Benutzer benutzer) {
@@ -30,12 +42,17 @@ public class BenutzerVW {
             System.out.print("Benutzer existiert bereit! ");
             System.out.println("Bitte loggen Sie sich ein!");
             return false;
-        } else {
-            this.benutzerMap.put(benutzer.getBenutzerErkennung(), benutzer);
-            this.speicherBenutzer(benutzer);
-            System.out.println("✔ Registrierung erfolgreich!");
-            return true;
         }
+        this.benutzerMap.put(benutzer.getBenutzerErkennung(), benutzer);
+        try {
+            pm.speicherBenutzer(benutzer);
+        } catch (Exception e) {
+            System.out.println("Fehler beim Speichern!");
+            e.printStackTrace();
+        }
+        System.out.println("✔ Registrierung erfolgreich!");
+        return true;
+
     }
 
     public boolean login(String benutzerErkennung, String benutzerPassword) {
@@ -78,9 +95,12 @@ public class BenutzerVW {
 
     public void speicherBenutzer(Benutzer benutzer) {
             try {
-                BufferedWriter writer = new BufferedWriter(new FileWriter("benutzer.txt", true));
+                BufferedWriter writer = new BufferedWriter(new
+                        FileWriter("benutzer.txt", true));
                 int var10001 = benutzer.getBenutzerId();
-                writer.write(var10001 + ";" + benutzer.getBenutzerErkennung() + ";" + benutzer.getBenutzerVorNachname() + ";" + benutzer.getBenutzerPassword() + ";" + benutzer.getRole());
+                writer.write(var10001 + ";" + benutzer.getBenutzerErkennung()
+                        + ";" + benutzer.getBenutzerVorNachname() + ";" +
+                        benutzer.getBenutzerPassword() + ";" + benutzer.getRole());
                 writer.newLine();
                 writer.close();
             } catch (IOException e) {
@@ -89,24 +109,31 @@ public class BenutzerVW {
 
     }
 
-    // TODO: Jetzt es gibt das Problem, dass Kunde wird als Mitarbeiter gesehen, nachdem die Daten gelesen werden
+    // TODO: Jetzt es gibt das Problem, dass Kunde wird als Mitarbeiter gesehen, nachdem die Daten gelesen werden = done
     public void ladeBenutzer() {
+        File file = new File(datei);
+        if (!file.exists()) {
+            System.out.println("Keine Benutzer Datei gefunden");
+        }
         try {
             BufferedReader reader;
             String zeile;
             String erkennung;
-            Benutzer benutzer;
+            Benutzer benutzer = null;
             for(reader = new BufferedReader(new FileReader("benutzer.txt")); (zeile = reader.readLine()) != null; this.benutzerMap.put(erkennung, benutzer)) {
                 String[] daten = zeile.split(";");
                 int id = Integer.parseInt(daten[0]);
+                nextId = Math.max(nextId, id + 1);
                 erkennung = daten[1];
                 String name = daten[2];
                 String password = daten[3];
-                String rolle = daten[4];
-                if (rolle.equals("kunde")) {
+                String rolle = daten[4].trim();
+                if (rolle.equalsIgnoreCase("kunde")) {
                     benutzer = new Kunde(id, erkennung, name, password);
-                } else {
+                } else if(rolle.equalsIgnoreCase("mitarbeiter")) {
                     benutzer = new Mitarbeiter(id, erkennung, name, password);
+                }else {
+                    System.out.println("Unbekannte Rolle:" + rolle);
                 }
             }
 
@@ -114,6 +141,9 @@ public class BenutzerVW {
         } catch (Exception var10) {
             System.out.println("keine Datei gefunfen.");
         }
-
+    }
+    //Id generiere method
+    public int generiereId(){
+        return nextId++;
     }
 }
