@@ -126,7 +126,7 @@ public class BenutzerVW {
                 nextId = Math.max(nextId, id + 1);
                 erkennung = daten[1];
                 String name = daten[2];
-                String password = daten[3];
+                String password = daten[3].trim();
                 String rolle = daten[4].trim();
                 if (rolle.equalsIgnoreCase("kunde")) {
                     benutzer = new Kunde(id, erkennung, name, password);

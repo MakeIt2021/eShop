@@ -26,7 +26,7 @@ public class EShopClientCUI {
 
     private void gibMenueAus() {
 
-        // fuer Kunde
+        // fr Kunde
         if (eShop.istKunde()) {
 
             System.out.println("\n===== KUNDENMENÜ =====");

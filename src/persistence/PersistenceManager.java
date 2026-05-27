@@ -3,17 +3,14 @@ package persistence;
 import domain.WarenkorbVW;
 import entities.Artikel;
 import entities.Warenkorb;
-<<<<<<< HEAD
 import entities.Benutzer;
 import entities.Mitarbeiter;
 import entities.Kunde;
 import java.io.*;
 import java.util.*;
-=======
 import entities.Ereignis;
 
 import java.util.ArrayList;
->>>>>>> 489e443a049c97b618138f57bf952a00b1d3f23e
 
 import java.io.IOException;
 import java.util.HashMap;
