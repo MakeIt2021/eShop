@@ -1,14 +1,15 @@
 package domain;
 
+import domain.exceptions.MassengutartikelmengeNichtTeilbarException;
+import domain.exceptions.MengeWenigerAlsPackungGroesseException;
 import entities.Artikel;
 import entities.Benutzer;
 import entities.Ereignis;
+import entities.Massengutartikel;
 import persistence.PersistenceManager;
 import persistence.FilePersistenceManager;
 
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -80,6 +81,38 @@ public class EShop {
         }
     }
 
+    public void fuegeMassengutartikelEin(int artikelID, String bezeichnung, int menge, float preis, String mitarbeiter, int packungGroesse) throws IOException {
+        if (menge < packungGroesse) {
+            throw new MengeWenigerAlsPackungGroesseException(bezeichnung, menge, packungGroesse);
+        }
+
+        if (menge % packungGroesse != 0) {
+            throw new MassengutartikelmengeNichtTeilbarException(bezeichnung, packungGroesse);
+        }
+
+        Artikel art = new Massengutartikel(artikelID, bezeichnung, preis, packungGroesse);
+        artikelVW.einfuegen(art, menge);
+
+        /*
+         * Ereignis erzeugen:
+         * Einlagerung durch Mitarbeiter
+         */
+        Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), art, menge, "Einlagerung", "m:" + mitarbeiter);
+        ereignisse.add(ereignis);
+
+        speichereArtikel();
+
+        // Exception für preis und mengefuegeInWarenkorb
+        if (preis < 0) {
+            throw new IllegalArgumentException(
+                    "Preis darf nicht negativ sein."
+            );
+        }
+        if (menge <= 0) {
+            throw new IllegalArgumentException("Bestand muss positiv sein.");
+        }
+    }
+
     public void artikelVernichten(int artikelID) throws IOException {
         artikelVW.artikelVernichten(artikelID);
         speichereArtikel();
@@ -101,6 +134,16 @@ public class EShop {
     }
 
     public void fuegeInWarenkorb(int artikelID, int menge, String kunde) throws IOException {
+        if (istMassengutartikel(artikelID)) {
+            if (menge < getPackungGroesse(artikelID)) {
+                throw new MengeWenigerAlsPackungGroesseException(getArtikelName(artikelID), menge, getPackungGroesse(artikelID));
+            }
+
+            if (menge % getPackungGroesse(artikelID) != 0) {
+                throw new MassengutartikelmengeNichtTeilbarException(getArtikelName(artikelID), getPackungGroesse(artikelID));
+            }
+        }
+
         warenkorbVW.einfuegen(artikelID, menge);
         artikelVW.loeschen(artikelID, menge);
 
@@ -113,12 +156,22 @@ public class EShop {
         if (menge <= 0) {
             throw new IllegalArgumentException("Menge muss positiv sein.");
         }
-        if (artikelVW.gibBestand(artikelID) < menge) {
+        if (artikelVW.getBestand(artikelID) < menge) {
             throw new IllegalStateException("Nicht genug Bestand.");
         }
     }
 
     public void loescheAusWarenkorb(int artikelID, int menge, String kunde) throws IOException {
+        if (istMassengutartikel(artikelID)) {
+            if (menge < getPackungGroesse(artikelID)) {
+                throw new MengeWenigerAlsPackungGroesseException(getArtikelName(artikelID), menge, getPackungGroesse(artikelID));
+            }
+
+            if (menge % getPackungGroesse(artikelID) != 0) {
+                throw new MassengutartikelmengeNichtTeilbarException(getArtikelName(artikelID), getPackungGroesse(artikelID));
+            }
+        }
+
         Artikel einArtikel = artikelVW.gibArtikelListe().get(artikelID);
         warenkorbVW.loeschen(artikelID, menge);
         artikelVW.einfuegen(einArtikel, menge);
@@ -168,7 +221,16 @@ public class EShop {
     }
 
     public void bestandVeraendern(int artikelID, int neuerBestand, String mitarbeiter) throws IOException {
-        int aktuellerBestand = artikelVW.gibBestand(artikelID);
+        if (istMassengutartikel(artikelID)) {
+            if (neuerBestand < getPackungGroesse(artikelID)) {
+                throw new MengeWenigerAlsPackungGroesseException(getArtikelName(artikelID), neuerBestand, getPackungGroesse(artikelID));
+            }
+
+            if (neuerBestand % getPackungGroesse(artikelID) != 0) {
+                throw new MassengutartikelmengeNichtTeilbarException(getArtikelName(artikelID), getPackungGroesse(artikelID));
+            }
+        }
+        int aktuellerBestand = artikelVW.getBestand(artikelID);
         if (aktuellerBestand < neuerBestand) {
             artikelVW.bestandErhoehen(artikelID, neuerBestand - aktuellerBestand);
 
@@ -187,6 +249,26 @@ public class EShop {
         if (neuerBestand < 0) {
             throw new IllegalArgumentException("Ungültiger Bestand.");
         }
+    }
+
+    public boolean istMassengutartikel(int artikelID) {
+        return artikelVW.istMassengutartikel(artikelID);
+    }
+
+    public int getPackungGroesse(int artikelID) {
+        return artikelVW.getPackungGroesse(artikelID);
+    }
+
+    public void packungGroesseVeraendern(int artikelID, int neueGroesse) {
+        artikelVW.packungGroesseVeraendern(artikelID, neueGroesse);
+    }
+
+    public int getBestand(int artikelID) {
+        return artikelVW.getBestand(artikelID);
+    }
+
+    public String getArtikelName(int artikelID) {
+        return artikelVW.getArtikelName(artikelID);
     }
 
     public boolean login (String benutzerErkennung, String benutzerPasswort) {

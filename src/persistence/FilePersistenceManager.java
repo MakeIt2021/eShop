@@ -1,10 +1,7 @@
 package persistence;
 
-import entities.Artikel;
-import entities.Benutzer;
-import entities.Kunde;
-import entities.Mitarbeiter;
-import entities.Ereignis;
+import entities.*;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,7 +48,7 @@ public class FilePersistenceManager implements PersistenceManager {
         writer = new PrintWriter(new BufferedWriter(new FileWriter(datei)));
     }
 
-    public boolean close() {
+    public void close() {
         if (writer != null)
             writer.close();
 
@@ -62,11 +59,9 @@ public class FilePersistenceManager implements PersistenceManager {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
 
-                return false;
             }
         }
 
-        return true;
     }
 
     public Artikel ladeArtikel() throws IOException {
@@ -83,15 +78,20 @@ public class FilePersistenceManager implements PersistenceManager {
         String preisString = liesZeile();
         float preis = Float.parseFloat(preisString);
 
-        return new Artikel(artikelID, bezeichnung, preis);
+        int packungGroesse = Integer.parseInt(liesZeile());
+
+        return packungGroesse == 1 ? new Artikel(artikelID, bezeichnung, preis) : new Massengutartikel(artikelID, bezeichnung, preis, packungGroesse);
     }
 
-    public boolean speichereArtikel(Artikel a) throws IOException {
+    public void speichereArtikel(Artikel a) throws IOException {
         schreibeZeile(String.valueOf(a.getArtikelID()));
         schreibeZeile(a.getBezeichnung());
         schreibeZeile(String.valueOf(a.getPreis()));
-
-        return true;
+        if (a instanceof Massengutartikel) {
+            schreibeZeile(String.valueOf(((Massengutartikel) a).getPackungGroesse()));
+        } else {
+            schreibeZeile("1");
+        }
     }
 
     public HashMap<Integer, Integer> ladeArtikelMenge() throws IOException {
@@ -109,7 +109,7 @@ public class FilePersistenceManager implements PersistenceManager {
         }
     }
 
-    public boolean speichereArtikelMenge(HashMap<Integer, Integer> hm) throws IOException {
+    public void speichereArtikelMenge(HashMap<Integer, Integer> hm) throws IOException {
         for (Map.Entry<Integer, Integer> entry : hm.entrySet()) {
             int artikelID = entry.getKey();
             int artikelBestand = entry.getValue();
@@ -118,7 +118,6 @@ public class FilePersistenceManager implements PersistenceManager {
 
         schreibeZeile("EOF");
 
-        return true;
     }
 
 

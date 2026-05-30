@@ -2,6 +2,7 @@ package domain;
 
 import domain.exceptions.ArtikelExistiertBereitsException;
 import entities.Artikel;
+import entities.Massengutartikel;
 import persistence.FilePersistenceManager;
 import persistence.PersistenceManager;
 
@@ -121,7 +122,23 @@ public class ArtikelVW {
         return artikelMengeListe;
     }
 
-    public int gibBestand(int artikelID) {
+    public int getBestand(int artikelID) {
         return artikelMengeListe.get(artikelID);
+    }
+
+    public boolean istMassengutartikel(int artikelID) {
+        return artikelListe.get(artikelID) instanceof Massengutartikel;
+    }
+
+    public int getPackungGroesse(int artikelID) {
+        return ((Massengutartikel) artikelListe.get(artikelID)).getPackungGroesse();
+    }
+
+    public void packungGroesseVeraendern(int artikelID, int neueGroesse) {
+        ((Massengutartikel) artikelListe.get(artikelID)).setPackungGroesse(neueGroesse);
+    }
+
+    public String getArtikelName(int artikelID) {
+        return artikelListe.get(artikelID).getBezeichnung();
     }
 }

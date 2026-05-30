@@ -12,7 +12,7 @@ public class Artikel {
     }
 
     public String toString() {
-        return ("Artikel ID: " + artikelID + " / Bezeichnung: " + bezeichnung + " / Preis: " + preis + " /");
+        return ("Artikel ID: " + artikelID + " | Bezeichnung: " + bezeichnung + " | Preis: " + preis + " |");
     }
 
     public int getArtikelID() {
