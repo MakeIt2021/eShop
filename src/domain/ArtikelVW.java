@@ -1,6 +1,7 @@
 package domain;
 
 import domain.exceptions.ArtikelExistiertBereitsException;
+import domain.exceptions.BestandNichtAusreichendException;
 import entities.Artikel;
 import entities.Massengutartikel;
 import persistence.FilePersistenceManager;
@@ -71,7 +72,12 @@ public class ArtikelVW {
     }
 
     public void bestandVerringern(int artikelID, int menge) {
-        if (artikelMengeListe.get(artikelID) > 0)
+
+        int bestand = artikelMengeListe.get(artikelID);
+
+        if (bestand < menge) {
+            throw new BestandNichtAusreichendException(artikelListe.get(artikelID).getBezeichnung(), bestand, menge);
+        }
             artikelMengeListe.put(artikelID, artikelMengeListe.get(artikelID) - menge);
     }
 

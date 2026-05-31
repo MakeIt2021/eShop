@@ -1,7 +1,6 @@
 package domain;
 
-import domain.exceptions.MassengutartikelmengeNichtTeilbarException;
-import domain.exceptions.MengeWenigerAlsPackungGroesseException;
+import domain.exceptions.*;
 import entities.Artikel;
 import entities.Benutzer;
 import entities.Ereignis;
@@ -58,59 +57,95 @@ public class EShop {
     }
 
 
-    public void fuegeArtikelEin(int artikelID, String bezeichnung, int menge, float preis, String mitarbeiter) throws IOException {
-        Artikel art = new Artikel(artikelID, bezeichnung, preis);
+    public void fuegeArtikelEin(
+            int artikelID,
+            String bezeichnung,
+            int menge,
+            float preis,
+            String mitarbeiter
+    ) throws IOException {
+
+        if (preis < 0) {
+            throw new UngueltigerPreisException(preis);
+        }
+
+        if (menge <= 0) {
+            throw new UngueltigeMengeException(menge);
+        }
+
+        Artikel art = new Artikel(
+                artikelID,
+                bezeichnung,
+                preis
+        );
+
         artikelVW.einfuegen(art, menge);
 
-        /*
-         * Ereignis erzeugen:
-         * Einlagerung durch Mitarbeiter
-         */
-        Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), art, menge, "Einlagerung", "m:" + mitarbeiter);
+        Ereignis ereignis = new Ereignis(
+                LocalDate.now().getDayOfYear(),
+                art,
+                menge,
+                "Einlagerung",
+                "m:" + mitarbeiter
+        );
+
         ereignisse.add(ereignis);
 
         speichereArtikel();
-// Exception für preis und mengefuegeInWarenkorb
-        if (preis < 0) {
-            throw new IllegalArgumentException(
-                    "Preis darf nicht negativ sein."
-            );
-        }
-        if (menge <= 0) {
-            throw new IllegalArgumentException("Bestand muss positiv sein.");
-        }
     }
 
-    public void fuegeMassengutartikelEin(int artikelID, String bezeichnung, int menge, float preis, String mitarbeiter, int packungGroesse) throws IOException {
+    public void fuegeMassengutartikelEin(
+            int artikelID,
+            String bezeichnung,
+            int menge,
+            float preis,
+            String mitarbeiter,
+            int packungGroesse
+    ) throws IOException {
+
+        if (preis < 0) {
+            throw new UngueltigerPreisException(preis);
+        }
+
+        if (menge <= 0) {
+            throw new UngueltigeMengeException(menge);
+        }
+
         if (menge < packungGroesse) {
-            throw new MengeWenigerAlsPackungGroesseException(bezeichnung, menge, packungGroesse);
+            throw new MengeWenigerAlsPackungGroesseException(
+                    bezeichnung,
+                    menge,
+                    packungGroesse
+            );
         }
 
         if (menge % packungGroesse != 0) {
-            throw new MassengutartikelmengeNichtTeilbarException(bezeichnung, packungGroesse);
+            throw new MassengutartikelmengeNichtTeilbarException(
+                    bezeichnung,
+                    packungGroesse
+            );
         }
 
-        Artikel art = new Massengutartikel(artikelID, bezeichnung, preis, packungGroesse);
+        Artikel art = new Massengutartikel(
+                artikelID,
+                bezeichnung,
+                preis,
+                packungGroesse
+        );
+
         artikelVW.einfuegen(art, menge);
 
-        /*
-         * Ereignis erzeugen:
-         * Einlagerung durch Mitarbeiter
-         */
-        Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), art, menge, "Einlagerung", "m:" + mitarbeiter);
+        Ereignis ereignis = new Ereignis(
+                LocalDate.now().getDayOfYear(),
+                art,
+                menge,
+                "Einlagerung",
+                "m:" + mitarbeiter
+        );
+
         ereignisse.add(ereignis);
 
         speichereArtikel();
-
-        // Exception für preis und mengefuegeInWarenkorb
-        if (preis < 0) {
-            throw new IllegalArgumentException(
-                    "Preis darf nicht negativ sein."
-            );
-        }
-        if (menge <= 0) {
-            throw new IllegalArgumentException("Bestand muss positiv sein.");
-        }
     }
 
     public void artikelVernichten(int artikelID) throws IOException {
@@ -124,41 +159,61 @@ public class EShop {
     }
 
     public void preisVeraendern(int artikelID, float preis) throws IOException {
+
+        if (preis < 0) {
+            throw new UngueltigerPreisException(preis);
+        }
+
         artikelVW.preisVeraendern(artikelID, preis);
         speichereArtikel();
-
-        //Exception
-        if (preis < 0) {
-            throw new IllegalArgumentException("Preis darf nicht negativ sein.");
-        }
     }
 
     public void fuegeInWarenkorb(int artikelID, int menge, String kunde) throws IOException {
+
+        if (menge <= 0) {
+            throw new UngueltigeMengeException(menge);
+        }
+
+        if (artikelVW.getBestand(artikelID) < menge) {
+            throw new BestandNichtAusreichendException(
+                    getArtikelName(artikelID),
+                    artikelVW.getBestand(artikelID),
+                    menge
+            );
+        }
+
         if (istMassengutartikel(artikelID)) {
+
             if (menge < getPackungGroesse(artikelID)) {
-                throw new MengeWenigerAlsPackungGroesseException(getArtikelName(artikelID), menge, getPackungGroesse(artikelID));
+                throw new MengeWenigerAlsPackungGroesseException(
+                        getArtikelName(artikelID),
+                        menge,
+                        getPackungGroesse(artikelID)
+                );
             }
 
             if (menge % getPackungGroesse(artikelID) != 0) {
-                throw new MassengutartikelmengeNichtTeilbarException(getArtikelName(artikelID), getPackungGroesse(artikelID));
+                throw new MassengutartikelmengeNichtTeilbarException(
+                        getArtikelName(artikelID),
+                        getPackungGroesse(artikelID)
+                );
             }
         }
 
         warenkorbVW.einfuegen(artikelID, menge);
         artikelVW.loeschen(artikelID, menge);
 
-        Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), artikelVW.findeArtikel(artikelID), menge, "Auslagerung", "k:" + kunde);
+        Ereignis ereignis = new Ereignis(
+                LocalDate.now().getDayOfYear(),
+                artikelVW.findeArtikel(artikelID),
+                menge,
+                "Auslagerung",
+                "k:" + kunde
+        );
+
         ereignisse.add(ereignis);
 
         speichereArtikel();
-
-//Exception
-        if (menge <= 0) {
-            throw new IllegalArgumentException("Menge muss positiv sein.");
-        }
-        if (artikelVW.getBestand(artikelID) < menge) {
-            throw new IllegalStateException("Nicht genug Bestand.");
-        }
     }
 
     public void loescheAusWarenkorb(int artikelID, int menge, String kunde) throws IOException {
@@ -217,38 +272,81 @@ public class EShop {
     }
 
     public int sucheNachID(String bezeichnung) {
-        return artikelVW.sucheNachIDMitBezeichnung(bezeichnung);
+
+        int artikelID = artikelVW.sucheNachIDMitBezeichnung(bezeichnung);
+
+        if (artikelID == -1) {
+            throw new ArtikelExistiertNichtException(bezeichnung);
+        }
+        return artikelID;
     }
 
-    public void bestandVeraendern(int artikelID, int neuerBestand, String mitarbeiter) throws IOException {
+    public void bestandVeraendern(
+            int artikelID,
+            int neuerBestand,
+            String mitarbeiter
+    ) throws IOException {
+
+        if (neuerBestand <= 0) {
+            throw new UngueltigeMengeException(neuerBestand);
+        }
+
         if (istMassengutartikel(artikelID)) {
+
             if (neuerBestand < getPackungGroesse(artikelID)) {
-                throw new MengeWenigerAlsPackungGroesseException(getArtikelName(artikelID), neuerBestand, getPackungGroesse(artikelID));
+                throw new MengeWenigerAlsPackungGroesseException(
+                        getArtikelName(artikelID),
+                        neuerBestand,
+                        getPackungGroesse(artikelID)
+                );
             }
 
             if (neuerBestand % getPackungGroesse(artikelID) != 0) {
-                throw new MassengutartikelmengeNichtTeilbarException(getArtikelName(artikelID), getPackungGroesse(artikelID));
+                throw new MassengutartikelmengeNichtTeilbarException(
+                        getArtikelName(artikelID),
+                        getPackungGroesse(artikelID)
+                );
             }
         }
+
         int aktuellerBestand = artikelVW.getBestand(artikelID);
+
         if (aktuellerBestand < neuerBestand) {
-            artikelVW.bestandErhoehen(artikelID, neuerBestand - aktuellerBestand);
 
-            Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), artikelVW.findeArtikel(artikelID), neuerBestand - aktuellerBestand, "Einlagerung", "m:" + mitarbeiter);
+            artikelVW.bestandErhoehen(
+                    artikelID,
+                    neuerBestand - aktuellerBestand
+            );
+
+            Ereignis ereignis = new Ereignis(
+                    LocalDate.now().getDayOfYear(),
+                    artikelVW.findeArtikel(artikelID),
+                    neuerBestand - aktuellerBestand,
+                    "Einlagerung",
+                    "m:" + mitarbeiter
+            );
+
             ereignisse.add(ereignis);
-        } else {
-            artikelVW.bestandVerringern(artikelID, aktuellerBestand - neuerBestand);
 
-            Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), artikelVW.findeArtikel(artikelID), aktuellerBestand - neuerBestand, "Auslagerung", "m:" + mitarbeiter);
+        } else {
+
+            artikelVW.bestandVerringern(
+                    artikelID,
+                    aktuellerBestand - neuerBestand
+            );
+
+            Ereignis ereignis = new Ereignis(
+                    LocalDate.now().getDayOfYear(),
+                    artikelVW.findeArtikel(artikelID),
+                    aktuellerBestand - neuerBestand,
+                    "Auslagerung",
+                    "m:" + mitarbeiter
+            );
+
             ereignisse.add(ereignis);
         }
 
         speichereArtikel();
-
-        // Exception
-        if (neuerBestand < 0) {
-            throw new IllegalArgumentException("Ungültiger Bestand.");
-        }
     }
 
     public boolean istMassengutartikel(int artikelID) {
@@ -298,5 +396,17 @@ public class EShop {
 
     public Benutzer aktuellerBenutzer () {
         return benutzerVW.getAktuellerBenutzer();
+    }
+
+    public void pruefeArtikelExistiertBereits(String bezeichnung) {
+
+        int artikelID = artikelVW.sucheNachIDMitBezeichnung(bezeichnung);
+
+        if (artikelID != -1) {
+
+            Artikel artikel = artikelVW.findeArtikel(artikelID);
+
+            throw new ArtikelExistiertBereitsException(artikel, "");
+        }
     }
 }

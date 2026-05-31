@@ -1,7 +1,7 @@
 package ui.cui;
 
 import domain.EShop;
-import domain.exceptions.MassengutartikelmengeNichtTeilbarException;
+import domain.exceptions.*;
 import entities.Benutzer;
 import entities.*;
 
@@ -128,12 +128,23 @@ public class EShopClientCUI {
                     artikelID = vorhandeneIDs.getLast() + 1;
 
                 aktuelleBenutzer = eShop.aktuellerBenutzer();
-                
+
                 // Artikelinformationen eingeben
                 System.out.print("Bezeichnung > ");
                 bezeichnung = liesEingabe();
-                if (eShop.sucheNachID(bezeichnung) != -1) {
-                    System.out.println("Artikel mit solcher Bezeichnung existiert bereits"); // TODO: Exception?
+
+                try {
+
+                    eShop.pruefeArtikelExistiertBereits(bezeichnung);
+
+                }
+                catch (ArtikelExistiertBereitsException e) {
+
+                    System.out.println(RED +
+                                    e.getMessage()
+                                    + RESET
+                    );
+
                     break;
                 }
 
@@ -150,19 +161,39 @@ public class EShopClientCUI {
                     System.out.print("> ");
                     bestand = Integer.parseInt(liesEingabe());
                 }
-                
+
 
                 if (artikelTyp.equals("e")) {
-                    // Artikel hinzufügen
-                    eShop.fuegeArtikelEin(
-                            artikelID,
-                            bezeichnung,
-                            bestand,
-                            preis,
-                            aktuelleBenutzer.getBenutzerVorNachname()
-                    );
-                } else if (artikelTyp.equals("m")) {
+
                     try {
+
+                        eShop.fuegeArtikelEin(
+                                artikelID,
+                                bezeichnung,
+                                bestand,
+                                preis,
+                                aktuelleBenutzer.getBenutzerVorNachname()
+                        );
+
+                        System.out.println(
+                                GREEN +
+                                        "✔ Artikel erfolgreich hinzugefügt."
+                                        + RESET
+                        );
+
+                    } catch (UngueltigerPreisException | UngueltigeMengeException e) {
+
+                        System.out.println(
+                                RED +
+                                        e.getMessage()
+                                        + RESET
+                        );
+                    }
+
+                } else if (artikelTyp.equals("m")) {
+
+                    try {
+
                         eShop.fuegeMassengutartikelEin(
                                 artikelID,
                                 bezeichnung,
@@ -172,105 +203,226 @@ public class EShopClientCUI {
                                 packungGroesse
                         );
 
-                        System.out.println(GREEN + "✔ Artikel erfolgreich hinzugefügt." + RESET);
-                    } catch (RuntimeException e) {
-                        System.out.println("Exception: " + e);
+                        System.out.println(
+                                GREEN +
+                                        "✔ Artikel erfolgreich hinzugefügt."
+                                        + RESET
+                        );
+
+                    }catch (
+                            UngueltigerPreisException
+                            | UngueltigeMengeException
+                            | MengeWenigerAlsPackungGroesseException
+                            | MassengutartikelmengeNichtTeilbarException e
+                    ){
+                        System.out.println(
+                                RED +
+                                        e.getMessage()
+                                        + RESET
+                        );
                     }
                 }
             }
 
             case "bsv" -> {
-                //Prüfen ob Benutzer eingeloggt ist
+
                 if (!eShop.istEingeloggt()) {
-                    System.out.println("Bitte zuerst einloggen."); // TODO: Exception?
+                    System.out.println("Bitte zuerst einloggen.");
                     break;
                 }
-                // Prüfen ob Mitarbeiter eingeloggt ist
+
                 if (!eShop.istMitarbeiter()) {
-                    System.out.println("Nur Mitarbeiter dürfen Artikel löschen."); // TODO: Exception?
+                    System.out.println("Nur Mitarbeiter dürfen Artikel löschen.");
                     break;
                 }
 
-                // Artikelinformationen eingeben
                 System.out.print("Bezeichnung > ");
-                artikelID = eShop.sucheNachID(liesEingabe());
 
-                if (artikelID == -1) {
-                    System.out.println(YELLOW + "Es gibt keinen solchen Artikel" + RESET); // TODO: Exception?
+                try {
+                    artikelID = eShop.sucheNachID(liesEingabe());
+                } catch (ArtikelExistiertNichtException e) {
+                    System.out.println(RED + e.getMessage() + RESET);
                     break;
                 }
 
                 aktuelleBenutzer = eShop.aktuellerBenutzer();
 
                 if (!eShop.istMassengutartikel(artikelID)) {
-                    System.out.print("Neuer Bestand > ");
-                    menge = Integer.parseInt(liesEingabe()); // TODO: Exception
 
-                    eShop.bestandVeraendern(artikelID, menge, aktuelleBenutzer.getBenutzerVorNachname());
+                    System.out.print("Neuer Bestand > ");
+                    menge = Integer.parseInt(liesEingabe());
+
+                    try {
+
+                        eShop.bestandVeraendern(
+                                artikelID,
+                                menge,
+                                aktuelleBenutzer.getBenutzerVorNachname()
+                        );
+
+                        System.out.println(YELLOW + "✔ Artikelbestand erfolgreich verändert." + RESET);
+
+                    } catch (UngueltigeMengeException e) {
+
+                        System.out.println(RED +
+                                        e.getMessage()
+                                        + RESET
+                        );
+                    }
+
                 } else {
                     System.out.println("Die Größe der Packung ist bereits " + eShop.getPackungGroesse(artikelID));
+
                     System.out.println("Möchten Sie die Größe der Packung verändern oder die gesamte Menge? [g / m]");
+
                     String operation = liesEingabe();
-                    
+
                     if (operation.equals("g")) {
+
                         System.out.println("Geben Sie bitte die neue Größe der Packung > ");
+
                         int neueGroesse = Integer.parseInt(liesEingabe());
-                        eShop.packungGroesseVeraendern(artikelID, neueGroesse);
+
+                        eShop.packungGroesseVeraendern(
+                                artikelID,
+                                neueGroesse
+                        );
+
                     } else if (operation.equals("m")) {
+
                         System.out.println("Geben Sie bitte die neue Menge der Artikel ein.");
-                        System.out.println(YELLOW + "Die neue Menge muss durch " + eShop.getPackungGroesse(artikelID) + " teilbar sein" + RESET);
-                        int neueMenge = Integer.parseInt(liesEingabe());
+
+                        System.out.println(YELLOW +
+                                        "Die neue Menge muss durch "
+                                        + eShop.getPackungGroesse(artikelID)
+                                        + " teilbar sein"
+                                        + RESET
+                        );
+
+                        int neueMenge =
+                                Integer.parseInt(liesEingabe());
+
                         try {
-                            eShop.bestandVeraendern(artikelID, neueMenge, aktuelleBenutzer.getBenutzerVorNachname());
-                            System.out.println(YELLOW + "✔ Artikelbestand erfolgreich verändert." + RESET);
-                        } catch (RuntimeException e) {
-                            System.out.println("Exception " + e);
+
+                            eShop.bestandVeraendern(
+                                    artikelID,
+                                    neueMenge,
+                                    aktuelleBenutzer.getBenutzerVorNachname()
+                            );
+
+                            System.out.println(YELLOW +
+                                            "✔ Artikelbestand erfolgreich verändert."
+                                            + RESET
+                            );
+
+                        }catch (
+                                UngueltigeMengeException
+                                | MengeWenigerAlsPackungGroesseException
+                                | MassengutartikelmengeNichtTeilbarException e
+                        ) {
+                            System.out.println(
+                                    RED +
+                                            e.getMessage()
+                                            + RESET
+                            );
                         }
                     }
                 }
             }
 
             case "we" -> {
+
                 if (!eShop.istEingeloggt()) {
                     System.out.println("Bitte zuerst einloggen.");
                     break;
                 }
+
                 if (!eShop.istKunde()) {
                     System.out.println("Nur Kunden dürfen Artikel kaufen.");
                     break;
                 }
-                
-                System.out.print("Bezeichnung > ");
-                artikelID = eShop.sucheNachID(liesEingabe());
 
-                if (artikelID == -1) {
-                    System.out.println(YELLOW + "Es gibt keinen solchen Artikel" + RESET); // TODO: Exception?
+                System.out.print("Bezeichnung > ");
+                try {
+                    artikelID = eShop.sucheNachID(liesEingabe());
+                } catch (ArtikelExistiertNichtException e) {
+                    System.out.println(RED + e.getMessage() + RESET);
                     break;
                 }
 
                 if (!eShop.istMassengutartikel(artikelID)) {
+
                     System.out.print("Menge der Artikel > ");
-                    menge = Integer.parseInt(liesEingabe()); // TODO: Exception
+                    menge = Integer.parseInt(liesEingabe());
 
-                    aktuelleBenutzer = eShop.aktuellerBenutzer();
-
-                    eShop.fuegeInWarenkorb(artikelID, menge, aktuelleBenutzer.getBenutzerVorNachname());
-                } else {
-                    System.out.println(YELLOW + eShop.getArtikelName(artikelID) + " ist ein Massengutartikel!");
-                    System.out.println("Das bedeutet, dass die Menge im Warenkorb durch " + eShop.getPackungGroesse(artikelID) + " teilbar sein soll!" + RESET);
-                    System.out.print("> ");
-                    menge = Integer.parseInt(liesEingabe()); // TODO: Exception
                     aktuelleBenutzer = eShop.aktuellerBenutzer();
 
                     try {
-                        eShop.fuegeInWarenkorb(artikelID, menge, aktuelleBenutzer.getBenutzerVorNachname());
-                        System.out.println(GREEN + "✔ Artikel wurde zum Warenkorb hinzugefügt." + RESET);
-                    } catch (RuntimeException e) {
-                        System.out.println("Exception: " + e);
+
+                        eShop.fuegeInWarenkorb(
+                                artikelID,
+                                menge,
+                                aktuelleBenutzer.getBenutzerVorNachname()
+                        );
+
+                        System.out.println(
+                                GREEN +
+                                        "✔ Artikel wurde zum Warenkorb hinzugefügt."
+                                        + RESET
+                        );
+
+                    } catch (BestandNichtAusreichendException | UngueltigeMengeException e) {
+
+                        System.out.println(
+                                RED +
+                                        e.getMessage()
+                                        + RESET
+                        );
+                    }
+
+                } else {
+
+                    System.out.println(
+                            YELLOW +
+                                    eShop.getArtikelName(artikelID)
+                                    + " ist ein Massengutartikel!"
+                    );
+
+                    System.out.println(
+                            "Das bedeutet, dass die Menge im Warenkorb durch "
+                                    + eShop.getPackungGroesse(artikelID)
+                                    + " teilbar sein soll!"
+                                    + RESET
+                    );
+
+                    System.out.print("> ");
+                    menge = Integer.parseInt(liesEingabe());
+
+                    aktuelleBenutzer = eShop.aktuellerBenutzer();
+
+                    try {
+
+                        eShop.fuegeInWarenkorb(
+                                artikelID,
+                                menge,
+                                aktuelleBenutzer.getBenutzerVorNachname()
+                        );
+
+                        System.out.println(
+                                GREEN +
+                                        "✔ Artikel wurde zum Warenkorb hinzugefügt."
+                                        + RESET
+                        );
+
+                    } catch (BestandNichtAusreichendException | UngueltigeMengeException e) {
+
+                        System.out.println(
+                                RED +
+                                        e.getMessage()
+                                        + RESET
+                        );
                     }
                 }
-
-
             }
 
             case "wl" -> {
@@ -284,10 +436,10 @@ public class EShopClientCUI {
                 }
 
                 System.out.print("Bezeichnung > ");
-                artikelID = eShop.sucheNachID(liesEingabe());
-
-                if (artikelID == -1) {
-                    System.out.println(YELLOW + "Es gibt keinen solchen Artikel" + RESET); // TODO: Exception?
+                try {
+                    artikelID = eShop.sucheNachID(liesEingabe());
+                } catch (ArtikelExistiertNichtException e) {
+                    System.out.println(RED + e.getMessage() + RESET);
                     break;
                 }
 
@@ -300,8 +452,16 @@ public class EShopClientCUI {
                 try {
                     eShop.loescheAusWarenkorb(artikelID, menge, aktuelleBenutzer.getBenutzerVorNachname());
                     System.out.println(YELLOW + "✔ Artikel wurde aus dem Warenkorb entfernt." + RESET);
-                } catch (RuntimeException e) {
-                    System.out.println("Exception: " + e);
+                } catch (
+                        MengeWenigerAlsPackungGroesseException
+                        | MassengutartikelmengeNichtTeilbarException e
+                ) {
+
+                    System.out.println(
+                            RED +
+                                    e.getMessage() +
+                                    RESET
+                    );
                 }
             }
 
@@ -351,10 +511,10 @@ public class EShopClientCUI {
                     break;
                 }
                 System.out.print("Bezeichnung > ");
-                artikelID = eShop.sucheNachID(liesEingabe());
-
-                if (artikelID == -1) {
-                    System.out.println(YELLOW + "Es gibt keinen solchen Artikel" + RESET); // TODO: Exception?
+                try {
+                    artikelID = eShop.sucheNachID(liesEingabe());
+                } catch (ArtikelExistiertNichtException e) {
+                    System.out.println(RED + e.getMessage() + RESET);
                     break;
                 }
 
@@ -378,10 +538,11 @@ public class EShopClientCUI {
                 }
 
                 System.out.print("Bezeichnung > ");
-                artikelID = eShop.sucheNachID(liesEingabe());
-                
-                if (artikelID == -1) {
-                    System.out.println(YELLOW + "Es gibt keinen solchen Artikel" + RESET); // TODO: Exception?
+
+                try {
+                    artikelID = eShop.sucheNachID(liesEingabe());
+                } catch (ArtikelExistiertNichtException e) {
+                    System.out.println(RED + e.getMessage() + RESET);
                     break;
                 }
 
@@ -389,9 +550,13 @@ public class EShopClientCUI {
                 System.out.print("Neuer Preis > ");
                 preis = Float.parseFloat(liesEingabe());
 
+                try {
                 eShop.preisVeraendern(artikelID, preis);
 
                 System.out.println(YELLOW + "✔ Preis erfolgreich geändert." + RESET);
+            } catch (UngueltigerPreisException e) {
+                    System.out.println(RED + e.getMessage() + RESET);
+                }
             }
 
             case "al" -> {
@@ -413,10 +578,10 @@ public class EShopClientCUI {
                 );
 
                 System.out.print("Bezeichnung > ");
-                artikelID = eShop.sucheNachID(liesEingabe());
-                
-                if (artikelID == -1) {
-                    System.out.println(YELLOW + "Es gibt keinen solchen Artikel" + RESET); // TODO: Exception?
+                try {
+                    artikelID = eShop.sucheNachID(liesEingabe());
+                } catch (ArtikelExistiertNichtException e) {
+                    System.out.println(RED + e.getMessage() + RESET);
                     break;
                 }
 
