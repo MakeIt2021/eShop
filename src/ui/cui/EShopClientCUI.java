@@ -831,12 +831,22 @@ public class EShopClientCUI {
 
         for (Map.Entry<Integer, Integer> entry : rechnung.gibWarenkorbListe().entrySet()) {
             Artikel curArt = eShop.gibArtikelListe().get(entry.getKey());
-            System.out.printf(
-                    "%-11s %12s€ %13.2f€\n",
-                    curArt.getBezeichnung(),
-                    entry.getValue() + " × " + String.format("%.2f", curArt.getPreis()),
-                    curArt.getPreis() * entry.getValue()
-            );
+            if (!(curArt instanceof Massengutartikel)) {
+                System.out.printf(
+                        "%-11s %12s€ %13.2f€\n",
+                        curArt.getBezeichnung(),
+                        entry.getValue() + " × " + String.format("%.2f", curArt.getPreis()),
+                        curArt.getPreis() * entry.getValue()
+                );
+            } else {
+                System.out.printf(
+                        "%-11s %12s€ %13.2f€\n",
+                        curArt.getBezeichnung() + " [" + ((Massengutartikel) curArt).getPackungGroesse() + "]",
+                        (entry.getValue() / ((Massengutartikel) curArt).getPackungGroesse()) + " × " + String.format("%.2f", curArt.getPreis()),
+                        curArt.getPreis() * entry.getValue() / ((Massengutartikel) curArt).getPackungGroesse()
+                );
+            }
+
         }
 
         System.out.println("-".repeat(rechnung_width));

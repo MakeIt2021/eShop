@@ -20,7 +20,12 @@ public class Rechnung {
         double summe = 0;
         for (Map.Entry<Integer, Integer> entry : warenkorbListe.entrySet()) {
             Artikel curArt = artikelListe.get(entry.getKey());
-            summe += entry.getValue() * curArt.getPreis();
+            if (!(curArt instanceof Massengutartikel)) {
+                summe += entry.getValue() * curArt.getPreis();
+            } else {
+                summe += entry.getValue() * curArt.getPreis() / ((Massengutartikel) curArt).getPackungGroesse();
+            }
+
         }
 
         return summe;
