@@ -414,7 +414,7 @@ public class EShopClientCUI {
                                         + RESET
                         );
 
-                    } catch (BestandNichtAusreichendException | UngueltigeMengeException e) {
+                    } catch (BestandNichtAusreichendException | UngueltigeMengeException | MassengutartikelmengeNichtTeilbarException e) {
 
                         System.out.println(
                                 RED +
