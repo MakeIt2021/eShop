@@ -1,8 +1,10 @@
 package domain;
 
 import domain.exceptions.ArtikelExistiertBereitsException;
+import domain.exceptions.BestandNichtAusreichendException;
 import entities.Artikel;
 import entities.Ereignis;
+import entities.Massengutartikel;
 import persistence.FilePersistenceManager;
 import persistence.PersistenceManager;
 import java.time.LocalDate;
@@ -149,6 +151,12 @@ public class ArtikelVW {
                 LocalDate.now().getDayOfYear(),
                 artikel,
                 menge, "AUSLAGERUNG", "system"));
+        int bestand = artikelMengeListe.get(artikelID);
+
+        if (bestand < menge) {
+            throw new BestandNichtAusreichendException(artikelListe.get(artikelID).getBezeichnung(), bestand, menge);
+        }
+            artikelMengeListe.put(artikelID, artikelMengeListe.get(artikelID) - menge);
     }
 
     public void einfuegen(Artikel einArtikel, int menge) {
@@ -213,5 +221,26 @@ public class ArtikelVW {
         /*Artikel a = findeArtikel(artikelID);
         if (a == null) return 0;
         return berechneBestand(artikelID);*/
+
+    }
+
+    public int getBestand(int artikelID) {
+        return artikelMengeListe.get(artikelID);
+    }
+
+    public boolean istMassengutartikel(int artikelID) {
+        return artikelListe.get(artikelID) instanceof Massengutartikel;
+    }
+
+    public int getPackungGroesse(int artikelID) {
+        return ((Massengutartikel) artikelListe.get(artikelID)).getPackungGroesse();
+    }
+
+    public void packungGroesseVeraendern(int artikelID, int neueGroesse) {
+        ((Massengutartikel) artikelListe.get(artikelID)).setPackungGroesse(neueGroesse);
+    }
+
+    public String getArtikelName(int artikelID) {
+        return artikelListe.get(artikelID).getBezeichnung();
     }
 }
