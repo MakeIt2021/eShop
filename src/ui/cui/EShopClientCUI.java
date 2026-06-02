@@ -1,6 +1,8 @@
 package ui.cui;
 
+import com.sun.jdi.request.InvalidRequestStateException;
 import domain.EShop;
+import domain.exceptions.*;
 import entities.Benutzer;
 import entities.*;
 
@@ -78,8 +80,9 @@ public class EShopClientCUI {
         int menge;
         String bezeichnung;
         float preis;
-        int bestand;
+        int bestand = 0;
         Benutzer aktuelleBenutzer;
+        int packungGroesse = 1;
 
 
         HashMap<Integer, Artikel> artikelListe = null;
@@ -111,18 +114,15 @@ public class EShopClientCUI {
                     break;
                 }
 
-                // Artikelinformationen eingeben
-                System.out.print("Bezeichnung > ");
-                bezeichnung = liesEingabe();
-                if (eShop.sucheNachID(bezeichnung) != -1) {
-                    System.out.println("Artikel mit solcher Bezeichnung existiert bereits"); // TODO: Exception?
+                System.out.println("Einzelartikel oder Massengutartikel? [e/m]");
+                String artikelTyp = liesEingabe();
+
+                if (artikelTyp.equals("e")){
+                } else if (artikelTyp.equals("m")){
+                }else {
+                    System.out.println(RED + "Ungultige Eingabbe. Bitte e oder m eingeben" + RESET);
                     break;
                 }
-
-                System.out.print("Preis > ");
-                preis = Float.parseFloat(liesEingabe()); // TODO: Exception
-                System.out.print("Bestand > ");
-                bestand = Integer.parseInt(liesEingabe()); // TODO: Exception
 
                 ArrayList<Integer> vorhandeneIDs = new ArrayList<>(eShop.gibArtikelListe().keySet());
                 Collections.sort(vorhandeneIDs);
@@ -133,74 +133,367 @@ public class EShopClientCUI {
                     artikelID = vorhandeneIDs.getLast() + 1;
 
                 aktuelleBenutzer = eShop.aktuellerBenutzer();
-                // Artikel hinzufügen
-                eShop.fuegeArtikelEin(
-                        artikelID,
-                        bezeichnung,
-                        bestand,
-                        preis,
-                        aktuelleBenutzer.getBenutzerVorNachname()
-                );
-                System.out.println(GREEN + "✔ Artikel erfolgreich hinzugefügt." + RESET);
-            }
-
-            case "bsv" -> {
-                //Prüfen ob Benutzer eingeloggt ist
-                if (!eShop.istEingeloggt()) {
-                    System.out.println("Bitte zuerst einloggen."); // TODO: Exception?
-                    break;
-                }
-                // Prüfen ob Mitarbeiter eingeloggt ist
-                if (!eShop.istMitarbeiter()) {
-                    System.out.println("Nur Mitarbeiter dürfen Artikel löschen."); // TODO: Exception?
-                    break;
-                }
 
                 // Artikelinformationen eingeben
                 System.out.print("Bezeichnung > ");
-                artikelID = eShop.sucheNachID(liesEingabe());
+                bezeichnung = liesEingabe();
 
-                if (artikelID == -1) {
-                    System.out.println(YELLOW + "Es gibt keinen solchen Artikel" + RESET); // TODO: Exception?
+                try {
+
+                    eShop.pruefeArtikelExistiertBereits(bezeichnung);
+
+                }
+                catch (ArtikelExistiertBereitsException e) {
+
+                    System.out.println(RED +
+                                    e.getMessage()
+                                    + RESET
+                    );
+
                     break;
                 }
 
-                System.out.print("Neuer Bestand > ");
-                menge = Integer.parseInt(liesEingabe()); // TODO: Exception
+                System.out.print("Preis > ");
+                try {
+                preis = Float.parseFloat(liesEingabe());
+                } catch (NumberFormatException e) {
+                    System.out.println(RED +
+                                    "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                    + RESET
+                    );
+                    break;
+                }
+                if (artikelTyp.equals("e")) {
+                    System.out.print("Bestand > ");
+                    try {
+                        bestand = Integer.parseInt(liesEingabe());
+                    } catch (NumberFormatException e){
+                        System.out.println(RED + "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                + RESET);
+                        break;
+                    }
+                } else if (artikelTyp.equals("m")) {
+                    System.out.print("Größe der Packung > ");
+                    try {
+                    packungGroesse = Integer.parseInt(liesEingabe());
+                    } catch (NumberFormatException e) {
+                        System.out.println(RED +
+                                        "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                        + RESET
+                        );
+                        break;
+                    }
+                    System.out.println("Bestand");
+                    System.out.println(YELLOW + "Der Bestand muss durch " + packungGroesse + " teilbar sein" + RESET);
+                    System.out.print("> ");
+                    try {
+                    bestand = Integer.parseInt(liesEingabe());
+                    } catch (NumberFormatException e) {
+                        System.out.println(RED +
+                                        "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                        + RESET
+                        );
+                        break;
+                    }
+                }
 
-                aktuelleBenutzer = eShop.aktuellerBenutzer();
 
-                eShop.bestandVeraendern(artikelID, menge, aktuelleBenutzer.getBenutzerVorNachname());
+                if (artikelTyp.equals("e")) {
 
-                System.out.println(YELLOW + "✔ Artikelbestand erfolgreich verändert." + RESET);
+                    try {
+
+                        eShop.fuegeArtikelEin(
+                                artikelID,
+                                bezeichnung,
+                                bestand,
+                                preis,
+                                aktuelleBenutzer.getBenutzerVorNachname()
+                        );
+
+                        System.out.println(
+                                GREEN +
+                                        "✔ Artikel erfolgreich hinzugefügt."
+                                        + RESET
+                        );
+
+                    } catch (UngueltigerPreisException | UngueltigeMengeException e) {
+
+                        System.out.println(
+                                RED +
+                                        e.getMessage()
+                                        + RESET
+                        );
+                    }
+
+                } else if (artikelTyp.equals("m")) {
+
+                    try {
+
+                        eShop.fuegeMassengutartikelEin(
+                                artikelID,
+                                bezeichnung,
+                                bestand,
+                                preis,
+                                aktuelleBenutzer.getBenutzerVorNachname(),
+                                packungGroesse
+                        );
+
+                        System.out.println(
+                                GREEN +
+                                        "✔ Artikel erfolgreich hinzugefügt."
+                                        + RESET
+                        );
+
+                    }catch (
+                            UngueltigerPreisException
+                            | UngueltigeMengeException
+                            | MengeWenigerAlsPackungGroesseException
+                            | MassengutartikelmengeNichtTeilbarException e
+                    ){
+                        System.out.println(
+                                RED +
+                                        e.getMessage()
+                                        + RESET
+                        );
+                    }
+                }
             }
 
-            case "we" -> {
+            case "bsv" -> {
+
                 if (!eShop.istEingeloggt()) {
                     System.out.println("Bitte zuerst einloggen.");
                     break;
                 }
+
+                if (!eShop.istMitarbeiter()) {
+                    System.out.println("Nur Mitarbeiter dürfen Artikel löschen.");
+                    break;
+                }
+
+                System.out.print("Bezeichnung > ");
+
+                try {
+                    artikelID = eShop.sucheNachID(liesEingabe());
+                } catch (ArtikelExistiertNichtException e) {
+                    System.out.println(RED + e.getMessage() + RESET);
+                    break;
+                }
+
+                aktuelleBenutzer = eShop.aktuellerBenutzer();
+
+                if (!eShop.istMassengutartikel(artikelID)) {
+
+                    System.out.print("Neuer Bestand > ");
+
+                    //für sehr grossen Zahlen
+                    try {
+                        menge = Integer.parseInt(liesEingabe());
+                    } catch (NumberFormatException e) {
+                        System.out.println(
+                                RED +
+                                        "Ungültige Eingabe. Bitte geben Sie eine gültige ganze Zahl ein."
+                                        + RESET
+                        );
+                        break;
+                    }
+
+                    try {
+
+                        eShop.bestandVeraendern(
+                                artikelID,
+                                menge,
+                                aktuelleBenutzer.getBenutzerVorNachname()
+                        );
+
+                        System.out.println(YELLOW + "✔ Artikelbestand erfolgreich verändert." + RESET);
+
+                    } catch (UngueltigeMengeException e) {
+
+                        System.out.println(RED +
+                                        e.getMessage()
+                                        + RESET
+                        );
+                    }
+
+                } else {
+                    System.out.println("Die Größe der Packung ist bereits " + eShop.getPackungGroesse(artikelID));
+
+                    System.out.println("Möchten Sie die Größe der Packung verändern oder die gesamte Menge? [g / m]");
+
+                    String operation = liesEingabe();
+
+                    if (operation.equals("g")) {
+
+                        System.out.println("Geben Sie bitte die neue Größe der Packung > ");
+
+                        int neueGroesse;
+                        try {
+                            neueGroesse = Integer.parseInt(liesEingabe());
+                        } catch (NumberFormatException e) {
+                            System.out.println(RED +
+                                    "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                    + RESET
+                            );
+                            break;
+                        }
+
+                        eShop.packungGroesseVeraendern(
+                                artikelID,
+                                neueGroesse
+                        );
+
+                    } else if (operation.equals("m")) {
+
+                        System.out.println("Geben Sie bitte die neue Menge der Artikel ein.");
+
+                        System.out.println(YELLOW +
+                                        "Die neue Menge muss durch "
+                                        + eShop.getPackungGroesse(artikelID)
+                                        + " teilbar sein"
+                                        + RESET
+                        );
+                        try {
+                        int neueMenge = Integer.parseInt(liesEingabe());
+                        //try {
+
+                            eShop.bestandVeraendern(
+                                    artikelID,
+                                    neueMenge,
+                                    aktuelleBenutzer.getBenutzerVorNachname()
+                            );
+
+                            System.out.println(YELLOW +
+                                            "✔ Artikelbestand erfolgreich verändert."
+                                            + RESET
+                            );
+                        } catch (NumberFormatException e) {
+                            System.out.println(
+                                    RED +
+                                            "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                            + RESET);
+
+                        }catch (
+                                UngueltigeMengeException
+                                | MengeWenigerAlsPackungGroesseException
+                                | MassengutartikelmengeNichtTeilbarException e
+                        ) {
+                            System.out.println(
+                                    RED +
+                                            e.getMessage()
+                                            + RESET
+                            );
+                        }
+                    }
+                }
+            }
+
+            case "we" -> {
+
+                if (!eShop.istEingeloggt()) {
+                    System.out.println("Bitte zuerst einloggen.");
+                    break;
+                }
+
                 if (!eShop.istKunde()) {
                     System.out.println("Nur Kunden dürfen Artikel kaufen.");
                     break;
                 }
-                
+
                 System.out.print("Bezeichnung > ");
-                artikelID = eShop.sucheNachID(liesEingabe());
-                
-                if (artikelID == -1) {
-                    System.out.println(YELLOW + "Es gibt keinen solchen Artikel" + RESET); // TODO: Exception?
+                try {
+                    artikelID = eShop.sucheNachID(liesEingabe());
+                } catch (ArtikelExistiertNichtException e) {
+                    System.out.println(RED + e.getMessage() + RESET);
                     break;
                 }
 
-                System.out.print("Menge der Artikel > ");
-                menge = Integer.parseInt(liesEingabe()); // TODO: Exception
+                if (!eShop.istMassengutartikel(artikelID)) {
 
-                aktuelleBenutzer = eShop.aktuellerBenutzer();
+                    System.out.print("Menge der Artikel > ");
 
-                eShop.fuegeInWarenkorb(artikelID, menge, aktuelleBenutzer.getBenutzerVorNachname());
+                    try {
+                    menge = Integer.parseInt(liesEingabe());
+                    } catch (NumberFormatException e) {
+                        System.out.println(RED +
+                                        "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                        + RESET);
+                        break;
+                    }
 
-                System.out.println(GREEN + "✔ Artikel wurde zum Warenkorb hinzugefügt." + RESET);
+                    aktuelleBenutzer = eShop.aktuellerBenutzer();
+
+                    try {
+
+                        eShop.fuegeInWarenkorb(
+                                artikelID,
+                                menge,
+                                aktuelleBenutzer.getBenutzerVorNachname()
+                        );
+
+                        System.out.println(
+                                GREEN +
+                                        "✔ Artikel wurde zum Warenkorb hinzugefügt."
+                                        + RESET
+                        );
+
+                    } catch (BestandNichtAusreichendException | UngueltigeMengeException e) {
+
+                        System.out.println(
+                                RED +
+                                        e.getMessage()
+                                        + RESET
+                        );
+                    }
+
+                } else {
+
+                    System.out.println(
+                            YELLOW +
+                                    eShop.getArtikelName(artikelID)
+                                    + " ist ein Massengutartikel!"
+                    );
+
+                    System.out.println(
+                            "Das bedeutet, dass die Menge im Warenkorb durch "
+                                    + eShop.getPackungGroesse(artikelID)
+                                    + " teilbar sein soll!"
+                                    + RESET
+                    );
+
+                    System.out.print("> ");
+                    try{
+                    menge = Integer.parseInt(liesEingabe());
+
+                    aktuelleBenutzer = eShop.aktuellerBenutzer();
+
+                        eShop.fuegeInWarenkorb(
+                                artikelID,
+                                menge,
+                                aktuelleBenutzer.getBenutzerVorNachname()
+                        );
+
+                        System.out.println(
+                                GREEN +
+                                        "✔ Artikel wurde zum Warenkorb hinzugefügt."
+                                        + RESET
+                        );
+                    } catch (NumberFormatException e) {
+                        System.out.println(
+                                RED +
+                                        "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                        + RESET
+                        );
+
+                    } catch (BestandNichtAusreichendException | UngueltigeMengeException | MassengutartikelmengeNichtTeilbarException e) {
+
+                        System.out.println(
+                                RED +
+                                        e.getMessage()
+                                        + RESET
+                        );
+                    }
+                }
             }
 
             case "wl" -> {
@@ -212,24 +505,40 @@ public class EShopClientCUI {
                     System.out.println("Nur Kunden dürfen den Warenkorb ändern.");
                     break;
                 }
-                
-                System.out.print("Bezeichnung > ");
-                artikelID = eShop.sucheNachID(liesEingabe());
 
-                if (artikelID == -1) {
-                    System.out.println(YELLOW + "Es gibt keinen solchen Artikel" + RESET); // TODO: Exception?
+                System.out.print("Bezeichnung > ");
+                try {
+                    artikelID = eShop.sucheNachID(liesEingabe());
+                } catch (ArtikelExistiertNichtException e) {
+                    System.out.println(RED + e.getMessage() + RESET);
                     break;
                 }
 
 
                 System.out.print("Menge der Artikel > ");
+                try {
                 menge = Integer.parseInt(liesEingabe());
 
                 aktuelleBenutzer = eShop.aktuellerBenutzer();
 
-                eShop.loescheAusWarenkorb(artikelID, menge, aktuelleBenutzer.getBenutzerVorNachname());
+                    eShop.loescheAusWarenkorb(artikelID, menge, aktuelleBenutzer.getBenutzerVorNachname());
+                    System.out.println(YELLOW + "✔ Artikel wurde aus dem Warenkorb entfernt." + RESET);
+                } catch (NumberFormatException e) {
+                    System.out.println(
+                            RED +
+                                    "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                    + RESET
+                    );
 
-                System.out.println(YELLOW + "✔ Artikel wurde aus dem Warenkorb entfernt." + RESET);
+                } catch (MengeWenigerAlsPackungGroesseException | UngueltigeMengeException | MassengutartikelmengeNichtTeilbarException e
+                ) {
+
+                    System.out.println(
+                            RED +
+                                    e.getMessage() +
+                                    RESET
+                    );
+                }
             }
 
             case "w" -> {
@@ -278,10 +587,10 @@ public class EShopClientCUI {
                     break;
                 }
                 System.out.print("Bezeichnung > ");
-                artikelID = eShop.sucheNachID(liesEingabe());
-
-                if (artikelID == -1) {
-                    System.out.println(YELLOW + "Es gibt keinen solchen Artikel" + RESET); // TODO: Exception?
+                try {
+                    artikelID = eShop.sucheNachID(liesEingabe());
+                } catch (ArtikelExistiertNichtException e) {
+                    System.out.println(RED + e.getMessage() + RESET);
                     break;
                 }
 
@@ -305,20 +614,31 @@ public class EShopClientCUI {
                 }
 
                 System.out.print("Bezeichnung > ");
-                artikelID = eShop.sucheNachID(liesEingabe());
-                
-                if (artikelID == -1) {
-                    System.out.println(YELLOW + "Es gibt keinen solchen Artikel" + RESET); // TODO: Exception?
+
+                try {
+                    artikelID = eShop.sucheNachID(liesEingabe());
+                } catch (ArtikelExistiertNichtException e) {
+                    System.out.println(RED + e.getMessage() + RESET);
                     break;
                 }
 
 
                 System.out.print("Neuer Preis > ");
-                preis = Float.parseFloat(liesEingabe());
 
+                try{
+                preis = Float.parseFloat(liesEingabe());
                 eShop.preisVeraendern(artikelID, preis);
 
                 System.out.println(YELLOW + "✔ Preis erfolgreich geändert." + RESET);
+                } catch (NumberFormatException e) {
+                    System.out.println(RED +
+                                    "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                    + RESET
+                    );
+
+            } catch (UngueltigerPreisException e) {
+                    System.out.println(RED + e.getMessage() + RESET);
+                }
             }
 
             case "al" -> {
@@ -340,10 +660,10 @@ public class EShopClientCUI {
                 );
 
                 System.out.print("Bezeichnung > ");
-                artikelID = eShop.sucheNachID(liesEingabe());
-                
-                if (artikelID == -1) {
-                    System.out.println(YELLOW + "Es gibt keinen solchen Artikel" + RESET); // TODO: Exception?
+                try {
+                    artikelID = eShop.sucheNachID(liesEingabe());
+                } catch (ArtikelExistiertNichtException e) {
+                    System.out.println(RED + e.getMessage() + RESET);
                     break;
                 }
 
@@ -411,8 +731,9 @@ public class EShopClientCUI {
                 System.out.println("Registration als Mitarbeiter:");
 
                 System.out.print("Benutzer ID > ");
-                int benutzerId = Integer.parseInt(liesEingabe());
 
+                try {
+                int benutzerId = Integer.parseInt(liesEingabe());
                 System.out.print("Benutzername > ");
                 String benutzerErkennung = liesEingabe();
 
@@ -431,6 +752,14 @@ public class EShopClientCUI {
                                 benutzerPassword
                         )
                 );
+                } catch (NumberFormatException e) {
+                    System.out.println(
+                            RED +
+                                    "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                    + RESET
+                    );
+                    break;
+                }
 
                 System.out.println(GREEN + "✔ Mitarbeiter erfolgreich registriert." + RESET);
             }
@@ -566,6 +895,12 @@ public class EShopClientCUI {
 
             for (int i : sortedIDs) {
                 System.out.println(artikelListe.get(i) + " Menge: " + eShop.gibBestand(i)); //artikelMenge.get(i)); razia chek
+                if (eShop.istMassengutartikel(i)) {
+                    System.out.println(artikelListe.get(i) + " Gesamte Menge: " + artikelMenge.get(i));
+                } else {
+                    System.out.println(artikelListe.get(i) + " Menge: " + artikelMenge.get(i));
+                }
+
             }
         }
     }
@@ -575,7 +910,11 @@ public class EShopClientCUI {
             System.out.println("Warenkorb ist leer.");
         } else {
             for (int i : warenkorbListe.keySet()) {
-                System.out.println(artikelListe.get(i) + " Menge: " + warenkorbListe.get(i));
+                if (eShop.istMassengutartikel(i)) {
+                    System.out.println(artikelListe.get(i) + " Gesamte Menge: " + warenkorbListe.get(i));
+                } else {
+                    System.out.println(artikelListe.get(i) + " Menge: " + warenkorbListe.get(i));
+                }
             }
         }
     }
@@ -588,13 +927,12 @@ public class EShopClientCUI {
         System.out.printf("%-10s %29s\n", rechnung.getHeutigesDatum(), rechnung.getKundeName());
         System.out.println("-".repeat(rechnung_width));
 
-        for (Map.Entry<Integer, Integer> entry : rechnung.gibWarenkorbListe().entrySet()) {
-            Artikel curArt = eShop.gibArtikelListe().get(entry.getKey());
+        for (Rechnung.GekaufterArtikel gekaufterArtikel : rechnung.gibAlleGekaufteArtikel()) {
             System.out.printf(
-                    "%-11s %12s€ %13.2f€\n",
-                    curArt.getBezeichnung(),
-                    entry.getValue() + " × " + String.format("%.2f", curArt.getPreis()),
-                    curArt.getPreis() * entry.getValue()
+                        "%-11s %12s€ %13.2f€\n",
+                        gekaufterArtikel.bezeichnung(),
+                        gekaufterArtikel.menge() + " × " + String.format("%.2f", gekaufterArtikel.preis()),
+                        gekaufterArtikel.summe()
             );
         }
 
