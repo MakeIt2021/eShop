@@ -105,7 +105,9 @@ public class FilePersistenceManager implements PersistenceManager {
 
             int artikelID = Integer.parseInt(bestandString.split(":")[0]);
             int bestand = Integer.parseInt(bestandString.split(":")[1]);
+            if (!bestandString.contains(":")) continue;
             artikelMengeListe.put(artikelID, bestand);
+
         }
     }
 
@@ -120,6 +122,48 @@ public class FilePersistenceManager implements PersistenceManager {
 
     }
 
+    //ladeEreihnisse method
+    @Override
+    public ArrayList<Ereignis> ladeEreignisse(){
+        ArrayList<Ereignis> liste = new ArrayList<>();
+
+        File file = new File("Ereignisse.txt");
+        if (!file.exists()) {
+            return liste;
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    String[] parts = line.split(";");
+
+                    int tag = Integer.parseInt(parts[0]);
+                    String typ = parts[1];
+                    int artikelID = Integer.parseInt(parts[2]);
+                    int menge = Integer.parseInt(parts[3]);
+                    String person = parts[4];
+
+                    Artikel artikel = new Artikel(artikelID, "unkown", 0);
+                    Ereignis ereignis = new Ereignis(
+                            tag,
+                            artikel,
+                            menge,
+                            typ,
+                            person
+                    );
+                    liste.add(ereignis);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        return liste;
+            //liste.add(parseEreignis(line));
+        }
+/*
+
+    private Ereignis parseEreignis(String line) {
+        return new Ereignis(0, null, 0, "Unknown", line);
+    }
+*/
 
     /*
      *  Für Warenkorb, Kunden und Ereignisse!
@@ -156,11 +200,17 @@ public class FilePersistenceManager implements PersistenceManager {
     @Override
     public void speichereEreignisArtikel(ArrayList<Ereignis> ereignisse) throws IOException {
 
-        FileWriter fw = new FileWriter("Ereignisse.txt");
+        FileWriter fw = new FileWriter("Ereignisse.txt", false);
         PrintWriter pw = new PrintWriter(fw);
 
         for (Ereignis ereignis : ereignisse) {
-            pw.println(ereignis);
+            pw.println(
+                    ereignis.getTag() + ";" +
+                            ereignis.getTyp() + ";" +
+                            ereignis.getArtikel().getArtikelID() + ";" +
+                            ereignis.getMenge() + ";" +
+                            ereignis.getPerson()
+                    );
         }
         pw.close();
     }

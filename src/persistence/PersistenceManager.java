@@ -35,5 +35,13 @@ public interface PersistenceManager {
     void speichereArtikel(Artikel a) throws IOException;
     void speichereArtikelMenge(HashMap<Integer, Integer> artikelMengeListe) throws IOException;
 
+
+  // public Warenkorb ladeWarenkorb() throws IOException;
+//  public boolean speichereWarenkorb(Warenkorb w) throws IOException;
+	/*
+	 *  Für Kunden und Ereignisse!
+	*/
+
+    ArrayList<Ereignis> ladeEreignisse();
     void speichereEreignisArtikel(ArrayList<Ereignis> ereignisse) throws IOException;
 }

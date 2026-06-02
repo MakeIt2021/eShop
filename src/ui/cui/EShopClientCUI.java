@@ -85,7 +85,7 @@ public class EShopClientCUI {
         int packungGroesse = 1;
 
 
-        HashMap<Integer, Artikel> artikelListe;
+        HashMap<Integer, Artikel> artikelListe = null;
         HashMap<Integer, Integer> warenkorbListe;
 
         switch (line) {
@@ -99,10 +99,7 @@ public class EShopClientCUI {
                 }
                 // Artikelliste anzeigen
                 artikelListe = eShop.gibArtikelListe();
-                gibArtikellisteAus(
-                        artikelListe,
-                        eShop.gibArtikelMengeListe()
-                );
+                gibArtikellisteAus(artikelListe, eShop.gibArtikelMengeListe());
             }
 
             case "ae" -> {
