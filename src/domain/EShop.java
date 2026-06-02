@@ -39,7 +39,6 @@ public class EShop {
         warenkorbVW = new WarenkorbVW();
         ereignisse = new ArrayList<>();
         pm = new FilePersistenceManager();
-        pm.speichereEreignisArtikel(ereignisse);
     }
 
     public HashMap<Integer, Artikel> gibArtikelListe() {
@@ -65,7 +64,7 @@ public class EShop {
             String mitarbeiter
     ) throws IOException {
 
-        if (preis < 0) {
+        if (preis <= 0) {
             throw new UngueltigerPreisException(preis);
         }
 
@@ -91,7 +90,7 @@ public class EShop {
 
         ereignisse.add(ereignis);
 
-        speichereArtikel();
+        speichereEreignisse();
     }
 
     public void fuegeMassengutartikelEin(
@@ -103,7 +102,7 @@ public class EShop {
             int packungGroesse
     ) throws IOException {
 
-        if (preis < 0) {
+        if (preis <= 0) {
             throw new UngueltigerPreisException(preis);
         }
 
@@ -145,7 +144,7 @@ public class EShop {
 
         ereignisse.add(ereignis);
 
-        speichereArtikel();
+        speichereEreignisse();
     }
 
     public void artikelVernichten(int artikelID) throws IOException {
@@ -160,7 +159,7 @@ public class EShop {
 
     public void preisVeraendern(int artikelID, float preis) throws IOException {
 
-        if (preis < 0) {
+        if (preis <= 0) {
             throw new UngueltigerPreisException(preis);
         }
 
@@ -213,10 +212,13 @@ public class EShop {
 
         ereignisse.add(ereignis);
 
-        speichereArtikel();
+        speichereEreignisse();
     }
 
     public void loescheAusWarenkorb(int artikelID, int menge, String kunde) throws IOException {
+        if (menge <= 0) {
+            throw new UngueltigeMengeException(menge);
+        }
         if (istMassengutartikel(artikelID)) {
             if (menge < getPackungGroesse(artikelID)) {
                 throw new MengeWenigerAlsPackungGroesseException(getArtikelName(artikelID), menge, getPackungGroesse(artikelID));
@@ -234,7 +236,7 @@ public class EShop {
         Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), artikelVW.findeArtikel(artikelID), menge, "Einlagerung", "k:" + kunde);
         ereignisse.add(ereignis);
 
-        speichereArtikel();
+        speichereEreignisse();
     }
 
     public void zuruecksetzeWarenkorb() {
@@ -346,7 +348,7 @@ public class EShop {
             ereignisse.add(ereignis);
         }
 
-        speichereArtikel();
+        speichereEreignisse();
     }
 
     public boolean istMassengutartikel(int artikelID) {

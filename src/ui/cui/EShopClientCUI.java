@@ -1,5 +1,6 @@
 package ui.cui;
 
+import com.sun.jdi.request.InvalidRequestStateException;
 import domain.EShop;
 import domain.exceptions.*;
 import entities.Benutzer;
@@ -119,6 +120,13 @@ public class EShopClientCUI {
                 System.out.println("Einzelartikel oder Massengutartikel? [e/m]");
                 String artikelTyp = liesEingabe();
 
+                if (artikelTyp.equals("e")){
+                } else if (artikelTyp.equals("m")){
+                }else {
+                    System.out.println(RED + "Ungultige Eingabbe. Bitte e oder m eingeben" + RESET);
+                    break;
+                }
+
                 ArrayList<Integer> vorhandeneIDs = new ArrayList<>(eShop.gibArtikelListe().keySet());
                 Collections.sort(vorhandeneIDs);
 
@@ -149,17 +157,47 @@ public class EShopClientCUI {
                 }
 
                 System.out.print("Preis > ");
-                preis = Float.parseFloat(liesEingabe()); // TODO: Exception
+                try {
+                preis = Float.parseFloat(liesEingabe());
+                } catch (NumberFormatException e) {
+                    System.out.println(RED +
+                                    "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                    + RESET
+                    );
+                    break;
+                }
                 if (artikelTyp.equals("e")) {
                     System.out.print("Bestand > ");
-                    bestand = Integer.parseInt(liesEingabe()); // TODO: Exception
+                    try {
+                        bestand = Integer.parseInt(liesEingabe());
+                    } catch (NumberFormatException e){
+                        System.out.println(RED + "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                + RESET);
+                        break;
+                    }
                 } else if (artikelTyp.equals("m")) {
                     System.out.print("Größe der Packung > ");
+                    try {
                     packungGroesse = Integer.parseInt(liesEingabe());
+                    } catch (NumberFormatException e) {
+                        System.out.println(RED +
+                                        "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                        + RESET
+                        );
+                        break;
+                    }
                     System.out.println("Bestand");
                     System.out.println(YELLOW + "Der Bestand muss durch " + packungGroesse + " teilbar sein" + RESET);
                     System.out.print("> ");
+                    try {
                     bestand = Integer.parseInt(liesEingabe());
+                    } catch (NumberFormatException e) {
+                        System.out.println(RED +
+                                        "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                        + RESET
+                        );
+                        break;
+                    }
                 }
 
 
@@ -250,7 +288,18 @@ public class EShopClientCUI {
                 if (!eShop.istMassengutartikel(artikelID)) {
 
                     System.out.print("Neuer Bestand > ");
-                    menge = Integer.parseInt(liesEingabe());
+
+                    //für sehr grossen Zahlen
+                    try {
+                        menge = Integer.parseInt(liesEingabe());
+                    } catch (NumberFormatException e) {
+                        System.out.println(
+                                RED +
+                                        "Ungültige Eingabe. Bitte geben Sie eine gültige ganze Zahl ein."
+                                        + RESET
+                        );
+                        break;
+                    }
 
                     try {
 
@@ -281,7 +330,16 @@ public class EShopClientCUI {
 
                         System.out.println("Geben Sie bitte die neue Größe der Packung > ");
 
-                        int neueGroesse = Integer.parseInt(liesEingabe());
+                        int neueGroesse;
+                        try {
+                            neueGroesse = Integer.parseInt(liesEingabe());
+                        } catch (NumberFormatException e) {
+                            System.out.println(RED +
+                                    "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                    + RESET
+                            );
+                            break;
+                        }
 
                         eShop.packungGroesseVeraendern(
                                 artikelID,
@@ -298,11 +356,9 @@ public class EShopClientCUI {
                                         + " teilbar sein"
                                         + RESET
                         );
-
-                        int neueMenge =
-                                Integer.parseInt(liesEingabe());
-
                         try {
+                        int neueMenge = Integer.parseInt(liesEingabe());
+                        //try {
 
                             eShop.bestandVeraendern(
                                     artikelID,
@@ -314,6 +370,11 @@ public class EShopClientCUI {
                                             "✔ Artikelbestand erfolgreich verändert."
                                             + RESET
                             );
+                        } catch (NumberFormatException e) {
+                            System.out.println(
+                                    RED +
+                                            "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                            + RESET);
 
                         }catch (
                                 UngueltigeMengeException
@@ -353,7 +414,15 @@ public class EShopClientCUI {
                 if (!eShop.istMassengutartikel(artikelID)) {
 
                     System.out.print("Menge der Artikel > ");
+
+                    try {
                     menge = Integer.parseInt(liesEingabe());
+                    } catch (NumberFormatException e) {
+                        System.out.println(RED +
+                                        "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                        + RESET);
+                        break;
+                    }
 
                     aktuelleBenutzer = eShop.aktuellerBenutzer();
 
@@ -396,11 +465,10 @@ public class EShopClientCUI {
                     );
 
                     System.out.print("> ");
+                    try{
                     menge = Integer.parseInt(liesEingabe());
 
                     aktuelleBenutzer = eShop.aktuellerBenutzer();
-
-                    try {
 
                         eShop.fuegeInWarenkorb(
                                 artikelID,
@@ -411,6 +479,12 @@ public class EShopClientCUI {
                         System.out.println(
                                 GREEN +
                                         "✔ Artikel wurde zum Warenkorb hinzugefügt."
+                                        + RESET
+                        );
+                    } catch (NumberFormatException e) {
+                        System.out.println(
+                                RED +
+                                        "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
                                         + RESET
                         );
 
@@ -445,16 +519,21 @@ public class EShopClientCUI {
 
 
                 System.out.print("Menge der Artikel > ");
+                try {
                 menge = Integer.parseInt(liesEingabe());
 
                 aktuelleBenutzer = eShop.aktuellerBenutzer();
 
-                try {
                     eShop.loescheAusWarenkorb(artikelID, menge, aktuelleBenutzer.getBenutzerVorNachname());
                     System.out.println(YELLOW + "✔ Artikel wurde aus dem Warenkorb entfernt." + RESET);
-                } catch (
-                        MengeWenigerAlsPackungGroesseException
-                        | MassengutartikelmengeNichtTeilbarException e
+                } catch (NumberFormatException e) {
+                    System.out.println(
+                            RED +
+                                    "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                    + RESET
+                    );
+
+                } catch (MengeWenigerAlsPackungGroesseException | UngueltigeMengeException | MassengutartikelmengeNichtTeilbarException e
                 ) {
 
                     System.out.println(
@@ -548,12 +627,18 @@ public class EShopClientCUI {
 
 
                 System.out.print("Neuer Preis > ");
-                preis = Float.parseFloat(liesEingabe());
 
-                try {
+                try{
+                preis = Float.parseFloat(liesEingabe());
                 eShop.preisVeraendern(artikelID, preis);
 
                 System.out.println(YELLOW + "✔ Preis erfolgreich geändert." + RESET);
+                } catch (NumberFormatException e) {
+                    System.out.println(RED +
+                                    "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                    + RESET
+                    );
+
             } catch (UngueltigerPreisException e) {
                     System.out.println(RED + e.getMessage() + RESET);
                 }
@@ -649,8 +734,9 @@ public class EShopClientCUI {
                 System.out.println("Registration als Mitarbeiter:");
 
                 System.out.print("Benutzer ID > ");
-                int benutzerId = Integer.parseInt(liesEingabe());
 
+                try {
+                int benutzerId = Integer.parseInt(liesEingabe());
                 System.out.print("Benutzername > ");
                 String benutzerErkennung = liesEingabe();
 
@@ -669,6 +755,14 @@ public class EShopClientCUI {
                                 benutzerPassword
                         )
                 );
+                } catch (NumberFormatException e) {
+                    System.out.println(
+                            RED +
+                                    "Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."
+                                    + RESET
+                    );
+                    break;
+                }
 
                 System.out.println(GREEN + "✔ Mitarbeiter erfolgreich registriert." + RESET);
             }

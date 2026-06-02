@@ -9,4 +9,4 @@ package domain.exceptions;
         public ArtikelExistiertNichtException(String bezeichnung) {
             super("Artikel mit Bezeichnung \"" + bezeichnung + "\" existiert nicht.");
         }
-}
+    }
