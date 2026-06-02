@@ -10,9 +10,9 @@ table
 4
 bed
 300.0
-5
-kissen
-100.0
 6
 chair
 20.0
+7
+sofa
+300.0

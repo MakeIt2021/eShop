@@ -51,6 +51,7 @@ public class EShopClientCUI {
             System.out.println("pv → Preis ändern");
             System.out.println("e  → Ereignisse anzeigen");
             System.out.println("es → Ereignisse speichern");
+            System.out.println("bh → Bestandshistorie anzeigen");
             System.out.println("rm → Neuen Mitarbeiter registrieren");
             System.out.println("s  → Daten speichern");
             System.out.println("o  → Logout");
@@ -184,10 +185,10 @@ public class EShopClientCUI {
                     System.out.println("Nur Kunden dürfen Artikel kaufen.");
                     break;
                 }
-                
+
                 System.out.print("Bezeichnung > ");
                 artikelID = eShop.sucheNachID(liesEingabe());
-                
+
                 if (artikelID == -1) {
                     System.out.println(YELLOW + "Es gibt keinen solchen Artikel" + RESET); // TODO: Exception?
                     break;
@@ -212,7 +213,7 @@ public class EShopClientCUI {
                     System.out.println("Nur Kunden dürfen den Warenkorb ändern.");
                     break;
                 }
-                
+
                 System.out.print("Bezeichnung > ");
                 artikelID = eShop.sucheNachID(liesEingabe());
 
@@ -306,7 +307,7 @@ public class EShopClientCUI {
 
                 System.out.print("Bezeichnung > ");
                 artikelID = eShop.sucheNachID(liesEingabe());
-                
+
                 if (artikelID == -1) {
                     System.out.println(YELLOW + "Es gibt keinen solchen Artikel" + RESET); // TODO: Exception?
                     break;
@@ -341,7 +342,7 @@ public class EShopClientCUI {
 
                 System.out.print("Bezeichnung > ");
                 artikelID = eShop.sucheNachID(liesEingabe());
-                
+
                 if (artikelID == -1) {
                     System.out.println(YELLOW + "Es gibt keinen solchen Artikel" + RESET); // TODO: Exception?
                     break;
@@ -373,6 +374,7 @@ public class EShopClientCUI {
                     System.out.println(
                             YELLOW + "Löschvorgang abgebrochen." + RESET
                     );
+
                 }
             }
             case "r" -> {
@@ -391,15 +393,15 @@ public class EShopClientCUI {
                 String benutzerPassword = liesEingabe();
 
                 eShop.registrieren(
-                            new Kunde(
-                                    benutzerId,
-                                    benutzerErkennung,
-                                    benutzerVorNachname,
-                                    benutzerPassword
-                            )
-                    );
+                        new Kunde(
+                                benutzerId,
+                                benutzerErkennung,
+                                benutzerVorNachname,
+                                benutzerPassword
+                        )
+                );
 
-                    System.out.println(GREEN + "✔ Kunde erfolgreich registriert." + RESET);
+                System.out.println(GREEN + "✔ Kunde erfolgreich registriert." + RESET);
             }
 
             case "rm" -> {
@@ -548,6 +550,36 @@ public class EShopClientCUI {
 
                 System.out.println(GREEN + "✔ Ereignisse erfolgreich gespeichert." + RESET);
             }
+
+
+            case "bh" -> {
+
+                if (!eShop.istEingeloggt()) {
+                    System.out.println("Bitte zuerst einloggen.");
+                    break;
+                }
+
+                if (!eShop.istMitarbeiter()) {
+                    System.out.println("Nur Mitarbeiter dürfen die Bestandshistorie sehen.");
+                    break;
+                }
+
+                System.out.print("Bezeichnung > ");
+                artikelID = eShop.sucheNachID(liesEingabe());
+
+                if (artikelID == -1) {
+                    System.out.println("Artikel existiert nicht!");
+                    break;
+                }
+
+                var historie = eShop.berechneBestandHistorie(artikelID);
+
+                System.out.println("Bestandshistorie der letzten 30 Tage:");
+                historie.forEach((tag, bestandwert) ->
+                    System.out.println("Tag " + tag + ": " + bestandwert)
+                );
+            }
+
         }
     }
 
