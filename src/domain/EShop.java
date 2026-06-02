@@ -1,5 +1,8 @@
 package domain;
 
+import java.util.List;
+import java.util.Comparator;
+
 import domain.exceptions.*;
 import entities.Artikel;
 import entities.Benutzer;
@@ -11,7 +14,9 @@ import persistence.FilePersistenceManager;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Map;
 
 
 public class EShop {
@@ -37,6 +42,60 @@ public class EShop {
         ereignisse = new ArrayList<>();
         pm = new FilePersistenceManager();
         //pm.speichereEreignisArtikel(ereignisse);
+        //ereignisse = pm.ladeEreignisse();
+        ArrayList<Ereignis> geladen = pm.ladeEreignisse();
+        ereignisse = new ArrayList<>();
+
+        for (Ereignis e : geladen) {
+            Artikel real = artikelVW.findeArtikel(e.getArtikel().getArtikelID());
+            if (real != null) {
+                ereignisse.add(new Ereignis(
+                        e.getTag(),
+                        real,
+                        e.getMenge(),
+                        e.getTyp(),
+                        e.getPerson()
+                ));
+            } else {
+                ereignisse.add(e);
+            }
+        }
+    }
+    public Map<Integer, Integer> berechneBestandHistorie(int artikelID) {
+      /*  //methode fur ereignisse nach datum sortieren
+        ereignisse.sort(Comparator.comparingInt(Ereignis::getMenge));*/
+
+        // methode fur letzte 30 tage
+        int heute = LocalDate.now().getDayOfYear();
+        int startTag = heute - 30;
+
+        //aktuele bestandsmenge
+        int bestand = artikelVW.gibBestand(artikelID);
+
+        Map<Integer, Integer> historie = new HashMap<>();
+
+        // methode fur diesen artikel der letzte 30 tag
+        List<Ereignis> events = ereignisse.stream()
+                .filter(e -> e.getArtikel().getArtikelID() == artikelID)
+                .filter(e -> e.getTag() >= startTag)
+                .sorted(Comparator.comparingInt(Ereignis::getTag).reversed()) // rückwärts
+                .toList();
+
+        // ruckwarts durch der tag gehen
+        for (int tag = heute; tag > startTag; tag--) {
+            for (Ereignis e : events) {
+                if (e.getTag() == tag) {
+                    if (e.getTyp().equalsIgnoreCase("EINLAGERUNG")) {
+                        bestand -= e.getMenge();
+                    } else if (e.getTyp().equalsIgnoreCase("AUSLAGERUNG")) {
+                        bestand += e.getMenge();
+
+                    }
+                }
+            }
+            historie.put(tag, bestand);
+        }
+        return historie;
         ereignisse = pm.ladeEreignisse();
 
     }
@@ -180,6 +239,7 @@ public class EShop {
                     packungGroesse
             );
         }
+    }*/
 
         if (menge % packungGroesse != 0) {
             throw new MassengutartikelmengeNichtTeilbarException(

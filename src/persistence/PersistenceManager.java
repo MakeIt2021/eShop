@@ -42,6 +42,9 @@ public interface PersistenceManager {
 	 *  Für Kunden und Ereignisse!
 	*/
 
+    public void speichereEreignisArtikel(ArrayList<Ereignis> ereignisse) throws IOException;
+
+    ArrayList<Ereignis> ladeEreignisse();
     ArrayList<Ereignis> ladeEreignisse();
     void speichereEreignisArtikel(ArrayList<Ereignis> ereignisse) throws IOException;
 }
