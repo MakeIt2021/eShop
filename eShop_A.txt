@@ -1,33 +1,18 @@
 1
-Laptop
-999.0
+lobtop
+1200.0
 2
-Mouse
-25.0
-3
-Keyboard
-70.0
-4
-Monitor
+water bottle
 200.0
-5
-USB Cable
-5.0
-6
-Headphones
-120.0
-7
-Webcam
-80.0
-8
-Chair
-150.0
-9
-Desk
+3
+table
+1300.0
+4
+bed
 300.0
-10
-SSD 1TB
-110.0
-11
-Tisch
-19.0
+5
+kissen
+100.0
+6
+chair
+20.0

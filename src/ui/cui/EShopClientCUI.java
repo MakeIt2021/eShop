@@ -8,7 +8,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
-import java.time.LocalDate;
 
 public class EShopClientCUI {
     private EShop eShop;
@@ -83,7 +82,7 @@ public class EShopClientCUI {
         Benutzer aktuelleBenutzer;
 
 
-        HashMap<Integer, Artikel> artikelListe;
+        HashMap<Integer, Artikel> artikelListe = null;
         HashMap<Integer, Integer> warenkorbListe;
 
         switch (line) {
@@ -97,10 +96,7 @@ public class EShopClientCUI {
                 }
                 // Artikelliste anzeigen
                 artikelListe = eShop.gibArtikelListe();
-                gibArtikellisteAus(
-                        artikelListe,
-                        eShop.gibArtikelMengeListe()
-                );
+                gibArtikellisteAus(artikelListe);
             }
 
             case "ae" -> {
@@ -555,15 +551,21 @@ public class EShopClientCUI {
         }
     }
 
-    private void gibArtikellisteAus(HashMap<Integer, Artikel> artikelListe, HashMap<Integer, Integer> artikelMenge) {
+    private void gibArtikellisteAus(HashMap<Integer, Artikel> artikelListe) {
         if (artikelListe.isEmpty()) {
             System.out.println("Liste ist leer.");
-        } else {
+            return;
+        }
+        /*ArrayList<Integer> ids = new ArrayList<>(artikelListe.keySet());
+        Collections.sort(ids);
+        for (int id : ids){
+            System.out.println(artikelListe.get(id) + "Menge: " + eShop.gibBestand(id));*/
+        else {
             ArrayList<Integer> sortedIDs = new ArrayList<>(artikelListe.keySet());
             Collections.sort(sortedIDs);
 
             for (int i : sortedIDs) {
-                System.out.println(artikelListe.get(i) + " Menge: " + artikelMenge.get(i));
+                System.out.println(artikelListe.get(i) + " Menge: " + eShop.gibBestand(i)); //artikelMenge.get(i)); razia chek
             }
         }
     }

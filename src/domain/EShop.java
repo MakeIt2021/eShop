@@ -22,12 +22,9 @@ public class EShop {
     private BenutzerVW benutzerVW = new BenutzerVW();
     private ArrayList<Ereignis> ereignisse;// Liste aller ereignisse
     private PersistenceManager pm;
+
     public BenutzerVW getBenutzerVW() {
         return benutzerVW;
-    }
-
-    public ArtikelVW getArtikelVW() {
-        return artikelVW;
     }
 
     private WarenkorbVW warenkorbVW;
@@ -39,32 +36,88 @@ public class EShop {
         warenkorbVW = new WarenkorbVW();
         ereignisse = new ArrayList<>();
         pm = new FilePersistenceManager();
-        pm.speichereEreignisArtikel(ereignisse);
+        //pm.speichereEreignisArtikel(ereignisse);
+        ereignisse = pm.ladeEreignisse();
+
     }
 
     public HashMap<Integer, Artikel> gibArtikelListe() {
         return artikelVW.gibArtikelListe();
     }
+
     public HashMap<Integer, Integer> gibArtikelMengeListe() {
         return artikelVW.gibArtikelMengeListe();
     }
+
     public HashMap<Integer, Integer> gibWarenkorb() {
         return warenkorbVW.gibWarenkorb();
     }
-    // Gibt die Ereignisse zurück
-    public ArrayList<Ereignis> gibEreignissen(){
+
+    //Gibt die Ereignisse zurück
+    public ArrayList<Ereignis> gibEreignissen() {
         return ereignisse;
     }
 
 
     public void fuegeArtikelEin(int artikelID, String bezeichnung, int menge, float preis, String mitarbeiter) throws IOException {
         Artikel art = new Artikel(artikelID, bezeichnung, preis);
+
+        if (artikelVW.findeArtikel(artikelID) == null) {
+            // NEUER ARTIKEL → in die Liste einfügen
+            artikelVW.einfuegen(art, menge);
+        } else {
+            // Artikel existiert → Bestand erhöhen
+            artikelVW.bestandErhoehen(artikelID, menge);
+        }
+        if (preis < 0) {
+            throw new IllegalArgumentException(
+                    "Preis darf nicht negativ sein."
+            );
+        }
+        if (menge <= 0) {
+            throw new IllegalArgumentException("Bestand muss positiv sein.");
+        }
+
+        ereignisse.add(new Ereignis(
+                LocalDate.now().getDayOfYear(),
+                art,
+                menge,
+                "Einlagerung",
+                "m:" + mitarbeiter
+        ));
+
+        pm.speichereEreignisArtikel(ereignisse);
+        speichereArtikel();
+    }
+        /*Artikel art = new Artikel(artikelID, bezeichnung, preis);
+        artikelVW.bestandErhoehen(artikelID, menge);
+        if (preis < 0) {
+            throw new IllegalArgumentException(
+                    "Preis darf nicht negativ sein."
+            );
+        }
+        if (menge <= 0) {
+            throw new IllegalArgumentException("Bestand muss positiv sein.");
+        }
+
+        ereignisse.add(new Ereignis(
+                LocalDate.now().getDayOfYear(),
+                art,
+                menge,
+                "Einlagerung",
+                "m:" + mitarbeiter
+        ));
+
+        speichereArtikel();
+    }*/
+
+      /*  Artikel art = new Artikel(artikelID, bezeichnung, preis);
         artikelVW.einfuegen(art, menge);
 
-        /*
+        *//*
          * Ereignis erzeugen:
          * Einlagerung durch Mitarbeiter
-         */
+         *//*
         Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), art, menge, "Einlagerung", "m:" + mitarbeiter);
         ereignisse.add(ereignis);
 
@@ -78,7 +131,7 @@ public class EShop {
         if (menge <= 0) {
             throw new IllegalArgumentException("Bestand muss positiv sein.");
         }
-    }
+    }*/
 
     public void artikelVernichten(int artikelID) throws IOException {
         artikelVW.artikelVernichten(artikelID);
@@ -102,10 +155,20 @@ public class EShop {
 
     public void fuegeInWarenkorb(int artikelID, int menge, String kunde) throws IOException {
         warenkorbVW.einfuegen(artikelID, menge);
+        artikelVW.bestandVerringern(artikelID, menge);
+
+        ereignisse.add(new Ereignis(
+                LocalDate.now().getDayOfYear(),
+                artikelVW.findeArtikel(artikelID),
+                menge,
+                "Auslagerung",
+                "k:" + kunde
+        ));
+        /*warenkorbVW.einfuegen(artikelID, menge);
         artikelVW.loeschen(artikelID, menge);
 
         Ereignis ereignis = new Ereignis(LocalDate.now().getDayOfYear(), artikelVW.findeArtikel(artikelID), menge, "Auslagerung", "k:" + kunde);
-        ereignisse.add(ereignis);
+        ereignisse.add(ereignis);*/
 
         speichereArtikel();
 
@@ -216,5 +279,9 @@ public class EShop {
 
     public Benutzer aktuellerBenutzer () {
         return benutzerVW.getAktuellerBenutzer();
+    }
+
+    public Object gibBestand(int id) {
+        return artikelVW.gibBestand(id);
     }
 }

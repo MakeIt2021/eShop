@@ -43,11 +43,13 @@ public interface PersistenceManager {
     public boolean speichereArtikelMenge(HashMap<Integer, Integer> b) throws IOException;
 
 
-//    public Warenkorb ladeWarenkorb() throws IOException;
-//    public boolean speichereWarenkorb(Warenkorb w) throws IOException;
+  // public Warenkorb ladeWarenkorb() throws IOException;
+//  public boolean speichereWarenkorb(Warenkorb w) throws IOException;
 	/*
 	 *  Für Kunden und Ereignisse!
 	*/
 
     public void speichereEreignisArtikel(ArrayList<Ereignis> ereignisse) throws IOException;
+
+    ArrayList<Ereignis> ladeEreignisse();
 }
