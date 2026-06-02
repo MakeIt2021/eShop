@@ -829,24 +829,13 @@ public class EShopClientCUI {
         System.out.printf("%-10s %29s\n", rechnung.getHeutigesDatum(), rechnung.getKundeName());
         System.out.println("-".repeat(rechnung_width));
 
-        for (Map.Entry<Integer, Integer> entry : rechnung.gibWarenkorbListe().entrySet()) {
-            Artikel curArt = eShop.gibArtikelListe().get(entry.getKey());
-            if (!(curArt instanceof Massengutartikel)) {
-                System.out.printf(
+        for (Rechnung.GekaufterArtikel gekaufterArtikel : rechnung.gibAlleGekaufteArtikel()) {
+            System.out.printf(
                         "%-11s %12s€ %13.2f€\n",
-                        curArt.getBezeichnung(),
-                        entry.getValue() + " × " + String.format("%.2f", curArt.getPreis()),
-                        curArt.getPreis() * entry.getValue()
-                );
-            } else {
-                System.out.printf(
-                        "%-11s %12s€ %13.2f€\n",
-                        curArt.getBezeichnung() + " [" + ((Massengutartikel) curArt).getPackungGroesse() + "]",
-                        (entry.getValue() / ((Massengutartikel) curArt).getPackungGroesse()) + " × " + String.format("%.2f", curArt.getPreis()),
-                        curArt.getPreis() * entry.getValue() / ((Massengutartikel) curArt).getPackungGroesse()
-                );
-            }
-
+                        gekaufterArtikel.bezeichnung(),
+                        gekaufterArtikel.menge() + " × " + String.format("%.2f", gekaufterArtikel.preis()),
+                        gekaufterArtikel.summe()
+            );
         }
 
         System.out.println("-".repeat(rechnung_width));
