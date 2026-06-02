@@ -488,7 +488,7 @@ public class EShopClientCUI {
                                         + RESET
                         );
 
-                    } catch (BestandNichtAusreichendException | UngueltigeMengeException e) {
+                    } catch (BestandNichtAusreichendException | UngueltigeMengeException | MassengutartikelmengeNichtTeilbarException e) {
 
                         System.out.println(
                                 RED +
@@ -923,13 +923,12 @@ public class EShopClientCUI {
         System.out.printf("%-10s %29s\n", rechnung.getHeutigesDatum(), rechnung.getKundeName());
         System.out.println("-".repeat(rechnung_width));
 
-        for (Map.Entry<Integer, Integer> entry : rechnung.gibWarenkorbListe().entrySet()) {
-            Artikel curArt = eShop.gibArtikelListe().get(entry.getKey());
+        for (Rechnung.GekaufterArtikel gekaufterArtikel : rechnung.gibAlleGekaufteArtikel()) {
             System.out.printf(
-                    "%-11s %12s€ %13.2f€\n",
-                    curArt.getBezeichnung(),
-                    entry.getValue() + " × " + String.format("%.2f", curArt.getPreis()),
-                    curArt.getPreis() * entry.getValue()
+                        "%-11s %12s€ %13.2f€\n",
+                        gekaufterArtikel.bezeichnung(),
+                        gekaufterArtikel.menge() + " × " + String.format("%.2f", gekaufterArtikel.preis()),
+                        gekaufterArtikel.summe()
             );
         }
 
