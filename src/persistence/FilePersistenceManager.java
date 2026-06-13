@@ -3,6 +3,7 @@ package persistence;
 import entities.*;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -143,7 +144,7 @@ public class FilePersistenceManager implements PersistenceManager {
 
             Matcher matcher = pattern.matcher(line);
             if (matcher.find()) {
-                String date = matcher.group("date").trim();
+                LocalDate date = LocalDate.parse(matcher.group("date").trim());
                 String typ = matcher.group("typ").trim();
                 String bezeichnung = matcher.group("artikel").trim();
                 int menge = Integer.parseInt(matcher.group("menge").trim());

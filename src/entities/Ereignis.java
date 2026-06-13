@@ -16,14 +16,16 @@ package entities;
  */
 
 
+import java.time.LocalDate;
+
 public class Ereignis {
-    private String tag;
+    private LocalDate tag;
     private Artikel artikel;
     private int menge;
     private String typ; //EINLAGERUNG oder AUSLAGERUNG
     private String person;
 
-    public Ereignis(String tag, Artikel artikel, int menge, String typ, String person) {
+    public Ereignis(LocalDate tag, Artikel artikel, int menge, String typ, String person) {
         this.tag = tag;
         this.artikel = artikel;
         this.menge = menge;
@@ -31,7 +33,7 @@ public class Ereignis {
         this.person = person;
     }
 
-    public String getTag() {
+    public LocalDate getTag() {
         return tag;
     }
 

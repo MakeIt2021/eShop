@@ -7,10 +7,8 @@ import persistence.PersistenceManager;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
 import java.util.function.Function;
 
 public class EreignisVW {
@@ -43,7 +41,7 @@ public class EreignisVW {
 
     public void addEreignis(Artikel einArtikel, int menge, String typ, String person) throws IOException {
         ereignisListe.add(new Ereignis(
-                LocalDate.now().toString(),
+                LocalDate.now(),
                 einArtikel,
                 menge,
                 typ,
@@ -57,12 +55,12 @@ public class EreignisVW {
         return ereignisListe;
     }
 
-    public Map<String, Integer> gibBestandHistorie(int artikelID) {
+    public Map<LocalDate, Integer> gibBestandHistorie(int artikelID) {
         int bestand = 0;
 
         List<Ereignis> events = ereignisListe.stream().filter(e -> e.getArtikel().getArtikelID() == artikelID).toList();
 
-        Map<String, Integer> historie = new HashMap<>();
+        Map<LocalDate, Integer> historie = new LinkedHashMap<>();
 
         int counter = 0;
         for (Ereignis e : events) {
@@ -78,8 +76,31 @@ public class EreignisVW {
             counter += 1;
         }
 
-
         return historie;
+    }
+
+    public ArrayList<Integer> gibBestandHistorieAlsIntegers(int artikelID) {
+        ArrayList<Integer> data = new ArrayList<>();
+
+        LocalDate prevDate = (LocalDate) ((LinkedHashMap) gibBestandHistorie(artikelID)).sequencedKeySet().getFirst();
+        int prevValue = (int) ((LinkedHashMap) gibBestandHistorie(artikelID)).sequencedValues().getFirst();
+        for (Map.Entry<LocalDate, Integer> entry : gibBestandHistorie(artikelID).entrySet()) {
+            LocalDate date = entry.getKey();
+            int v = entry.getValue();
+
+            long daysBetween = ChronoUnit.DAYS.between(prevDate, date);
+            if (daysBetween != 0) {
+                for (int i = 0; i < daysBetween; i++) {
+                    data.add(prevValue);
+                }
+            }
+            data.add(v);
+
+            prevDate = date;
+            prevValue = v;
+        }
+
+        return data;
     }
 }
 

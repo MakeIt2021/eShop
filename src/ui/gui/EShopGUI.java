@@ -7,10 +7,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-public class EShopGUI extends JFrame {
+public class EShopGUI extends JFrame{
 
     // Zentrale Geschäftslogik des eShops
-    private EShop eShop;
+    private static EShop eShop;
+
+    static {
+        try {
+            eShop = new EShop();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     // Login-Bildschirm
     private LoginPanel loginPanel;

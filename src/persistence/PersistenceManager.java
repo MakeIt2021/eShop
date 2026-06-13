@@ -4,6 +4,7 @@ import entities.Artikel;
 import entities.Benutzer;
 import entities.Ereignis;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import java.io.IOException;
@@ -15,7 +16,7 @@ public interface PersistenceManager {
     void openForWriting(String datenquelle) throws IOException;
     void close();
     record einEreignisInfo(
-            String date,
+            LocalDate date,
             String bezeichnung,
             int menge,
             String typ,

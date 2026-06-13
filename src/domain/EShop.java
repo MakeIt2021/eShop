@@ -345,7 +345,11 @@ public class EShop {
         return ereignisVW.gibEreignisListe();
     }
 
-    public Map<String, Integer> berechneBestandHistorie(int artikelID) {
+    public Map<LocalDate, Integer> berechneBestandHistorie(int artikelID) {
         return ereignisVW.gibBestandHistorie(artikelID);
+    }
+
+    public ArrayList<Integer> gibBestandHistorie(int artikelID) {
+        return ereignisVW.gibBestandHistorieAlsIntegers(artikelID);
     }
 }
