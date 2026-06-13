@@ -36,8 +36,10 @@ public class EreignisVW {
         }
     }
 
-    public void speichereEreignisse() throws IOException {
+    public void speichereEreignisse(String datei) throws IOException {
+        pm.openForWriting(datei);
         pm.speichereEreignis(ereignisListe);
+        pm.close();
     }
 
     public void addEreignis(Artikel einArtikel, int menge, String typ, String person) throws IOException {
@@ -49,7 +51,7 @@ public class EreignisVW {
                 person
         ));
 
-        speichereEreignisse();
+        speichereEreignisse("Ereignisse.txt");
     }
 
     public ArrayList<Ereignis> gibEreignisListe() {

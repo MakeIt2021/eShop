@@ -62,9 +62,6 @@ public class ArtikelVW {
     public void bestandErhoehen(int artikelID, int menge) {
         int current = artikelMengeListe.getOrDefault(artikelID,0);//check
         artikelMengeListe.put(artikelID, current + menge);//check
-        Artikel artikel = findeArtikel(artikelID);
-        if (artikel == null || menge <= 0 )
-            return;
     }
 
     public void bestandVerringern(int artikelID, int menge) {

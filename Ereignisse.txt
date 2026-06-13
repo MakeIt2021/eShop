@@ -2,3 +2,5 @@ Tag: 2026-06-13 | Typ: Einlagerung | Artikel: Stuhl | Menge: 60 | Person: m:Tim 
 Tag: 2026-06-13 | Typ: Auslagerung | Artikel: SSD 1TB | Menge: 23 | Person: k:razia hadya
 Tag: 2026-06-13 | Typ: Auslagerung | Artikel: hose | Menge: 4 | Person: k:razia hadya
 Tag: 2026-06-13 | Typ: Auslagerung | Artikel: hose | Menge: 2 | Person: k:razia hadya
+Tag: 2026-06-13 | Typ: Einlagerung | Artikel: etwas | Menge: 123 | Person: m:Tim Banner
+Tag: 2026-06-13 | Typ: Auslagerung | Artikel: etwas | Menge: 1 | Person: k:razia hadya

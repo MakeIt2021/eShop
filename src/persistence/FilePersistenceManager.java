@@ -124,25 +124,6 @@ public class FilePersistenceManager implements PersistenceManager {
 
     }
 
-//    public Artikel ladeArtikel() throws IOException {
-//        String artikelIDString = liesZeile();
-//        if (artikelIDString == null) {
-//            // keine Daten mehr vorhanden
-//            return null;
-//        }
-//
-//        int artikelID = Integer.parseInt(artikelIDString);
-//
-//        String bezeichnung = liesZeile();
-//
-//        String preisString = liesZeile();
-//        float preis = Float.parseFloat(preisString);
-//
-//        int packungGroesse = Integer.parseInt(liesZeile());
-//
-//        return packungGroesse == 1 ? new Artikel(artikelID, bezeichnung, preis) : new Massengutartikel(artikelID, bezeichnung, preis, packungGroesse);
-//    }
-
 
     @Override
     public ArrayList<PersistenceManager.einEreignisInfo> ladeEreignisse() throws IOException {
@@ -176,13 +157,9 @@ public class FilePersistenceManager implements PersistenceManager {
 
     @Override
     public void speichereEreignis(ArrayList<Ereignis> ereignisse) throws IOException {
-        FileWriter fw = new FileWriter("Ereignisse.txt", false);
-        PrintWriter pw = new PrintWriter(fw);
-
         for (Ereignis ereignis : ereignisse) {
-            pw.println(ereignis.toString());
+            schreibeZeile(ereignis.toString());
         }
-        pw.close();
     }
 
     //benutzer speicherung
