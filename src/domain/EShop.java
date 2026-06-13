@@ -57,7 +57,7 @@ public class EShop {
 
 
     public void fuegeArtikelEin(int artikelID, String bezeichnung, int menge, float preis, String mitarbeiter) throws IOException {
-        Artikel art = new Artikel(artikelID, bezeichnung, preis);
+        Artikel art = new Artikel(artikelID, bezeichnung.toLowerCase(), preis);
 
         if (artikelVW.findeArtikel(artikelID) == null) {
             // NEUER ARTIKEL → in die Liste einfügen

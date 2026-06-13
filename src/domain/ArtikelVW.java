@@ -65,12 +65,6 @@ public class ArtikelVW {
     }
 
     public void bestandVerringern(int artikelID, int menge) {
-        int bestand = artikelMengeListe.get(artikelID);
-
-        if (bestand < menge) {
-            throw new BestandNichtAusreichendException(artikelListe.get(artikelID).getBezeichnung(), bestand, menge);
-        }
-
         artikelMengeListe.put(artikelID, artikelMengeListe.get(artikelID) - menge);
     }
 
@@ -85,7 +79,7 @@ public class ArtikelVW {
         }
 
     public void bezeichnungVeraendern(int artikelID, String bezeichnung) {
-        artikelListe.get(artikelID).setBezeichnung(bezeichnung);
+        artikelListe.get(artikelID).setBezeichnung(bezeichnung.toLowerCase());
     }
 
     public void preisVeraendern(int artikelID, float preis) {
@@ -103,7 +97,7 @@ public class ArtikelVW {
 
     public int sucheNachIDMitBezeichnung(String bezeichnung) {
         for (Artikel a : artikelListe.values()) {
-            if (Objects.equals(a.getBezeichnung(), bezeichnung))
+            if (Objects.equals(a.getBezeichnung().toLowerCase(), bezeichnung.toLowerCase()))
                 return a.getArtikelID();
         }
 
@@ -111,7 +105,7 @@ public class ArtikelVW {
     }
 
     public Artikel findeArtikelMitBezeichnung(String bezeichnung) {
-        return findeArtikel(sucheNachIDMitBezeichnung(bezeichnung));
+        return findeArtikel(sucheNachIDMitBezeichnung(bezeichnung.toLowerCase()));
     }
 
     public HashMap<Integer, Artikel> gibArtikelListe() {
@@ -139,6 +133,6 @@ public class ArtikelVW {
     }
 
     public String getArtikelName(int artikelID) {
-        return artikelListe.get(artikelID).getBezeichnung();
+        return artikelListe.get(artikelID).getBezeichnung().toLowerCase();
     }
 }
