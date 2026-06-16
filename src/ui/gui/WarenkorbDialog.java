@@ -38,7 +38,7 @@ public class WarenkorbDialog extends JDialog {
 
         // TABELLE ERZEUGEN
         String[] spalten = {
-                "ID",
+                "Nr",
                 "Bezeichnung",
                 "Einzelpreis",
                 "Menge",
@@ -53,9 +53,20 @@ public class WarenkorbDialog extends JDialog {
 
         warenkorbTable =
                 new JTable(tableModel);
+        //Tablekopft einfärben
+        warenkorbTable.getTableHeader().setBackground(new Color(70, 130, 180));
+        warenkorbTable.getTableHeader().setForeground(Color.WHITE);
 
         JScrollPane scrollPane =
                 new JScrollPane(warenkorbTable);
+        scrollPane.setBorder(
+                BorderFactory.createEmptyBorder(
+                        0,   // oben
+                        25,  // links
+                        0,   // unten
+                        55   // rechts
+                )
+        );
 
         add(
                 scrollPane,

@@ -74,14 +74,53 @@ public class KundenPanel extends JPanel {
 
         // MITTELBEREICH
         String[] spalten = {
-                "ID",
+                "Nr",
                 "Bezeichnung",
                 "Preis"
         };
 
-        tableModel = new DefaultTableModel(spalten, 0);
+        tableModel = new DefaultTableModel(
+                spalten,
+                0) {
+            @Override
+            public boolean isCellEditable(
+                    int row,
+                    int column
+            ) {
+                return false;
+            }
+        };
         artikelTable = new JTable(tableModel);
-        JScrollPane scrollPane = new JScrollPane(artikelTable);
+
+// Tabellenkopf einfärben
+        artikelTable.getTableHeader().setBackground(
+                new Color(70, 130, 180)
+        );
+
+        artikelTable.getTableHeader().setForeground(
+                Color.WHITE
+        );
+
+        artikelTable.getTableHeader().setFont(
+                new Font(
+                        "Arial",
+                        Font.BOLD,
+                        14
+                )
+        );
+        JScrollPane scrollPane =
+                new JScrollPane(artikelTable);
+
+// Abstand links und rechts zum Fensterrand
+        scrollPane.setBorder(
+                BorderFactory.createEmptyBorder(
+                        5,   // oben
+                        25,  // links
+                        0,   // unten
+                        25   // rechts
+                )
+        );
+
         add(scrollPane, BorderLayout.CENTER);
 
         // SÜD-BEREICH
