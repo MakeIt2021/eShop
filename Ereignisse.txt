@@ -4,3 +4,5 @@ Tag: 2026-06-13 | Typ: Auslagerung | Artikel: hose | Menge: 4 | Person: k:razia 
 Tag: 2026-06-13 | Typ: Auslagerung | Artikel: hose | Menge: 2 | Person: k:razia hadya
 Tag: 2026-06-13 | Typ: Einlagerung | Artikel: etwas | Menge: 123 | Person: m:Tim Banner
 Tag: 2026-06-13 | Typ: Auslagerung | Artikel: etwas | Menge: 1 | Person: k:razia hadya
+Tag: 2026-06-16 | Typ: Auslagerung | Artikel: Mouse | Menge: 5 | Person: k:razia hadya
+Tag: 2026-06-16 | Typ: Auslagerung | Artikel: Desk | Menge: 1 | Person: k:razia hadya

@@ -103,7 +103,3 @@ public class EreignisVW {
         return data;
     }
 }
-
-
-
-

@@ -49,7 +49,6 @@ public class EShopClientCUI {
             System.out.println("bsv → Bestand ändern");
             System.out.println("pv → Preis ändern");
             System.out.println("e  → Ereignisse anzeigen");
-            System.out.println("es → Ereignisse speichern");
             System.out.println("bh → Bestandshistorie anzeigen");
             System.out.println("rm → Neuen Mitarbeiter registrieren");
             System.out.println("s  → Daten speichern");
@@ -850,27 +849,15 @@ public class EShopClientCUI {
 
                 System.out.println("Ereignisliste:");
 
-                eShop.gibEreignisseAus();
-            }
-
-
-            case "es" -> {
-
-                if (!eShop.istEingeloggt()) {
-                    System.out.println("Bitte zuerst einloggen.");
-                    break;
+                ArrayList<Ereignis> ereignisListe = eShop.gibEreignisListe();
+                if (ereignisListe.isEmpty()) {
+                    System.out.println("Keine Ereignisse vorhanden.");
+                } else {
+                    for (Ereignis e : ereignisListe) {
+                        System.out.println(e);
+                    }
                 }
-
-                if (!eShop.istMitarbeiter()) {
-                    System.out.println("Nur Mitarbeiter dürfen Ereignisse speichern.");
-                    break;
-                }
-
-                eShop.speichereEreignisse();
-
-                System.out.println(GREEN + "✔ Ereignisse erfolgreich gespeichert." + RESET);
             }
-
 
             case "bh" -> {
 
