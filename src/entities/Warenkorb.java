@@ -22,9 +22,17 @@ public class Warenkorb {
         }
     }
 
+    /**
+     * Entfernt eine Menge eines Artikels aus dem Warenkorb.
+     * Wird die Menge 0 oder kleiner, wird der Artikel komplett entfernt.
+     */
     public void loeschen(int artikelID, int menge) {
-        if (gibMenge(artikelID) > 0)
-            warenkorbMenge.put(artikelID, warenkorbMenge.get(artikelID) - menge);
+        int neueMenge = warenkorbMenge.get(artikelID) - menge;
+        if (neueMenge <= 0) {
+            warenkorbMenge.remove(artikelID);
+        } else {
+            warenkorbMenge.put(artikelID, neueMenge);
+        }
     }
 
     public int gibMenge(int artikelID) {

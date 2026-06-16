@@ -3,12 +3,9 @@ package persistence;
 import entities.*;
 
 import java.io.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class FilePersistenceManager implements PersistenceManager {
     private BufferedReader reader = null;
@@ -125,44 +122,69 @@ public class FilePersistenceManager implements PersistenceManager {
 
     }
 
-
+    //ladeEreihnisse method
     @Override
-    public ArrayList<PersistenceManager.einEreignisInfo> ladeEreignisse() throws IOException {
-        ArrayList<einEreignisInfo> liste = new ArrayList<>();
+    public ArrayList<Ereignis> ladeEreignisse(){
+        ArrayList<Ereignis> liste = new ArrayList<>();
 
-        String regex = "Tag:\\s*(?<date>[^|]+?)\\s*\\|\\s*" +
-                "Typ:\\s*(?<typ>[^|]+?)\\s*\\|\\s*" +
-                "Artikel:\\s*(?<artikel>[^|]+?)\\s*\\|\\s*" +
-                "Menge:\\s*(?<menge>\\d+)\\s*\\|\\s*" +
-                "Person:\\s*(?<person>.+)";
+        File file = new File("Ereignisse.txt");
+        if (!file.exists()) {
+            return liste;
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    String[] parts = line.split(";");
 
-        Pattern pattern = Pattern.compile(regex);
-        String line;
+                    if (line.isEmpty()) {
+                        continue;
+                    }
 
-        while ((line = liesZeile()) != null) {
-            if (line.trim().isEmpty()) continue;
+                    int tag = Integer.parseInt(parts[0]);
+                    String typ = parts[1];
+                    int artikelID = Integer.parseInt(parts[2]);
+                    int menge = Integer.parseInt(parts[3]);
+                    String person = parts[4];
 
-            Matcher matcher = pattern.matcher(line);
-            if (matcher.find()) {
-                LocalDate date = LocalDate.parse(matcher.group("date").trim());
-                String typ = matcher.group("typ").trim();
-                String bezeichnung = matcher.group("artikel").trim();
-                int menge = Integer.parseInt(matcher.group("menge").trim());
-                String person = matcher.group("person").trim();
-                liste.add(new einEreignisInfo(date, bezeichnung, menge, typ, person));
+                    Artikel artikel = new Artikel(artikelID, "unkown", 0);
+                    Ereignis ereignis = new Ereignis(
+                            tag,
+                            artikel,
+                            menge,
+                            typ,
+                            person
+                    );
+                    liste.add(ereignis);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        }
-
         return liste;
-    }
-
-    @Override
-    public void speichereEreignis(ArrayList<Ereignis> ereignisse) throws IOException {
-        for (Ereignis ereignis : ereignisse) {
-            schreibeZeile(ereignis.toString());
+            //liste.add(parseEreignis(line));
         }
+/*
+
+    private Ereignis parseEreignis(String line) {
+        return new Ereignis(0, null, 0, "Unknown", line);
+    }
+*/
+
+    /*
+     *  Für Warenkorb, Kunden und Ereignisse!
+     */
+
+
+    private String liesZeile() throws IOException {
+        if (reader != null)
+            return reader.readLine();
+        else
+            return "";
     }
 
+    private void schreibeZeile(String daten) {
+        if (writer != null)
+            writer.println(daten);
+    }
     //benutzer speicherung
     @Override
     public void speicherBenutzer(Benutzer benutzer) throws IOException {
@@ -179,16 +201,22 @@ public class FilePersistenceManager implements PersistenceManager {
         }
     }
 
-    private String liesZeile() throws IOException {
-        if (reader != null)
-            return reader.readLine();
-        else
-            return "";
-    }
+    @Override
+    public void speichereEreignis(ArrayList<Ereignis> ereignisse) throws IOException {
 
-    private void schreibeZeile(String daten) {
-        if (writer != null)
-            writer.println(daten);
+        FileWriter fw = new FileWriter("Ereignisse.txt", false);
+        PrintWriter pw = new PrintWriter(fw);
+
+        for (Ereignis ereignis : ereignisse) {
+            pw.println(
+                    ereignis.getTag() + ";" +
+                            ereignis.getTyp() + ";" +
+                            ereignis.getArtikel().getArtikelID() + ";" +
+                            ereignis.getMenge() + ";" +
+                            ereignis.getPerson()
+                    );
+        }
+        pw.close();
     }
 }
 

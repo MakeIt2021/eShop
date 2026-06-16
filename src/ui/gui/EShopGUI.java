@@ -2,23 +2,16 @@ package ui.gui;
 
 import domain.EShop;
 import entities.Kunde;
+import entities.Rechnung;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-public class EShopGUI extends JFrame{
+public class EShopGUI extends JFrame {
 
     // Zentrale Geschäftslogik des eShops
-    private static EShop eShop;
-
-    static {
-        try {
-            eShop = new EShop();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    private EShop eShop;
 
     // Login-Bildschirm
     private LoginPanel loginPanel;
@@ -34,6 +27,7 @@ public class EShopGUI extends JFrame{
 
     // Enthält alle Panels des CardLayouts
     private JPanel mainPanel;
+    private JButton warenkorbButton;
 
     public EShopGUI() throws IOException {
 
@@ -84,8 +78,8 @@ public class EShopGUI extends JFrame{
                         // Kunde eingeloggt
                         if (eShop.istKunde()) {
                             kundenPanel.setKundeName(eShop.aktuellerBenutzer().getBenutzerVorNachname());
-                            // Kunde Fenster maximieren
-                            setExtendedState(JFrame.MAXIMIZED_BOTH);
+                            // Artikelliste laden
+                            kundenPanel.zeigeArtikelListe(eShop.gibArtikelListe());
                             cardLayout.show(mainPanel, "KUNDE");
                         }
                     } else {
@@ -152,6 +146,259 @@ public class EShopGUI extends JFrame{
                     setSize(900, 600);
                     setLocationRelativeTo(null);
                     cardLayout.show(mainPanel, "LOGIN");
+                });
+
+        // Artikelsuche
+        kundenPanel.getSuchenButton().addActionListener(e -> {
+                    String suchbegriff = kundenPanel.getSucheField().getText();
+                    kundenPanel.filtereArtikel(suchbegriff);
+        });
+        kundenPanel.getSucheField().addActionListener(e -> {
+                    kundenPanel.filtereArtikel(kundenPanel.getSucheField().getText());
+        });
+
+        // Ausgewählten Artikel in den Warenkorb legen
+        kundenPanel.getInWarenkorbButton().addActionListener(e -> {
+
+                    // Ausgewählte Zeile der Tabelle ermitteln
+                    int selectedRow = kundenPanel.getArtikelTable().getSelectedRow();
+
+                    // Prüfen, ob ein Artikel ausgewählt wurde
+                    if (selectedRow == -1) {
+                        JOptionPane.showMessageDialog(
+                                this,
+                                "Bitte zuerst einen Artikel auswählen."
+                        );
+                        return;
+                    }
+            // Artikel-ID aus der ersten Spalte lesen
+            int artikelID =
+                    (Integer) kundenPanel
+                            .getArtikelTable()
+                            .getValueAt(
+                                    selectedRow,
+                                    0
+                            );
+
+// Menge vom Benutzer abfragen
+            String mengeText =
+                    JOptionPane.showInputDialog(
+                            this,
+                            "Menge eingeben:"
+                    );
+
+// Prüfen, ob der Dialog abgebrochen wurde
+            if (mengeText == null) {
+                return;
+            }
+            try {
+                int menge = Integer.parseInt(mengeText);
+                // Artikel wirklich in den Warenkorb legen
+                eShop.fuegeInWarenkorb(
+                        artikelID,
+                        menge,
+                        eShop.aktuellerBenutzer().getBenutzerVorNachname()
+                );
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Artikel wurde erfolgreich zum Warenkorb hinzugefügt."
+                );
+                System.out.println("Warenkorb nach dem Hinzufügen: " + eShop.gibWarenkorb());
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        ex.getMessage(),
+                        "Fehler",
+                        JOptionPane.ERROR_MESSAGE
+                );
+                JOptionPane.showMessageDialog(this, "Bitte eine gültige Zahl eingeben.");
+            }
+                });
+
+        // Warenkorb anzeigen
+        kundenPanel.getWarenkorbButton()
+                .addActionListener(e -> {
+
+                    WarenkorbDialog dialog =
+                            new WarenkorbDialog(
+                                    this,
+                                    eShop.gibWarenkorb(),
+                                    eShop.gibArtikelListe()
+                            );
+
+                    // Menge ändern
+                    dialog.getMengeAendernButton()
+                            .addActionListener(event -> {
+
+                                int selectedRow =
+                                        dialog.getWarenkorbTable().getSelectedRow();
+
+                                if (selectedRow == -1) {
+                                    JOptionPane.showMessageDialog(
+                                            this,
+                                            "Bitte zuerst einen Artikel auswählen."
+                                    );
+                                    return;
+                                }
+
+                                int artikelID =
+                                        (Integer) dialog.getWarenkorbTable()
+                                                .getValueAt(selectedRow, 0);
+
+                                int alteMenge =
+                                        dialog.getAusgewaehlteMenge();
+
+                                String neueMengeText =
+                                        JOptionPane.showInputDialog(
+                                                this,
+                                                "Neue Menge:"
+                                        );
+
+                                if (neueMengeText == null) {
+                                    return;
+                                }
+
+                                try {
+                                    int neueMenge =
+                                            Integer.parseInt(neueMengeText);
+
+                                    String kunde =
+                                            eShop.aktuellerBenutzer()
+                                                    .getBenutzerVorNachname();
+
+                                    eShop.loescheAusWarenkorb(
+                                            artikelID,
+                                            alteMenge,
+                                            kunde
+                                    );
+
+                                    eShop.fuegeInWarenkorb(
+                                            artikelID,
+                                            neueMenge,
+                                            kunde
+                                    );
+
+                                    JOptionPane.showMessageDialog(
+                                            this,
+                                            "Menge erfolgreich geändert."
+                                    );
+
+                                    dialog.ladeWarenkorbNeu(
+                                            eShop.gibWarenkorb(),
+                                            eShop.gibArtikelListe()
+                                    );
+
+                                } catch (Exception ex) {
+                                    JOptionPane.showMessageDialog(
+                                            this,
+                                            ex.getMessage(),
+                                            "Fehler",
+                                            JOptionPane.ERROR_MESSAGE
+                                    );
+                                }
+                            });
+
+                    // Artikel vollständig entfernen
+                    dialog.getArtikelEntfernenButton()
+                            .addActionListener(event -> {
+
+                                int selectedRow =
+                                        dialog.getWarenkorbTable().getSelectedRow();
+
+                                if (selectedRow == -1) {
+                                    JOptionPane.showMessageDialog(
+                                            this,
+                                            "Bitte zuerst einen Artikel auswählen."
+                                    );
+                                    return;
+                                }
+
+                                int artikelID =
+                                        (Integer) dialog.getWarenkorbTable()
+                                                .getValueAt(selectedRow, 0);
+
+                                int menge =
+                                        dialog.getAusgewaehlteMenge();
+
+                                try {
+                                    String kunde =
+                                            eShop.aktuellerBenutzer()
+                                                    .getBenutzerVorNachname();
+
+                                    eShop.loescheAusWarenkorb(
+                                            artikelID,
+                                            menge,
+                                            kunde
+                                    );
+
+                                    JOptionPane.showMessageDialog(
+                                            this,
+                                            "Artikel wurde aus dem Warenkorb entfernt."
+                                    );
+
+                                    dialog.ladeWarenkorbNeu(
+                                            eShop.gibWarenkorb(),
+                                            eShop.gibArtikelListe()
+                                    );
+
+                                } catch (Exception ex) {
+                                    JOptionPane.showMessageDialog(
+                                            this,
+                                            ex.getMessage(),
+                                            "Fehler",
+                                            JOptionPane.ERROR_MESSAGE
+                                    );
+                                }
+                            });
+
+                    // Kaufen
+                    dialog.getKaufenButton()
+                            .addActionListener(event -> {
+
+                                if (eShop.gibWarenkorb().isEmpty()) {
+                                    JOptionPane.showMessageDialog(
+                                            this,
+                                            "Der Warenkorb ist leer."
+                                    );
+                                    return;
+                                }
+
+                                Rechnung rechnung =
+                                        new Rechnung(
+                                                eShop.aktuellerBenutzer()
+                                                        .getBenutzerVorNachname(),
+                                                eShop.gibWarenkorb(),
+                                                eShop.gibArtikelListe()
+                                        );
+
+                                KaufenDialog kaufenDialog =
+                                        new KaufenDialog(
+                                                this,
+                                                rechnung
+                                        );
+
+                                kaufenDialog.getBestaetigenButton()
+                                        .addActionListener(kaufEvent -> {
+
+                                            eShop.zuruecksetzeWarenkorb();
+
+                                            dialog.ladeWarenkorbNeu(
+                                                    eShop.gibWarenkorb(),
+                                                    eShop.gibArtikelListe()
+                                            );
+
+                                            JOptionPane.showMessageDialog(
+                                                    this,
+                                                    "Kauf erfolgreich abgeschlossen."
+                                            );
+
+                                            kaufenDialog.dispose();
+                                        });
+
+                                kaufenDialog.setVisible(true);
+                            });
+
+                    dialog.setVisible(true);
                 });
 
         setVisible(true);
