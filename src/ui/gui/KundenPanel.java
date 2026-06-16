@@ -1,8 +1,12 @@
 package ui.gui;
 
+import entities.Artikel;
+import entities.Massengutartikel;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.HashMap;
 import javax.swing.table.TableRowSorter;
 import javax.swing.RowFilter;
 
@@ -131,20 +135,31 @@ public class KundenPanel extends JPanel {
     /**
      * Zeigt alle Artikel in der Tabelle an.
      */
-    public void zeigeArtikelListe(java.util.HashMap<Integer, entities.Artikel> artikelListe) {
+    public void zeigeArtikelListe(HashMap<Integer, Artikel> artikelListe) {
         // Alte Einträge entfernen
         tableModel.setRowCount(0);
 
         // Artikel zur Tabelle hinzufügen
         for (Integer artikelID : artikelListe.keySet()) {
-            entities.Artikel artikel = artikelListe.get(artikelID);
-            tableModel.addRow(
-                    new Object[]{
-                            artikel.getArtikelID(),
-                            artikel.getBezeichnung(),
-                            artikel.getPreis()
-                    }
-            );
+            Artikel artikel = artikelListe.get(artikelID);
+            if (artikel instanceof Massengutartikel) {
+                tableModel.addRow(
+                        new Object[]{
+                                artikel.getArtikelID(),
+                                artikel.getBezeichnung() + " (Massengutartikel: " + ((Massengutartikel) artikel).getPackungGroesse() + " im der Packung)",
+                                artikel.getPreis()
+                        }
+                );
+            } else {
+                tableModel.addRow(
+                        new Object[]{
+                                artikel.getArtikelID(),
+                                artikel.getBezeichnung(),
+                                artikel.getPreis()
+                        }
+                );
+            }
+
         }
     }
 
@@ -152,7 +167,6 @@ public class KundenPanel extends JPanel {
      * Filtert die Artikeltabelle nach der Bezeichnung.
      */
     public void filtereArtikel(String suchbegriff) {
-
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(tableModel);
         artikelTable.setRowSorter(sorter);
         if (suchbegriff == null || suchbegriff.isBlank()) {
