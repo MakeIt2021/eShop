@@ -1,0 +1,10 @@
+1;tim;Tim Banner;123;Mitarbeiter
+2;azia;azia akbari;123;Kunde
+3;ali;ali johanus;1234;Kunde
+4;q;a;123;Kunde
+5;razia;razia hadya;123;Kunde
+6;ahmed;ahmed ahmed;1234;Mitarbeiter
+7;hadya;hadya hadya;123;Kunde
+8;nila;nila;123;Kunde
+9;alex;alex john;123;Kunde
+11;niman;niman;123;Kunde
