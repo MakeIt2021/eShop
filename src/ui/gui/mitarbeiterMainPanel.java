@@ -44,7 +44,7 @@ public class mitarbeiterMainPanel extends JPanel {
              "Artikel aus dem Katalog koplett löschen",
              "Bestand ändern",
              "Preis ändern",
-             "Ereignisse ändern",
+             "Ereignisse ansehen",
              "Ereignisse speichern",
              "Bestandhistorie anzeigen",
              "neue Mitarbeiter registrieren",

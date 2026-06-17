@@ -1,10 +1,7 @@
 package ui.gui;
 
 import domain.EShop;
-import entities.Artikel;
-import entities.Kunde;
-import entities.Rechnung;
-import entities.Ereignis;
+import entities.*;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -13,6 +10,7 @@ import java.io.IOException;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseAdapter;
+import java.util.ArrayList;
 import javax.swing.event.DocumentListener;
 
 
@@ -95,7 +93,7 @@ public class EShopGUI extends JFrame {
                         case "Preis ändern":
                             preisAndernDialog();
                             break;
-                        case "Ereignisse ändern":
+                        case "Ereignisse ansehen":
                             System.out.println(eShop.gibArtikelListe().size());
                              zeigeEreignisseTabelle();
                             break;
@@ -695,7 +693,6 @@ public class EShopGUI extends JFrame {
     }
     //bestand histori zeigen
     private void bestandHistorieDialog() {
-
         //  Artikel auswahlen
         String[] items = eShop.gibArtikelListe().values().stream()
                 .map(a -> a.getArtikelID() + " - " + a.getBezeichnung())
@@ -721,7 +718,6 @@ public class EShopGUI extends JFrame {
         // Table bauen
         String[] cols = {"Tag", "Bestand"};
         DefaultTableModel model = new DefaultTableModel(cols, 0);
-
         JTable table = new JTable(model);
 
         for (var entry : historie.entrySet()) {
@@ -732,15 +728,29 @@ public class EShopGUI extends JFrame {
         }
 
         JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setPreferredSize(new Dimension(150, 0));
+        ArrayList<Integer> graphData = new ArrayList<>(historie.values());
+        BestandsHistorieGraph graphPanel = new BestandsHistorieGraph(graphData);
 
         // Dialog anzeigen
         JDialog dialog = new JDialog(this, "Bestandhistorie", true);
-        dialog.setSize(500, 300);
-        dialog.setLocationRelativeTo(this);
-        dialog.add(scrollPane);
+        dialog.setSize(800, 400);
+
+        dialog.setLayout(new BorderLayout());
+
+        dialog.add(scrollPane, BorderLayout.WEST);
+        dialog.add(graphPanel, BorderLayout.CENTER);
+
+        GraphicsConfiguration gc = this.getGraphicsConfiguration();
+        Rectangle bounds = gc.getBounds();
+        Insets insets = Toolkit.getDefaultToolkit().getScreenInsets(gc);
+        int width = bounds.width - insets.left - insets.right;
+        int height = bounds.height - insets.top - insets.bottom;
+        dialog.setBounds(0, 0, width, height);
 
         dialog.setVisible(true);
     }
+
     //neue mitarbeiter registrieren
     private void mitarbeiterRegistrierenDialog() {
 
