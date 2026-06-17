@@ -185,7 +185,7 @@ public class KundenPanel extends JPanel {
                 tableModel.addRow(
                         new Object[]{
                                 artikel.getArtikelID(),
-                                artikel.getBezeichnung() + " (Massengutartikel: " + ((Massengutartikel) artikel).getPackungGroesse() + " im der Packung)",
+                                artikel.getBezeichnung() + " (Massengutartikel: " + ((Massengutartikel) artikel).getPackungGroesse() + " in der Packung)",
                                 artikel.getPreis()
                         }
                 );

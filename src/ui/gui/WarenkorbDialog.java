@@ -1,6 +1,7 @@
 package ui.gui;
 
 import entities.Artikel;
+import entities.Massengutartikel;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -92,8 +93,11 @@ public class WarenkorbDialog extends JDialog {
             double einzelpreis =
                     artikel.getPreis();
 
-            double gesamtpreis =
-                    einzelpreis * menge;
+            double gesamtpreis = einzelpreis * menge;
+            if (artikel instanceof Massengutartikel) {
+                gesamtpreis = einzelpreis * menge / ((Massengutartikel) artikel).getPackungGroesse();
+            }
+
 
             gesamtSumme += gesamtpreis;
 
