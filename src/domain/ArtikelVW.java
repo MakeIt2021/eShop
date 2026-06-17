@@ -1,12 +1,14 @@
 package domain;
 
 import domain.exceptions.BestandNichtAusreichendException;
+import domain.exceptions.DateiNichtGefundenException;
 import entities.Artikel;
 import entities.Massengutartikel;
 import persistence.FilePersistenceManager;
 import persistence.PersistenceManager;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -17,46 +19,62 @@ public class ArtikelVW {
     private HashMap<Integer, Integer> artikelMengeListe = new HashMap<>();
     private PersistenceManager pm = new FilePersistenceManager();
 
-    public void ladeArtikelMengeDaten (String datei) throws IOException {
+    public void ladeArtikelMengeDaten (String datei) throws DateiNichtGefundenException {
         String dateiAM = datei+"_AM.txt";
-        pm.openForReading(dateiAM);
-        artikelMengeListe = pm.ladeArtikelMenge();
-        ladeArtikelDaten(datei+"_A.txt");
+        try {
+            pm.openForReading(dateiAM);
+            artikelMengeListe = pm.ladeArtikelMenge();
+            ladeArtikelDaten(datei + "_A.txt");
+        } catch (IOException e) {
+            throw new DateiNichtGefundenException(e.getMessage(), e.getCause());
+        }
     }
 
-   public void ladeArtikelDaten(String datei) throws IOException {
-       pm.openForReading(datei);
+   public void ladeArtikelDaten(String datei) throws DateiNichtGefundenException {
+        try {
+            pm.openForReading(datei);
 
-       Artikel einArtikel;
-       while ((einArtikel = pm.ladeArtikel()) != null) {
-           artikelListe.put(einArtikel.getArtikelID(), einArtikel);
-       }
+            Artikel einArtikel;
+            while ((einArtikel = pm.ladeArtikel()) != null) {
+                artikelListe.put(einArtikel.getArtikelID(), einArtikel);
+            }
 
-       pm.close();
+            pm.close();
+        } catch (IOException e) {
+            throw new DateiNichtGefundenException(e.getMessage(), e.getCause());
+        }
    }
 
-    public void speichereArtikelMengeDaten(String datei) throws IOException {
-        pm.openForWriting(datei);
+    public void speichereArtikelMengeDaten(String datei) throws DateiNichtGefundenException {
+        try {
+            pm.openForWriting(datei);
 
-        if (!artikelMengeListe.isEmpty())
-            pm.speichereArtikelMenge(artikelMengeListe);
+            if (!artikelMengeListe.isEmpty())
+                pm.speichereArtikelMenge(artikelMengeListe);
 
-        pm.close();
+            pm.close();
+        } catch (IOException e) {
+            throw new DateiNichtGefundenException(e.getMessage(), e.getCause());
+        }
     }
 
-    public void speichereArtikelDaten(String datei) throws IOException  {
+    public void speichereArtikelDaten(String datei) throws DateiNichtGefundenException {
         // PersistenzManager für Schreibvorgänge öffnen
-        pm.openForWriting(datei);
+        try {
+            pm.openForWriting(datei);
 
-        // Durchlaufen einer Liste mit einem Iterator:
-        if (!artikelListe.isEmpty()) {
-            for (Map.Entry<Integer, Artikel> entry : artikelListe.entrySet()) {
-                pm.speichereArtikel(entry.getValue());
+            // Durchlaufen einer Liste mit einem Iterator:
+            if (!artikelListe.isEmpty()) {
+                for (Map.Entry<Integer, Artikel> entry : artikelListe.entrySet()) {
+                    pm.speichereArtikel(entry.getValue());
+                }
             }
-        }
 
-        // Persistenz-Schnittstelle wieder schließen
-        pm.close();
+            // Persistenz-Schnittstelle wieder schließen
+            pm.close();
+        } catch (IOException e) {
+            throw new DateiNichtGefundenException(e.getMessage(), e.getCause());
+        }
     }
 
     public void bestandErhoehen(int artikelID, int menge) {

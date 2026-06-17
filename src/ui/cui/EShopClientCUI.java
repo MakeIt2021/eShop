@@ -963,6 +963,7 @@ public class EShopClientCUI {
 
     public static void main(String[] args) {
         EShopClientCUI cui;
+//        String
         try {
             cui = new EShopClientCUI();
             cui.run();

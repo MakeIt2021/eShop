@@ -1,40 +1,32 @@
 package domain;
 
-import java.util.List;
-import java.util.Comparator;
-
 import domain.exceptions.*;
 import entities.Artikel;
 import entities.Benutzer;
 import entities.Ereignis;
 import entities.Massengutartikel;
-import persistence.PersistenceManager;
-import persistence.FilePersistenceManager;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class EShop {
-    private String datei = "eShop";
+    private final String datei = "eShop";
 
-    // TODO: Sollen sie alle final sein?
-    private ArtikelVW artikelVW;
-    private BenutzerVW benutzerVW;
-    private EreignisVW ereignisVW;
+    private final ArtikelVW artikelVW;
+    private final BenutzerVW benutzerVW;
+    private final EreignisVW ereignisVW;
+    private final WarenkorbVW warenkorbVW;
 
     public BenutzerVW getBenutzerVW() {
         return benutzerVW;
     }
 
-    private WarenkorbVW warenkorbVW;
-
-    public EShop() throws IOException {
-        this.datei = datei;
+    public EShop() throws DateiNichtGefundenException {
         artikelVW = new ArtikelVW();
         artikelVW.ladeArtikelMengeDaten(datei);
         warenkorbVW = new WarenkorbVW();
@@ -56,7 +48,7 @@ public class EShop {
     }
 
 
-    public void fuegeArtikelEin(int artikelID, String bezeichnung, int menge, float preis, String mitarbeiter) throws IOException {
+    public void fuegeArtikelEin(int artikelID, String bezeichnung, int menge, float preis, String mitarbeiter) throws DateiNichtGefundenException {
         Artikel art = new Artikel(artikelID, bezeichnung.toLowerCase(), preis);
 
         if (artikelVW.findeArtikel(artikelID) == null) {
@@ -85,8 +77,7 @@ public class EShop {
             float preis,
             String mitarbeiter,
             int packungGroesse
-    ) throws IOException {
-
+    ) throws UngueltigeMengeException, UngueltigerPreisException, MengeWenigerAlsPackungGroesseException, MassengutartikelmengeNichtTeilbarException, DateiNichtGefundenException {
         if (preis < 0) {
             throw new UngueltigerPreisException(preis);
         }
@@ -124,17 +115,17 @@ public class EShop {
         speichereArtikel();
     }
 
-    public void artikelVernichten(int artikelID) throws IOException {
+    public void artikelVernichten(int artikelID) {
         artikelVW.artikelVernichten(artikelID);
         speichereArtikel();
     }
 
-    public void bezeichnungVeraendern(int artikelID, String bezeichnung) throws IOException {
+    public void bezeichnungVeraendern(int artikelID, String bezeichnung) throws DateiNichtGefundenException {
         artikelVW.bezeichnungVeraendern(artikelID, bezeichnung);
         speichereArtikel();
     }
 
-    public void preisVeraendern(int artikelID, float preis) throws IOException {
+    public void preisVeraendern(int artikelID, float preis) throws DateiNichtGefundenException {
 
         if (preis < 0) {
             throw new UngueltigerPreisException(preis);
@@ -144,7 +135,7 @@ public class EShop {
         speichereArtikel();
     }
 
-    public void fuegeInWarenkorb(int artikelID, int menge, String kunde) throws IOException {
+    public void fuegeInWarenkorb(int artikelID, int menge, String kunde) throws UngueltigeMengeException, BestandNichtAusreichendException, MengeWenigerAlsPackungGroesseException, MassengutartikelmengeNichtTeilbarException, DateiNichtGefundenException {
 
         if (menge <= 0) {
             throw new UngueltigeMengeException(menge);
@@ -183,7 +174,7 @@ public class EShop {
         speichereArtikel();
     }
 
-    public void loescheAusWarenkorb(int artikelID, int menge, String kunde) throws IOException {
+    public void loescheAusWarenkorb(int artikelID, int menge, String kunde) throws UngueltigeMengeException, MengeWenigerAlsPackungGroesseException, MassengutartikelmengeNichtTeilbarException, DateiNichtGefundenException {
 
         if (menge <= 0) {
             throw new UngueltigeMengeException(menge);
@@ -211,7 +202,7 @@ public class EShop {
         warenkorbVW.zuruecksetzen();
     }
 
-    public void speichereArtikel() throws IOException {
+    public void speichereArtikel() throws DateiNichtGefundenException {
         artikelVW.speichereArtikelMengeDaten(datei+"_AM.txt");
         artikelVW.speichereArtikelDaten(datei+"_A.txt");
     }
@@ -230,8 +221,7 @@ public class EShop {
             int artikelID,
             int neuerBestand,
             String mitarbeiter
-    ) throws IOException {
-
+    ) throws MengeWenigerAlsPackungGroesseException, MassengutartikelmengeNichtTeilbarException, DateiNichtGefundenException {
         if (neuerBestand <= 0) {
             throw new UngueltigeMengeException(neuerBestand);
         }
@@ -264,7 +254,6 @@ public class EShop {
 
             ereignisVW.addEreignis(artikelVW.findeArtikel(artikelID), neuerBestand - aktuellerBestand, "Einlagerung", "m:" + mitarbeiter);
         } else {
-
             artikelVW.bestandVerringern(
                     artikelID,
                     aktuellerBestand - neuerBestand
@@ -325,14 +314,11 @@ public class EShop {
         return benutzerVW.getAktuellerBenutzer();
     }
 
-    public void pruefeArtikelExistiertBereits(String bezeichnung) {
-
+    public void pruefeArtikelExistiertBereits(String bezeichnung) throws ArtikelExistiertBereitsException {
         int artikelID = artikelVW.sucheNachIDMitBezeichnung(bezeichnung);
 
         if (artikelID != -1) {
-
             Artikel artikel = artikelVW.findeArtikel(artikelID);
-
             throw new ArtikelExistiertBereitsException(artikel, "");
         }
     }

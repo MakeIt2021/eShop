@@ -1,10 +1,12 @@
 package persistence;
 
+import domain.exceptions.DateiNichtGefundenException;
 import entities.*;
 
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -15,7 +17,7 @@ public class FilePersistenceManager implements PersistenceManager {
     private PrintWriter writer = null;
 
     @Override
-    public Map<String, Benutzer> ladeBenutzer() throws IOException{
+    public Map<String, Benutzer> ladeBenutzer() throws DateiNichtGefundenException{
         Map<String, Benutzer> map = new HashMap<>();
         File file = new File("benutzer.txt");
         if (!file.exists()) {
@@ -38,20 +40,32 @@ public class FilePersistenceManager implements PersistenceManager {
                 }
                 map.put(erkennung, b);
             }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
         return map;
     }
 
 
-    public void openForReading(String datei) throws FileNotFoundException {
-        reader = new BufferedReader(new FileReader(datei));
+    public void openForReading(String datei) throws DateiNichtGefundenException {
+        try {
+            reader = new BufferedReader(new FileReader(datei));
+        } catch (FileNotFoundException e) {
+            throw new DateiNichtGefundenException(datei + "konnte nicht gefunden werden.");
+        }
     }
 
-    public void openForWriting(String datei) throws IOException {
-        writer = new PrintWriter(new BufferedWriter(new FileWriter(datei)));
+    public void openForWriting(String datei) throws DateiNichtGefundenException {
+        try {
+            writer = new PrintWriter(new BufferedWriter(new FileWriter(datei)));
+        } catch (IOException e) {
+            throw new DateiNichtGefundenException("Datei konnte nicht geöffnet werden");
+        }
     }
 
-    public void close() {
+    public void close() throws DateiNichtGefundenException {
         if (writer != null)
             writer.close();
 
@@ -59,15 +73,12 @@ public class FilePersistenceManager implements PersistenceManager {
             try {
                 reader.close();
             } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-
+                throw new DateiNichtGefundenException("Datei konnte nicht geschlossen werden.");
             }
         }
-
     }
 
-    public Artikel ladeArtikel() throws IOException {
+    public Artikel ladeArtikel() throws DateiNichtGefundenException {
         String artikelIDString = liesZeile();
         if (artikelIDString == null) {
             // keine Daten mehr vorhanden
@@ -86,7 +97,7 @@ public class FilePersistenceManager implements PersistenceManager {
         return packungGroesse == 1 ? new Artikel(artikelID, bezeichnung, preis) : new Massengutartikel(artikelID, bezeichnung, preis, packungGroesse);
     }
 
-    public void speichereArtikel(Artikel a) throws IOException {
+    public void speichereArtikel(Artikel a) throws DateiNichtGefundenException {
         schreibeZeile(String.valueOf(a.getArtikelID()));
         schreibeZeile(a.getBezeichnung());
         schreibeZeile(String.valueOf(a.getPreis()));
@@ -97,7 +108,7 @@ public class FilePersistenceManager implements PersistenceManager {
         }
     }
 
-    public HashMap<Integer, Integer> ladeArtikelMenge() throws IOException {
+    public HashMap<Integer, Integer> ladeArtikelMenge() throws DateiNichtGefundenException {
         HashMap<Integer, Integer> artikelMengeListe = new HashMap<>();
         while (true) {
             String bestandString = liesZeile();
@@ -114,7 +125,7 @@ public class FilePersistenceManager implements PersistenceManager {
         }
     }
 
-    public void speichereArtikelMenge(HashMap<Integer, Integer> hm) throws IOException {
+    public void speichereArtikelMenge(HashMap<Integer, Integer> hm) throws DateiNichtGefundenException {
         for (Map.Entry<Integer, Integer> entry : hm.entrySet()) {
             int artikelID = entry.getKey();
             int artikelBestand = entry.getValue();
@@ -127,7 +138,7 @@ public class FilePersistenceManager implements PersistenceManager {
 
 
     @Override
-    public ArrayList<PersistenceManager.einEreignisInfo> ladeEreignisse() throws IOException {
+    public ArrayList<PersistenceManager.einEreignisInfo> ladeEreignisse() throws DateiNichtGefundenException {
         ArrayList<einEreignisInfo> liste = new ArrayList<>();
 
         String regex = "Tag:\\s*(?<date>[^|]+?)\\s*\\|\\s*" +
@@ -157,7 +168,7 @@ public class FilePersistenceManager implements PersistenceManager {
     }
 
     @Override
-    public void speichereEreignis(ArrayList<Ereignis> ereignisse) throws IOException {
+    public void speichereEreignis(ArrayList<Ereignis> ereignisse) throws DateiNichtGefundenException {
         for (Ereignis ereignis : ereignisse) {
             schreibeZeile(ereignis.toString());
         }
@@ -179,14 +190,18 @@ public class FilePersistenceManager implements PersistenceManager {
         }
     }
 
-    private String liesZeile() throws IOException {
+    private String liesZeile() throws DateiNichtGefundenException {
         if (reader != null)
-            return reader.readLine();
+            try {
+                return reader.readLine();
+            } catch (IOException e) {
+                throw new DateiNichtGefundenException("Input konnte nicht gelesen werden");
+            }
         else
             return "";
     }
 
-    private void schreibeZeile(String daten) {
+    private void schreibeZeile(String daten) throws DateiNichtGefundenException {
         if (writer != null)
             writer.println(daten);
     }

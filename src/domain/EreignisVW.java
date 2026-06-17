@@ -1,5 +1,6 @@
 package domain;
 
+import domain.exceptions.DateiNichtGefundenException;
 import entities.Artikel;
 import entities.Ereignis;
 import persistence.FilePersistenceManager;
@@ -15,31 +16,40 @@ public class EreignisVW {
     private PersistenceManager pm = new FilePersistenceManager();
     ArrayList<Ereignis> ereignisListe = new ArrayList<>();
 
-    public void ladeEreignisse(String datei, Function<String, Artikel> findeArtikelMitBezeichnung) throws IOException {
-        pm.openForReading(datei);
-        ArrayList<PersistenceManager.einEreignisInfo> gespeichertEreignisListe = pm.ladeEreignisse();
-        pm.close();
+    public void ladeEreignisse(String datei, Function<String, Artikel> findeArtikelMitBezeichnung) throws DateiNichtGefundenException {
+        try {
+            pm.openForReading(datei);
+            ArrayList<PersistenceManager.einEreignisInfo> gespeichertEreignisListe = pm.ladeEreignisse();
+            pm.close();
 
-        for (PersistenceManager.einEreignisInfo einEreignis : gespeichertEreignisListe) {
-            Artikel artikel = findeArtikelMitBezeichnung.apply(einEreignis.bezeichnung());
+            for (PersistenceManager.einEreignisInfo einEreignis : gespeichertEreignisListe) {
+                Artikel artikel = findeArtikelMitBezeichnung.apply(einEreignis.bezeichnung());
 
-            ereignisListe.add(new Ereignis(
-                    einEreignis.date(),
-                    artikel,
-                    einEreignis.menge(),
-                    einEreignis.typ(),
-                    einEreignis.person()
-            ));
+                ereignisListe.add(new Ereignis(
+                        einEreignis.date(),
+                        artikel,
+                        einEreignis.menge(),
+                        einEreignis.typ(),
+                        einEreignis.person()
+                ));
+            }
+        } catch (IOException e) {
+            throw new DateiNichtGefundenException(e.getMessage(), e.getCause());
         }
     }
 
-    public void speichereEreignisse(String datei) throws IOException {
-        pm.openForWriting(datei);
-        pm.speichereEreignis(ereignisListe);
-        pm.close();
+    public void speichereEreignisse(String datei) throws DateiNichtGefundenException {
+        try {
+            pm.openForWriting(datei);
+            pm.speichereEreignis(ereignisListe);
+            pm.close();
+        } catch (IOException e) {
+            throw new DateiNichtGefundenException(e.getMessage(), e.getCause());
+        }
+
     }
 
-    public void addEreignis(Artikel einArtikel, int menge, String typ, String person) throws IOException {
+    public void addEreignis(Artikel einArtikel, int menge, String typ, String person) throws DateiNichtGefundenException {
         ereignisListe.add(new Ereignis(
                 LocalDate.now(),
                 einArtikel,
@@ -48,7 +58,7 @@ public class EreignisVW {
                 person
         ));
 
-        speichereEreignisse("Ereignisse.txt");
+        speichereEreignisse("Ereignisse.txt"); // TODO: Nicht hier Filepath zu schreiben!
     }
 
     public ArrayList<Ereignis> gibEreignisListe() {

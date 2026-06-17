@@ -1,23 +1,16 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package domain;
 
+import domain.exceptions.DateiNichtGefundenException;
 import entities.Benutzer;
-import entities.Kunde;
-import entities.Mitarbeiter;
 import persistence.FilePersistenceManager;
 import persistence.PersistenceManager;
 
-import javax.management.relation.Role;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class BenutzerVW {
-    private final String datei = "benutzer.txt";
+    private final String datei = "benutzer.txt"; //TODO: nicht so hardcoded!
     private Benutzer aktuellerBenutzer;
     private int nextId = 1;
 
@@ -25,56 +18,49 @@ public class BenutzerVW {
     private PersistenceManager pm = new FilePersistenceManager();
     private Map<String, Benutzer> benutzerMap = new HashMap<>();
 
-    public BenutzerVW(){
+    public BenutzerVW() throws DateiNichtGefundenException {
         try {
             this.benutzerMap = this.pm.ladeBenutzer();
 
             for (Benutzer benutzer : benutzerMap.values()) {
                 nextId = Math.max(nextId, benutzer.getBenutzerId() + 1);
             }
-        }catch (Exception e){
-            benutzerMap = new HashMap<>();
+        } catch (IOException e){
+            throw new DateiNichtGefundenException(e.getMessage(), e.getCause());
         }
     }
 
-    public boolean registrieren(Benutzer benutzer) {
+    public boolean registrieren(Benutzer benutzer) throws DateiNichtGefundenException {
         if (this.benutzerMap.containsKey(benutzer.getBenutzerErkennung())) {
             System.out.print("Benutzer existiert bereit! ");
             System.out.println("Bitte loggen Sie sich ein!");
             return false;
         }
         this.benutzerMap.put(benutzer.getBenutzerErkennung(), benutzer);
+
         try {
             pm.speicherBenutzer(benutzer);
-        } catch (Exception e) {
-            System.out.println("Fehler beim Speichern!");
-            e.printStackTrace();
+        } catch (IOException e) {
+            throw new DateiNichtGefundenException(e.getMessage(), e.getCause());
         }
-        System.out.println("✔ Registrierung erfolgreich!");
-        return true;
 
+        return true;
     }
 
     public boolean login(String benutzerErkennung, String benutzerPassword) {
         Benutzer benutzer = (Benutzer)this.benutzerMap.get(benutzerErkennung);
         if (benutzer != null && benutzer.checkPassword(benutzerPassword)) {
             this.aktuellerBenutzer = benutzer;
-            System.out.println("Login erfogreich.");
             return true;
         } else {
-            System.out.println("Falsher Benutzername oder Password.");
             return false;
         }
     }
 
     public void logout() {
         if (this.aktuellerBenutzer != null) {
-            System.out.println(this.aktuellerBenutzer.getBenutzerErkennung() + " wurde ausgelogt.");
             this.aktuellerBenutzer = null;
-        } else {
-            System.out.println("keine Benutzer eingelogt.");
         }
-
     }
 
     protected Benutzer getAktuellerBenutzer() {
