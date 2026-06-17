@@ -237,7 +237,6 @@ public class EShop {
         }
 
         if (istMassengutartikel(artikelID)) {
-
             if (neuerBestand < getPackungGroesse(artikelID)) {
                 throw new MengeWenigerAlsPackungGroesseException(
                         getArtikelName(artikelID),
