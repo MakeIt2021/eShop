@@ -46,11 +46,15 @@ public class WarenkorbDialog extends JDialog {
                 "Gesamtpreis"
         };
 
-        tableModel =
-                new DefaultTableModel(
-                        spalten,
-                        0
-                );
+        tableModel = new DefaultTableModel(
+                spalten,
+                0
+        ) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
 
         warenkorbTable =
                 new JTable(tableModel);

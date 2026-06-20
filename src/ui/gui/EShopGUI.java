@@ -1,10 +1,6 @@
 package ui.gui;
 
 import domain.EShop;
-import domain.exceptions.BestandNichtAusreichendException;
-import domain.exceptions.MassengutartikelmengeNichtTeilbarException;
-import domain.exceptions.MengeWenigerAlsPackungGroesseException;
-import domain.exceptions.UngueltigeMengeException;
 import entities.*;
 
 import javax.swing.*;
@@ -137,7 +133,7 @@ public class EShopGUI extends JFrame {
                 ladeArtikelTabelle();
                 return;
             }
-            DefaultTableModel model = mitarbeiterMainPanel.getArtikelTabelleModel();
+           DefaultTableModel model = mitarbeiterMainPanel.getArtikelTabelleModel();
             model.setRowCount(0);
             for (int id : eShop.gibArtikelListe().keySet()){
                 Artikel a = eShop.gibArtikelListe().get(id);
@@ -293,23 +289,20 @@ public class EShopGUI extends JFrame {
 
                 int artikelID = (Integer) dialog.getWarenkorbTable().getValueAt(selectedRow, 0);
                 int alteMenge = dialog.getAusgewaehlteMenge();
-                String neueMengeText;
-                if (eShop.istMassengutartikel(artikelID)) {
-                    neueMengeText = JOptionPane.showInputDialog(this, eShop.getArtikelName(artikelID) + " ist ein Massengutartikel. Die neue Menge muss durch " + eShop.getPackungGroesse(artikelID) + " teilbar sein.");
-                } else {
-                    neueMengeText = JOptionPane.showInputDialog(this, "Neue Menge:");
+                String neueMengeText = JOptionPane.showInputDialog(this, "Neue Menge:");
+
+                if (neueMengeText == null) {
+                    return;
                 }
 
                 try {
                     int neueMenge = Integer.parseInt(neueMengeText);
-
                     String kunde = eShop.aktuellerBenutzer().getBenutzerVorNachname();
                     eShop.loescheAusWarenkorb(artikelID, alteMenge, kunde);
                     eShop.fuegeInWarenkorb(artikelID, neueMenge, kunde);
                     JOptionPane.showMessageDialog(this, "Menge erfolgreich geändert.");
                     dialog.ladeWarenkorbNeu(eShop.gibWarenkorb(), eShop.gibArtikelListe());
-                } catch (BestandNichtAusreichendException | MassengutartikelmengeNichtTeilbarException |
-                         MengeWenigerAlsPackungGroesseException | UngueltigeMengeException ex) {
+                } catch (Exception ex) {
                     JOptionPane.showMessageDialog(this, ex.getMessage(), "Fehler", JOptionPane.ERROR_MESSAGE);
                 }
             });
@@ -367,22 +360,12 @@ public class EShopGUI extends JFrame {
         artikelModel.setRowCount(0);
         for (int id : eShop.gibArtikelListe().keySet()) {
             Artikel a = eShop.gibArtikelListe().get(id);
-            if (a instanceof Massengutartikel) {
-                artikelModel.addRow(new Object[]{
-                        a.getArtikelID(),
-                        a.getBezeichnung() + " (Massengutartikel: " + ((Massengutartikel) a).getPackungGroesse() + " in der Packung)",
-                        eShop.gibArtikelMengeListe().get(id),
-                        a.getPreis()
-                });
-            } else {
-                artikelModel.addRow(new Object[]{
-                        a.getArtikelID(),
-                        a.getBezeichnung(),
-                        eShop.gibArtikelMengeListe().get(id),
-                        a.getPreis()
-                });
-            }
-
+            artikelModel.addRow(new Object[]{
+                    a.getArtikelID(),
+                    a.getBezeichnung(),
+                    eShop.gibArtikelMengeListe().get(id),
+                    a.getPreis()
+            });
 
         }
     }
@@ -444,6 +427,7 @@ public class EShopGUI extends JFrame {
         }
         // MASSENGUT ARTIKEL
         else {
+
             JTextField bezeichnungField = new JTextField();
             JTextField preisField = new JTextField();
             JTextField bestandField = new JTextField();
@@ -556,7 +540,6 @@ public class EShopGUI extends JFrame {
                 public void removeUpdate(javax.swing.event.DocumentEvent e) {filter();}
                 public void changedUpdate(javax.swing.event.DocumentEvent e) {filter();}
             });
-
             panelBezeichnung.add(new JLabel("Suche bein Id oder Bezeichnung:"),BorderLayout.NORTH);
             panelBezeichnung.add(bezeichnungSuchField, BorderLayout.CENTER);
             panelBezeichnung.add(artikelBox, BorderLayout.SOUTH);
@@ -685,6 +668,7 @@ public class EShopGUI extends JFrame {
     }
     // ereignisse tabelle hinzufügen
     private void zeigeEreignisseTabelle() {
+
         JDialog ereignisDialog =  new JDialog(this,
                 "Ereignisse", true);
         ereignisDialog.setSize(700, 400);

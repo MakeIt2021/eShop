@@ -31,6 +31,14 @@ public class KaufenDialog extends JDialog {
                 new JTextArea();
 
         rechnungText.setEditable(false);
+        rechnungText.setMargin(
+                new Insets(
+                        20,
+                        50,
+                        20,
+                        50
+                )
+        );
 
         rechnungText.setFont(
                 new Font(
@@ -44,7 +52,7 @@ public class KaufenDialog extends JDialog {
                 new StringBuilder();
 
         sb.append("                 RECHNUNG\n");
-        sb.append("========================================\n\n");
+        sb.append("=================================================\n\n");
 
         sb.append("Kunde: ")
                 .append(rechnung.getKundeName())
@@ -54,7 +62,7 @@ public class KaufenDialog extends JDialog {
                 .append(rechnung.getHeutigesDatum())
                 .append("\n\n");
 
-        sb.append("----------------------------------------\n");
+        sb.append("-------------------------------------------------\n");
 
         // Alle gekauften Artikel anzeigen
         for (Rechnung.GekaufterArtikel artikel
@@ -71,7 +79,7 @@ public class KaufenDialog extends JDialog {
             );
         }
 
-        sb.append("----------------------------------------\n");
+        sb.append("-------------------------------------------------\n");
 
         sb.append(
                 String.format(
