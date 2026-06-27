@@ -1,14 +1,7 @@
 package domain;
 
-import entities.Artikel;
 import entities.Warenkorb;
-
-import java.io.IOException;
-import java.net.Inet4Address;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 
 
 public class WarenkorbVW {

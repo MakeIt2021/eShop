@@ -460,10 +460,10 @@ public class EShopGUI extends JFrame {
                 int m = Integer.parseInt(bestandField.getText().trim());
                 int pg = Integer.parseInt(packungField.getText().trim());
 
-                if (m % 2 != 0) {
+                if (m % pg != 0) {
                     JOptionPane.showMessageDialog(
                             this,
-                            "Bestand muss durch 18 teilbar sein!",
+                            "Bestand muss durch " + pg + " teilbar sein!",
                             "Regel verletzt",
                             JOptionPane.ERROR_MESSAGE
                     );

@@ -1,10 +1,7 @@
 package domain;
 
 import domain.exceptions.*;
-import entities.Artikel;
-import entities.Benutzer;
-import entities.Ereignis;
-import entities.Massengutartikel;
+import entities.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -331,7 +328,12 @@ public class EShop {
         return ereignisVW.gibBestandHistorie(artikelID);
     }
 
+    public Rechnung gibAlleGekaufteArtikel() {
+        return new Rechnung(aktuellerBenutzer().getBenutzerVorNachname(), gibWarenkorb(), gibArtikelListe());
+    }
+
     public ArrayList<Integer> gibBestandHistorie(int artikelID) {
         return ereignisVW.gibBestandHistorieAlsIntegers(artikelID);
     }
+
 }

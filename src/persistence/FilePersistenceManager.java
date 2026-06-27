@@ -6,7 +6,6 @@ import entities.*;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -109,7 +108,6 @@ public class FilePersistenceManager implements PersistenceManager {
         while (true) {
             String bestandString = liesZeile();
             if (bestandString == null || bestandString.equals("EOF")) {
-                // keine Daten mehr vorhanden
                 return artikelMengeListe;
             }
 
