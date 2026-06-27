@@ -1,6 +1,10 @@
 package ui.gui;
 
 import domain.EShop;
+import domain.exceptions.BestandNichtAusreichendException;
+import domain.exceptions.MassengutartikelmengeNichtTeilbarException;
+import domain.exceptions.MengeWenigerAlsPackungGroesseException;
+import domain.exceptions.UngueltigeMengeException;
 import entities.*;
 
 import javax.swing.*;
@@ -302,7 +306,8 @@ public class EShopGUI extends JFrame {
                     eShop.fuegeInWarenkorb(artikelID, neueMenge, kunde);
                     JOptionPane.showMessageDialog(this, "Menge erfolgreich geändert.");
                     dialog.ladeWarenkorbNeu(eShop.gibWarenkorb(), eShop.gibArtikelListe());
-                } catch (Exception ex) {
+                } catch (BestandNichtAusreichendException | MassengutartikelmengeNichtTeilbarException |
+                         MengeWenigerAlsPackungGroesseException | UngueltigeMengeException ex) {
                     JOptionPane.showMessageDialog(this, ex.getMessage(), "Fehler", JOptionPane.ERROR_MESSAGE);
                 }
             });
@@ -668,28 +673,8 @@ public class EShopGUI extends JFrame {
     }
     // ereignisse tabelle hinzufügen
     private void zeigeEreignisseTabelle() {
-
-        JDialog ereignisDialog =  new JDialog(this,
-                "Ereignisse", true);
-        ereignisDialog.setSize(700, 400);
-        ereignisDialog.setLocationRelativeTo(this);
-        String[] cols = {"Tag", "Artikel", "Typ", "Menge", "Person"};
-        DefaultTableModel model = new DefaultTableModel(cols, 0);
-        JTable table = new JTable(model);
-
-        JScrollPane scrollPane = new JScrollPane(table);
-        ereignisDialog.add(scrollPane);
-        for (Ereignis e : eShop.gibEreignisListe()) {
-            model.addRow(new Object[]{
-                    e.getTag(),
-                    e.getArtikel().getBezeichnung(),
-                    e.getTyp(),
-                    e.getMenge(),
-                    e.getPerson()
-            });
-        }
-
-        ereignisDialog.setVisible(true);
+        EreignisListeDialog dialog = new EreignisListeDialog(this, eShop);
+        dialog.setVisible(true);
     }
     //bestand histori zeigen
     private void bestandHistorieDialog() {

@@ -40,3 +40,5 @@ Tag: 2026-06-16 | Typ: Auslagerung | Artikel: Stuhl | Menge: 40 | Person: k:razi
 Tag: 2026-06-17 | Typ: Einlagerung | Artikel: Wasser | Menge: 72 | Person: m:tim
 Tag: 2026-06-17 | Typ: Auslagerung | Artikel: Wasser | Menge: 12 | Person: k:razia hadya
 Tag: 2026-06-17 | Typ: Auslagerung | Artikel: Wasser | Menge: 12 | Person: k:razia hadya
+Tag: 2026-06-27 | Typ: Auslagerung | Artikel: Wasser | Menge: 6 | Person: k:razia hadya
+Tag: 2026-06-27 | Typ: Auslagerung | Artikel: Webcam | Menge: 5 | Person: k:razia hadya
