@@ -1,6 +1,6 @@
 package ui.gui;
 
-// Note: Diese Klasse wurde für Tests geschrieben.
+// Note: Diese Klasse wurde komplett von KI für Tests geschrieben.
 
 import domain.EShop;
 
