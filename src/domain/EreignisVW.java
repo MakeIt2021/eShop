@@ -16,14 +16,18 @@ public class EreignisVW {
     private PersistenceManager pm = new FilePersistenceManager();
     ArrayList<Ereignis> ereignisListe = new ArrayList<>();
 
-    public void ladeEreignisse(String datei, Function<String, Artikel> findeArtikelMitBezeichnung) throws DateiNichtGefundenException {
+    public void ladeEreignisse(String datei, Function<String, Artikel> findeArtikel) throws DateiNichtGefundenException {
         try {
             pm.openForReading(datei);
             ArrayList<PersistenceManager.einEreignisInfo> gespeichertEreignisListe = pm.ladeEreignisse();
             pm.close();
 
             for (PersistenceManager.einEreignisInfo einEreignis : gespeichertEreignisListe) {
-                Artikel artikel = findeArtikelMitBezeichnung.apply(einEreignis.bezeichnung());
+                Artikel artikel = findeArtikel.apply(String.valueOf(einEreignis.artikelID()));
+
+                if (artikel == null) {
+                    artikel = new Artikel(einEreignis.artikelID(), einEreignis.bezeichnung(), 0);
+                }
 
                 ereignisListe.add(new Ereignis(
                         einEreignis.date(),
@@ -68,7 +72,9 @@ public class EreignisVW {
     public Map<LocalDate, Integer> gibBestandHistorie(int artikelID) {
         int bestand = 0;
 
-        List<Ereignis> events = ereignisListe.stream().filter(e -> e.getArtikel().getArtikelID() == artikelID).toList();
+        List<Ereignis> events = ereignisListe.stream()
+                .filter(e -> e.getArtikel() != null && e.getArtikel().getArtikelID() == artikelID)
+                .toList();
 
         Map<LocalDate, Integer> historie = new LinkedHashMap<>();
 

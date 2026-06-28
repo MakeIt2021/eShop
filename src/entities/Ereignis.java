@@ -54,8 +54,12 @@ public class Ereignis {
     }
 
     public String toString() {
+        int id = (this.artikel != null) ? this.artikel.getArtikelID() : -1;
+        String name = (this.artikel != null) ? this.artikel.getBezeichnung() : "Entfernter Artikel";
+
         return "Tag: " + tag + " | Typ: " + typ
-                + " | Artikel: " + artikel.getBezeichnung()
+                + " | ArtikelID: " + id
+                + " | Artikel: " + name
                 + " | Menge: " + menge
                 + " | Person: " + person;
     }

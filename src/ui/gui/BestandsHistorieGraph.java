@@ -13,6 +13,14 @@ public class BestandsHistorieGraph extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
+        if (bestandVon30Tagen == null || bestandVon30Tagen.isEmpty()) {
+            g.drawString("Keine historischen Daten für diesen Artikel vorhanden.", 20, 30);
+            return;
+        } else if (bestandVon30Tagen.size() < 30) {
+            g.drawString("Nicht genug historischen Daten für diesen Artikel vorhanden, um ein Graph zu zeichnen.", 20, 30);
+            return;
+        }
+
         super.paintComponent(g);
 
         int width = getWidth();

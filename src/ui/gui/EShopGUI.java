@@ -98,26 +98,20 @@ public class EShopGUI extends JFrame {
         });
 
         mitarbeiterMainPanel.getArtikelVeraendernButton().addActionListener(e -> {
-            JTable table = mitarbeiterMainPanel.getArtikelTabelle();
-            int selectedRow = table.getSelectedRow();
-
-            if (selectedRow == -1) {
-                JOptionPane.showMessageDialog(this,
-                        "Bitte wählen Sie zuerst einen Artikel aus der Tabelle aus!",
-                        "Kein Artikel ausgewählt",
-                        JOptionPane.WARNING_MESSAGE);
+            int selectedID = getArtikelIDFromRow();
+            if (selectedID == -1)
                 return;
-            }
 
-            int modelRow = table.convertRowIndexToModel(selectedRow);
-            int artikelID = Integer.parseInt(table.getModel().getValueAt(modelRow, 0).toString());
-
-            ArtikelVeraendernDialog dialog = new ArtikelVeraendernDialog(this, eShop, () -> ladeArtikelTabelle(), artikelID);
+            ArtikelVeraendernDialog dialog = new ArtikelVeraendernDialog(this, eShop, this::ladeArtikelTabelle, selectedID);
             dialog.setVisible(true);
         });
 
         mitarbeiterMainPanel.getHistorieButton().addActionListener(e -> {
-            bestandHistorieDialog();
+            int selectedID = getArtikelIDFromRow();
+            if (selectedID == -1)
+                return;
+
+            bestandHistorieDialog(selectedID);
         });
 
         mitarbeiterMainPanel.getEreignisseButton().addActionListener(e -> {
@@ -331,6 +325,24 @@ public class EShopGUI extends JFrame {
         setVisible(true);
     }
 
+    private int getArtikelIDFromRow() {
+        JTable table = mitarbeiterMainPanel.getArtikelTabelle();
+        int selectedRow = table.getSelectedRow();
+
+        // Если строка не выбрана — ругаемся и не открываем окно
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this,
+                    "Bitte wählen Sie zuerst einen Artikel aus der Tabelle aus!",
+                    "Kein Artikel ausgewählt",
+                    JOptionPane.WARNING_MESSAGE);
+            return -1;
+        }
+
+        int modelRow = table.convertRowIndexToModel(selectedRow);
+        return Integer.parseInt(table.getModel().getValueAt(modelRow, 0).toString());
+    }
+
+
     //lade ARTIKEL PANEL
     private void ladeArtikelTabelle(){
         DefaultTableModel artikelModel = mitarbeiterMainPanel.getArtikelTabelleModel();
@@ -346,6 +358,7 @@ public class EShopGUI extends JFrame {
 
         }
     }
+
     private void artikelHinzufuegenDialog() {
         String[] optionen = {"Single Artikel", "Massengut Artikel"};
 
@@ -471,26 +484,7 @@ public class EShopGUI extends JFrame {
         dialog.setVisible(true);
     }
     //bestand histori zeigen
-    private void bestandHistorieDialog() {
-        //  Artikel auswahlen
-        String[] items = eShop.gibArtikelListe().values().stream()
-                .map(a -> a.getArtikelID() + " - " + a.getBezeichnung())
-                .toArray(String[]::new);
-
-        String selected = (String) JOptionPane.showInputDialog(
-                this,
-                "Artikel auswählen:",
-                "Bestandhistorie",
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                items,
-                items.length > 0 ? items[0] : null
-        );
-
-        if (selected == null) return;
-
-        int artikelID = Integer.parseInt(selected.split(" - ")[0]);
-
+    private void bestandHistorieDialog(int artikelID) {
         // Historie holen
         var historie = eShop.berechneBestandHistorie(artikelID);
 

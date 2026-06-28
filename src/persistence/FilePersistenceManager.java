@@ -137,6 +137,7 @@ public class FilePersistenceManager implements PersistenceManager {
 
         String regex = "Tag:\\s*(?<date>[^|]+?)\\s*\\|\\s*" +
                 "Typ:\\s*(?<typ>[^|]+?)\\s*\\|\\s*" +
+                "ArtikelID:\\s*(?<artikelID>[^|]+?)\\s*\\|\\s*" +
                 "Artikel:\\s*(?<artikel>[^|]+?)\\s*\\|\\s*" +
                 "Menge:\\s*(?<menge>\\d+)\\s*\\|\\s*" +
                 "Person:\\s*(?<person>.+)";
@@ -151,10 +152,11 @@ public class FilePersistenceManager implements PersistenceManager {
             if (matcher.find()) {
                 LocalDate date = LocalDate.parse(matcher.group("date").trim());
                 String typ = matcher.group("typ").trim();
+                int artikelID = Integer.parseInt(matcher.group("artikelID").trim());
                 String bezeichnung = matcher.group("artikel").trim();
                 int menge = Integer.parseInt(matcher.group("menge").trim());
                 String person = matcher.group("person").trim();
-                liste.add(new einEreignisInfo(date, bezeichnung, menge, typ, person));
+                liste.add(new einEreignisInfo(date, artikelID, bezeichnung, menge, typ, person));
             }
         }
 

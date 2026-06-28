@@ -17,6 +17,7 @@ public interface PersistenceManager {
     void close();
     record einEreignisInfo(
             LocalDate date,
+            int artikelID,
             String bezeichnung,
             int menge,
             String typ,

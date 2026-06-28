@@ -29,7 +29,7 @@ public class EShop {
         warenkorbVW = new WarenkorbVW();
         benutzerVW = new BenutzerVW();
         ereignisVW = new EreignisVW();
-        ereignisVW.ladeEreignisse("Ereignisse.txt", artikelVW::findeArtikelMitBezeichnung);
+        ereignisVW.ladeEreignisse("Ereignisse.txt", artikelID -> artikelVW.findeArtikel(Integer.parseInt(artikelID)));
     }
 
     public HashMap<Integer, Artikel> gibArtikelListe() {
@@ -162,6 +162,8 @@ public class EShop {
                         getPackungGroesse(artikelID)
                 );
             }
+        } else {
+            return;
         }
 
         warenkorbVW.einfuegen(artikelID, menge);
@@ -269,7 +271,10 @@ public class EShop {
     }
 
     public int getPackungGroesse(int artikelID) {
-        return artikelVW.getPackungGroesse(artikelID);
+        if (istMassengutartikel(artikelID))
+            return artikelVW.getPackungGroesse(artikelID);
+        else
+            return 1;
     }
 
     public void packungGroesseVeraendern(int artikelID, int neueGroesse) {
