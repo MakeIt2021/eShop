@@ -94,7 +94,7 @@ public class TestDataGenerator {
 
                         if (aktuellerBestand - kauf > 0) {
                             eshop.bestandVeraendern(aktuellerArtikelID, aktuellerBestand - kauf, "GeneratedKunde_" + random.nextInt(100));
-                            gefaelschteLogs.add("Tag: " + tag + " | Typ: Auslagerung | ArtikelID: " + aktuellerArtikelID + " | Artikel: " + eshop.getArtikelName(aktuellerArtikelID) + " | Menge: " + kauf + " | Person: k:Kunde");
+                            gefaelschteLogs.add("Tag: " + tag + " | Typ: Auslagerung | ArtikelID: " + aktuellerArtikelID + " | Artikel: " + eshop.getArtikelName(aktuellerArtikelID) + " | Menge: " + kauf + " | Person: k: " + "GeneratedKunde_" + random.nextInt(100));
                         }
                     }
                 }

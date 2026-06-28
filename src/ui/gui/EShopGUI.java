@@ -138,8 +138,6 @@ public class EShopGUI extends JFrame {
             String passwort = loginPanel.getPasswort();
             boolean erfolgreich = eShop.login(benutzername, passwort);
             if (erfolgreich) {
-                JOptionPane.showMessageDialog(this, "Login erfolgreich!");
-
                 //mitarbeiter login flow
                 if (eShop.istMitarbeiter()){
                     mitarbeiterMainPanel.setMitarbeiterName(
