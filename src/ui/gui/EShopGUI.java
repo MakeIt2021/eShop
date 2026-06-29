@@ -99,7 +99,7 @@ public class EShopGUI extends JFrame {
         });
 
         mitarbeiterMainPanel.getArtikelVeraendernButton().addActionListener(e -> {
-            int selectedID = getArtikelIDFromRow();
+            int selectedID = getArtikelIDFromRow(mitarbeiterMainPanel.getArtikelTabelle());
             if (selectedID == -1)
                 return;
 
@@ -108,7 +108,7 @@ public class EShopGUI extends JFrame {
         });
 
         mitarbeiterMainPanel.getHistorieButton().addActionListener(e -> {
-            int selectedID = getArtikelIDFromRow();
+            int selectedID = getArtikelIDFromRow(mitarbeiterMainPanel.getArtikelTabelle());
             if (selectedID == -1)
                 return;
 
@@ -208,17 +208,8 @@ public class EShopGUI extends JFrame {
 
         // Ausgewählten Artikel in den Warenkorb legen
         kundenPanel.getInWarenkorbButton().addActionListener(e -> {
-
-            // Ausgewählte Zeile der Tabelle ermitteln
-            int selectedRow = kundenPanel.getArtikelTable().getSelectedRow();
-
-            // Prüfen, ob ein Artikel ausgewählt wurde
-            if (selectedRow == -1) {
-                JOptionPane.showMessageDialog(this, "Bitte zuerst einen Artikel auswählen.");
-                return;
-            }
             // Artikel-ID aus der ersten Spalte lesen
-            int artikelID = (Integer) kundenPanel.getArtikelTable().getValueAt(selectedRow, 0);
+            int artikelID = getArtikelIDFromRow(kundenPanel.getArtikelTable());
 
             // Menge vom Benutzer abfragen
             String mengeText;
@@ -237,7 +228,6 @@ public class EShopGUI extends JFrame {
                 // Artikel wirklich in den Warenkorb legen
                 eShop.fuegeInWarenkorb(artikelID, menge, eShop.aktuellerBenutzer().getBenutzerVorNachname());
                 JOptionPane.showMessageDialog(this, "Artikel wurde erfolgreich zum Warenkorb hinzugefügt.");
-                System.out.println("Warenkorb nach dem Hinzufügen: " + eShop.gibWarenkorb());
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage(), "Fehler", JOptionPane.ERROR_MESSAGE);
                 JOptionPane.showMessageDialog(this, "Bitte eine gültige Zahl eingeben.");
@@ -324,11 +314,9 @@ public class EShopGUI extends JFrame {
         setVisible(true);
     }
 
-    private int getArtikelIDFromRow() {
-        JTable table = mitarbeiterMainPanel.getArtikelTabelle();
+    private int getArtikelIDFromRow(JTable table) {
         int selectedRow = table.getSelectedRow();
 
-        // Если строка не выбрана — ругаемся и не открываем окно
         if (selectedRow == -1) {
             JOptionPane.showMessageDialog(this,
                     "Bitte wählen Sie zuerst einen Artikel aus der Tabelle aus!",
@@ -525,7 +513,6 @@ public class EShopGUI extends JFrame {
 
     //neue mitarbeiter registrieren
     private void mitarbeiterRegistrierenDialog() {
-
         JTextField benutzernameField = new JTextField();
         JTextField nameField = new JTextField();
         JTextField passwortField = new JTextField();
@@ -557,7 +544,7 @@ public class EShopGUI extends JFrame {
 
             int id = eShop.getBenutzerVW().generiereId();
 
-            Kunde mitarbeiter = new Kunde(
+            Mitarbeiter mitarbeiter = new Mitarbeiter(
                     id,
                     benutzername,
                     name,

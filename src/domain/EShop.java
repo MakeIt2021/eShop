@@ -161,12 +161,10 @@ public class EShop {
                 );
             }
         } else {
-            return;
+            warenkorbVW.einfuegen(artikelID, menge);
+            artikelVW.bestandVerringern(artikelID, menge);
+            ereignisVW.addEreignis(artikelVW.findeArtikel(artikelID), menge, "Auslagerung", "k:" + kunde);
         }
-
-        warenkorbVW.einfuegen(artikelID, menge);
-        artikelVW.bestandVerringern(artikelID, menge);
-        ereignisVW.addEreignis(artikelVW.findeArtikel(artikelID), menge, "Auslagerung", "k:" + kunde);
 
         speichereArtikel();
     }

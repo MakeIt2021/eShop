@@ -47,7 +47,15 @@ public class mitarbeiterMainPanel extends JPanel {
         add(northPanel, BorderLayout.NORTH);
 
         String[] spalten = {"ID", "Bezeichnung", "Bestand", "Preis"};
-        artikelTabelleModel = new DefaultTableModel(spalten,0);
+        artikelTabelleModel = new DefaultTableModel(spalten,0) {
+            @Override
+            public boolean isCellEditable(
+                    int row,
+                    int column
+            ) {
+                return false;
+            }
+        };
         artikelTabelle = new JTable(artikelTabelleModel);
         JScrollPane sp = new JScrollPane(artikelTabelle);
         add(sp, BorderLayout.CENTER);
