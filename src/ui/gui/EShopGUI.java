@@ -298,6 +298,7 @@ public class EShopGUI extends JFrame {
 
                 Rechnung rechnung = new Rechnung(eShop.aktuellerBenutzer().getBenutzerVorNachname(), eShop.gibWarenkorb(), eShop.gibArtikelListe());
                 KaufenDialog kaufenDialog = new KaufenDialog(this, rechnung);
+                kaufenDialog.zeigeAusgewaehlteArtikel(rechnung);
                 kaufenDialog.getBestaetigenButton().addActionListener(kaufEvent -> {
                     eShop.zuruecksetzeWarenkorb();
                     dialog.ladeWarenkorbNeu(eShop.gibWarenkorb(), eShop.gibArtikelListe());

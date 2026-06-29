@@ -57,12 +57,12 @@ public class KundenPanel extends JPanel {
         sucheField = new JTextField(20);
         searchPanel.add(sucheField);
 
-// Button zum Hinzufügen eines Artikels
+        // Button zum Hinzufügen eines Artikels
         inWarenkorbButton = new JButton("➕ In Warenkorb");
 
         searchPanel.add(inWarenkorbButton);
 
-// Button zum Anzeigen des Warenkorbs
+        // Button zum Anzeigen des Warenkorbs
         warenkorbButton = new JButton("\uD83D\uDED2 Warenkorb anzeigen");
 
         searchPanel.add(warenkorbButton);
