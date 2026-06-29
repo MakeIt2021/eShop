@@ -208,8 +208,12 @@ public class EShopGUI extends JFrame {
         kundenPanel.getInWarenkorbButton().addActionListener(e -> {
             // Artikel-ID aus der ersten Spalte lesen
             int artikelID = getArtikelIDFromRow(kundenPanel.getArtikelTable());
+            if(artikelID == -1){
+                return;
+            }
 
             // Menge vom Benutzer abfragen
+        while (true) {
             String mengeText;
             if (eShop.istMassengutartikel(artikelID)) {
                 mengeText = JOptionPane.showInputDialog(this, (eShop.getArtikelName(artikelID) + " ist ein Massengutartikel!\nDas bedeutet, dass die Menge im Warenkorb durch " + eShop.getPackungGroesse(artikelID) + " teilbar sein soll!"));
@@ -219,6 +223,7 @@ public class EShopGUI extends JFrame {
 
             // Prüfen, ob der Dialog abgebrochen wurde
             if (mengeText == null) {
+                kundenPanel.getArtikelTable().clearSelection();// new
                 return;
             }
             try {
@@ -226,11 +231,15 @@ public class EShopGUI extends JFrame {
                 // Artikel wirklich in den Warenkorb legen
                 eShop.fuegeInWarenkorb(artikelID, menge, eShop.aktuellerBenutzer().getBenutzerVorNachname());
                 JOptionPane.showMessageDialog(this, "Artikel wurde erfolgreich zum Warenkorb hinzugefügt.");
+                kundenPanel.getArtikelTable().clearSelection();
+                break;
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage(), "Fehler", JOptionPane.ERROR_MESSAGE);
                 JOptionPane.showMessageDialog(this, "Bitte eine gültige Zahl eingeben.");
             }
+        }
         });
+
 
         // Warenkorb anzeigen
         kundenPanel.getWarenkorbButton().addActionListener(e -> {
