@@ -1,0 +1,1329 @@
+Tag: 2025-06-29 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 40 | Person: m:Generator
+Tag: 2025-06-29 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 20 | Person: m:Generator
+Tag: 2025-06-29 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 60 | Person: m:Generator
+Tag: 2025-06-29 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 15 | Person: m:Generator
+Tag: 2025-06-29 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 100 | Person: m:Generator
+Tag: 2025-06-29 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 10 | Person: m:Generator
+Tag: 2025-06-29 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 30 | Person: m:Generator
+Tag: 2025-06-29 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 100 | Person: m:Generator
+Tag: 2025-06-29 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 500 | Person: m:Generator
+Tag: 2025-06-29 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 150 | Person: m:Generator
+Tag: 2025-06-30 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_19
+Tag: 2025-06-30 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_40
+Tag: 2025-06-30 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_52
+Tag: 2025-06-30 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_8
+Tag: 2025-06-30 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_29
+Tag: 2025-07-01 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_27
+Tag: 2025-07-01 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_94
+Tag: 2025-07-01 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_8
+Tag: 2025-07-02 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_36
+Tag: 2025-07-02 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_69
+Tag: 2025-07-02 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_61
+Tag: 2025-07-03 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_55
+Tag: 2025-07-03 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_96
+Tag: 2025-07-04 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_35
+Tag: 2025-07-04 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_11
+Tag: 2025-07-04 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_51
+Tag: 2025-07-04 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_71
+Tag: 2025-07-04 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_79
+Tag: 2025-07-05 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_48
+Tag: 2025-07-05 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_38
+Tag: 2025-07-05 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_23
+Tag: 2025-07-05 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_28
+Tag: 2025-07-06 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_68
+Tag: 2025-07-06 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_13
+Tag: 2025-07-06 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_48
+Tag: 2025-07-06 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_50
+Tag: 2025-07-06 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_59
+Tag: 2025-07-07 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_58
+Tag: 2025-07-07 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_80
+Tag: 2025-07-07 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_30
+Tag: 2025-07-07 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_87
+Tag: 2025-07-07 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_72
+Tag: 2025-07-08 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_56
+Tag: 2025-07-08 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2025-07-08 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_98
+Tag: 2025-07-09 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_92
+Tag: 2025-07-09 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_54
+Tag: 2025-07-10 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_75
+Tag: 2025-07-10 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_91
+Tag: 2025-07-10 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_72
+Tag: 2025-07-10 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2025-07-10 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_72
+Tag: 2025-07-11 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_75
+Tag: 2025-07-11 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_37
+Tag: 2025-07-11 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2025-07-11 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_29
+Tag: 2025-07-12 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_84
+Tag: 2025-07-12 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_39
+Tag: 2025-07-12 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_87
+Tag: 2025-07-12 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_27
+Tag: 2025-07-12 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_24
+Tag: 2025-07-13 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2025-07-13 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_73
+Tag: 2025-07-14 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_45
+Tag: 2025-07-14 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_63
+Tag: 2025-07-15 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_75
+Tag: 2025-07-15 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_43
+Tag: 2025-07-15 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_76
+Tag: 2025-07-16 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_12
+Tag: 2025-07-16 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_49
+Tag: 2025-07-17 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_69
+Tag: 2025-07-17 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_70
+Tag: 2025-07-18 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_44
+Tag: 2025-07-18 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_28
+Tag: 2025-07-18 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2025-07-18 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_95
+Tag: 2025-07-18 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_32
+Tag: 2025-07-19 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_65
+Tag: 2025-07-19 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_12
+Tag: 2025-07-19 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2025-07-19 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_35
+Tag: 2025-07-19 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_76
+Tag: 2025-07-20 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_41
+Tag: 2025-07-20 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_1
+Tag: 2025-07-20 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_14
+Tag: 2025-07-20 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_38
+Tag: 2025-07-21 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2025-07-21 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_77
+Tag: 2025-07-22 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_24
+Tag: 2025-07-22 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_48
+Tag: 2025-07-22 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_12
+Tag: 2025-07-22 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: m:Generator
+Tag: 2025-07-23 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_51
+Tag: 2025-07-23 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_19
+Tag: 2025-07-23 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_74
+Tag: 2025-07-24 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_23
+Tag: 2025-07-24 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_96
+Tag: 2025-07-24 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_21
+Tag: 2025-07-24 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_35
+Tag: 2025-07-24 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_85
+Tag: 2025-07-25 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_74
+Tag: 2025-07-25 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_78
+Tag: 2025-07-25 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_59
+Tag: 2025-07-26 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_58
+Tag: 2025-07-26 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_12
+Tag: 2025-07-26 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_53
+Tag: 2025-07-27 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_81
+Tag: 2025-07-27 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_98
+Tag: 2025-07-28 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_1
+Tag: 2025-07-28 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2025-07-28 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2025-07-29 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_7
+Tag: 2025-07-29 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_75
+Tag: 2025-07-30 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_29
+Tag: 2025-07-30 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_10
+Tag: 2025-07-30 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_41
+Tag: 2025-07-30 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_36
+Tag: 2025-07-30 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2025-07-31 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_79
+Tag: 2025-07-31 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_62
+Tag: 2025-07-31 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_10
+Tag: 2025-07-31 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_3
+Tag: 2025-07-31 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2025-08-01 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_9
+Tag: 2025-08-01 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_32
+Tag: 2025-08-01 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_60
+Tag: 2025-08-02 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_96
+Tag: 2025-08-02 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_69
+Tag: 2025-08-03 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_88
+Tag: 2025-08-03 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_65
+Tag: 2025-08-03 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_1
+Tag: 2025-08-03 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_3
+Tag: 2025-08-04 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_74
+Tag: 2025-08-04 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2025-08-04 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_3
+Tag: 2025-08-04 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_67
+Tag: 2025-08-04 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: m:Generator
+Tag: 2025-08-05 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2025-08-05 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2025-08-05 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_45
+Tag: 2025-08-06 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_94
+Tag: 2025-08-06 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2025-08-06 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_67
+Tag: 2025-08-06 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_72
+Tag: 2025-08-06 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: m:Generator
+Tag: 2025-08-07 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_68
+Tag: 2025-08-07 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_2
+Tag: 2025-08-07 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_97
+Tag: 2025-08-07 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_94
+Tag: 2025-08-07 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_9
+Tag: 2025-08-08 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_22
+Tag: 2025-08-08 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_77
+Tag: 2025-08-08 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_64
+Tag: 2025-08-08 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_20
+Tag: 2025-08-08 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_78
+Tag: 2025-08-09 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2025-08-09 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_38
+Tag: 2025-08-10 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_47
+Tag: 2025-08-10 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_89
+Tag: 2025-08-11 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_84
+Tag: 2025-08-11 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_62
+Tag: 2025-08-11 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_72
+Tag: 2025-08-12 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: m:Generator
+Tag: 2025-08-12 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2025-08-12 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_94
+Tag: 2025-08-12 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_45
+Tag: 2025-08-13 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_22
+Tag: 2025-08-13 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2025-08-13 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_36
+Tag: 2025-08-13 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_31
+Tag: 2025-08-13 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_77
+Tag: 2025-08-14 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2025-08-14 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_63
+Tag: 2025-08-14 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_89
+Tag: 2025-08-14 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_99
+Tag: 2025-08-14 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2025-08-15 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_56
+Tag: 2025-08-15 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_14
+Tag: 2025-08-15 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_32
+Tag: 2025-08-15 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_79
+Tag: 2025-08-15 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_50
+Tag: 2025-08-16 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_45
+Tag: 2025-08-16 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_3
+Tag: 2025-08-16 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_92
+Tag: 2025-08-17 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_59
+Tag: 2025-08-17 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2025-08-17 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_47
+Tag: 2025-08-18 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_64
+Tag: 2025-08-18 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_62
+Tag: 2025-08-18 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2025-08-18 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_42
+Tag: 2025-08-19 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_76
+Tag: 2025-08-19 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: m:Generator
+Tag: 2025-08-19 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2025-08-19 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_85
+Tag: 2025-08-20 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 3 | Person: m:Generator
+Tag: 2025-08-20 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_24
+Tag: 2025-08-20 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_59
+Tag: 2025-08-21 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_99
+Tag: 2025-08-21 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_72
+Tag: 2025-08-21 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2025-08-21 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_77
+Tag: 2025-08-21 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_60
+Tag: 2025-08-22 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2025-08-22 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_97
+Tag: 2025-08-22 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_33
+Tag: 2025-08-23 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_82
+Tag: 2025-08-23 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: m:Generator
+Tag: 2025-08-24 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_75
+Tag: 2025-08-24 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_66
+Tag: 2025-08-24 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_64
+Tag: 2025-08-24 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_41
+Tag: 2025-08-24 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_39
+Tag: 2025-08-25 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_98
+Tag: 2025-08-25 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_37
+Tag: 2025-08-26 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_17
+Tag: 2025-08-26 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2025-08-26 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_48
+Tag: 2025-08-26 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_28
+Tag: 2025-08-26 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_57
+Tag: 2025-08-27 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 3 | Person: m:Generator
+Tag: 2025-08-27 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_43
+Tag: 2025-08-27 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_73
+Tag: 2025-08-28 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2025-08-28 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2025-08-28 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2025-08-28 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_89
+Tag: 2025-08-29 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_0
+Tag: 2025-08-29 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_2
+Tag: 2025-08-29 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_44
+Tag: 2025-08-29 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_29
+Tag: 2025-08-29 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_53
+Tag: 2025-08-30 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_23
+Tag: 2025-08-30 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_69
+Tag: 2025-08-31 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_97
+Tag: 2025-08-31 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_5
+Tag: 2025-08-31 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_39
+Tag: 2025-08-31 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_83
+Tag: 2025-09-01 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_43
+Tag: 2025-09-01 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_81
+Tag: 2025-09-02 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2025-09-02 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: m:Generator
+Tag: 2025-09-02 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: m:Generator
+Tag: 2025-09-03 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2025-09-03 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_99
+Tag: 2025-09-03 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_5
+Tag: 2025-09-03 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2025-09-03 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2025-09-04 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_43
+Tag: 2025-09-04 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_66
+Tag: 2025-09-04 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2025-09-04 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_22
+Tag: 2025-09-04 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_71
+Tag: 2025-09-05 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_63
+Tag: 2025-09-05 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_75
+Tag: 2025-09-05 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_4
+Tag: 2025-09-05 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_82
+Tag: 2025-09-06 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2025-09-06 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_0
+Tag: 2025-09-06 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_18
+Tag: 2025-09-06 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_90
+Tag: 2025-09-07 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_93
+Tag: 2025-09-07 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_99
+Tag: 2025-09-08 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_51
+Tag: 2025-09-08 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2025-09-08 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2025-09-08 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_17
+Tag: 2025-09-08 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_1
+Tag: 2025-09-09 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2025-09-09 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_44
+Tag: 2025-09-09 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 15 | Person: m:Generator
+Tag: 2025-09-09 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_12
+Tag: 2025-09-10 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_47
+Tag: 2025-09-10 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_95
+Tag: 2025-09-10 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_20
+Tag: 2025-09-10 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 3 | Person: m:Generator
+Tag: 2025-09-11 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_41
+Tag: 2025-09-11 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_56
+Tag: 2025-09-11 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_17
+Tag: 2025-09-11 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_0
+Tag: 2025-09-12 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2025-09-12 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_88
+Tag: 2025-09-12 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_3
+Tag: 2025-09-12 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_8
+Tag: 2025-09-13 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 3 | Person: m:Generator
+Tag: 2025-09-13 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2025-09-13 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_70
+Tag: 2025-09-14 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_82
+Tag: 2025-09-14 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2025-09-14 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2025-09-14 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_21
+Tag: 2025-09-14 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_41
+Tag: 2025-09-15 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2025-09-15 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2025-09-15 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_67
+Tag: 2025-09-16 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2025-09-16 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_18
+Tag: 2025-09-16 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_29
+Tag: 2025-09-16 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_80
+Tag: 2025-09-17 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_11
+Tag: 2025-09-17 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_89
+Tag: 2025-09-18 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2025-09-18 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_12
+Tag: 2025-09-18 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_79
+Tag: 2025-09-19 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2025-09-19 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_69
+Tag: 2025-09-19 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_56
+Tag: 2025-09-19 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_10
+Tag: 2025-09-19 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_37
+Tag: 2025-09-20 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_26
+Tag: 2025-09-20 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: m:Generator
+Tag: 2025-09-20 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_12
+Tag: 2025-09-20 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_59
+Tag: 2025-09-21 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_34
+Tag: 2025-09-21 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_67
+Tag: 2025-09-22 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2025-09-22 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_4
+Tag: 2025-09-22 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2025-09-22 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_76
+Tag: 2025-09-22 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: m:Generator
+Tag: 2025-09-23 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_7
+Tag: 2025-09-23 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2025-09-23 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_1
+Tag: 2025-09-23 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_22
+Tag: 2025-09-24 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_19
+Tag: 2025-09-24 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_20
+Tag: 2025-09-24 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2025-09-24 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: m:Generator
+Tag: 2025-09-24 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_24
+Tag: 2025-09-25 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2025-09-25 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2025-09-25 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 3 | Person: m:Generator
+Tag: 2025-09-26 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2025-09-26 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_71
+Tag: 2025-09-27 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_12
+Tag: 2025-09-27 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_19
+Tag: 2025-09-28 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: m:Generator
+Tag: 2025-09-28 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_43
+Tag: 2025-09-28 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_87
+Tag: 2025-09-29 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_18
+Tag: 2025-09-29 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_26
+Tag: 2025-09-30 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: m:Generator
+Tag: 2025-09-30 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2025-09-30 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_39
+Tag: 2025-09-30 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: m:Generator
+Tag: 2025-09-30 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_58
+Tag: 2025-10-01 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: m:Generator
+Tag: 2025-10-01 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_76
+Tag: 2025-10-01 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_68
+Tag: 2025-10-01 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_28
+Tag: 2025-10-02 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_88
+Tag: 2025-10-02 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_31
+Tag: 2025-10-02 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_99
+Tag: 2025-10-02 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_45
+Tag: 2025-10-02 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_52
+Tag: 2025-10-03 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_12
+Tag: 2025-10-03 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_37
+Tag: 2025-10-04 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2025-10-04 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_2
+Tag: 2025-10-04 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_1
+Tag: 2025-10-04 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_40
+Tag: 2025-10-04 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_97
+Tag: 2025-10-05 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2025-10-05 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_27
+Tag: 2025-10-05 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_97
+Tag: 2025-10-05 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_78
+Tag: 2025-10-05 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2025-10-06 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_34
+Tag: 2025-10-06 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: m:Generator
+Tag: 2025-10-06 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_24
+Tag: 2025-10-06 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_93
+Tag: 2025-10-07 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_30
+Tag: 2025-10-07 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: m:Generator
+Tag: 2025-10-08 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_53
+Tag: 2025-10-08 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2025-10-08 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 3 | Person: m:Generator
+Tag: 2025-10-08 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_57
+Tag: 2025-10-08 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_33
+Tag: 2025-10-09 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_84
+Tag: 2025-10-09 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_80
+Tag: 2025-10-09 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2025-10-10 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_88
+Tag: 2025-10-10 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_59
+Tag: 2025-10-11 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: m:Generator
+Tag: 2025-10-11 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_71
+Tag: 2025-10-12 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_10
+Tag: 2025-10-12 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_75
+Tag: 2025-10-12 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 15 | Person: m:Generator
+Tag: 2025-10-12 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_2
+Tag: 2025-10-13 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2025-10-13 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2025-10-13 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_59
+Tag: 2025-10-13 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_60
+Tag: 2025-10-13 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_12
+Tag: 2025-10-14 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_92
+Tag: 2025-10-14 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_15
+Tag: 2025-10-15 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_28
+Tag: 2025-10-15 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2025-10-15 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_31
+Tag: 2025-10-15 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2025-10-15 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_82
+Tag: 2025-10-16 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_41
+Tag: 2025-10-16 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_31
+Tag: 2025-10-16 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_34
+Tag: 2025-10-16 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_28
+Tag: 2025-10-16 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_77
+Tag: 2025-10-17 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_69
+Tag: 2025-10-17 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2025-10-17 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_77
+Tag: 2025-10-17 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: m:Generator
+Tag: 2025-10-17 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 3 | Person: m:Generator
+Tag: 2025-10-18 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 3 | Person: m:Generator
+Tag: 2025-10-18 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_28
+Tag: 2025-10-18 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2025-10-19 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_13
+Tag: 2025-10-19 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 15 | Person: m:Generator
+Tag: 2025-10-19 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_54
+Tag: 2025-10-20 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_16
+Tag: 2025-10-20 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_51
+Tag: 2025-10-21 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_52
+Tag: 2025-10-21 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: m:Generator
+Tag: 2025-10-21 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_5
+Tag: 2025-10-22 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_32
+Tag: 2025-10-22 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_60
+Tag: 2025-10-22 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_84
+Tag: 2025-10-23 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: m:Generator
+Tag: 2025-10-23 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_3
+Tag: 2025-10-23 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_61
+Tag: 2025-10-23 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_61
+Tag: 2025-10-23 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_93
+Tag: 2025-10-24 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2025-10-24 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_39
+Tag: 2025-10-25 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: m:Generator
+Tag: 2025-10-25 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_0
+Tag: 2025-10-26 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_82
+Tag: 2025-10-26 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_29
+Tag: 2025-10-26 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_74
+Tag: 2025-10-27 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: m:Generator
+Tag: 2025-10-27 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: m:Generator
+Tag: 2025-10-27 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: m:Generator
+Tag: 2025-10-27 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_98
+Tag: 2025-10-27 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_87
+Tag: 2025-10-28 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: m:Generator
+Tag: 2025-10-28 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2025-10-28 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_67
+Tag: 2025-10-28 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: m:Generator
+Tag: 2025-10-28 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_0
+Tag: 2025-10-29 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_43
+Tag: 2025-10-29 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_82
+Tag: 2025-10-30 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_33
+Tag: 2025-10-30 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2025-10-31 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2025-10-31 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_80
+Tag: 2025-10-31 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_95
+Tag: 2025-10-31 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: m:Generator
+Tag: 2025-10-31 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_58
+Tag: 2025-11-01 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 3 | Person: m:Generator
+Tag: 2025-11-01 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_95
+Tag: 2025-11-01 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2025-11-01 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: m:Generator
+Tag: 2025-11-02 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_85
+Tag: 2025-11-02 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_96
+Tag: 2025-11-03 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_95
+Tag: 2025-11-03 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2025-11-04 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: m:Generator
+Tag: 2025-11-04 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_88
+Tag: 2025-11-04 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_75
+Tag: 2025-11-05 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_0
+Tag: 2025-11-05 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_32
+Tag: 2025-11-06 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 3 | Person: m:Generator
+Tag: 2025-11-06 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: m:Generator
+Tag: 2025-11-06 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_59
+Tag: 2025-11-06 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: m:Generator
+Tag: 2025-11-06 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_57
+Tag: 2025-11-07 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_54
+Tag: 2025-11-07 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: m:Generator
+Tag: 2025-11-07 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_41
+Tag: 2025-11-07 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2025-11-08 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_84
+Tag: 2025-11-08 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: m:Generator
+Tag: 2025-11-08 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: m:Generator
+Tag: 2025-11-09 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_34
+Tag: 2025-11-09 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_33
+Tag: 2025-11-09 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_88
+Tag: 2025-11-10 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_82
+Tag: 2025-11-10 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_54
+Tag: 2025-11-10 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_41
+Tag: 2025-11-10 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2025-11-11 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2025-11-11 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: m:Generator
+Tag: 2025-11-11 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_86
+Tag: 2025-11-11 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_53
+Tag: 2025-11-12 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2025-11-12 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_80
+Tag: 2025-11-12 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_22
+Tag: 2025-11-12 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: m:Generator
+Tag: 2025-11-13 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_19
+Tag: 2025-11-13 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_74
+Tag: 2025-11-13 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_85
+Tag: 2025-11-13 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_78
+Tag: 2025-11-14 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_3
+Tag: 2025-11-14 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2025-11-14 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_92
+Tag: 2025-11-14 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_17
+Tag: 2025-11-15 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 3 | Person: m:Generator
+Tag: 2025-11-15 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_76
+Tag: 2025-11-15 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: m:Generator
+Tag: 2025-11-15 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2025-11-15 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 15 | Person: m:Generator
+Tag: 2025-11-16 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_19
+Tag: 2025-11-16 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2025-11-17 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2025-11-17 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_99
+Tag: 2025-11-17 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_26
+Tag: 2025-11-18 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_6
+Tag: 2025-11-18 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_5
+Tag: 2025-11-18 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: m:Generator
+Tag: 2025-11-18 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_39
+Tag: 2025-11-19 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2025-11-19 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_27
+Tag: 2025-11-20 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_38
+Tag: 2025-11-20 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2025-11-20 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2025-11-20 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_18
+Tag: 2025-11-20 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: m:Generator
+Tag: 2025-11-21 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_56
+Tag: 2025-11-21 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_76
+Tag: 2025-11-21 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_38
+Tag: 2025-11-21 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: m:Generator
+Tag: 2025-11-21 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_29
+Tag: 2025-11-22 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_38
+Tag: 2025-11-22 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_31
+Tag: 2025-11-22 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_72
+Tag: 2025-11-23 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: m:Generator
+Tag: 2025-11-23 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2025-11-23 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_60
+Tag: 2025-11-24 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: m:Generator
+Tag: 2025-11-24 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_24
+Tag: 2025-11-25 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: m:Generator
+Tag: 2025-11-25 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_66
+Tag: 2025-11-25 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: m:Generator
+Tag: 2025-11-25 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_17
+Tag: 2025-11-25 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2025-11-26 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_6
+Tag: 2025-11-26 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_78
+Tag: 2025-11-26 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2025-11-27 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_51
+Tag: 2025-11-27 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2025-11-27 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_66
+Tag: 2025-11-27 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_95
+Tag: 2025-11-27 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 3 | Person: m:Generator
+Tag: 2025-11-28 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_28
+Tag: 2025-11-28 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_73
+Tag: 2025-11-29 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2025-11-29 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2025-11-29 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_26
+Tag: 2025-11-29 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2025-11-29 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_51
+Tag: 2025-11-30 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: m:Generator
+Tag: 2025-11-30 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2025-11-30 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_47
+Tag: 2025-11-30 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_39
+Tag: 2025-11-30 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 3 | Person: m:Generator
+Tag: 2025-12-01 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2025-12-01 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_47
+Tag: 2025-12-02 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: m:Generator
+Tag: 2025-12-02 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_54
+Tag: 2025-12-02 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_91
+Tag: 2025-12-02 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_91
+Tag: 2025-12-02 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_69
+Tag: 2025-12-03 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_86
+Tag: 2025-12-03 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: m:Generator
+Tag: 2025-12-03 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2025-12-03 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_66
+Tag: 2025-12-03 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_45
+Tag: 2025-12-04 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_17
+Tag: 2025-12-04 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: m:Generator
+Tag: 2025-12-05 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2025-12-05 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_27
+Tag: 2025-12-06 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_7
+Tag: 2025-12-06 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2025-12-06 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: m:Generator
+Tag: 2025-12-06 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: m:Generator
+Tag: 2025-12-06 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2025-12-07 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_16
+Tag: 2025-12-07 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_59
+Tag: 2025-12-07 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_17
+Tag: 2025-12-07 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_82
+Tag: 2025-12-07 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_61
+Tag: 2025-12-08 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: m:Generator
+Tag: 2025-12-08 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_5
+Tag: 2025-12-09 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2025-12-09 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2025-12-10 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_41
+Tag: 2025-12-10 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_83
+Tag: 2025-12-10 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_68
+Tag: 2025-12-10 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_61
+Tag: 2025-12-10 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_94
+Tag: 2025-12-11 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: m:Generator
+Tag: 2025-12-11 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_21
+Tag: 2025-12-11 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_15
+Tag: 2025-12-11 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2025-12-12 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 15 | Person: m:Generator
+Tag: 2025-12-12 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_93
+Tag: 2025-12-13 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_56
+Tag: 2025-12-13 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_21
+Tag: 2025-12-13 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_16
+Tag: 2025-12-13 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_12
+Tag: 2025-12-13 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: m:Generator
+Tag: 2025-12-14 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_96
+Tag: 2025-12-14 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: m:Generator
+Tag: 2025-12-15 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: m:Generator
+Tag: 2025-12-15 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_72
+Tag: 2025-12-15 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2025-12-15 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2025-12-15 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_58
+Tag: 2025-12-16 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2025-12-16 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_74
+Tag: 2025-12-16 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: m:Generator
+Tag: 2025-12-16 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_24
+Tag: 2025-12-17 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_0
+Tag: 2025-12-17 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_35
+Tag: 2025-12-17 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_19
+Tag: 2025-12-17 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: m:Generator
+Tag: 2025-12-18 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: m:Generator
+Tag: 2025-12-18 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2025-12-18 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_16
+Tag: 2025-12-18 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_81
+Tag: 2025-12-19 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_11
+Tag: 2025-12-19 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2025-12-19 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_60
+Tag: 2025-12-19 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_0
+Tag: 2025-12-19 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2025-12-20 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_13
+Tag: 2025-12-20 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2025-12-21 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2025-12-21 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_68
+Tag: 2025-12-21 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: m:Generator
+Tag: 2025-12-21 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: m:Generator
+Tag: 2025-12-21 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: m:Generator
+Tag: 2025-12-22 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: m:Generator
+Tag: 2025-12-22 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_73
+Tag: 2025-12-22 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_4
+Tag: 2025-12-22 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_21
+Tag: 2025-12-22 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_39
+Tag: 2025-12-23 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_9
+Tag: 2025-12-23 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2025-12-23 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_33
+Tag: 2025-12-23 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_4
+Tag: 2025-12-23 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_78
+Tag: 2025-12-24 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_68
+Tag: 2025-12-24 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: m:Generator
+Tag: 2025-12-25 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2025-12-25 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_55
+Tag: 2025-12-26 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_75
+Tag: 2025-12-26 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_91
+Tag: 2025-12-26 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_68
+Tag: 2025-12-27 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2025-12-27 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 15 | Person: m:Generator
+Tag: 2025-12-27 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2025-12-27 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: m:Generator
+Tag: 2025-12-27 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: m:Generator
+Tag: 2025-12-28 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: m:Generator
+Tag: 2025-12-28 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_69
+Tag: 2025-12-28 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2025-12-28 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_24
+Tag: 2025-12-29 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_37
+Tag: 2025-12-29 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 3 | Person: m:Generator
+Tag: 2025-12-29 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_39
+Tag: 2025-12-29 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: m:Generator
+Tag: 2025-12-29 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_83
+Tag: 2025-12-30 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_42
+Tag: 2025-12-30 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_13
+Tag: 2025-12-30 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_18
+Tag: 2025-12-31 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_77
+Tag: 2025-12-31 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_44
+Tag: 2025-12-31 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2026-01-01 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_85
+Tag: 2026-01-01 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 3 | Person: m:Generator
+Tag: 2026-01-01 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_32
+Tag: 2026-01-02 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2026-01-02 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 3 | Person: m:Generator
+Tag: 2026-01-02 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 15 | Person: m:Generator
+Tag: 2026-01-02 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: m:Generator
+Tag: 2026-01-03 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: m:Generator
+Tag: 2026-01-03 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_56
+Tag: 2026-01-03 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2026-01-03 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_48
+Tag: 2026-01-03 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_44
+Tag: 2026-01-04 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_20
+Tag: 2026-01-04 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: m:Generator
+Tag: 2026-01-04 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_29
+Tag: 2026-01-04 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2026-01-05 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 15 | Person: m:Generator
+Tag: 2026-01-05 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_39
+Tag: 2026-01-05 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_92
+Tag: 2026-01-06 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_74
+Tag: 2026-01-06 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2026-01-06 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_53
+Tag: 2026-01-06 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_73
+Tag: 2026-01-06 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_27
+Tag: 2026-01-07 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_46
+Tag: 2026-01-07 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_99
+Tag: 2026-01-07 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: m:Generator
+Tag: 2026-01-07 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2026-01-07 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_79
+Tag: 2026-01-08 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_74
+Tag: 2026-01-08 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_99
+Tag: 2026-01-08 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_22
+Tag: 2026-01-09 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_29
+Tag: 2026-01-09 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_12
+Tag: 2026-01-09 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2026-01-10 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2026-01-10 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: m:Generator
+Tag: 2026-01-10 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2026-01-10 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2026-01-10 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_6
+Tag: 2026-01-11 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: m:Generator
+Tag: 2026-01-11 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: m:Generator
+Tag: 2026-01-11 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: m:Generator
+Tag: 2026-01-11 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_60
+Tag: 2026-01-12 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2026-01-12 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_1
+Tag: 2026-01-12 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_19
+Tag: 2026-01-13 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_91
+Tag: 2026-01-13 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_77
+Tag: 2026-01-13 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_73
+Tag: 2026-01-13 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_34
+Tag: 2026-01-13 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: m:Generator
+Tag: 2026-01-14 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: m:Generator
+Tag: 2026-01-14 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_17
+Tag: 2026-01-15 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 3 | Person: m:Generator
+Tag: 2026-01-15 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_0
+Tag: 2026-01-15 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2026-01-16 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2026-01-16 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_5
+Tag: 2026-01-16 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_68
+Tag: 2026-01-16 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_52
+Tag: 2026-01-17 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 15 | Person: m:Generator
+Tag: 2026-01-17 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2026-01-18 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: m:Generator
+Tag: 2026-01-18 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_92
+Tag: 2026-01-18 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_48
+Tag: 2026-01-18 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_84
+Tag: 2026-01-18 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_36
+Tag: 2026-01-19 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_66
+Tag: 2026-01-19 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 3 | Person: m:Generator
+Tag: 2026-01-19 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2026-01-19 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_37
+Tag: 2026-01-19 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_45
+Tag: 2026-01-20 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: m:Generator
+Tag: 2026-01-20 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_57
+Tag: 2026-01-20 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_67
+Tag: 2026-01-20 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_54
+Tag: 2026-01-20 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: m:Generator
+Tag: 2026-01-21 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2026-01-21 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_56
+Tag: 2026-01-21 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2026-01-22 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_96
+Tag: 2026-01-22 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2026-01-23 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2026-01-23 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_83
+Tag: 2026-01-24 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_51
+Tag: 2026-01-24 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: m:Generator
+Tag: 2026-01-24 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2026-01-24 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_37
+Tag: 2026-01-24 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_83
+Tag: 2026-01-25 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: m:Generator
+Tag: 2026-01-25 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_29
+Tag: 2026-01-26 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: m:Generator
+Tag: 2026-01-26 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_17
+Tag: 2026-01-26 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2026-01-26 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_24
+Tag: 2026-01-26 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_10
+Tag: 2026-01-27 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: m:Generator
+Tag: 2026-01-27 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2026-01-28 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_21
+Tag: 2026-01-28 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_8
+Tag: 2026-01-28 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_71
+Tag: 2026-01-28 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: m:Generator
+Tag: 2026-01-29 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2026-01-29 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_88
+Tag: 2026-01-29 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_92
+Tag: 2026-01-29 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_22
+Tag: 2026-01-30 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_20
+Tag: 2026-01-30 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_23
+Tag: 2026-01-30 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: m:Generator
+Tag: 2026-01-30 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2026-01-31 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_61
+Tag: 2026-01-31 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2026-01-31 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: m:Generator
+Tag: 2026-01-31 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_27
+Tag: 2026-01-31 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2026-02-01 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_25
+Tag: 2026-02-01 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_0
+Tag: 2026-02-02 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2026-02-02 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_1
+Tag: 2026-02-02 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_56
+Tag: 2026-02-02 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_99
+Tag: 2026-02-02 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_12
+Tag: 2026-02-03 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2026-02-03 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2026-02-03 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_7
+Tag: 2026-02-03 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2026-02-04 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_77
+Tag: 2026-02-04 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: m:Generator
+Tag: 2026-02-04 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: m:Generator
+Tag: 2026-02-04 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: m:Generator
+Tag: 2026-02-04 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_37
+Tag: 2026-02-05 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_20
+Tag: 2026-02-05 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_56
+Tag: 2026-02-05 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 3 | Person: m:Generator
+Tag: 2026-02-06 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2026-02-06 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_4
+Tag: 2026-02-06 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_37
+Tag: 2026-02-07 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_73
+Tag: 2026-02-07 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_10
+Tag: 2026-02-07 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_64
+Tag: 2026-02-07 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2026-02-08 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 3 | Person: m:Generator
+Tag: 2026-02-08 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_19
+Tag: 2026-02-09 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: m:Generator
+Tag: 2026-02-09 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 3 | Person: m:Generator
+Tag: 2026-02-09 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_62
+Tag: 2026-02-10 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_75
+Tag: 2026-02-10 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2026-02-10 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_68
+Tag: 2026-02-10 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 15 | Person: m:Generator
+Tag: 2026-02-10 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_11
+Tag: 2026-02-11 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_43
+Tag: 2026-02-11 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_77
+Tag: 2026-02-11 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: m:Generator
+Tag: 2026-02-12 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_42
+Tag: 2026-02-12 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_53
+Tag: 2026-02-12 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_88
+Tag: 2026-02-13 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2026-02-13 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: m:Generator
+Tag: 2026-02-14 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_97
+Tag: 2026-02-14 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_74
+Tag: 2026-02-14 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2026-02-15 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 3 | Person: m:Generator
+Tag: 2026-02-15 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_17
+Tag: 2026-02-15 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_69
+Tag: 2026-02-15 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2026-02-15 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_99
+Tag: 2026-02-16 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_2
+Tag: 2026-02-16 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_88
+Tag: 2026-02-16 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2026-02-17 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_36
+Tag: 2026-02-17 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_9
+Tag: 2026-02-17 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2026-02-17 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_95
+Tag: 2026-02-17 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 3 | Person: m:Generator
+Tag: 2026-02-18 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: m:Generator
+Tag: 2026-02-18 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_85
+Tag: 2026-02-18 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: m:Generator
+Tag: 2026-02-18 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 3 | Person: m:Generator
+Tag: 2026-02-18 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: m:Generator
+Tag: 2026-02-19 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_43
+Tag: 2026-02-19 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_97
+Tag: 2026-02-19 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_7
+Tag: 2026-02-20 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_97
+Tag: 2026-02-20 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_64
+Tag: 2026-02-20 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: m:Generator
+Tag: 2026-02-21 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2026-02-21 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_75
+Tag: 2026-02-21 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 15 | Person: m:Generator
+Tag: 2026-02-21 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2026-02-21 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2026-02-22 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_96
+Tag: 2026-02-22 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_17
+Tag: 2026-02-22 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_4
+Tag: 2026-02-22 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: m:Generator
+Tag: 2026-02-22 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_69
+Tag: 2026-02-23 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_33
+Tag: 2026-02-23 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_21
+Tag: 2026-02-23 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_94
+Tag: 2026-02-24 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2026-02-24 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_30
+Tag: 2026-02-25 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_50
+Tag: 2026-02-25 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_53
+Tag: 2026-02-26 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: m:Generator
+Tag: 2026-02-26 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: m:Generator
+Tag: 2026-02-26 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_99
+Tag: 2026-02-26 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_77
+Tag: 2026-02-27 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_82
+Tag: 2026-02-27 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2026-02-27 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_92
+Tag: 2026-02-27 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: m:Generator
+Tag: 2026-02-27 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 3 | Person: m:Generator
+Tag: 2026-02-28 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: m:Generator
+Tag: 2026-02-28 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_78
+Tag: 2026-02-28 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_95
+Tag: 2026-02-28 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2026-03-01 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2026-03-01 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2026-03-02 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_92
+Tag: 2026-03-02 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_94
+Tag: 2026-03-02 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: m:Generator
+Tag: 2026-03-03 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_14
+Tag: 2026-03-03 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_55
+Tag: 2026-03-03 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2026-03-03 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: m:Generator
+Tag: 2026-03-04 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_21
+Tag: 2026-03-04 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_83
+Tag: 2026-03-04 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2026-03-04 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_5
+Tag: 2026-03-05 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2026-03-05 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: m:Generator
+Tag: 2026-03-05 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_16
+Tag: 2026-03-06 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2026-03-06 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2026-03-06 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: m:Generator
+Tag: 2026-03-07 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_66
+Tag: 2026-03-07 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_42
+Tag: 2026-03-07 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: m:Generator
+Tag: 2026-03-07 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: m:Generator
+Tag: 2026-03-07 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_84
+Tag: 2026-03-08 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_9
+Tag: 2026-03-08 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_98
+Tag: 2026-03-08 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2026-03-09 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_91
+Tag: 2026-03-09 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_68
+Tag: 2026-03-09 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2026-03-09 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_58
+Tag: 2026-03-09 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2026-03-10 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_92
+Tag: 2026-03-10 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: m:Generator
+Tag: 2026-03-10 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 3 | Person: m:Generator
+Tag: 2026-03-11 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: m:Generator
+Tag: 2026-03-11 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_15
+Tag: 2026-03-11 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2026-03-12 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_46
+Tag: 2026-03-12 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: m:Generator
+Tag: 2026-03-12 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 3 | Person: m:Generator
+Tag: 2026-03-12 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2026-03-12 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_11
+Tag: 2026-03-13 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_60
+Tag: 2026-03-13 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2026-03-13 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2026-03-13 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_40
+Tag: 2026-03-13 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_21
+Tag: 2026-03-14 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2026-03-14 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_31
+Tag: 2026-03-14 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_74
+Tag: 2026-03-14 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_70
+Tag: 2026-03-14 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_93
+Tag: 2026-03-15 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: m:Generator
+Tag: 2026-03-15 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_28
+Tag: 2026-03-15 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: m:Generator
+Tag: 2026-03-15 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_6
+Tag: 2026-03-15 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_53
+Tag: 2026-03-16 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: m:Generator
+Tag: 2026-03-16 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_25
+Tag: 2026-03-17 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_36
+Tag: 2026-03-17 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_67
+Tag: 2026-03-18 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 15 | Person: m:Generator
+Tag: 2026-03-18 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2026-03-18 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: m:Generator
+Tag: 2026-03-19 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2026-03-19 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_43
+Tag: 2026-03-20 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_19
+Tag: 2026-03-20 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_78
+Tag: 2026-03-20 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2026-03-20 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_77
+Tag: 2026-03-21 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 3 | Person: m:Generator
+Tag: 2026-03-21 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: m:Generator
+Tag: 2026-03-22 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: m:Generator
+Tag: 2026-03-22 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_72
+Tag: 2026-03-23 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2026-03-23 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2026-03-23 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_7
+Tag: 2026-03-24 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: m:Generator
+Tag: 2026-03-24 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_43
+Tag: 2026-03-24 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2026-03-25 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_35
+Tag: 2026-03-25 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_44
+Tag: 2026-03-26 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_6
+Tag: 2026-03-26 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_82
+Tag: 2026-03-26 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_5
+Tag: 2026-03-27 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_2
+Tag: 2026-03-27 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_45
+Tag: 2026-03-28 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_34
+Tag: 2026-03-28 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 3 | Person: m:Generator
+Tag: 2026-03-28 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_94
+Tag: 2026-03-29 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_57
+Tag: 2026-03-29 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_30
+Tag: 2026-03-29 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_2
+Tag: 2026-03-29 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_3
+Tag: 2026-03-30 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 15 | Person: m:Generator
+Tag: 2026-03-30 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_96
+Tag: 2026-03-30 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 3 | Person: m:Generator
+Tag: 2026-03-30 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2026-03-30 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2026-03-31 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2026-03-31 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_67
+Tag: 2026-03-31 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: m:Generator
+Tag: 2026-03-31 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_71
+Tag: 2026-03-31 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_59
+Tag: 2026-04-01 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_21
+Tag: 2026-04-01 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2026-04-01 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2026-04-01 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: m:Generator
+Tag: 2026-04-01 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_80
+Tag: 2026-04-02 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_51
+Tag: 2026-04-02 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 3 | Person: m:Generator
+Tag: 2026-04-02 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_59
+Tag: 2026-04-02 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_36
+Tag: 2026-04-02 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_18
+Tag: 2026-04-03 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2026-04-03 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_59
+Tag: 2026-04-03 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_12
+Tag: 2026-04-04 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 3 | Person: m:Generator
+Tag: 2026-04-04 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: m:Generator
+Tag: 2026-04-04 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_58
+Tag: 2026-04-04 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_45
+Tag: 2026-04-04 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_26
+Tag: 2026-04-05 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2026-04-05 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_9
+Tag: 2026-04-05 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: m:Generator
+Tag: 2026-04-05 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_16
+Tag: 2026-04-05 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: m:Generator
+Tag: 2026-04-06 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_25
+Tag: 2026-04-06 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_0
+Tag: 2026-04-07 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: m:Generator
+Tag: 2026-04-07 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_58
+Tag: 2026-04-08 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 3 | Person: m:Generator
+Tag: 2026-04-08 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2026-04-09 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_50
+Tag: 2026-04-09 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_32
+Tag: 2026-04-09 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2026-04-09 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_55
+Tag: 2026-04-09 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2026-04-10 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_19
+Tag: 2026-04-10 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_35
+Tag: 2026-04-11 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2026-04-11 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2026-04-12 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_58
+Tag: 2026-04-12 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_18
+Tag: 2026-04-13 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 3 | Person: m:Generator
+Tag: 2026-04-13 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2026-04-13 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2026-04-13 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_92
+Tag: 2026-04-14 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_41
+Tag: 2026-04-14 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_51
+Tag: 2026-04-14 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2026-04-14 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_98
+Tag: 2026-04-14 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: m:Generator
+Tag: 2026-04-15 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_65
+Tag: 2026-04-15 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2026-04-16 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_68
+Tag: 2026-04-16 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_10
+Tag: 2026-04-16 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: m:Generator
+Tag: 2026-04-16 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_4
+Tag: 2026-04-17 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2026-04-17 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_68
+Tag: 2026-04-17 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: m:Generator
+Tag: 2026-04-17 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_12
+Tag: 2026-04-18 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_67
+Tag: 2026-04-18 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_68
+Tag: 2026-04-18 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_85
+Tag: 2026-04-18 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2026-04-19 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_18
+Tag: 2026-04-19 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: m:Generator
+Tag: 2026-04-19 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 3 | Person: m:Generator
+Tag: 2026-04-19 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2026-04-20 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_30
+Tag: 2026-04-20 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: m:Generator
+Tag: 2026-04-20 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_7
+Tag: 2026-04-20 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_37
+Tag: 2026-04-20 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_7
+Tag: 2026-04-21 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_83
+Tag: 2026-04-21 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 3 | Person: m:Generator
+Tag: 2026-04-21 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2026-04-22 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2026-04-22 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_71
+Tag: 2026-04-23 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_21
+Tag: 2026-04-23 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2026-04-23 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_47
+Tag: 2026-04-24 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_73
+Tag: 2026-04-24 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_10
+Tag: 2026-04-24 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_8
+Tag: 2026-04-24 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_72
+Tag: 2026-04-25 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_57
+Tag: 2026-04-25 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2026-04-26 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2026-04-26 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: m:Generator
+Tag: 2026-04-27 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_15
+Tag: 2026-04-27 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2026-04-28 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2026-04-28 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_40
+Tag: 2026-04-28 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: m:Generator
+Tag: 2026-04-29 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_75
+Tag: 2026-04-29 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_41
+Tag: 2026-04-29 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_28
+Tag: 2026-04-30 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2026-04-30 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_37
+Tag: 2026-05-01 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_99
+Tag: 2026-05-01 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2026-05-02 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2026-05-02 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_94
+Tag: 2026-05-02 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: m:Generator
+Tag: 2026-05-02 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2026-05-03 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: m:Generator
+Tag: 2026-05-03 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: m:Generator
+Tag: 2026-05-04 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_1
+Tag: 2026-05-04 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: m:Generator
+Tag: 2026-05-04 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_82
+Tag: 2026-05-05 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_92
+Tag: 2026-05-05 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_96
+Tag: 2026-05-05 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_23
+Tag: 2026-05-06 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2026-05-06 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2026-05-06 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_64
+Tag: 2026-05-07 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_90
+Tag: 2026-05-07 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_76
+Tag: 2026-05-07 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_61
+Tag: 2026-05-07 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_51
+Tag: 2026-05-07 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_84
+Tag: 2026-05-08 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2026-05-08 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: m:Generator
+Tag: 2026-05-09 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_62
+Tag: 2026-05-09 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: m:Generator
+Tag: 2026-05-09 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 3 | Person: m:Generator
+Tag: 2026-05-09 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_48
+Tag: 2026-05-09 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2026-05-10 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2026-05-10 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_22
+Tag: 2026-05-10 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: m:Generator
+Tag: 2026-05-11 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: m:Generator
+Tag: 2026-05-11 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2026-05-11 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_31
+Tag: 2026-05-11 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_41
+Tag: 2026-05-12 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_27
+Tag: 2026-05-12 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2026-05-12 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_12
+Tag: 2026-05-12 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_55
+Tag: 2026-05-12 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_46
+Tag: 2026-05-13 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 3 | Person: m:Generator
+Tag: 2026-05-13 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2026-05-14 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_82
+Tag: 2026-05-14 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: m:Generator
+Tag: 2026-05-14 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2026-05-14 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_94
+Tag: 2026-05-15 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_58
+Tag: 2026-05-15 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_2
+Tag: 2026-05-15 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_36
+Tag: 2026-05-15 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_79
+Tag: 2026-05-16 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_43
+Tag: 2026-05-16 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2026-05-16 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2026-05-16 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2026-05-16 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2026-05-17 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 3 | Person: m:Generator
+Tag: 2026-05-17 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_97
+Tag: 2026-05-18 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: m:Generator
+Tag: 2026-05-18 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_16
+Tag: 2026-05-18 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_33
+Tag: 2026-05-19 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_15
+Tag: 2026-05-19 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_63
+Tag: 2026-05-19 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 15 | Person: m:Generator
+Tag: 2026-05-20 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_1
+Tag: 2026-05-20 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_2
+Tag: 2026-05-20 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_20
+Tag: 2026-05-20 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_23
+Tag: 2026-05-21 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_30
+Tag: 2026-05-21 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_22
+Tag: 2026-05-21 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_66
+Tag: 2026-05-21 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: m:Generator
+Tag: 2026-05-22 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2026-05-22 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_35
+Tag: 2026-05-22 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: m:Generator
+Tag: 2026-05-23 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2026-05-23 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_23
+Tag: 2026-05-23 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_25
+Tag: 2026-05-23 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_3
+Tag: 2026-05-24 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2026-05-24 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: m:Generator
+Tag: 2026-05-24 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_45
+Tag: 2026-05-24 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2026-05-25 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2026-05-25 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_23
+Tag: 2026-05-25 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 3 | Person: m:Generator
+Tag: 2026-05-25 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_96
+Tag: 2026-05-25 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_38
+Tag: 2026-05-26 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: m:Generator
+Tag: 2026-05-26 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2026-05-26 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_2
+Tag: 2026-05-26 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_92
+Tag: 2026-05-26 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2026-05-27 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_26
+Tag: 2026-05-27 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: m:Generator
+Tag: 2026-05-28 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_58
+Tag: 2026-05-28 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2026-05-28 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_83
+Tag: 2026-05-28 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2026-05-28 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2026-05-29 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_34
+Tag: 2026-05-29 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_92
+Tag: 2026-05-29 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_9
+Tag: 2026-05-29 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_5
+Tag: 2026-05-29 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2026-05-30 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2026-05-30 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_28
+Tag: 2026-05-30 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: m:Generator
+Tag: 2026-05-30 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_18
+Tag: 2026-05-30 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_10
+Tag: 2026-05-31 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_2
+Tag: 2026-05-31 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2026-05-31 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: m:Generator
+Tag: 2026-06-01 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: m:Generator
+Tag: 2026-06-01 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: m:Generator
+Tag: 2026-06-01 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: m:Generator
+Tag: 2026-06-01 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2026-06-02 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_61
+Tag: 2026-06-02 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_58
+Tag: 2026-06-02 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: m:Generator
+Tag: 2026-06-02 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_12
+Tag: 2026-06-02 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: k: GeneratedKunde_62
+Tag: 2026-06-03 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2026-06-03 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_36
+Tag: 2026-06-03 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_76
+Tag: 2026-06-03 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_55
+Tag: 2026-06-03 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_54
+Tag: 2026-06-04 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: m:Generator
+Tag: 2026-06-04 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2026-06-04 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_86
+Tag: 2026-06-04 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2026-06-05 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 3 | Person: m:Generator
+Tag: 2026-06-05 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_33
+Tag: 2026-06-06 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 3 | Person: m:Generator
+Tag: 2026-06-06 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: k: GeneratedKunde_80
+Tag: 2026-06-06 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2026-06-06 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_89
+Tag: 2026-06-06 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_19
+Tag: 2026-06-07 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: m:Generator
+Tag: 2026-06-07 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: k: GeneratedKunde_19
+Tag: 2026-06-07 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_15
+Tag: 2026-06-07 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_0
+Tag: 2026-06-07 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2026-06-08 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 50 | Person: m:Generator
+Tag: 2026-06-08 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_17
+Tag: 2026-06-09 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: k: GeneratedKunde_57
+Tag: 2026-06-09 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2026-06-10 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_37
+Tag: 2026-06-10 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_91
+Tag: 2026-06-10 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 3 | Person: m:Generator
+Tag: 2026-06-10 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 15 | Person: m:Generator
+Tag: 2026-06-10 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_73
+Tag: 2026-06-11 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_97
+Tag: 2026-06-11 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_4
+Tag: 2026-06-11 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_17
+Tag: 2026-06-12 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_31
+Tag: 2026-06-12 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_92
+Tag: 2026-06-12 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_20
+Tag: 2026-06-12 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: m:Generator
+Tag: 2026-06-13 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2026-06-13 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_62
+Tag: 2026-06-13 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_54
+Tag: 2026-06-14 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: m:Generator
+Tag: 2026-06-14 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_35
+Tag: 2026-06-14 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2026-06-15 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2026-06-15 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 10 | Person: m:Generator
+Tag: 2026-06-15 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: k: GeneratedKunde_3
+Tag: 2026-06-15 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: m:Generator
+Tag: 2026-06-15 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_71
+Tag: 2026-06-16 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 3 | Person: m:Generator
+Tag: 2026-06-16 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_96
+Tag: 2026-06-16 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 3 | Person: m:Generator
+Tag: 2026-06-17 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2026-06-17 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_19
+Tag: 2026-06-17 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 3 | Person: m:Generator
+Tag: 2026-06-17 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_92
+Tag: 2026-06-17 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_87
+Tag: 2026-06-18 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k: GeneratedKunde_88
+Tag: 2026-06-18 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_67
+Tag: 2026-06-19 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2026-06-19 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 3 | Person: m:Generator
+Tag: 2026-06-19 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: m:Generator
+Tag: 2026-06-19 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_90
+Tag: 2026-06-19 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: m:Generator
+Tag: 2026-06-20 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2026-06-20 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_25
+Tag: 2026-06-20 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_84
+Tag: 2026-06-20 | Typ: Einlagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 30 | Person: m:Generator
+Tag: 2026-06-20 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 2 | Person: k: GeneratedKunde_85
+Tag: 2026-06-21 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 100 | Person: k: GeneratedKunde_31
+Tag: 2026-06-21 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_82
+Tag: 2026-06-21 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_44
+Tag: 2026-06-22 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 2 | Person: k: GeneratedKunde_97
+Tag: 2026-06-22 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: m:Generator
+Tag: 2026-06-22 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 5 | Person: m:Generator
+Tag: 2026-06-22 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: m:Generator
+Tag: 2026-06-23 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: m:Generator
+Tag: 2026-06-23 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: k: GeneratedKunde_90
+Tag: 2026-06-23 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 2 | Person: k: GeneratedKunde_15
+Tag: 2026-06-24 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_27
+Tag: 2026-06-24 | Typ: Auslagerung | ArtikelID: 1007 | Artikel: LED Schreibtischlampe Pack | Menge: 20 | Person: k: GeneratedKunde_14
+Tag: 2026-06-24 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_30
+Tag: 2026-06-24 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 1 | Person: k: GeneratedKunde_18
+Tag: 2026-06-25 | Typ: Einlagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 3 | Person: m:Generator
+Tag: 2026-06-25 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 2 | Person: m:Generator
+Tag: 2026-06-25 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 15 | Person: m:Generator
+Tag: 2026-06-25 | Typ: Einlagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 150 | Person: m:Generator
+Tag: 2026-06-26 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2026-06-26 | Typ: Einlagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 3 | Person: m:Generator
+Tag: 2026-06-26 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_96
+Tag: 2026-06-27 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_26
+Tag: 2026-06-27 | Typ: Auslagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: k: GeneratedKunde_53
+Tag: 2026-06-27 | Typ: Auslagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 1 | Person: k: GeneratedKunde_55
+Tag: 2026-06-28 | Typ: Auslagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: k: GeneratedKunde_75
+Tag: 2026-06-28 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: m:Generator
+Tag: 2026-06-28 | Typ: Auslagerung | ArtikelID: 1003 | Artikel: 4k monitor 27" | Menge: 1 | Person: k: GeneratedKunde_46
+Tag: 2026-06-28 | Typ: Einlagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 3 | Person: m:Generator
+Tag: 2026-06-28 | Typ: Auslagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 2 | Person: k: GeneratedKunde_82
+Tag: 2026-06-29 | Typ: Einlagerung | ArtikelID: 1005 | Artikel: ergonomic chair | Menge: 1 | Person: m:Generator
+Tag: 2026-06-29 | Typ: Auslagerung | ArtikelID: 1001 | Artikel: iphone 15 pro | Menge: 1 | Person: k: GeneratedKunde_34
+Tag: 2026-06-29 | Typ: Auslagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 1 | Person: k: GeneratedKunde_6
+Tag: 2026-06-29 | Typ: Einlagerung | ArtikelID: 1006 | Artikel: webcam 1080p | Menge: 2 | Person: m:Generator
+Tag: 2026-06-29 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 10 | Person: m:Generator
+Tag: 2026-06-29 | Typ: Einlagerung | ArtikelID: 1009 | Artikel: wasserflaschen set | Menge: 149985 | Person: m:tim
+Tag: 2026-07-01 | Typ: Einlagerung | ArtikelID: 1004 | Artikel: ssd 1tb nvme | Menge: 47 | Person: m:tim
+Tag: 2026-07-01 | Typ: Auslagerung | ArtikelID: 1008 | Artikel: usb-c hub bulk | Menge: 0 | Person: m:kai
+Tag: 2026-07-01 | Typ: Einlagerung | ArtikelID: 10 | Artikel: haarklammer | Menge: 1000 | Person: m:kai
+Tag: 2026-07-01 | Typ: Auslagerung | ArtikelID: 10 | Artikel: haarklammer | Menge: 12 | Person: k:razia hadya
+Tag: 2026-07-01 | Typ: Auslagerung | ArtikelID: 10 | Artikel: haarklammer | Menge: 40 | Person: k:razia hadya
+Tag: 2026-07-01 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop asus | Menge: 1 | Person: k:razia hadya
+Tag: 2026-07-01 | Typ: Auslagerung | ArtikelID: 10 | Artikel: haarklammer | Menge: 12 | Person: k:razia hadya

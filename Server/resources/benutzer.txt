@@ -1,0 +1,3 @@
+3;michelle;123;123;Kunde
+2;bulat;bulat;1234;Kunde
+1;tim;tim;123;Mitarbeiter
