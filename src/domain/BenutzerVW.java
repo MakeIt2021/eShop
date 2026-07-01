@@ -16,7 +16,7 @@ public class BenutzerVW {
 
     //benuzer speicherung im PM
     private PersistenceManager pm = new FilePersistenceManager();
-    private Map<String, Benutzer> benutzerMap = new HashMap<>();
+    private HashMap<String, Benutzer> benutzerMap = new HashMap<>();
 
     public BenutzerVW() throws DateiNichtGefundenException {
         try {
@@ -32,14 +32,15 @@ public class BenutzerVW {
 
     public boolean registrieren(Benutzer benutzer) throws DateiNichtGefundenException {
         if (this.benutzerMap.containsKey(benutzer.getBenutzerErkennung())) {
-            System.out.print("Benutzer existiert bereit! ");
-            System.out.println("Bitte loggen Sie sich ein!");
             return false;
         }
+
         this.benutzerMap.put(benutzer.getBenutzerErkennung(), benutzer);
 
         try {
-            pm.speicherBenutzer(benutzer);
+            pm.openForWriting(datei);
+            pm.speicherBenutzer(benutzerMap);
+            pm.close();
         } catch (IOException e) {
             throw new DateiNichtGefundenException(e.getMessage(), e.getCause());
         }

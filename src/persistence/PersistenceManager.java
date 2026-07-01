@@ -25,8 +25,8 @@ public interface PersistenceManager {
     ) {}
 
     //speichern den benutzer
-    void speicherBenutzer(Benutzer benutzer) throws IOException;
-    Map<String, Benutzer> ladeBenutzer() throws IOException;
+    void speicherBenutzer(HashMap<String, Benutzer> benutzer) throws IOException;
+    HashMap<String, Benutzer> ladeBenutzer() throws IOException;
 
     Artikel ladeArtikel() throws IOException;
     HashMap<Integer, Integer> ladeArtikelMenge() throws IOException;

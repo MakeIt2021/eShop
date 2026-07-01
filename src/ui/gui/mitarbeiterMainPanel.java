@@ -57,6 +57,9 @@ public class mitarbeiterMainPanel extends JPanel {
             }
         };
         artikelTabelle = new JTable(artikelTabelleModel);
+
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(artikelTabelleModel);
+        artikelTabelle.setRowSorter(sorter);
         JScrollPane sp = new JScrollPane(artikelTabelle);
         add(sp, BorderLayout.CENTER);
 

@@ -17,8 +17,8 @@ public class FilePersistenceManager implements PersistenceManager {
     private PrintWriter writer = null;
 
     @Override
-    public Map<String, Benutzer> ladeBenutzer() throws DateiNichtGefundenException{
-        Map<String, Benutzer> map = new HashMap<>();
+    public HashMap<String, Benutzer> ladeBenutzer() throws DateiNichtGefundenException{
+        HashMap<String, Benutzer> map = new HashMap<>();
         openForReading("benutzer.txt"); //TODO: sollte nicht hardcoded sein
 
         try {
@@ -173,14 +173,16 @@ public class FilePersistenceManager implements PersistenceManager {
 
     //benutzer speicherung
     @Override
-    public void speicherBenutzer(Benutzer benutzer) throws DateiNichtGefundenException {
-        schreibeZeile(
-                benutzer.getBenutzerId() + ";" +
-                        benutzer.getBenutzerErkennung() + ";" +
-                        benutzer.getBenutzerVorNachname() + ";" +
-                        benutzer.getBenutzerPassword() + ";" +
-                        benutzer.getRole()
-        );
+    public void speicherBenutzer(HashMap<String, Benutzer> benutzerMap) throws DateiNichtGefundenException {
+        for (Benutzer benutzer : benutzerMap.values()) {
+            schreibeZeile(
+                    benutzer.getBenutzerId() + ";" +
+                            benutzer.getBenutzerErkennung() + ";" +
+                            benutzer.getBenutzerVorNachname() + ";" +
+                            benutzer.getBenutzerPassword() + ";" +
+                            benutzer.getRole()
+            );
+        }
     }
 
     private String liesZeile() throws DateiNichtGefundenException {
