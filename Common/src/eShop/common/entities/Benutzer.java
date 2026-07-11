@@ -1,5 +1,7 @@
 package eShop.common.entities;
 
+import java.util.regex.Pattern;
+
 public abstract class Benutzer {
     private int benutzerId;
     private String benutzerErkennung;
@@ -50,4 +52,28 @@ public abstract class Benutzer {
     }
 
     public abstract String getRole();
+
+    public String toNetworkString() {
+        return benutzerId + ";" + benutzerErkennung + ";" + benutzerVorNachname + ";" + benutzerPassword + ";" + getRole();
+    }
+
+    public static Benutzer fromNetworkString(String line) {
+        if (line == null || line.equals("null"))
+            return null;
+
+        String[] parts = line.split(";");
+        int id = Integer.parseInt(parts[0]);
+        String benutzerErkennung = parts[1];
+        String benutzerVorNachName = parts[2];
+        String benutzerPasswort = parts[3];
+        String role = parts[4];
+
+        if (role.equals("Kunde")) {
+            return new Kunde(id, benutzerErkennung, benutzerVorNachName, benutzerPasswort);
+        } else {
+            return new Mitarbeiter(id, benutzerErkennung, benutzerVorNachName, benutzerPasswort);
+        }
+    }
+
+
 }

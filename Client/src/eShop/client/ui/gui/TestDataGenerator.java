@@ -1,8 +1,6 @@
-package ui.gui;
+package eShop.client.ui.gui;
 
 // Note: Diese Klasse wurde komplett von KI für Tests geschrieben.
-
-import domain.EShop;
 
 import java.math.BigDecimal;
 import java.nio.file.Files;
@@ -13,10 +11,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import eShop.common.interfaces.EShopInterface;
 
 public class TestDataGenerator {
 
-    public static void generiereUmfangreicheTestdaten(EShop eshop, String mitarbeiterName) {
+    public static void generiereUmfangreicheTestdaten(EShopInterface eshop, String mitarbeiterName) {
         try {
             // 1. Sicherheitscheck: Wenn der Shop schon Daten hat, tun wir nichts
             if (!eshop.gibArtikelListe().isEmpty()) {
@@ -81,9 +80,9 @@ public class TestDataGenerator {
                 for (int j = 0; j < anzahlAenderungenHeute && j < alleArtikelIDs.size(); j++) {
                     // Jede Artikel-ID wird pro Tag-Schleife maximal einmal gezogen
                     int aktuellerArtikelID = alleArtikelIDs.get(j);
-                    int aktuellerBestand = eshop.getBestand(aktuellerArtikelID);
+                    int aktuellerBestand = eshop.gibBestand(aktuellerArtikelID);
                     boolean istMassengut = eshop.istMassengutartikel(aktuellerArtikelID);
-                    int packGroesse = istMassengut ? eshop.getPackungGroesse(aktuellerArtikelID) : 1;
+                    int packGroesse = istMassengut ? eshop.gibPackungGroesse(aktuellerArtikelID) : 1;
 
                     if (aktuellerBestand <= (packGroesse * 2)) {
                         // Bestand niedrig -> Nachlieferung
@@ -91,7 +90,7 @@ public class TestDataGenerator {
                         int lieferung = partien * packGroesse;
 
                         eshop.bestandVeraendern(aktuellerArtikelID, aktuellerBestand + lieferung, mitarbeiterName);
-                        gefaelschteLogs.add("Tag: " + tag + " | Typ: Einlagerung | ArtikelID: " + aktuellerArtikelID + " | Artikel: " + eshop.getArtikelName(aktuellerArtikelID) + " | Menge: " + lieferung + " | Person: m:" + mitarbeiterName);
+                        gefaelschteLogs.add("Tag: " + tag + " | Typ: Einlagerung | ArtikelID: " + aktuellerArtikelID + " | Artikel: " + eshop.gibArtikelName(aktuellerArtikelID) + " | Menge: " + lieferung + " | Person: m:" + mitarbeiterName);
                     } else {
                         // Bestand okay -> Kunde kauft
                         int partien = random.nextInt(2) + 1;
@@ -99,7 +98,7 @@ public class TestDataGenerator {
 
                         if (aktuellerBestand - kauf > 0) {
                             eshop.bestandVeraendern(aktuellerArtikelID, aktuellerBestand - kauf, "GeneratedKunde_" + random.nextInt(100));
-                            gefaelschteLogs.add("Tag: " + tag + " | Typ: Auslagerung | ArtikelID: " + aktuellerArtikelID + " | Artikel: " + eshop.getArtikelName(aktuellerArtikelID) + " | Menge: " + kauf + " | Person: k: " + "GeneratedKunde_" + random.nextInt(100));
+                            gefaelschteLogs.add("Tag: " + tag + " | Typ: Auslagerung | ArtikelID: " + aktuellerArtikelID + " | Artikel: " + eshop.gibArtikelName(aktuellerArtikelID) + " | Menge: " + kauf + " | Person: k: " + "GeneratedKunde_" + random.nextInt(100));
                         }
                     }
                 }

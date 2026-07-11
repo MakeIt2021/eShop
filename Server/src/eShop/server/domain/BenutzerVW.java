@@ -1,9 +1,9 @@
 package eShop.server.domain;
 
-import domain.exceptions.DateiNichtGefundenException;
-import entities.Benutzer;
-import persistence.FilePersistenceManager;
-import persistence.PersistenceManager;
+import eShop.common.exceptions.DateiNichtGefundenException;
+import eShop.common.entities.Benutzer;
+import eShop.server.persistence.FilePersistenceManager;
+import eShop.server.persistence.PersistenceManager;
 
 import java.io.*;
 import java.util.HashMap;

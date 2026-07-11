@@ -1,10 +1,11 @@
-package ui.gui;
+package eShop.client.ui.gui;
 
-import domain.EShop;
-import domain.exceptions.BestandNichtAusreichendException;
-import domain.exceptions.MassengutartikelmengeNichtTeilbarException;
-import domain.exceptions.MengeWenigerAlsPackungGroesseException;
-import domain.exceptions.UngueltigeMengeException;
+import eShop.client.net.EShopFassade;
+import eShop.common.entities.*;
+import eShop.common.exceptions.BestandNichtAusreichendException;
+import eShop.common.exceptions.MassengutartikelmengeNichtTeilbarException;
+import eShop.common.exceptions.MengeWenigerAlsPackungGroesseException;
+import eShop.common.exceptions.UngueltigeMengeException;
 
 import javax.swing.*;
 import javax.swing.event.DocumentListener;
@@ -13,12 +14,12 @@ import java.awt.*;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-
+import eShop.common.interfaces.EShopInterface;
 
 public class EShopGUI extends JFrame {
 
     // Zentrale Geschäftslogik des eShops
-    private EShop eShop;
+    private EShopInterface eShop;
 
     // Login-Bildschirm
     private LoginPanel loginPanel;
@@ -36,11 +37,12 @@ public class EShopGUI extends JFrame {
     private JPanel mainPanel;
     private mitarbeiterLoginPanel mitarbeiterLoginPanel;
     private mitarbeiterMainPanel mitarbeiterMainPanel;
+    public static final int DEFAULT_PORT = 6789;
 
     public EShopGUI() throws IOException {
 
         // ESHOP INITIALISIEREN
-        eShop = new EShop();
+        eShop = new EShopFassade("localhost", DEFAULT_PORT);
 
         // FENSTER KONFIGURIEREN
         setTitle("eShop");
@@ -169,7 +171,7 @@ public class EShopGUI extends JFrame {
         registrierenPanel.getRegistrierenButton().addActionListener(e -> {
 
             // Neue Benutzer-ID erzeugen
-            int benutzerId = eShop.getBenutzerVW().generiereId();
+            int benutzerId = eShop.generiereId();
 
             // Kundenobjekt erzeugen
             Kunde kunde = new Kunde(benutzerId, registrierenPanel.getBenutzername(), registrierenPanel.getName(), registrierenPanel.getPasswort());
@@ -212,7 +214,7 @@ public class EShopGUI extends JFrame {
         while (true) {
             String mengeText;
             if (eShop.istMassengutartikel(artikelID)) {
-                mengeText = JOptionPane.showInputDialog(this, (eShop.getArtikelName(artikelID) + " ist ein Massengutartikel!\nDas bedeutet, dass die Menge im Warenkorb durch " + eShop.getPackungGroesse(artikelID) + " teilbar sein soll!"));
+                mengeText = JOptionPane.showInputDialog(this, (eShop.gibArtikelName(artikelID) + " ist ein Massengutartikel!\nDas bedeutet, dass die Menge im Warenkorb durch " + eShop.gibPackungGroesse(artikelID) + " teilbar sein soll!"));
             } else {
                 mengeText = JOptionPane.showInputDialog(this, "Menge eingeben:");
             }
@@ -554,7 +556,7 @@ public class EShopGUI extends JFrame {
                 return;
             }
 
-            int id = eShop.getBenutzerVW().generiereId();
+            int id = eShop.generiereId();
 
             Mitarbeiter mitarbeiter = new Mitarbeiter(
                     id,
@@ -593,7 +595,11 @@ public class EShopGUI extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
 
-            TestDataGenerator.generiereUmfangreicheTestdaten(new EShop(), "Generator");
+            try {
+                TestDataGenerator.generiereUmfangreicheTestdaten(new EShopFassade("localhost", DEFAULT_PORT), "Generator");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             try {
                 new EShopGUI();
             } catch (IOException e) {

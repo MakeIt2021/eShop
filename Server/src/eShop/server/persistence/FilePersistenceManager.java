@@ -1,6 +1,7 @@
 package eShop.server.persistence;
 
-import domain.exceptions.DateiNichtGefundenException;
+import eShop.common.entities.*;
+import eShop.common.exceptions.DateiNichtGefundenException;
 
 import java.io.*;
 import java.math.BigDecimal;

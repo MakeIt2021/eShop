@@ -1,7 +1,7 @@
-package ui.gui;
+package eShop.client.ui.gui;
 
-import entities.Artikel;
-import entities.Massengutartikel;
+import eShop.common.entities.Artikel;
+import eShop.common.entities.Massengutartikel;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

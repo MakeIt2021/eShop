@@ -1,10 +1,10 @@
 package eShop.server.domain;
 
-import domain.exceptions.DateiNichtGefundenException;
-import entities.Artikel;
-import entities.Ereignis;
-import persistence.FilePersistenceManager;
-import persistence.PersistenceManager;
+import eShop.common.exceptions.DateiNichtGefundenException;
+import eShop.common.entities.Artikel;
+import eShop.common.entities.Ereignis;
+import eShop.server.persistence.FilePersistenceManager;
+import eShop.server.persistence.PersistenceManager;
 
 import java.io.IOException;
 import java.math.BigDecimal;

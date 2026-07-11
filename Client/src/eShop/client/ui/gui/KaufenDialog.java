@@ -1,6 +1,6 @@
-package ui.gui;
+package eShop.client.ui.gui;
 
-import entities.Rechnung;
+import eShop.common.entities.Rechnung;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

@@ -1,6 +1,6 @@
 package eShop.server.domain;
 
-import entities.Warenkorb;
+import eShop.common.entities.Warenkorb;
 import java.util.HashMap;
 
 

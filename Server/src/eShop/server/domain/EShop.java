@@ -1,21 +1,21 @@
 package eShop.server.domain;
 
+import eShop.common.entities.*;
+import eShop.common.exceptions.*;
+
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
 
 
-public class EShop {
+public class EShop implements eShop.common.interfaces.EShopInterface {
     private final String datei = "eShop";
 
     private final ArtikelVW artikelVW;
     private final BenutzerVW benutzerVW;
     private final EreignisVW ereignisVW;
     private final WarenkorbVW warenkorbVW;
-
-    public BenutzerVW getBenutzerVW() {
-        return benutzerVW;
-    }
 
     public EShop() throws DateiNichtGefundenException {
         artikelVW = new ArtikelVW();
@@ -134,25 +134,25 @@ public class EShop {
 
         if (artikelVW.getBestand(artikelID) < menge) {
             throw new BestandNichtAusreichendException(
-                    getArtikelName(artikelID),
+                    gibArtikelName(artikelID),
                     artikelVW.getBestand(artikelID),
                     menge
             );
         }
 
         if (istMassengutartikel(artikelID)) {
-            if (menge < getPackungGroesse(artikelID)) {
+            if (menge < gibPackungGroesse(artikelID)) {
                 throw new MengeWenigerAlsPackungGroesseException(
-                        getArtikelName(artikelID),
+                        gibArtikelName(artikelID),
                         menge,
-                        getPackungGroesse(artikelID)
+                        gibPackungGroesse(artikelID)
                 );
             }
 
-            if (menge % getPackungGroesse(artikelID) != 0) {
+            if (menge % gibPackungGroesse(artikelID) != 0) {
                 throw new MassengutartikelmengeNichtTeilbarException(
-                        getArtikelName(artikelID),
-                        getPackungGroesse(artikelID)
+                        gibArtikelName(artikelID),
+                        gibPackungGroesse(artikelID)
                 );
             }
         }
@@ -170,12 +170,12 @@ public class EShop {
         }
 
         if (istMassengutartikel(artikelID)) {
-            if (menge < getPackungGroesse(artikelID)) {
-                throw new MengeWenigerAlsPackungGroesseException(getArtikelName(artikelID), menge, getPackungGroesse(artikelID));
+            if (menge < gibPackungGroesse(artikelID)) {
+                throw new MengeWenigerAlsPackungGroesseException(gibArtikelName(artikelID), menge, gibPackungGroesse(artikelID));
             }
 
-            if (menge % getPackungGroesse(artikelID) != 0) {
-                throw new MassengutartikelmengeNichtTeilbarException(getArtikelName(artikelID), getPackungGroesse(artikelID));
+            if (menge % gibPackungGroesse(artikelID) != 0) {
+                throw new MassengutartikelmengeNichtTeilbarException(gibArtikelName(artikelID), gibPackungGroesse(artikelID));
             }
         }
 
@@ -216,18 +216,18 @@ public class EShop {
         }
 
         if (istMassengutartikel(artikelID)) {
-            if (neuerBestand < getPackungGroesse(artikelID)) {
+            if (neuerBestand < gibPackungGroesse(artikelID)) {
                 throw new MengeWenigerAlsPackungGroesseException(
-                        getArtikelName(artikelID),
+                        gibArtikelName(artikelID),
                         neuerBestand,
-                        getPackungGroesse(artikelID)
+                        gibPackungGroesse(artikelID)
                 );
             }
 
-            if (neuerBestand % getPackungGroesse(artikelID) != 0) {
+            if (neuerBestand % gibPackungGroesse(artikelID) != 0) {
                 throw new MassengutartikelmengeNichtTeilbarException(
-                        getArtikelName(artikelID),
-                        getPackungGroesse(artikelID)
+                        gibArtikelName(artikelID),
+                        gibPackungGroesse(artikelID)
                 );
             }
         }
@@ -260,7 +260,7 @@ public class EShop {
         return artikelVW.istMassengutartikel(artikelID);
     }
 
-    public int getPackungGroesse(int artikelID) {
+    public int gibPackungGroesse(int artikelID) {
         if (istMassengutartikel(artikelID))
             return artikelVW.getPackungGroesse(artikelID);
         else
@@ -269,16 +269,16 @@ public class EShop {
 
     public void packungGroesseVeraendern(int artikelID, int neueGroesse) {
         artikelVW.packungGroesseVeraendern(artikelID, neueGroesse);
-        if (getBestand(artikelID) % neueGroesse != 0) {
-            throw new MassengutartikelmengeNichtTeilbarException(getArtikelName(artikelID), neueGroesse);
+        if (gibBestand(artikelID) % neueGroesse != 0) {
+            throw new MassengutartikelmengeNichtTeilbarException(gibArtikelName(artikelID), neueGroesse);
         }
     }
 
-    public int getBestand(int artikelID) {
+    public int gibBestand(int artikelID) {
         return artikelVW.getBestand(artikelID);
     }
 
-    public String getArtikelName(int artikelID) {
+    public String gibArtikelName(int artikelID) {
         return artikelVW.getArtikelName(artikelID);
     }
 
@@ -307,17 +307,12 @@ public class EShop {
         return benutzerVW.registrieren(benutzer);
     }
 
-    public Benutzer aktuellerBenutzer () {
-        return benutzerVW.getAktuellerBenutzer();
+    public int generiereId() {
+        return benutzerVW.generiereId();
     }
 
-    public void pruefeArtikelExistiertBereits(String bezeichnung) throws ArtikelExistiertBereitsException {
-        int artikelID = artikelVW.sucheNachIDMitBezeichnung(bezeichnung);
-
-        if (artikelID != -1) {
-            Artikel artikel = artikelVW.findeArtikel(artikelID);
-            throw new ArtikelExistiertBereitsException(artikel, "");
-        }
+    public Benutzer aktuellerBenutzer () {
+        return benutzerVW.getAktuellerBenutzer();
     }
 
     public ArrayList<Ereignis> gibEreignisListe() {
@@ -328,12 +323,9 @@ public class EShop {
         return ereignisVW.gibBestandHistorie(artikelID);
     }
 
-    public Rechnung gibAlleGekaufteArtikel() {
-        return new Rechnung(aktuellerBenutzer().getBenutzerVorNachname(), gibWarenkorb(), gibArtikelListe());
-    }
+    @Override
+    public void disconnect() throws IOException {
 
-    public ArrayList<Integer> gibBestandHistorie(int artikelID) {
-        return ereignisVW.gibBestandHistorieAlsIntegers(artikelID);
     }
 
     public Artikel findeArtikel(int artikelID) {

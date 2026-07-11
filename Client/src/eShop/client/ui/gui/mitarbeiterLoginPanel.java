@@ -1,4 +1,4 @@
-package ui.gui;
+package eShop.client.ui.gui;
 import javax.swing.*;
 import java.awt.*;
 

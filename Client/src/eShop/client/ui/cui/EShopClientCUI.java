@@ -1,7 +1,7 @@
-package ui.cui;
+package eShop.client.ui.cui;
 
-import domain.EShop;
-import entities.Benutzer;
+import eShop.client.net.EShopFassade;
+import eShop.common.entities.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,18 +12,22 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Objects;
 
+import eShop.common.exceptions.*;
+import eShop.common.interfaces.EShopInterface;
+
 
 public class EShopClientCUI {
-    private EShop eShop;
+    private EShopInterface eShop;
     private BufferedReader in;
     public static final String RESET = "\u001B[0m";
     public static final String RED = "\u001B[31m";
     public static final String GREEN = "\u001B[32m";
     public static final String YELLOW = "\u001B[33m";
+    public static final int DEFAULT_PORT = 6789;
 
     public EShopClientCUI() throws IOException {
 
-        eShop = new EShop();
+        eShop = new EShopFassade("localhost", DEFAULT_PORT);
         in = new BufferedReader(new InputStreamReader(System.in));
     }
 
@@ -131,21 +135,6 @@ public class EShopClientCUI {
                 // Artikelinformationen eingeben
                 System.out.print("Bezeichnung > ");
                 bezeichnung = liesEingabe();
-
-                try {
-
-                    eShop.pruefeArtikelExistiertBereits(bezeichnung);
-
-                }
-                catch (ArtikelExistiertBereitsException e) {
-
-                    System.out.println(RED +
-                            e.getMessage()
-                            + RESET
-                    );
-
-                    break;
-                }
 
                 System.out.print("Preis > ");
                 try {
@@ -311,7 +300,7 @@ public class EShopClientCUI {
                     }
 
                 } else {
-                    System.out.println("Die Größe der Packung ist bereits " + eShop.getPackungGroesse(artikelID));
+                    System.out.println("Die Größe der Packung ist bereits " + eShop.gibPackungGroesse(artikelID));
 
                     System.out.println("Möchten Sie die Größe der Packung verändern oder die gesamte Menge? [g / m]");
 
@@ -343,7 +332,7 @@ public class EShopClientCUI {
 
                         System.out.println(YELLOW +
                                 "Die neue Menge muss durch "
-                                + eShop.getPackungGroesse(artikelID)
+                                + eShop.gibPackungGroesse(artikelID)
                                 + " teilbar sein"
                                 + RESET
                         );
@@ -444,13 +433,13 @@ public class EShopClientCUI {
 
                     System.out.println(
                             YELLOW +
-                                    eShop.getArtikelName(artikelID)
+                                    eShop.gibArtikelName(artikelID)
                                     + " ist ein Massengutartikel!"
                     );
 
                     System.out.println(
                             "Das bedeutet, dass die Menge im Warenkorb durch "
-                                    + eShop.getPackungGroesse(artikelID)
+                                    + eShop.gibPackungGroesse(artikelID)
                                     + " teilbar sein soll!"
                                     + RESET
                     );
@@ -693,7 +682,7 @@ public class EShopClientCUI {
                 System.out.println("Registration als Kunde:");
 
                 //System.out.print("Benutzer ID > ");
-                int benutzerId = eShop.getBenutzerVW().generiereId();
+                int benutzerId = eShop.generiereId();
 
                 System.out.print("Benutzername > ");
                 String benutzerErkennung = liesEingabe();

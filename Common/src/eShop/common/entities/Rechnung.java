@@ -59,7 +59,7 @@ public class Rechnung {
             summe = summe.add(artikel.summe());
         }
 
-        return summe;
+        return summe.setScale(2, RoundingMode.HALF_EVEN);
     }
 
     public BigDecimal getMwst()   {

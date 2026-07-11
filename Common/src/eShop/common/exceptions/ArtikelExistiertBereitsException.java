@@ -1,6 +1,6 @@
 package eShop.common.exceptions;
 
-import entities.Artikel;
+import eShop.common.entities.Artikel;
 
 public class ArtikelExistiertBereitsException extends RuntimeException {
     private Artikel artikel;

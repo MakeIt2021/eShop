@@ -1,8 +1,8 @@
 package eShop.server.persistence;
 
-import entities.Artikel;
-import entities.Benutzer;
-import entities.Ereignis;
+import eShop.common.entities.Artikel;
+import eShop.common.entities.Benutzer;
+import eShop.common.entities.Ereignis;
 
 import java.io.IOException;
 import java.time.LocalDate;

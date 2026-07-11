@@ -1,6 +1,7 @@
 package eShop.common.entities;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Artikel {
     private int artikelID;
@@ -35,5 +36,26 @@ public class Artikel {
 
     public void setPreis(BigDecimal newPreis) {
         this.preis = newPreis;
+    }
+
+    public String toNetworkString() {
+        return artikelID + ";" + bezeichnung + ";" + preis + ";" + "0";
+    }
+
+    public static Artikel fromNetworkString(String line) {
+        if (line == null || line.equals("null"))
+            return null;
+
+        String[] parts = line.split(";");
+        int id = Integer.parseInt(parts[0]);
+        String bezeichnung = parts[1];
+        BigDecimal preis = new BigDecimal(parts[2]).setScale(2, RoundingMode.HALF_EVEN);
+        int packungsGroesse = Integer.parseInt(parts[3]);
+
+        if (packungsGroesse == 0) {
+            return new Artikel(id, bezeichnung, preis);
+        } else {
+            return new Massengutartikel(id, bezeichnung, preis, packungsGroesse);
+        }
     }
 }

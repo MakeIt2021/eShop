@@ -1,7 +1,5 @@
 package eShop.common.entities;
 
-import domain.WarenkorbVW;
-
 import java.util.Date;
 import java.util.HashMap;
 

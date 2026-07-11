@@ -1,17 +1,17 @@
-package ui.gui;
+package eShop.client.ui.gui;
 
-import domain.EShop;
-import domain.exceptions.MassengutartikelmengeNichtTeilbarException;
-import domain.exceptions.MengeWenigerAlsPackungGroesseException;
-import domain.exceptions.UngueltigeMengeException;
-import domain.exceptions.UngueltigerPreisException;
+import eShop.common.exceptions.MassengutartikelmengeNichtTeilbarException;
+import eShop.common.exceptions.MengeWenigerAlsPackungGroesseException;
+import eShop.common.exceptions.UngueltigeMengeException;
+import eShop.common.exceptions.UngueltigerPreisException;
+import eShop.common.interfaces.EShopInterface;
 
 import javax.swing.*;
 import java.awt.*;
 import java.math.BigDecimal;
 
 public class ArtikelVeraendernDialog extends JDialog {
-    private final EShop eShop;
+    private final EShopInterface eShop;
     private final Runnable refreshTableCallback;
     private final int artikelID;
 
@@ -20,7 +20,7 @@ public class ArtikelVeraendernDialog extends JDialog {
     private JTextField artikelPreisField;
     private JTextField neuePackungsGroesseField;
 
-    public ArtikelVeraendernDialog(Frame owner, EShop eShop, Runnable refreshTableCallback, int artikelID) {
+    public ArtikelVeraendernDialog(Frame owner, EShopInterface eShop, Runnable refreshTableCallback, int artikelID) {
         super(owner, "Artikel verändern", true);
         this.eShop = eShop;
         this.refreshTableCallback = refreshTableCallback;
@@ -66,10 +66,10 @@ public class ArtikelVeraendernDialog extends JDialog {
         add(buttonsPanel, BorderLayout.SOUTH);
 
 
-        artikelBezeichnungField.setText(eShop.getArtikelName(artikelID));
-        artikelBestandField.setText(String.valueOf(eShop.getBestand(artikelID)));
+        artikelBezeichnungField.setText(eShop.gibArtikelName(artikelID));
+        artikelBestandField.setText(String.valueOf(eShop.gibBestand(artikelID)));
         artikelPreisField.setText(String.valueOf(eShop.gibPreis(artikelID)));
-        neuePackungsGroesseField.setText(String.valueOf(eShop.getPackungGroesse(artikelID)));
+        neuePackungsGroesseField.setText(String.valueOf(eShop.gibPackungGroesse(artikelID)));
 
         if (!eShop.istMassengutartikel(artikelID)) {
             neuePackungsGroesseField.setEnabled(false);

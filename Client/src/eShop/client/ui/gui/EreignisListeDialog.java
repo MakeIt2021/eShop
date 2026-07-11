@@ -1,7 +1,6 @@
-package ui.gui;
+package eShop.client.ui.gui;
 
-import domain.EShop;
-import entities.Ereignis;
+import eShop.common.entities.Ereignis;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -9,9 +8,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.time.LocalDate;
+import eShop.common.interfaces.EShopInterface;
 
 public class EreignisListeDialog extends JDialog {
-    public EreignisListeDialog(Frame owner, EShop eShop) {
+    public EreignisListeDialog(Frame owner, EShopInterface eShop) {
         super(owner, "Ereignisse", true);
         setSize(700, 400);
         setLocationRelativeTo(owner);
