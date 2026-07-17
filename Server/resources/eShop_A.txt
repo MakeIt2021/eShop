@@ -26,6 +26,10 @@ haarklammer
 4k monitor 27"
 349.50
 1
+11
+bag
+20
+1
 1004
 ssd 1tb nvme
 95.00
