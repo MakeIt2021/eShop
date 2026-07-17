@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 public class EShop implements eShop.common.interfaces.EShopInterface {
@@ -15,12 +16,13 @@ public class EShop implements eShop.common.interfaces.EShopInterface {
     private final ArtikelVW artikelVW;
     private final BenutzerVW benutzerVW;
     private final EreignisVW ereignisVW;
-    private final WarenkorbVW warenkorbVW;
+    private static final String STANDARD_WARENKORB = "__standard__";
+    private final Map<String, WarenkorbVW> warenkoerbe;
 
     public EShop() throws DateiNichtGefundenException {
         artikelVW = new ArtikelVW();
         artikelVW.ladeArtikelMengeDaten(datei);
-        warenkorbVW = new WarenkorbVW();
+        warenkoerbe = new ConcurrentHashMap<>();
         benutzerVW = new BenutzerVW();
         ereignisVW = new EreignisVW();
         ereignisVW.ladeEreignisse("Ereignisse.txt", artikelID -> artikelVW.findeArtikel(Integer.parseInt(artikelID)));
@@ -35,7 +37,11 @@ public class EShop implements eShop.common.interfaces.EShopInterface {
     }
 
     public HashMap<Integer, Integer> gibWarenkorb() {
-        return warenkorbVW.gibWarenkorb();
+        return gibWarenkorb(STANDARD_WARENKORB);
+    }
+
+    public HashMap<Integer, Integer> gibWarenkorb(String kunde) {
+        return warenkorbFuer(kunde).gibWarenkorb();
     }
 
 
@@ -156,7 +162,7 @@ public class EShop implements eShop.common.interfaces.EShopInterface {
                 );
             }
         }
-        warenkorbVW.einfuegen(artikelID, menge);
+        warenkorbFuer(kunde).einfuegen(artikelID, menge);
         artikelVW.bestandVerringern(artikelID, menge);
         ereignisVW.addEreignis(artikelVW.findeArtikel(artikelID), menge, "Auslagerung", "k:" + kunde);
 
@@ -180,7 +186,7 @@ public class EShop implements eShop.common.interfaces.EShopInterface {
         }
 
         Artikel einArtikel = artikelVW.gibArtikelListe().get(artikelID);
-        warenkorbVW.loeschen(artikelID, menge);
+        warenkorbFuer(kunde).loeschen(artikelID, menge);
         artikelVW.einfuegen(einArtikel, menge);
 
 
@@ -188,7 +194,16 @@ public class EShop implements eShop.common.interfaces.EShopInterface {
     }
 
     public void zuruecksetzeWarenkorb() {
-        warenkorbVW.zuruecksetzen();
+        zuruecksetzeWarenkorb(STANDARD_WARENKORB);
+    }
+
+    public void zuruecksetzeWarenkorb(String kunde) {
+        warenkorbFuer(kunde).zuruecksetzen();
+    }
+
+    private WarenkorbVW warenkorbFuer(String kunde) {
+        String schluessel = (kunde == null || kunde.isBlank()) ? STANDARD_WARENKORB : kunde;
+        return warenkoerbe.computeIfAbsent(schluessel, ignoriert -> new WarenkorbVW());
     }
 
     public void speichereArtikel() throws DateiNichtGefundenException {

@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.net.Socket;
@@ -18,11 +19,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class EShopFassade implements EShopInterface {
     private Socket socket = null;
     private BufferedReader sin;
     private PrintStream sout;
+    private Socket aktualisierungsSocket;
+    private PrintStream aktualisierungsAusgabe;
+    private final String clientKennung = UUID.randomUUID().toString();
 
     public EShopFassade(String host, int port) throws IOException {
         try {
@@ -45,6 +50,55 @@ public class EShopFassade implements EShopInterface {
         // Begrüßungsmeldung vom Server lesen
         String message = sin.readLine();
         System.out.println(message);
+
+        sout.println("CLIENT_KENNUNG");
+        sout.println(clientKennung);
+        if (!"CLIENT_KENNUNG: OK".equals(sin.readLine())) {
+            throw new IOException("Client-Kennung wurde vom Server nicht bestätigt.");
+        }
+
+        starteAktualisierungsVerbindung(host, port);
+    }
+
+    private void starteAktualisierungsVerbindung(String host, int port) {
+        try {
+            aktualisierungsSocket = new Socket(host, port);
+            BufferedReader aktualisierungsEingabe = new BufferedReader(
+                    new InputStreamReader(aktualisierungsSocket.getInputStream(), StandardCharsets.UTF_8));
+            aktualisierungsAusgabe = new PrintStream(
+                    aktualisierungsSocket.getOutputStream(), true, StandardCharsets.UTF_8);
+
+            aktualisierungsEingabe.readLine();
+            aktualisierungsAusgabe.println("ABONNIERE_AKTUALISIERUNGEN");
+            aktualisierungsAusgabe.println(clientKennung);
+            if (!"ABONNIERT".equals(aktualisierungsEingabe.readLine())) {
+                aktualisierungsSocket.close();
+                return;
+            }
+
+            Thread thread = new Thread(() -> empfangeAktualisierungen(aktualisierungsEingabe),
+                    "eshop-aktualisierungen");
+            thread.setDaemon(true);
+            thread.start();
+        } catch (IOException e) {
+            System.err.println("Aktualisierungsverbindung nicht verfügbar: " + e.getMessage());
+        }
+    }
+
+    private void empfangeAktualisierungen(BufferedReader aktualisierungsEingabe) {
+        try {
+            String nachricht;
+            while ((nachricht = aktualisierungsEingabe.readLine()) != null) {
+                if (nachricht.startsWith("AKTUALISIERUNG:")) {
+                    String bereich = nachricht.substring("AKTUALISIERUNG:".length());
+                    System.out.println("[eShop] Serveränderung empfangen: " + bereich);
+                }
+            }
+        } catch (IOException e) {
+            if (aktualisierungsSocket != null && !aktualisierungsSocket.isClosed()) {
+                System.err.println("Aktualisierungsverbindung beendet: " + e.getMessage());
+            }
+        }
     }
 
 
@@ -52,6 +106,13 @@ public class EShopFassade implements EShopInterface {
 
     @Override
     public void disconnect() throws IOException {
+        if (aktualisierungsAusgabe != null) {
+            aktualisierungsAusgabe.println("q");
+        }
+        if (aktualisierungsSocket != null) {
+            aktualisierungsSocket.close();
+        }
+
         // Kennzeichen für gewählte Aktion senden
         sout.println("q");
         // (Parameter sind hier nicht zu senden)
@@ -287,6 +348,7 @@ public class EShopFassade implements EShopInterface {
     @Override
     public void artikelVernichten(int artikelID) {
         sout.println("ARTIKEL_VERNICHTEN");
+        sout.println(artikelID);
 
         try {
             String antwort = sin.readLine();
@@ -444,6 +506,7 @@ public class EShopFassade implements EShopInterface {
     @Override
     public int gibBestand(int artikelID) {
         sout.println("GIB_BESTAND");
+        sout.println(artikelID);
 
         try {
             String antwort = sin.readLine();
@@ -458,6 +521,7 @@ public class EShopFassade implements EShopInterface {
     @Override
     public String gibArtikelName(int artikelID) {
         sout.println("GIB_ARTIKEL_NAME");
+        sout.println(artikelID);
 
         try {
             String antwort = sin.readLine();
@@ -472,6 +536,7 @@ public class EShopFassade implements EShopInterface {
     @Override
     public Artikel findeArtikel(int artikelID) {
         sout.println("FINDE_ARTIKEL");
+        sout.println(artikelID);
 
         try {
             String antwort = sin.readLine();
@@ -486,6 +551,7 @@ public class EShopFassade implements EShopInterface {
     @Override
     public BigDecimal gibPreis(int artikelID) {
         sout.println("GIB_PREIS");
+        sout.println(artikelID);
 
         try {
             String antwort = sin.readLine();
@@ -615,6 +681,7 @@ public class EShopFassade implements EShopInterface {
     @Override
     public Map<LocalDate, Integer> berechneBestandHistorie(int artikelID) {
         sout.println("BERECHNE_BESTANDHISTORIE");
+        sout.println(artikelID);
 
         try {
             int anzahl = Integer.parseInt(sin.readLine());

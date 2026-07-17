@@ -71,12 +71,12 @@ public class Ereignis {
         if (line == null || line.equals("null"))
             return null;
 
-        String[] parts = line.split(";");
+        String[] parts = line.split(";", 9);
         LocalDate tag = LocalDate.parse(parts[0]);
-        Artikel a = Artikel.fromNetworkString(parts[1]);
-        int menge = Integer.parseInt(parts[2]);
-        String typ = parts[3];
-        String person = parts[4];
+        Artikel a = Artikel.fromNetworkString(String.join(";", parts[1], parts[2], parts[3], parts[4]));
+        int menge = Integer.parseInt(parts[5]);
+        String typ = parts[6];
+        String person = parts[7];
 
         return new Ereignis(tag, a, menge, typ, person);
     }
