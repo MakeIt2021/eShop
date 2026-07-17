@@ -19,7 +19,7 @@ public class FilePersistenceManager implements PersistenceManager {
     @Override
     public HashMap<String, Benutzer> ladeBenutzer() throws DateiNichtGefundenException{
         HashMap<String, Benutzer> map = new HashMap<>();
-        openForReading("benutzer.txt"); //TODO: sollte nicht hardcoded sein
+        openForReading("Server/resources/benutzer.txt"); //TODO: sollte nicht hardcoded sein
 
         try {
             String zeile;

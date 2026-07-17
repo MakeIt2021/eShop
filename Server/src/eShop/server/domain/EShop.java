@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 public class EShop implements eShop.common.interfaces.EShopInterface {
-    private final String datei = "eShop";
+    private final String datei = "Server/resources/eShop";
 
     private final ArtikelVW artikelVW;
     private final BenutzerVW benutzerVW;
@@ -25,7 +25,7 @@ public class EShop implements eShop.common.interfaces.EShopInterface {
         warenkoerbe = new ConcurrentHashMap<>();
         benutzerVW = new BenutzerVW();
         ereignisVW = new EreignisVW();
-        ereignisVW.ladeEreignisse("Ereignisse.txt", artikelID -> artikelVW.findeArtikel(Integer.parseInt(artikelID)));
+        ereignisVW.ladeEreignisse("Server/resources/Ereignisse.txt", artikelID -> artikelVW.findeArtikel(Integer.parseInt(artikelID)));
     }
 
     public HashMap<Integer, Artikel> gibArtikelListe() {

@@ -596,11 +596,6 @@ public class EShopGUI extends JFrame {
         SwingUtilities.invokeLater(() -> {
 
             try {
-                TestDataGenerator.generiereUmfangreicheTestdaten(new EShopFassade("localhost", DEFAULT_PORT), "Generator");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            try {
                 new EShopGUI();
             } catch (IOException e) {
                 e.printStackTrace();

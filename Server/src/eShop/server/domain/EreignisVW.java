@@ -63,7 +63,7 @@ public class EreignisVW {
                 person
         ));
 
-        speichereEreignisse("Ereignisse.txt"); // TODO: Nicht hier Filepath zu schreiben!
+        speichereEreignisse("Server/resources/Ereignisse.txt"); // TODO: Nicht hier Filepath zu schreiben!
     }
 
     public ArrayList<Ereignis> gibEreignisListe() {
