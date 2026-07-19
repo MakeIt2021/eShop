@@ -548,26 +548,60 @@ public class EShop implements eShop.common.interfaces.EShopInterface {
         return benutzerVW.generiereId();
     }
 
+    /**
+     * Generiert eine systemweit fortlaufende, freie Nummer für neue Artikel.
+     *
+     * @return Eine eindeutige ID als {@code int}.
+     */
     public int generiereArtikelID() {
         return artikelVW.generiereArtikelID();
     }
 
+    /**
+     * Gibt das Benutzerobjekt des aktuell in dieser Sitzung angemeldeten Benutzers zurück.
+     *
+     * @return Das {@link Benutzer}-Objekt des aktuellen Nutzers oder {@code null}, wenn niemand eingeloggt ist.
+     */
     public Benutzer aktuellerBenutzer () {
         return benutzerVW.getAktuellerBenutzer();
     }
 
+    /**
+     * Gibt das vollständige, chronologische System-Logbuch aller bisherigen Warenbewegungen zurück.
+     *
+     * @return Eine {@link ArrayList} mit allen registrierten {@link Ereignis}-Objekten.
+     */
     public ArrayList<Ereignis> gibEreignisListe() {
         return ereignisVW.gibEreignisListe();
     }
 
+    /**
+     * Berechnet die historische Bestandsentwicklung eines spezifischen Artikels taggenau
+     * für die letzten 30 Tage anhand der im System aufgezeichneten Ereignisse.
+     *
+     * @param artikelID Die eindeutige ID des zu analysierenden Artikels.
+     * @return Eine zeitlich sortierte {@link Map}, die jedem Datum ({@link LocalDate}) den damaligen Lagerbestand ({@code Integer}) zuordnet.
+     */
     public Map<LocalDate, Integer> berechneBestandHistorie(int artikelID) {
         return ereignisVW.gibBestandHistorie(artikelID);
     }
 
+    /**
+     * Sucht ein bestimmtes Artikelobjekt anhand seiner numerischen ID im Speicher.
+     *
+     * @param artikelID Die eindeutige ID des gesuchten Produkts.
+     * @return Das passende {@link Artikel}-Objekt oder {@code null}, falls kein Artikel unter dieser ID existiert.
+     */
     public Artikel findeArtikel(int artikelID) {
         return artikelVW.findeArtikel(artikelID);
     }
 
+    /**
+     * Ruft den aktuellen Preis eines Artikels ab.
+     *
+     * @param artikelID Die eindeutige ID des Artikels.
+     * @return Der aktuelle Verkaufspreis als präziser {@link BigDecimal}-Wert.
+     */
     public BigDecimal gibPreis(int artikelID) {
         return artikelVW.gibPreis(artikelID);
     }

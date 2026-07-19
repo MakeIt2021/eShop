@@ -14,21 +14,57 @@ import java.time.LocalDate;
 import java.util.Map;
 import java.util.UUID;
 
-/** Processes the line-based eShop protocol for one connected client. */
+/**
+ * Der ClientRequestProcessor ist für die serverseitige Verarbeitung des zeilenbasierten
+ * eShop-Netzwerkprotokolls für genau einen verbundenen Client zuständig.
+ * Er implementiert das {@link Runnable}-Interface, um in einem dedizierten Worker-Thread
+ * eingehende Befehle zu parsen, die Kernlogik der Domänenschicht (@link EShop} thread-sicher
+ * aufzurufen und die entsprechenden Antworttelegramme an den Client zurückzusenden.
+ */
 public final class ClientRequestProcessor implements Runnable {
+    /** Das Netzwerk-Socket für die bidirektionale Kommunikation mit dem Client. */
     private final Socket socket;
+
+    /** Die zentrale Fassade der Domänenschicht zur Ausführung der Geschäftslogik. */
     private final EShop shop;
+
+    /** Der Dienst zur Verteilung von Echtzeit-Aktualisierungen an andere verbundene Clients. */
     private final AktualisierungsDienst aktualisierungsDienst;
+
+    /** Der gepufferte Eingabestrom zum Lesen von Textzeilen aus dem Netzwerk. */
     private BufferedReader in;
+
+    /** Der Ausgabestrom zum Senden von Textzeilen an den Client. */
     private PrintWriter out;
+
+    /** Das Domänenobjekt des aktuell in dieser Sitzung authentifizierten Benutzers (null, falls anonym). */
     private Benutzer currentUser;
+
+    /** Eine temporäre, sitzungsbasierte Warenkorb-ID für nicht angemeldete (anonyme) Kunden. */
     private final String sitzungsWarenkorb = "sitzung-" + UUID.randomUUID();
+
+    /** Die eindeutige Kennung dieser Netzwerkverbindung zur Identifikation im Aktualisierungsdienst. */
     private String clientKennung;
 
+    /**
+     * Erstellt einen neuen Prozessor für eine Client-Verbindung mit einem standardmäßig
+     * neu instanziierten Aktualisierungsdienst.
+     *
+     * @param socket Das geöffnete Client-Socket.
+     * @param shop   Die Domänen-Fassade des eShops.
+     */
     public ClientRequestProcessor(Socket socket, EShop shop) {
         this(socket, shop, new AktualisierungsDienst());
     }
 
+    /**
+     * Erstellt einen neuen Prozessor für eine Client-Verbindung unter Verwendung eines
+     * geteilten Aktualisierungsdienstes.
+     *
+     * @param socket                Das geöffnete Client-Socket.
+     * @param shop                  Die Domänen-Fassade des eShops.
+     * @param aktualisierungsDienst Der zentrale Aktualisierungsdienst für Server-Events.
+     */
     public ClientRequestProcessor(Socket socket, EShop shop, AktualisierungsDienst aktualisierungsDienst) {
         this.socket = socket;
         this.shop = shop;
@@ -36,6 +72,12 @@ public final class ClientRequestProcessor implements Runnable {
         this.clientKennung = "verbindung-" + UUID.randomUUID();
     }
 
+    /**
+     * Startet die Endlosschleife des Protokoll-Parsers. Initialisiert die I/O-Streams
+     * in UTF-8, liest eingehende Client-Befehle zeilenweise ein und delegiert sie an die
+     * Verarbeitung. Fängt Verbindungsabbrüche ab und sorgt im {@code finally}-Block für
+     * die saubere Abmeldung vom Aktualisierungsdienst.
+     */
     @Override
     public void run() {
         try (socket;
@@ -46,7 +88,6 @@ public final class ClientRequestProcessor implements Runnable {
             out.println("Willkommen beim eShop-Server");
             String command;
             while ((command = in.readLine()) != null) {
-                System.out.println("DEBUG: Empfangener Befehl vom Client: '" + command + "'");
                 if (command.equals("q")) {
                     out.println("Verbindung beendet");
                     break;
@@ -65,6 +106,13 @@ public final class ClientRequestProcessor implements Runnable {
         }
     }
 
+    /**
+     * Verarbeitet den empfangenen Protokoll-Befehl über ein kaskadierendes Switch-Statement.
+     * Liest bei Bedarf zusätzliche Parameterzeilen aus dem Netzwerkstrom.
+     *
+     * @param command Der zu verarbeitende Befehlsschlüssel als Text.
+     * @throws IOException Wenn ein Fehler beim Lesen oder Schreiben auf dem Socket auftritt.
+     */
     private void process(String command) throws IOException {
         switch (command) {
             case "CLIENT_KENNUNG" -> { clientKennung = requiredLine(); out.println("CLIENT_KENNUNG: OK"); }
@@ -104,12 +152,24 @@ public final class ClientRequestProcessor implements Runnable {
         }
     }
 
+    /**
+     * Registriert die aktuelle Client-Verbindung im {@link AktualisierungsDienst},
+     * um fortan Live-Push-Benachrichtigungen über Datenänderungen zu empfangen.
+     *
+     * @throws IOException Bei I/O-Fehlern auf dem Netzwerkstrom.
+     */
     private void abonniereAktualisierungen() throws IOException {
         clientKennung = requiredLine();
         out.println("ABONNIERT");
         aktualisierungsDienst.anmelden(clientKennung, out);
     }
 
+    /**
+     * Liest die serialisierten Benutzerdaten ein und registriert einen neuen
+     * Account im System. Meldet bei Erfolg eine Änderung im Bereich "BENUTZER".
+     *
+     * @throws IOException Bei I/O-Fehlern auf dem Netzwerkstrom.
+     */
     private void registrieren() throws IOException {
         Benutzer benutzer = Benutzer.fromNetworkString(requiredLine());
         locked(() -> {
@@ -119,6 +179,12 @@ public final class ClientRequestProcessor implements Runnable {
         });
     }
 
+    /**
+     * Authentifiziert den Benutzer anhand von Name und Passwort an der Domänenschicht.
+     * Setzt bei erfolgreichem Login das {@code currentUser}-Feld für diese Sitzung.
+     *
+     * @throws IOException Bei I/O-Fehlern auf dem Netzwerkstrom.
+     */
     private void login() throws IOException {
         String name = requiredLine();
         String password = requiredLine();
@@ -129,6 +195,15 @@ public final class ClientRequestProcessor implements Runnable {
         });
     }
 
+    /**
+     * Liest die Parameterzeile ein und fügt entweder einen Standardartikel oder einen
+     * Massengutartikel in das Warensortiment ein. Fängt domänenspezifische Validierungsfehler
+     * ab und übersetzt sie in standardisierte Protokoll-Fehlermeldungen für den Client.
+     *
+     * @param bulk {@code true}, wenn ein Massengutartikel mit Packungsgröße erzeugt werden soll;
+     *             {@code false} für Standardartikel.
+     * @throws IOException Bei I/O-Fehlern auf dem Netzwerkstrom.
+     */
     private void addArticle(boolean bulk) throws IOException {
         String line = requiredLine();
         locked(() -> {
@@ -169,8 +244,16 @@ public final class ClientRequestProcessor implements Runnable {
         });
     }
 
+    /**
+     * Hilfsmethode zur Bestimmung des Protokoll-Präfixes basierend auf dem Artikel-Typ.
+     */
     private String prefix(boolean bulk) { return bulk ? "FUEGE_MASSENGUTARTIKEL_EIN: " : "FUEGE_ARTIKEL_EIN: "; }
 
+    /**
+     * Ändert die Bezeichnung eines bestehenden Artikels im System.
+     *
+     * @throws IOException Bei I/O-Fehlern auf dem Netzwerkstrom.
+     */
     private void changeDescription() throws IOException {
         String[] p = parts(requiredLine(), 2);
         locked(() -> { try { shop.bezeichnungVeraendern(integer(p[0]), p[1]); out.println("BEZEICHNUNG_VERAENDERN: OK"); meldeAenderung("ARTIKEL"); }
@@ -179,6 +262,11 @@ public final class ClientRequestProcessor implements Runnable {
         });
     }
 
+    /**
+     * Ändert den Verkaufspreis eines bestehenden Artikels.
+     *
+     * @throws IOException Bei I/O-Fehlern auf dem Netzwerkstrom.
+     */
     private void changePrice() throws IOException {
         String[] p = parts(requiredLine(), 2);
         locked(() -> { try { shop.preisVeraendern(integer(p[0]), decimal(p[1])); out.println("PREIS_VERAENDERN: OK"); meldeAenderung("ARTIKEL"); }
@@ -186,11 +274,21 @@ public final class ClientRequestProcessor implements Runnable {
             catch (DateiNichtGefundenException e) { out.println("PREIS_VERAENDERN: ERR_DATEI"); } });
     }
 
+    /**
+     * Sucht die numerische ID eines Artikels anhand seiner exakten Bezeichnung.
+     *
+     * @throws IOException Bei I/O-Fehlern auf dem Netzwerkstrom.
+     */
     private void searchId() throws IOException {
         String name = requiredLine();
         locked(() -> { try { out.println(shop.sucheNachID(name)); } catch (ArtikelExistiertNichtException e) { out.println("SUCHE_NACH_ID: ERR_ARTIKEL"); } });
     }
 
+    /**
+     * Ändert den Lagerbestand eines Artikels im System.
+     *
+     * @throws IOException Bei I/O-Fehlern auf dem Netzwerkstrom.
+     */
     private void changeStock() throws IOException {
         String[] p = parts(requiredLine(), 3);
         locked(() -> { try { shop.bestandVeraendern(integer(p[0]), integer(p[1]), p[2]); out.println("BESTAND_VERAENDERN: OK"); meldeAenderung("BESTAND"); }
@@ -200,12 +298,23 @@ public final class ClientRequestProcessor implements Runnable {
             catch (DateiNichtGefundenException e) { out.println("BESTAND_VERAENDERN: ERR_DATEI"); } });
     }
 
+    /**
+     * Ändert die vordefinierte Packungsgröße (Stückelung) eines Massengutartikels.
+     *
+     * @throws IOException Bei I/O-Fehlern auf dem Netzwerkstrom.
+     */
     private void changePackageSize() throws IOException {
         String[] p = parts(requiredLine(), 2);
         locked(() -> { try { shop.packungGroesseVeraendern(integer(p[0]), integer(p[1])); out.println("PACKUNGSGROESSE_VERAENDERN: OK"); meldeAenderung("ARTIKEL"); }
             catch (MassengutartikelmengeNichtTeilbarException e) { out.println("PACKUNGSGROESSE_VERAENDERN: ERR_MENGE_NICHT_TEILBAR"); } });
     }
 
+    /**
+     * Manipuliert den Inhalt des Warenkorbs (Hinzufügen oder Entfernen von Artikeln).
+     *
+     * @param add {@code true} zum Hinzufügen von Artikeln, {@code false} zum Entfernen.
+     * @throws IOException Bei I/O-Fehlern auf dem Netzwerkstrom.
+     */
     private void changeCart(boolean add) throws IOException {
         String[] p = parts(requiredLine(), 3);
         String base = add ? "FUEGE_IN_WARENKORB: " : "LOESCHE_AUS_WARENKORB: ";
@@ -223,24 +332,59 @@ public final class ClientRequestProcessor implements Runnable {
         });
     }
 
+    /** Sendet die komplette Artikelliste inklusive Netzwerk-Serialisierung an den Client. */
     private void sendArticles() { Map<Integer, Artikel> m = shop.gibArtikelListe(); out.println(m.size()); m.values().forEach(a -> out.println(a.toNetworkString())); }
+
+    /** Sendet eine Liste aller Artikel-IDs gepaart mit ihren aktuellen Bestandsmengen. */
     private void sendQuantities() { Map<Integer, Integer> m = shop.gibArtikelMengeListe(); out.println(m.size()); m.forEach((id, n) -> { out.println(id); out.println(n); }); }
+
+    /** Sendet den aktuellen Inhalt des aktiven Warenkorbs (Artikel-ID und Anzahl). */
     private void sendCart() { Map<Integer, Integer> m = shop.gibWarenkorb(warenkorbSchluessel()); out.println(m.size()); m.forEach((id, n) -> { out.println(id); out.println(n); }); }
+
+    /** Sendet das vollständige Logbuch aller aufgezeichneten Systemereignisse. */
     private void sendEvents() { var events = shop.gibEreignisListe(); out.println(events.size()); for (Ereignis e : events) out.println(e.toNetworkString()); }
+
+    /** Sendet die taggenaue historische Bestandsentwicklung eines Artikels der letzten 30 Tage. */
     private void sendHistory() throws IOException { Map<LocalDate, Integer> m = shop.berechneBestandHistorie(readInt()); out.println(m.size()); m.forEach((date, n) -> out.println(date + ";" + n)); }
 
+    /**
+     * Führt eine I/O-Operation innerhalb einer kritischen Sektion aus.
+     * Synchronisiert den Zugriff auf das zentrale {@link EShop}-Objekt, um Race Conditions
+     * in einer Multithreading-Serverumgebung wirksam zu verhindern.
+     *
+     * @param action Die auszuführende, potenziell fehlerwerfende Operation.
+     * @throws IOException Wenn die Operation eine I/O-Ausnahme auslöst.
+     */
     private void locked(IoAction action) throws IOException {
         synchronized (shop) {
             action.run();
         }
     }
+
+    /** Delegiert die Änderungsbenachrichtigung unter Angabe der eigenen Client-Kennung an den Dienst. */
     private void meldeAenderung(String bereich) { aktualisierungsDienst.meldeAenderung(clientKennung, bereich); }
+
+    /** Bestimmt den eindeutigen Schlüssel für den Warenkorb (Benutzerkennung oder anonyme Sitzungs-ID). */
     private String warenkorbSchluessel() { return currentUser == null ? sitzungsWarenkorb : currentUser.getBenutzerErkennung(); }
+
+    /** Liest eine Zeile aus dem Eingabestrom und wirft eine Ausnahme, falls der Stream unerwartet endet. */
     private String requiredLine() throws IOException { String s = in.readLine(); if (s == null) throw new EOFException("Verbindung während Anfrage beendet"); return s; }
+
+    /** Liest eine Zeile ein und konvertiert diese direkt in einen Integer-Wert. */
     private int readInt() throws IOException { return integer(requiredLine()); }
+
+    /** Splittet eine Textzeile anhand von Semikolons in eine feste Anzahl erwarteter Parameter-Teile auf. */
     private static String[] parts(String line, int count) { String[] p = line.split(";", count); if (p.length != count) throw new IllegalArgumentException("Falsche Parameteranzahl"); return p; }
+
+    /** Konvertiert einen String performant in ein primitives {@code int}. */
     private static int integer(String value) { return Integer.parseInt(value); }
+
+    /** Konvertiert einen String präzise in ein {@link BigDecimal}. */
     private static BigDecimal decimal(String value) { return new BigDecimal(value); }
 
+    /**
+     * Ein funktionales Interface zur Kapselung von I/O-sensiblen Aktionen innerhalb
+     * von kritischen, synchronisierten Blöcken.
+     */
     @FunctionalInterface private interface IoAction { void run() throws IOException; }
 }

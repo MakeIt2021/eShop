@@ -4,7 +4,6 @@ import java.io.PrintWriter;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/** Verteilt Serveränderungen an die Benachrichtigungsverbindungen der Clients. */
 public final class AktualisierungsDienst {
     private final Map<PrintWriter, String> empfaenger = new ConcurrentHashMap<>();
 
