@@ -38,7 +38,3 @@ usb-c hub bulk
 wasserflaschen set
 8.00
 5
-1010
-sdfg
-12312
-1
