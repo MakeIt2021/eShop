@@ -10,22 +10,58 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.HashMap;
 
+/**
+ * Stellt den Dialog für den Warenkorb dar.
+ *
+ * Der Dialog zeigt alle Artikel des Warenkorbs,
+ * deren Mengen, Einzelpreise und Gesamtpreise an.
+ * Außerdem können Mengen geändert, Artikel entfernt
+ * oder der Kauf abgeschlossen werden.
+ */
 public class WarenkorbDialog extends JDialog {
 
-    // Tabelle zur Anzeige des Warenkorbs
+    /**
+     * Tabelle zur Anzeige aller Warenkorbartikel.
+     */
     private JTable warenkorbTable;
 
-    // Tabellenmodell
+    /**
+     * Tabellenmodell der Warenkorbtabelle.
+     */
     private DefaultTableModel tableModel;
 
-    // Label für die Gesamtsumme
+    /**
+     * Label zur Anzeige der Gesamtsumme.
+     */
     private JLabel summeLabel;
 
+    /**
+     * Button zum Ändern der Artikelmenge.
+     */
     private JButton mengeAendernButton;
+
+    /**
+     * Button zum Entfernen eines Artikels.
+     */
     private JButton artikelEntfernenButton;
+
+    /**
+     * Button zum Abschließen des Kaufs.
+     */
     private JButton kaufenButton;
+
+    /**
+     * Button zum Schließen des Dialogs.
+     */
     private JButton schliessenButton;
 
+    /**
+     * Erstellt einen neuen Warenkorb-Dialog.
+     *
+     * @param parent übergeordnetes Fenster
+     * @param warenkorb aktueller Warenkorb
+     * @param artikelListe Liste aller verfügbaren Artikel
+     */
     public WarenkorbDialog(
             JFrame parent,
             HashMap<Integer, Integer> warenkorb,
@@ -34,12 +70,18 @@ public class WarenkorbDialog extends JDialog {
 
         super(parent, "Warenkorb", true);
 
+        // ===========================
         // Dialog konfigurieren
+        // ===========================
+
         setSize(900, 500);
         setLocationRelativeTo(parent);
         setLayout(new BorderLayout(10, 10));
 
-        // TABELLE ERZEUGEN
+        // ===========================
+        // Tabelle erstellen
+        // ===========================
+
         String[] spalten = {
                 "Nr",
                 "Bezeichnung",
@@ -48,10 +90,11 @@ public class WarenkorbDialog extends JDialog {
                 "Gesamtpreis"
         };
 
-        tableModel = new DefaultTableModel(
-                spalten,
-                0
-        ) {
+        tableModel = new DefaultTableModel(spalten, 0) {
+
+            /**
+             * Verhindert das Bearbeiten der Tabellenzellen.
+             */
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -59,60 +102,84 @@ public class WarenkorbDialog extends JDialog {
         };
 
         warenkorbTable = new JTable(tableModel);
-        //Tablekopft einfärben
-        warenkorbTable.getTableHeader().setBackground(new Color(70, 130, 180));
+
+        // Tabellenkopf gestalten.
+        warenkorbTable.getTableHeader().setBackground(
+                new Color(70, 130, 180));
         warenkorbTable.getTableHeader().setForeground(Color.WHITE);
 
         JScrollPane scrollPane =
                 new JScrollPane(warenkorbTable);
+
         scrollPane.setBorder(
                 BorderFactory.createEmptyBorder(
-                        0,   // oben
-                        25,  // links
-                        0,   // unten
-                        55   // rechts
+                        0,
+                        25,
+                        0,
+                        55
                 )
         );
 
-        add(
-                scrollPane,
-                BorderLayout.CENTER
-        );
+        add(scrollPane, BorderLayout.CENTER);
 
-        // WARENKORB LADEN
+        // ===========================
+        // Warenkorb laden
+        // ===========================
+
         BigDecimal gesamtSumme = BigDecimal.ZERO;
 
         for (Integer artikelID : warenkorb.keySet()) {
+
             Artikel artikel = artikelListe.get(artikelID);
 
             int menge = warenkorb.get(artikelID);
 
-            // Artikel mit Menge 0 nicht anzeigen
+            // Artikel mit Menge 0 nicht anzeigen.
             if (menge <= 0) {
                 continue;
             }
 
-            BigDecimal einzelpreis =
-                    artikel.getPreis();
+            BigDecimal einzelpreis = artikel.getPreis();
 
-            BigDecimal gesamtpreis = einzelpreis.multiply(new BigDecimal(menge)).setScale(2, RoundingMode.HALF_EVEN);;
+            BigDecimal gesamtpreis =
+                    einzelpreis.multiply(
+                                    new BigDecimal(menge))
+                            .setScale(2, RoundingMode.HALF_EVEN);
+
+            // Gesamtpreis für Massengutartikel berechnen.
             if (artikel instanceof Massengutartikel) {
-                gesamtpreis = einzelpreis.multiply(new BigDecimal(menge)).divide(new BigDecimal(((Massengutartikel) artikel).getPackungGroesse()), 2, RoundingMode.HALF_EVEN);
+
+                gesamtpreis =
+                        einzelpreis.multiply(
+                                        new BigDecimal(menge))
+                                .divide(
+                                        new BigDecimal(
+                                                ((Massengutartikel) artikel)
+                                                        .getPackungGroesse()),
+                                        2,
+                                        RoundingMode.HALF_EVEN
+                                );
             }
 
             gesamtSumme = gesamtSumme.add(gesamtpreis);
 
+            // Artikel zur Tabelle hinzufügen.
             if (artikel instanceof Massengutartikel) {
+
                 tableModel.addRow(
                         new Object[]{
                                 artikel.getArtikelID(),
-                                artikel.getBezeichnung() + " (" + ((Massengutartikel) artikel).getPackungGroesse() + " in der Packung)",
+                                artikel.getBezeichnung()
+                                        + " ("
+                                        + ((Massengutartikel) artikel).getPackungGroesse()
+                                        + " in der Packung)",
                                 String.format("%.2f €", einzelpreis),
                                 menge,
                                 String.format("%.2f €", gesamtpreis)
-                        }
-                );
+                        });
+
             } else {
+
                 tableModel.addRow(
                         new Object[]{
                                 artikel.getArtikelID(),
@@ -120,25 +187,21 @@ public class WarenkorbDialog extends JDialog {
                                 String.format("%.2f €", einzelpreis),
                                 menge,
                                 String.format("%.2f €", gesamtpreis)
-                        }
-                );
+                        });
             }
-
         }
 
-        // UNTERER BEREICH
+        // ===========================
+        // Unterer Bereich
+        // ===========================
+
         JPanel southPanel =
-                new JPanel(
-                        new BorderLayout()
-                );
+                new JPanel(new BorderLayout());
 
         summeLabel =
                 new JLabel(
                         "Summe: "
-                                + String.format(
-                                "%.2f €",
-                                gesamtSumme
-                        )
+                                + String.format("%.2f €", gesamtSumme)
                 );
 
         summeLabel.setFont(
@@ -149,22 +212,18 @@ public class WarenkorbDialog extends JDialog {
                 )
         );
 
-        southPanel.add(
-                summeLabel,
-                BorderLayout.NORTH
-        );
+        southPanel.add(summeLabel, BorderLayout.NORTH);
 
-        JPanel buttonPanel =
-                new JPanel();
+        JPanel buttonPanel = new JPanel();
 
         mengeAendernButton =
                 new JButton("✏ Menge ändern");
 
         artikelEntfernenButton =
-                new JButton("\uD83D\uDDD1 Artikel entfernen");
+                new JButton("🗑 Artikel entfernen");
 
         kaufenButton =
-                new JButton("\uD83D\uDCB3 Kaufen");
+                new JButton("💳 Kaufen");
 
         schliessenButton =
                 new JButton("❌ Schließen");
@@ -174,83 +233,99 @@ public class WarenkorbDialog extends JDialog {
         buttonPanel.add(kaufenButton);
         buttonPanel.add(schliessenButton);
 
-        southPanel.add(
-                buttonPanel,
-                BorderLayout.SOUTH
-        );
+        southPanel.add(buttonPanel, BorderLayout.SOUTH);
 
-        add(
-                southPanel,
-                BorderLayout.SOUTH
-        );
+        add(southPanel, BorderLayout.SOUTH);
 
-        // DIALOG SCHLIESSEN
-
+        // Dialog schließen.
         schliessenButton.addActionListener(
                 e -> dispose()
         );
     }
 
+    /**
+     * Gibt die Warenkorbtabelle zurück.
+     *
+     * @return Warenkorbtabelle
+     */
     public JTable getWarenkorbTable() {
         return warenkorbTable;
     }
 
+    /**
+     * Gibt den Button zum Ändern der Menge zurück.
+     *
+     * @return Mengenänderungs-Button
+     */
     public JButton getMengeAendernButton() {
         return mengeAendernButton;
     }
 
+    /**
+     * Gibt den Button zum Entfernen eines Artikels zurück.
+     *
+     * @return Entfernen-Button
+     */
     public JButton getArtikelEntfernenButton() {
         return artikelEntfernenButton;
     }
 
+    /**
+     * Gibt den Kaufen-Button zurück.
+     *
+     * @return Kaufen-Button
+     */
     public JButton getKaufenButton() {
         return kaufenButton;
     }
 
     /**
-     * Liefert die Menge des ausgewählten Artikels.
+     * Liefert die Menge des aktuell ausgewählten Artikels.
+     *
+     * @return ausgewählte Artikelmenge
      */
     public int getAusgewaehlteMenge() {
 
-        int selectedRow =
-                warenkorbTable.getSelectedRow();
+        int selectedRow = warenkorbTable.getSelectedRow();
 
-        return (Integer)
-                warenkorbTable.getValueAt(
-                        selectedRow,
-                        3
-                );
+        return (Integer) warenkorbTable.getValueAt(
+                selectedRow,
+                3
+        );
     }
 
     /**
-     * Aktualisiert die Tabelle nach Änderungen
-     * im Warenkorb.
+     * Aktualisiert den Warenkorb nach Änderungen.
+     *
+     * Die Tabelle wird vollständig neu aufgebaut
+     * und die Gesamtsumme neu berechnet.
+     *
+     * @param warenkorb aktueller Warenkorb
+     * @param artikelListe Liste aller Artikel
      */
     public void ladeWarenkorbNeu(
             HashMap<Integer, Integer> warenkorb,
-            HashMap<Integer, Artikel> artikelListe
-    ) {
+            HashMap<Integer, Artikel> artikelListe) {
 
-        // Alte Tabellenzeilen löschen
+        // Alte Tabelleninhalte löschen.
         tableModel.setRowCount(0);
 
         BigDecimal gesamtSumme = BigDecimal.ZERO;
 
         for (Integer artikelID : warenkorb.keySet()) {
-
             Artikel artikel = artikelListe.get(artikelID);
-
-
             int menge = warenkorb.get(artikelID);
 
-            // Artikel mit Menge 0 nicht anzeigen
+            // Artikel mit Menge 0 überspringen.
             if (menge <= 0) {
                 continue;
             }
 
             BigDecimal einzelpreis = artikel.getPreis();
-
-            BigDecimal gesamtpreis = einzelpreis.multiply(new BigDecimal(menge)).setScale(2, RoundingMode.HALF_EVEN);
+            BigDecimal gesamtpreis =
+                    einzelpreis.multiply(
+                                    new BigDecimal(menge))
+                            .setScale(2, RoundingMode.HALF_EVEN);
 
             gesamtSumme = gesamtSumme.add(gesamtpreis);
 
@@ -258,12 +333,15 @@ public class WarenkorbDialog extends JDialog {
                 tableModel.addRow(
                         new Object[]{
                                 artikel.getArtikelID(),
-                                artikel.getBezeichnung() + " (" + ((Massengutartikel) artikel).getPackungGroesse() + " in der Packung)",
+                                artikel.getBezeichnung()
+                                        + " ("
+                                        + ((Massengutartikel) artikel).getPackungGroesse()
+                                        + " in der Packung)",
                                 String.format("%.2f €", einzelpreis),
                                 menge,
                                 String.format("%.2f €", gesamtpreis)
-                        }
-                );
+                        });
+
             } else {
                 tableModel.addRow(
                         new Object[]{
@@ -272,20 +350,14 @@ public class WarenkorbDialog extends JDialog {
                                 String.format("%.2f €", einzelpreis),
                                 menge,
                                 String.format("%.2f €", gesamtpreis)
-                        }
-                );
+                        });
             }
-
-
         }
 
-        // Neue Gesamtsumme anzeigen
+        // Neue Gesamtsumme anzeigen.
         summeLabel.setText(
                 "Summe: "
-                        + String.format(
-                        "%.2f €",
-                        gesamtSumme
-                )
+                        + String.format("%.2f €", gesamtSumme)
         );
     }
 }

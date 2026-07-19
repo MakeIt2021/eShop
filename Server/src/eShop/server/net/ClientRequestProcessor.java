@@ -46,6 +46,7 @@ public final class ClientRequestProcessor implements Runnable {
             out.println("Willkommen beim eShop-Server");
             String command;
             while ((command = in.readLine()) != null) {
+                System.out.println("DEBUG: Empfangener Befehl vom Client: '" + command + "'");
                 if (command.equals("q")) {
                     out.println("Verbindung beendet");
                     break;
@@ -76,6 +77,7 @@ public final class ClientRequestProcessor implements Runnable {
             case "AKTUELLER_BENUTZER" -> out.println(currentUser == null ? "null" : currentUser.toNetworkString());
             case "REGISTRIEREN" -> registrieren();
             case "GENERIERE_ID" -> locked(() -> out.println(shop.generiereId()));
+            case "GENERIERE_ARTIKEL_ID" -> out.println(shop.generiereArtikelID());
             case "GIB_ARTIKEL_LISTE" -> locked(this::sendArticles);
             case "GIB_ARTIKEL_MENGE_LISTE" -> locked(this::sendQuantities);
             case "FUEGE_ARTIKEL_EIN" -> addArticle(false);
@@ -128,19 +130,42 @@ public final class ClientRequestProcessor implements Runnable {
     }
 
     private void addArticle(boolean bulk) throws IOException {
-        String[] p = parts(requiredLine(), bulk ? 6 : 5);
+        String line = requiredLine();
         locked(() -> {
             try {
-                if (bulk) shop.fuegeMassengutartikelEin(integer(p[0]), p[1], integer(p[2]), decimal(p[3]), p[4], integer(p[5]));
-                else shop.fuegeArtikelEin(integer(p[0]), p[1], integer(p[2]), decimal(p[3]), p[4]);
+                String[] p = parts(line, bulk ? 6 : 5);
+                int id = integer(p[0]);
+                String name = p[1];
+                int menge = integer(p[2]);
+                BigDecimal preis = decimal(p[3]);
+                String mitarbeiter = p[4];
+
+                if (bulk) {
+                    int packungGroesse = integer(p[5]);
+                    shop.fuegeMassengutartikelEin(id, name, menge, preis, mitarbeiter, packungGroesse);
+                } else {
+                    shop.fuegeArtikelEin(id, name, menge, preis, mitarbeiter);
+                }
+
                 out.println(bulk ? "FUEGE_MASSENGUTARTIKEL_EIN: OK" : "FUEGE_ARTIKEL_EIN: OK");
                 meldeAenderung("ARTIKEL");
-            } catch (UngueltigerPreisException e) { out.println(prefix(bulk) + "ERR_PREIS");
-            } catch (UngueltigeMengeException e) { out.println(prefix(bulk) + "ERR_MENGE");
-            } catch (MengeWenigerAlsPackungGroesseException e) { out.println(prefix(bulk) + "ERR_MENGE_WENIGER");
-            } catch (MassengutartikelmengeNichtTeilbarException e) { out.println(prefix(bulk) + "ERR_MENGE_NICHT_TEILBAR");
-            } catch (DateiNichtGefundenException e) { out.println(prefix(bulk) + "ERR_DATEI");
-            } catch (ArtikelExistiertBereitsException e) { out.println(prefix(bulk) + "ERR_ARTIKEL"); }
+
+            } catch (UngueltigerPreisException e) {
+                out.println(prefix(bulk) + "ERR_PREIS");
+            } catch (UngueltigeMengeException e) {
+                out.println(prefix(bulk) + "ERR_MENGE");
+            } catch (MengeWenigerAlsPackungGroesseException e) {
+                out.println(prefix(bulk) + "ERR_MENGE_WENIGER");
+            } catch (MassengutartikelmengeNichtTeilbarException e) {
+                out.println(prefix(bulk) + "ERR_MENGE_NICHT_TEILBAR");
+            } catch (DateiNichtGefundenException e) {
+                out.println(prefix(bulk) + "ERR_DATEI");
+            } catch (ArtikelExistiertBereitsException e) {
+                out.println(prefix(bulk) + "ERR_ARTIKEL");
+            } catch (RuntimeException e) {
+                out.println(prefix(bulk) + "ERR_INVALID_FORMAT");
+                System.err.println("Fehler beim Verarbeiten von addArticle: " + e.getMessage());
+            }
         });
     }
 
@@ -204,7 +229,11 @@ public final class ClientRequestProcessor implements Runnable {
     private void sendEvents() { var events = shop.gibEreignisListe(); out.println(events.size()); for (Ereignis e : events) out.println(e.toNetworkString()); }
     private void sendHistory() throws IOException { Map<LocalDate, Integer> m = shop.berechneBestandHistorie(readInt()); out.println(m.size()); m.forEach((date, n) -> out.println(date + ";" + n)); }
 
-    private void locked(IoAction action) throws IOException { synchronized (shop) { action.run(); } }
+    private void locked(IoAction action) throws IOException {
+        synchronized (shop) {
+            action.run();
+        }
+    }
     private void meldeAenderung(String bereich) { aktualisierungsDienst.meldeAenderung(clientKennung, bereich); }
     private String warenkorbSchluessel() { return currentUser == null ? sitzungsWarenkorb : currentUser.getBenutzerErkennung(); }
     private String requiredLine() throws IOException { String s = in.readLine(); if (s == null) throw new EOFException("Verbindung während Anfrage beendet"); return s; }

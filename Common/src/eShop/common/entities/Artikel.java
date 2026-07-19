@@ -6,9 +6,6 @@ import java.math.RoundingMode;
 /**
  * Repräsentiert ein Produkt im EShop und dient als Basisklasse
  * für spezifische Artikeltypen wie den {@link Massengutartikel}.
- *
- * @author Bulat Valiullin
- * @version 1.0
  */
 
 public class Artikel {

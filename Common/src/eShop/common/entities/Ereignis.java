@@ -9,7 +9,6 @@ import java.time.LocalDate;
  * beispielsweise eine Einlagerung oder eine Auslagerung.
  * Dabei werden das Datum, der betroffene Artikel, die Menge,
  * der Ereignistyp sowie die verantwortliche Person gespeichert.
- *
  */
 
 public class Ereignis {

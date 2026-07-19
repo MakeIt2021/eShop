@@ -13,9 +13,6 @@ import java.util.Map;
  * Diese Klasse berechnet die Einzelpositionen, die Netto-Gesamtsumme,
  * die Mehrwertsteuer (MwSt.) sowie den Brutto-Endpreis basierend
  * auf dem übergebenen Warenkorb und den aktuellen Artikeldaten.
- *
- * @author Bulat Valiullin
- * @version 1.0
  */
 
 public class Rechnung {

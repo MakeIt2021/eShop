@@ -12,9 +12,6 @@ import java.math.BigDecimal;
  * Hinweis zur Preisgestaltung: Das geerbte Attribut {@code preis} repräsentiert bei
  * dieser Klasse den Netto-Verkaufspreis der **gesamten Packung** und nicht den
  * Preis eines einzelnen Artikels innerhalb der Packung.
- *
- * @author Bulat Valiullin
- * @version 1.0
  */
 
 public class Massengutartikel extends Artikel {

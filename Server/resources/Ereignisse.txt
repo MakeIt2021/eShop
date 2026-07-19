@@ -1331,3 +1331,7 @@ Tag: 2026-07-16 | Typ: Einlagerung | ArtikelID: 11 | Artikel: bag | Menge: 12 | 
 Tag: 2026-07-17 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: m:tim
 Tag: 2026-07-19 | Typ: Einlagerung | ArtikelID: 1010 | Artikel: test | Menge: 900 | Person: m:tim
 Tag: 2026-07-19 | Typ: Einlagerung | ArtikelID: 14 | Artikel: test | Menge: 900 | Person: m:tim
+Tag: 2026-07-19 | Typ: Einlagerung | ArtikelID: 15 | Artikel: qwe | Menge: 123 | Person: m:tim
+Tag: 2026-07-19 | Typ: Einlagerung | ArtikelID: 16 | Artikel: newnew | Menge: 123 | Person: m:tim
+Tag: 2026-07-19 | Typ: Einlagerung | ArtikelID: 17 | Artikel: asdjfa | Menge: 123 | Person: m:tim
+Tag: 2026-07-19 | Typ: Einlagerung | ArtikelID: 18 | Artikel: 12 | Menge: 30 | Person: m:tim

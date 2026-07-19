@@ -101,33 +101,6 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
-
-
-
-    @Override
-    public void disconnect() throws IOException {
-        if (aktualisierungsAusgabe != null) {
-            aktualisierungsAusgabe.println("q");
-        }
-        if (aktualisierungsSocket != null) {
-            aktualisierungsSocket.close();
-        }
-
-        // Kennzeichen für gewählte Aktion senden
-        sout.println("q");
-        // (Parameter sind hier nicht zu senden)
-
-        // Antwort vom Server lesen:
-        String antwort = "Fehler";
-        try {
-            antwort = sin.readLine();
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-            return;
-        }
-        System.out.println(antwort);
-    }
-
     @Override
     public boolean login(String benutzerErkennung, String benutzerPasswort) {
         sout.println("LOGIN");
@@ -238,6 +211,19 @@ public class EShopFassade implements EShopInterface {
     @Override
     public int generiereId() {
         sout.println("GENERIERE_ID");
+
+        try {
+            String antwort = sin.readLine();
+            return Integer.parseInt(antwort);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+            return -1;
+        }
+    }
+
+    @Override
+    public int generiereArtikelID() {
+        sout.println("GENERIERE_ARTIKEL_ID");
 
         try {
             String antwort = sin.readLine();

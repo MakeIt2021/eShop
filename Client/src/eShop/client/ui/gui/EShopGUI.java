@@ -13,6 +13,13 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import eShop.common.interfaces.EShopInterface;
 
+/**
+ * Die Hauptklasse der grafischen Benutzeroberfläche (GUI) für den eShop.
+ * Verwaltet das Anwendungsfenster, die Navigation zwischen den verschiedenen
+ * Ansichten (Login, Registrierung, Kunden- und Mitarbeiterbereich) via {@link CardLayout}
+ * und stellt die Verbindung zur Geschäftslogik über die {@link EShopInterface} her.
+ */
+
 public class EShopGUI extends JFrame {
 
     // Zentrale Geschäftslogik des eShops
@@ -317,6 +324,14 @@ public class EShopGUI extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Ermittelt die eindeutige Artikel-ID aus der aktuell ausgewählten Zeile einer Tabelle.
+     * Berücksichtigt dabei die Sortierung/Filterung der Tabelle durch Konvertierung des Index.
+     * Zeigt eine Fehlermeldung an, wenn keine Zeile ausgewählt wurde.
+     *
+     * @param table Die JTable, aus der die Artikel-ID gelesen werden soll.
+     * @return Die ID des ausgewählten Artikels als {@code int}, oder {@code -1}, falls keine Zeile selektiert ist.
+     */
     private int getArtikelIDFromRow(JTable table) {
         int selectedRow = table.getSelectedRow();
 
@@ -333,7 +348,11 @@ public class EShopGUI extends JFrame {
     }
 
 
-    //lade ARTIKEL PANEL
+    /**
+     * Lädt die aktuelle Artikelliste aus der Geschäftslogik und aktualisiert die
+     * Tabellenansicht im Mitarbeiter-Panel. Unterscheidet visuell zwischen Standard-
+     * und Massengutartikeln durch Anzeige der Packungsgröße.
+     */
     private void ladeArtikelTabelle(){
         DefaultTableModel artikelModel = mitarbeiterMainPanel.getArtikelTabelleModel();
         artikelModel.setRowCount(0);
@@ -357,6 +376,12 @@ public class EShopGUI extends JFrame {
         }
     }
 
+    /**
+     * Öffnet einen interaktiven Dialog zur Erstellung eines neuen Artikels.
+     * Ermöglicht dem Mitarbeiter die Auswahl zwischen einem Single-Artikel und einem
+     * Massengutartikel. Überprüft bei Massengutartikeln die Teilbarkeit des Anfangsbestands
+     * durch die Packungsgröße vor der Übergabe an das System.
+     */
     private void artikelHinzufuegenDialog() {
         String[] optionen = {"Single Artikel", "Massengut Artikel"};
 
@@ -481,12 +506,22 @@ public class EShopGUI extends JFrame {
         }
     }
 
-    // ereignisse tabelle hinzufügen
+    /**
+     * Öffnet ein modales Dialogfenster, das das systemweite Logbuch aller
+     * historischen Warenereignisse in Tabellenform anzeigt.
+     */
     private void zeigeEreignisseTabelle() {
         EreignisListeDialog dialog = new EreignisListeDialog(this, eShop);
         dialog.setVisible(true);
     }
-    //bestand histori zeigen
+
+    /**
+     * Visualisiert die historische Entwicklung des Lagerbestands für einen bestimmten Artikel.
+     * Öffnet ein maximiertes Fenster, das die Daten sowohl in Textform (Tabelle auf der linken Seite)
+     * als auch grafisch (Diagramm auf der rechten Seite) darstellt.
+     *
+     * @param artikelID Die ID des Artikels, dessen Historie angezeigt werden soll.
+     */
     private void bestandHistorieDialog(int artikelID) {
         // Historie holen
         var historie = eShop.berechneBestandHistorie(artikelID);
@@ -517,6 +552,10 @@ public class EShopGUI extends JFrame {
         dialog.add(scrollPane, BorderLayout.WEST);
         dialog.add(graphPanel, BorderLayout.CENTER);
 
+        /*
+         * Die Fenstergröße wird dynamisch über
+         * unter Berücksichtigung der System-Taskleiste ({@link Toolkit#getScreenInsets}) berechnet.
+         */
         GraphicsConfiguration gc = this.getGraphicsConfiguration();
         Rectangle bounds = gc.getBounds();
         Insets insets = Toolkit.getDefaultToolkit().getScreenInsets(gc);
@@ -527,7 +566,11 @@ public class EShopGUI extends JFrame {
         dialog.setVisible(true);
     }
 
-    //neue mitarbeiter registrieren
+    /**
+     * Öffnet einen Eingabedialog zur Registrierung eines neuen Mitarbeiters im System.
+     * Validiert, ob alle Pflichtfelder ausgefüllt sind, generiert eine neue Benutzer-ID
+     * und übergibt das neue Mitarbeiter-Objekt an die Geschäftslogik.
+     */
     private void mitarbeiterRegistrierenDialog() {
         JTextField benutzernameField = new JTextField();
         JTextField nameField = new JTextField();
