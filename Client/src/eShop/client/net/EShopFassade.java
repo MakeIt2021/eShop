@@ -21,14 +21,39 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.UUID;
 
+/**
+ * Repräsentiert die clientseitige Netzwerkschnittstelle zum eShop-Server.
+ * Diese Klasse kapselt die gesamte TCP-Socket-Kommunikation und implementiert das
+ * {@link EShopInterface}, sodass die Benutzeroberfläche transparent auf Kerndaten
+ * wie Artikel, Warenkörbe und Benutzer zugreifen kann.
+ */
 public class EShopFassade implements EShopInterface {
+    /** Der primäre Socket für die synchrone Kommunikation mit dem Server. */
     private Socket socket = null;
+
+    /** Der Eingabestrom des primären Sockets zum Lesen der Serverantworten. */
     private BufferedReader sin;
+
+    /** Der Ausgabestrom des primären Sockets zum Senden von Befehlen an den Server. */
     private PrintStream sout;
+
+    /** Der dedizierte Socket für den asynchronen Empfang von Echtzeit-Aktualisierungen. */
     private Socket aktualisierungsSocket;
+
+    /** Der Ausgabestrom für den Aktualisierungs-Kanal (Abonnement-Registrierung). */
     private PrintStream aktualisierungsAusgabe;
+
+    /** Eindeutige Identifikationsnummer dieses Clients, um Push-Nachrichten korrekt zuzuordnen. */
     private final String clientKennung = UUID.randomUUID().toString();
 
+    /**
+     * Erstellt eine neue Verbindung zum eShop-Server und initialisiert die Kommunikationsströme.
+     * Nach erfolgreichem Handshake wird automatisch das Update-Abonnement gestartet.
+     *
+     * @param host Der Hostname oder die IP-Adresse des eShop-Servers.
+     * @param port Der Port, auf dem der eShop-Server auf Verbindungen lauscht.
+     * @throws IOException Wenn beim Verbindungsaufbau oder dem Handshake ein Netzwerkfehler auftritt.
+     */
     public EShopFassade(String host, int port) throws IOException {
         try {
             socket = new Socket(host, port);
@@ -60,6 +85,13 @@ public class EShopFassade implements EShopInterface {
         starteAktualisierungsVerbindung(host, port);
     }
 
+    /**
+     * Baut die sekundäre Socket-Verbindung für den asynchronen Benachrichtigungsdienst auf.
+     * Bei Erfolg wird ein Daemon-Thread gestartet, der permanent auf eingehende Server-Updates wartet.
+     *
+     * @param host Der Hostname des Servers.
+     * @param port Der Port des Servers.
+     */
     private void starteAktualisierungsVerbindung(String host, int port) {
         try {
             aktualisierungsSocket = new Socket(host, port);
@@ -85,6 +117,12 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Die Endlosschleife für den Hintergrund-Thread, die eingehende Push-Nachrichten
+     * vom Server liest und verarbeitet.
+     *
+     * @param aktualisierungsEingabe Der Eingabestrom des Update-Sockets.
+     */
     private void empfangeAktualisierungen(BufferedReader aktualisierungsEingabe) {
         try {
             String nachricht;
@@ -101,6 +139,14 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Authentifiziert einen Benutzer am Server.
+     *
+     * @param benutzerErkennung Der eindeutige Login-Name des Benutzers.
+     * @param benutzerPasswort Das Passwort des Benutzers.
+     * @return {@code true}, wenn die Anmeldedaten korrekt waren und der Login erfolgreich war,
+     *         andernfalls {@code false}.
+     */
     @Override
     public boolean login(String benutzerErkennung, String benutzerPasswort) {
         sout.println("LOGIN");
@@ -118,6 +164,9 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Meldet den aktuell angemeldeten Benutzer am Server ab und beendet die Sitzung.
+     */
     @Override
     public void logout() {
         sout.println("LOGOUT");
@@ -134,13 +183,16 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Prüft, ob aktuell ein Benutzer an diesem Client eingeloggt ist.
+     *
+     * @return {@code true}, wenn eine aktive Sitzung besteht, andernfalls {@code false}.
+     */
     @Override
     public boolean istEingeloggt() {
         sout.println("IST_EINGELOGGT");
-
         try {
             String antwort = sin.readLine();
-
             return Boolean.parseBoolean(antwort);
         } catch (IOException e) {
             System.err.println(e.getMessage());
@@ -148,6 +200,11 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Prüft, ob der aktuell angemeldete Benutzer die Rolle eines Mitarbeiters besitzt.
+     *
+     * @return {@code true}, wenn der Benutzer ein Mitarbeiter ist, andernfalls {@code false}.
+     */
     @Override
     public boolean istMitarbeiter() {
         sout.println("IST_MITARBEITER");
@@ -162,6 +219,11 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Prüft, ob der aktuell angemeldete Benutzer die Rolle eines Kunden besitzt.
+     *
+     * @return {@code true}, wenn der Benutzer ein Kunde ist, andernfalls {@code false}.
+     */
     @Override
     public boolean istKunde() {
         sout.println("IST_KUNDE");
@@ -176,6 +238,12 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Ruft die Daten des aktuell angemeldeten Benutzers vom Server ab.
+     *
+     * @return Das {@link Benutzer}-Objekt des angemeldeten Nutzers oder {@code null},
+     *         wenn niemand eingeloggt ist.
+     */
     @Override
     public Benutzer aktuellerBenutzer() {
         sout.println("AKTUELLER_BENUTZER");
@@ -193,6 +261,12 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Registriert einen neuen Benutzer (Kunde oder Mitarbeiter) im System.
+     *
+     * @param benutzer Das neu zu registrierende {@link Benutzer}-Objekt.
+     * @return {@code true}, wenn die Registrierung erfolgreich war, andernfalls {@code false}.
+     */
     @Override
     public boolean registrieren(Benutzer benutzer) {
         sout.println("REGISTRIEREN");
@@ -208,6 +282,11 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Fordert eine neue, eindeutige Benutzer-ID vom Server an.
+     *
+     * @return Eine eindeutige Benutzer-ID, oder {@code -1} bei einem Netzwerkfehler.
+     */
     @Override
     public int generiereId() {
         sout.println("GENERIERE_ID");
@@ -221,6 +300,11 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Fordert eine neue, eindeutige Artikel-ID vom Server an.
+     *
+     * @return Eine eindeutige Artikel-ID, oder {@code -1} bei einem Netzwerkfehler.
+     */
     @Override
     public int generiereArtikelID() {
         sout.println("GENERIERE_ARTIKEL_ID");
@@ -234,6 +318,11 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Ruft die vollständige Liste aller im Shop existierenden Artikel ab.
+     *
+     * @return Eine {@link HashMap}, die Artikel-IDs auf die zugehörigen {@link Artikel}-Objekte abbildet.
+     */
     @Override
     public HashMap<Integer, Artikel> gibArtikelListe() {
         sout.println("GIB_ARTIKEL_LISTE");
@@ -254,6 +343,11 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Ruft eine Übersicht der aktuellen Lagerbestände aller Artikel ab.
+     *
+     * @return Eine {@link HashMap}, die Artikel-IDs auf deren verfügbare Menge (Bestand) abbildet.
+     */
     @Override
     public HashMap<Integer, Integer> gibArtikelMengeListe() {
         sout.println("GIB_ARTIKEL_MENGE_LISTE");
@@ -275,6 +369,18 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Fügt einen neuen Standard-Artikel in das Warensortiment des eShops ein.
+     *
+     * @param artikelID Die eindeutige ID des neuen Artikels.
+     * @param bezeichnung Der Name/die Bezeichnung des Artikels.
+     * @param menge Der anfängliche Lagerbestand.
+     * @param preis Der Stückpreis des Artikels.
+     * @param mitarbeiter Der Name des Mitarbeiters, der die Aktion durchführt.
+     * @throws DateiNichtGefundenException Wenn die serverseitige Persistenzdatei nicht bereitsteht.
+     * @throws UngueltigerPreisException Wenn der übergebene Preis negativ oder fehlerhaft ist.
+     * @throws UngueltigeMengeException Wenn die Menge negativ ist.
+     */
     @Override
     public void fuegeArtikelEin(int artikelID, String bezeichnung, int menge, BigDecimal preis, String mitarbeiter) throws DateiNichtGefundenException, UngueltigerPreisException, UngueltigeMengeException {
         sout.println("FUEGE_ARTIKEL_EIN");
@@ -303,6 +409,22 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Fügt einen neuen Massengutartikel in das Sortiment ein. Ein solcher Artikel kann nur in
+     * definierten Abpackungseinheiten (Packungsgrößen) gekauft oder verändert werden.
+     *
+     * @param artikelID Die eindeutige ID des Artikels.
+     * @param bezeichnung Die Bezeichnung des Artikels.
+     * @param menge Der anfängliche Lagerbestand.
+     * @param preis Der Preis pro Stück.
+     * @param mitarbeiter Der Name des ausführenden Mitarbeiters.
+     * @param packungGroesse Die Mindest- und Schrittgröße für Bestellungen dieses Artikels.
+     * @throws UngueltigeMengeException Wenn die Menge negativ ist.
+     * @throws UngueltigerPreisException Wenn der Preis ungültig ist.
+     * @throws MengeWenigerAlsPackungGroesseException Wenn die Startmenge kleiner als die Packungsgröße ist.
+     * @throws MassengutartikelmengeNichtTeilbarException Wenn die Gesamtmenge kein Vielfaches der Packungsgröße ist.
+     * @throws DateiNichtGefundenException Wenn die Server-Datenquelle fehlt.
+     */
     @Override
     public void fuegeMassengutartikelEin(int artikelID, String bezeichnung, int menge, BigDecimal preis, String mitarbeiter, int packungGroesse) throws UngueltigeMengeException, UngueltigerPreisException, MengeWenigerAlsPackungGroesseException, MassengutartikelmengeNichtTeilbarException, DateiNichtGefundenException {
         sout.println("FUEGE_MASSENGUTARTIKEL_EIN");
@@ -333,6 +455,11 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Löscht einen Artikel dauerhaft aus dem System.
+     *
+     * @param artikelID Die ID des zu löschenden Artikels.
+     */
     @Override
     public void artikelVernichten(int artikelID) {
         sout.println("ARTIKEL_VERNICHTEN");
@@ -350,6 +477,13 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Ändert den Namen bzw. die Bezeichnung eines bestehenden Artikels.
+     *
+     * @param artikelID Die ID des betroffenen Artikels.
+     * @param bezeichnung Die neue Bezeichnung.
+     * @throws DateiNichtGefundenException Wenn die Datei auf dem Server nicht existiert.
+     */
     @Override
     public void bezeichnungVeraendern(int artikelID, String bezeichnung) throws DateiNichtGefundenException {
         sout.println("BEZEICHNUNG_VERAENDERN");
@@ -376,6 +510,14 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Ändert den Verkaufspreis eines Artikels.
+     *
+     * @param artikelID Die ID des betroffenen Artikels.
+     * @param preis Der neue Preis als {@link BigDecimal}.
+     * @throws DateiNichtGefundenException Wenn die Serverdatei nicht gefunden wurde.
+     * @throws UngueltigerPreisException Wenn der Preis die geschäftlichen Validierungsregeln verletzt.
+     */
     @Override
     public void preisVeraendern(int artikelID, BigDecimal preis) throws DateiNichtGefundenException, UngueltigerPreisException {
         sout.println("PREIS_VERAENDERN");
@@ -400,6 +542,13 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Sucht anhand einer exakten Artikelbezeichnung nach der zugehörigen Artikel-ID.
+     *
+     * @param bezeichnung Der Name des gesuchten Artikels.
+     * @return Die ID des Artikels.
+     * @throws ArtikelExistiertNichtException Wenn kein Artikel mit dieser Bezeichnung existiert.
+     */
     @Override
     public int sucheNachID(String bezeichnung) throws ArtikelExistiertNichtException {
         sout.println("SUCHE_NACH_ID");
@@ -418,6 +567,17 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Ändert den Lagerbestand eines Artikels (z. B. bei Wareneingang oder Verlust).
+     *
+     * @param artikelID Die ID des Artikels.
+     * @param neuerBestand Die neue absolute Stückzahl im Lager.
+     * @param mitarbeiter Der Name des buchenden Mitarbeiters.
+     * @throws MengeWenigerAlsPackungGroesseException Wenn es ein Massengutartikel ist und die Menge unter der Packungsgröße liegt.
+     * @throws MassengutartikelmengeNichtTeilbarException Wenn die Menge nicht durch die Packungsgröße teilbar ist.
+     * @throws DateiNichtGefundenException Wenn die Persistenzdatei fehlt.
+     * @throws UngueltigeMengeException Wenn die Menge negativ ist.
+     */
     @Override
     public void bestandVeraendern(int artikelID, int neuerBestand, String mitarbeiter) throws MengeWenigerAlsPackungGroesseException, MassengutartikelmengeNichtTeilbarException, DateiNichtGefundenException, UngueltigeMengeException {
         sout.println("BESTAND_VERAENDERN");
@@ -446,6 +606,12 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Prüft, ob es sich bei dem angegebenen Artikel um einen Massengutartikel handelt.
+     *
+     * @param artikelID Die ID des Artikels.
+     * @return {@code true}, wenn es ein Massengutartikel ist, sonst {@code false}.
+     */
     @Override
     public boolean istMassengutartikel(int artikelID) {
         sout.println("IST_MASSENGUTARTIKEL");
@@ -461,6 +627,13 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Gibt die Packungsgröße eines Artikels zurück.
+     *
+     * @param artikelID Die ID des Artikels.
+     * @return Die Packungsgröße (z. B. 5er-Schritte). Gibt {@code 1} bei Standard-Artikeln zurück,
+     *         oder {@code -1} bei Fehlern.
+     */
     @Override
     public int gibPackungGroesse(int artikelID) {
         sout.println("GIB_PACKUNGSGROESSE");
@@ -476,6 +649,14 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Ändert die Packungsgröße für einen Massengutartikel.
+     *
+     * @param artikelID Die ID des Artikels.
+     * @param neueGroesse Die neue Mindest-Schrittgröße.
+     * @throws MassengutartikelmengeNichtTeilbarException Wenn der aktuelle Lagerbestand nicht
+     *         durch die neue Packungsgröße teilbar ist.
+     */
     @Override
     public void packungGroesseVeraendern(int artikelID, int neueGroesse) throws MassengutartikelmengeNichtTeilbarException {
         sout.println("PACKUNGSGROESSE_VERAENDERN");
@@ -495,6 +676,12 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Fragt den aktuellen Lagerbestand eines einzelnen Artikels ab.
+     *
+     * @param artikelID Die ID des Artikels.
+     * @return Die im Lager vorhandene Menge.
+     */
     @Override
     public int gibBestand(int artikelID) {
         sout.println("GIB_BESTAND");
@@ -510,6 +697,12 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Ruft den Namen eines Artikels ab.
+     *
+     * @param artikelID Die ID des Artikels.
+     * @return Der Name des Artikels als Text.
+     */
     @Override
     public String gibArtikelName(int artikelID) {
         sout.println("GIB_ARTIKEL_NAME");
@@ -525,6 +718,12 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Sucht einen Artikel anhand seiner ID und gibt das vollständige Objekt zurück.
+     *
+     * @param artikelID Die ID des gesuchten Artikels.
+     * @return Das geladene {@link Artikel}-Objekt.
+     */
     @Override
     public Artikel findeArtikel(int artikelID) {
         sout.println("FINDE_ARTIKEL");
@@ -540,6 +739,12 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Ruft den aktuellen Preis eines Artikels ab und formatiert ihn kaufmännisch.
+     *
+     * @param artikelID Die ID des Artikels.
+     * @return Der Stückpreis auf 2 Nachkommastellen gerundet (HALF_EVEN).
+     */
     @Override
     public BigDecimal gibPreis(int artikelID) {
         sout.println("GIB_PREIS");
@@ -555,6 +760,11 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Ruft den aktuellen Warenkorb des eingeloggten Kunden ab.
+     *
+     * @return Eine {@link HashMap}, die Artikel-IDs auf die im Warenkorb befindliche Anzahl abbildet.
+     */
     @Override
     public HashMap<Integer, Integer> gibWarenkorb() {
         sout.println("GIB_WARENKORB");
@@ -576,6 +786,18 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Legt eine bestimmte Menge eines Artikels in den Warenkorb des Kunden.
+     *
+     * @param artikelID Die ID des Artikels.
+     * @param menge Die gewünschte Menge, die hinzugefügt werden soll.
+     * @param kunde Der Benutzername des Kunden.
+     * @throws UngueltigeMengeException Wenn die Menge kleiner oder gleich 0 ist.
+     * @throws BestandNichtAusreichendException Wenn nicht mehr genügend Artikel im Lager vorhanden sind.
+     * @throws MengeWenigerAlsPackungGroesseException Wenn die Menge die Massengutkriterien unterschreitet.
+     * @throws MassengutartikelmengeNichtTeilbarException Wenn die Menge nicht zur Packungsgröße passt.
+     * @throws DateiNichtGefundenException Wenn ein Server-Dateifehler auftritt.
+     */
     @Override
     public void fuegeInWarenkorb(int artikelID, int menge, String kunde) throws UngueltigeMengeException, BestandNichtAusreichendException, MengeWenigerAlsPackungGroesseException, MassengutartikelmengeNichtTeilbarException, DateiNichtGefundenException {
         sout.println("FUEGE_IN_WARENKORB");
@@ -606,6 +828,17 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Entfernt eine bestimmte Anzahl eines Artikels aus dem Warenkorb des Kunden.
+     *
+     * @param artikelID Die ID des Artikels.
+     * @param menge Die zu entfernende Stückzahl.
+     * @param kunde Der Benutzername des Kunden.
+     * @throws UngueltigeMengeException Wenn die übergebene Menge ungültig ist.
+     * @throws MengeWenigerAlsPackungGroesseException Wenn die Regeln für Massengutartikel verletzt werden.
+     * @throws MassengutartikelmengeNichtTeilbarException Wenn die Restmenge/Entfernungsmenge nicht teilbar ist.
+     * @throws DateiNichtGefundenException Wenn ein Dateizugriffsfehler auf dem Server vorliegt.
+     */
     @Override
     public void loescheAusWarenkorb(int artikelID, int menge, String kunde) throws UngueltigeMengeException, MengeWenigerAlsPackungGroesseException, MassengutartikelmengeNichtTeilbarException, DateiNichtGefundenException {
         sout.println("LOESCHE_AUS_WARENKORB");
@@ -634,6 +867,9 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Leert den gesamten Warenkorb des aktuell angemeldeten Kunden (entfernt alle Positionen).
+     */
     @Override
     public void zuruecksetzeWarenkorb() {
         sout.println("ZURUECKSETZE_WARENKORB");
@@ -650,6 +886,12 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Ruft das historische Logbuch (Ereignishistorie) des eShops ab. Enthält Informationen darüber,
+     * welcher Benutzer wann welche Aktion (Kauf, Bestandsänderung, etc.) durchgeführt hat.
+     *
+     * @return Eine {@link ArrayList} mit allen aufgezeichneten {@link Ereignis}-Objekten.
+     */
     @Override
     public ArrayList<Ereignis> gibEreignisListe() {
         sout.println("GIB_EREIGNISLISTE");
@@ -670,6 +912,14 @@ public class EShopFassade implements EShopInterface {
         }
     }
 
+    /**
+     * Berechnet den zeitlichen Verlauf des Lagerbestands für einen spezifischen Artikel.
+     * Wertet dazu die historischen Ereignisse auf dem Server aus.
+     *
+     * @param artikelID Die ID des Artikels.
+     * @return Eine sortierte {@link Map} (LinkedHashMap), bei der das Datum ({@link LocalDate})
+     *         dem historischen Bestand an diesem Tag zugeordnet ist.
+     */
     @Override
     public Map<LocalDate, Integer> berechneBestandHistorie(int artikelID) {
         sout.println("BERECHNE_BESTANDHISTORIE");
