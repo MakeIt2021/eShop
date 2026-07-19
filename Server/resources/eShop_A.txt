@@ -1,11 +1,3 @@
-1008
-usb-c hub bulk
-12.50
-10
-1009
-wasserflaschen set
-8.00
-5
 1000
 gaming laptop asus
 1299.99
@@ -18,17 +10,9 @@ iphone 15 pro
 mechanische tastatur
 89.90
 1
-10
-haarklammer
-0.99
-4
 1003
 4k monitor 27"
 349.50
-1
-11
-bag
-20
 1
 1004
 ssd 1tb nvme
@@ -40,9 +24,21 @@ ergonomic chair
 1
 1006
 webcam 1080p
-69.99
+891
 1
 1007
 LED Schreibtischlampe Pack
 19.99
 10
+1008
+usb-c hub bulk
+12.50
+10
+1009
+wasserflaschen set
+8.00
+5
+1010
+sdfg
+12312
+1

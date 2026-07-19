@@ -146,11 +146,7 @@ public class KaufenDialog extends JDialog {
                 new JLabel("MwSt (19%): " + rechnung.getMwst() + "€");
 
         JLabel gesamtpreis =
-                new JLabel(
-                        "Gesamtpreis: "
-                                + rechnung.getGesamtPreis()
-                                + "€"
-                );
+                new JLabel("Gesamtpreis: " + rechnung.getGesamtPreis() + "€");
 
         summeInfo.add(summe);
         summeInfo.add(mwst);

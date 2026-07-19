@@ -48,8 +48,9 @@ public class ArtikelVW {
 
     /**
      * Nächste freie Artikel-ID.
+     * Der Wert 1010 wurde gewählt, da einige Testartikel zur Erleichterung der Tests bereits hinzugefügt wurden.
      */
-    private int nextId = 1;
+    private int nextId = 1010;
 
     /**
      * Lädt die gespeicherten Artikelmengen und anschließend

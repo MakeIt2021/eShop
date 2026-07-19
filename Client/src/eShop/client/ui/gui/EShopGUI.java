@@ -424,8 +424,7 @@ public class EShopGUI extends JFrame {
                 BigDecimal p = new BigDecimal(preisField.getText().trim());
                 int m = Integer.parseInt(bestandField.getText().trim());
 
-                int id = eShop.gibArtikelListe().size();
-                while (eShop.gibArtikelListe().containsKey(id)) id++;
+                int id = eShop.generiereArtikelID();
 
                 String mitarbeiter = eShop.aktuellerBenutzer().getBenutzerErkennung();
 
@@ -481,8 +480,7 @@ public class EShopGUI extends JFrame {
                     return;
                 }
 
-                int id = eShop.gibArtikelListe().size();
-                while (eShop.gibArtikelListe().containsKey(id)) id++;
+                int id = eShop.generiereArtikelID();
 
                 String mitarbeiter = eShop.aktuellerBenutzer().getBenutzerErkennung();
 
