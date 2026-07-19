@@ -1329,3 +1329,5 @@ Tag: 2026-07-01 | Typ: Auslagerung | ArtikelID: 1000 | Artikel: gaming laptop as
 Tag: 2026-07-01 | Typ: Auslagerung | ArtikelID: 10 | Artikel: haarklammer | Menge: 12 | Person: k:razia hadya
 Tag: 2026-07-16 | Typ: Einlagerung | ArtikelID: 11 | Artikel: bag | Menge: 12 | Person: m:tim
 Tag: 2026-07-17 | Typ: Einlagerung | ArtikelID: 1002 | Artikel: mechanische tastatur | Menge: 2 | Person: m:tim
+Tag: 2026-07-19 | Typ: Einlagerung | ArtikelID: 1010 | Artikel: test | Menge: 900 | Person: m:tim
+Tag: 2026-07-19 | Typ: Einlagerung | ArtikelID: 14 | Artikel: test | Menge: 900 | Person: m:tim

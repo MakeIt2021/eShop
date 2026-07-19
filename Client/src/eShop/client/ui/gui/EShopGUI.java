@@ -2,10 +2,7 @@ package eShop.client.ui.gui;
 
 import eShop.client.net.EShopFassade;
 import eShop.common.entities.*;
-import eShop.common.exceptions.BestandNichtAusreichendException;
-import eShop.common.exceptions.MassengutartikelmengeNichtTeilbarException;
-import eShop.common.exceptions.MengeWenigerAlsPackungGroesseException;
-import eShop.common.exceptions.UngueltigeMengeException;
+import eShop.common.exceptions.*;
 
 import javax.swing.*;
 import javax.swing.event.DocumentListener;
@@ -412,7 +409,10 @@ public class EShopGUI extends JFrame {
                 ladeArtikelTabelle();
                 JOptionPane.showMessageDialog(this, "Single Artikel hinzugefügt!");
 
-            } catch (Exception ex) {
+            } catch (ArtikelExistiertBereitsException e) {
+                JOptionPane.showMessageDialog(this, e.getMessage());
+            }
+            catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Ungültige Eingabe!");
             }
         }
@@ -473,6 +473,8 @@ public class EShopGUI extends JFrame {
                 ladeArtikelTabelle();
                 JOptionPane.showMessageDialog(this, "Massengut Artikel hinzugefügt!");
 
+            } catch (ArtikelExistiertBereitsException e) {
+                JOptionPane.showMessageDialog(this, e.getMessage());
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Fehler bei Eingabe!");
             }

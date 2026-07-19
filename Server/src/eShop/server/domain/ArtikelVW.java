@@ -14,9 +14,9 @@ import java.util.Objects;
 
 
 public class ArtikelVW {
-    private HashMap<Integer, Artikel> artikelListe = new HashMap<>();
+    private final HashMap<Integer, Artikel> artikelListe = new HashMap<>();
     private HashMap<Integer, Integer> artikelMengeListe = new HashMap<>();
-    private PersistenceManager pm = new FilePersistenceManager();
+    private final PersistenceManager pm = new FilePersistenceManager();
 
     public void ladeArtikelMengeDaten (String datei) throws DateiNichtGefundenException {
         String dateiAM = datei+"_AM.txt";
@@ -77,8 +77,8 @@ public class ArtikelVW {
     }
 
     public void bestandErhoehen(int artikelID, int menge) {
-        int current = artikelMengeListe.getOrDefault(artikelID,0);//check
-        artikelMengeListe.put(artikelID, current + menge);//check
+        int current = artikelMengeListe.getOrDefault(artikelID,0);
+        artikelMengeListe.put(artikelID, current + menge);
     }
 
     public void bestandVerringern(int artikelID, int menge) {
@@ -105,7 +105,7 @@ public class ArtikelVW {
 
     public void artikelVernichten(int artikelID) {
         artikelListe.remove(artikelID);
-       artikelMengeListe.remove(artikelID);
+        artikelMengeListe.remove(artikelID);
     }
 
     public Artikel findeArtikel(int artikelID) {
@@ -119,10 +119,6 @@ public class ArtikelVW {
         }
 
         return -1;
-    }
-
-    public Artikel findeArtikelMitBezeichnung(String bezeichnung) {
-        return findeArtikel(sucheNachIDMitBezeichnung(bezeichnung.toLowerCase()));
     }
 
     public HashMap<Integer, Artikel> gibArtikelListe() {

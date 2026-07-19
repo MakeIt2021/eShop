@@ -1,9 +1,6 @@
 package eShop.client.ui.gui;
 
-import eShop.common.exceptions.MassengutartikelmengeNichtTeilbarException;
-import eShop.common.exceptions.MengeWenigerAlsPackungGroesseException;
-import eShop.common.exceptions.UngueltigeMengeException;
-import eShop.common.exceptions.UngueltigerPreisException;
+import eShop.common.exceptions.*;
 import eShop.common.interfaces.EShopInterface;
 
 import javax.swing.*;
@@ -115,7 +112,8 @@ public class ArtikelVeraendernDialog extends JDialog {
 
                 refreshTableCallback.run();
                 dispose();
-            } catch (MassengutartikelmengeNichtTeilbarException | MengeWenigerAlsPackungGroesseException | UngueltigeMengeException | UngueltigerPreisException ex) {
+            } catch (MassengutartikelmengeNichtTeilbarException | MengeWenigerAlsPackungGroesseException | UngueltigeMengeException | UngueltigerPreisException |
+                     ArtikelExistiertBereitsException ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage(), "Fehler", JOptionPane.ERROR_MESSAGE);
             }
         });

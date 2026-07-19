@@ -199,7 +199,7 @@ public class EShopClientCUI {
                                         + RESET
                         );
 
-                    } catch (UngueltigerPreisException | UngueltigeMengeException e) {
+                    } catch (UngueltigerPreisException | UngueltigeMengeException | ArtikelExistiertBereitsException e) {
 
                         System.out.println(
                                 RED +
@@ -386,7 +386,7 @@ public class EShopClientCUI {
                 System.out.print("Bezeichnung > ");
                 try {
                     artikelID = eShop.sucheNachID(liesEingabe());
-                } catch (ArtikelExistiertNichtException e) {
+                } catch (ArtikelExistiertNichtException | ArtikelExistiertBereitsException e) {
                     System.out.println(RED + e.getMessage() + RESET);
                     break;
                 }
@@ -420,7 +420,7 @@ public class EShopClientCUI {
                                         + RESET
                         );
 
-                    } catch (BestandNichtAusreichendException | UngueltigeMengeException e) {
+                    } catch (BestandNichtAusreichendException | UngueltigeMengeException | ArtikelExistiertBereitsException e) {
 
                         System.out.println(
                                 RED +

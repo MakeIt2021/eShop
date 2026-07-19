@@ -309,6 +309,8 @@ public class EShopFassade implements EShopInterface {
             } else if (antwort.equals("FUEGE_ARTIKEL_EIN: ERR_DATEI")) {
                 String dateiName = sin.readLine();
                 throw new DateiNichtGefundenException(dateiName);
+            } else if (antwort.equals("FUEGE_ARTIKEL_EIN: ERR_ARTIKEL")) {
+                throw new ArtikelExistiertBereitsException(findeArtikel(sucheNachID(bezeichnung)));
             }
         } catch (IOException e) {
             System.err.println(e.getMessage());
@@ -376,6 +378,10 @@ public class EShopFassade implements EShopInterface {
             if (antwort.equals("BEZEICHNUNG_VERAENDERN: ERR_DATEI")) {
                 String dateiName = sin.readLine();
                 throw new DateiNichtGefundenException(dateiName);
+            }
+
+            if (antwort.equals("BEZEICHNUNG_VERAENDERN: ERR_ARTIKEL")) {
+                throw new ArtikelExistiertBereitsException(findeArtikel(sucheNachID(bezeichnung)));
             }
 
             System.err.println("Unerwartete Antwort vom Server beim Veraendern von der Bezeichnung:" + antwort);

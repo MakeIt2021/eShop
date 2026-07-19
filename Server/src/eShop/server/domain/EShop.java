@@ -46,6 +46,10 @@ public class EShop implements eShop.common.interfaces.EShopInterface {
 
 
     public void fuegeArtikelEin(int artikelID, String bezeichnung, int menge, BigDecimal preis, String mitarbeiter) throws DateiNichtGefundenException {
+        if (sucheNachID(bezeichnung) != -1) {
+            throw new ArtikelExistiertBereitsException(findeArtikel(sucheNachID(bezeichnung)));
+        }
+
         Artikel art = new Artikel(artikelID, bezeichnung.toLowerCase(), preis);
 
         if (artikelVW.findeArtikel(artikelID) == null) {
@@ -118,6 +122,9 @@ public class EShop implements eShop.common.interfaces.EShopInterface {
     }
 
     public void bezeichnungVeraendern(int artikelID, String bezeichnung) throws DateiNichtGefundenException {
+        if (sucheNachID(bezeichnung) != artikelID) {
+            throw new ArtikelExistiertBereitsException(findeArtikel(sucheNachID(bezeichnung)));
+        }
         artikelVW.bezeichnungVeraendern(artikelID, bezeichnung);
         speichereArtikel();
     }

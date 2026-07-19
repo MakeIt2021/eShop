@@ -139,7 +139,8 @@ public final class ClientRequestProcessor implements Runnable {
             } catch (UngueltigeMengeException e) { out.println(prefix(bulk) + "ERR_MENGE");
             } catch (MengeWenigerAlsPackungGroesseException e) { out.println(prefix(bulk) + "ERR_MENGE_WENIGER");
             } catch (MassengutartikelmengeNichtTeilbarException e) { out.println(prefix(bulk) + "ERR_MENGE_NICHT_TEILBAR");
-            } catch (DateiNichtGefundenException e) { out.println(prefix(bulk) + "ERR_DATEI"); out.println(e.getMessage()); }
+            } catch (DateiNichtGefundenException e) { out.println(prefix(bulk) + "ERR_DATEI");
+            } catch (ArtikelExistiertBereitsException e) { out.println(prefix(bulk) + "ERR_ARTIKEL"); }
         });
     }
 
@@ -148,14 +149,16 @@ public final class ClientRequestProcessor implements Runnable {
     private void changeDescription() throws IOException {
         String[] p = parts(requiredLine(), 2);
         locked(() -> { try { shop.bezeichnungVeraendern(integer(p[0]), p[1]); out.println("BEZEICHNUNG_VERAENDERN: OK"); meldeAenderung("ARTIKEL"); }
-            catch (DateiNichtGefundenException e) { out.println("BEZEICHNUNG_VERAENDERN: ERR_DATEI"); out.println(e.getMessage()); } });
+        catch (ArtikelExistiertBereitsException e) { out.println("BEZEICHNUNG_VERAENDERN: ERR_ARTIKEL"); }
+        catch (DateiNichtGefundenException e) { out.println("BEZEICHNUNG_VERAENDERN: ERR_DATEI"); }
+        });
     }
 
     private void changePrice() throws IOException {
         String[] p = parts(requiredLine(), 2);
         locked(() -> { try { shop.preisVeraendern(integer(p[0]), decimal(p[1])); out.println("PREIS_VERAENDERN: OK"); meldeAenderung("ARTIKEL"); }
             catch (UngueltigerPreisException e) { out.println("PREIS_VERAENDERN: ERR_PREIS"); }
-            catch (DateiNichtGefundenException e) { out.println("PREIS_VERAENDERN: ERR_DATEI"); out.println(e.getMessage()); } });
+            catch (DateiNichtGefundenException e) { out.println("PREIS_VERAENDERN: ERR_DATEI"); } });
     }
 
     private void searchId() throws IOException {
@@ -169,7 +172,7 @@ public final class ClientRequestProcessor implements Runnable {
             catch (UngueltigeMengeException e) { out.println("BESTAND_VERAENDERN: ERR_MENGE"); }
             catch (MengeWenigerAlsPackungGroesseException e) { out.println("BESTAND_VERAENDERN: ERR_MENGE_WENIGER"); }
             catch (MassengutartikelmengeNichtTeilbarException e) { out.println("BESTAND_VERAENDERN: ERR_MENGE_NICHT_TEILBAR"); }
-            catch (DateiNichtGefundenException e) { out.println("BESTAND_VERAENDERN: ERR_DATEI"); out.println(e.getMessage()); } });
+            catch (DateiNichtGefundenException e) { out.println("BESTAND_VERAENDERN: ERR_DATEI"); } });
     }
 
     private void changePackageSize() throws IOException {
@@ -191,7 +194,7 @@ public final class ClientRequestProcessor implements Runnable {
             } catch (BestandNichtAusreichendException e) { out.println(base + "ERR_BESTAND_NICHT_GENUG");
             } catch (MengeWenigerAlsPackungGroesseException e) { out.println(base + "ERR_MENGE_WENIGER");
             } catch (MassengutartikelmengeNichtTeilbarException e) { out.println(base + "ERR_MENGE_NICHT_TEILBAR");
-            } catch (DateiNichtGefundenException e) { out.println(base + "ERR_DATEI"); out.println(e.getMessage()); }
+            } catch (DateiNichtGefundenException e) { out.println(base + "ERR_DATEI"); }
         });
     }
 
